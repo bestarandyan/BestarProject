@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mine_loadding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ecf0f1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/app_theme_color"
+            android:padding="0dp"
+            android:tag="actionBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/mine_home_titile"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffffff"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:text="退出"
+                android:layout_alignParentRight="true"
+                android:id="@+id/mine_exit"
+                android:textColor="#ffffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/take_photos_list_no__thumbnail"
+                        android:contentDescription="@string/desc" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="梁春燕"
+                        android:textColor="#333"
+                        android:id="@+id/nameTV"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="收藏的商家"
+                            android:textColor="#333"
+                            android:id="@+id/collectLayout"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textSize="16sp" />
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#e1e1e1"></View>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="我的足迹"
+                            android:textColor="#333"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:id="@+id/footprintLayout"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+
+                        <TextView
+                            android:id="@+id/mine_bonus"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_toLeftOf="@+id/bonus"
+                            android:background="@drawable/mine_select"
+                            android:gravity="center_vertical"
+                            android:text="我的卡券"
+                            android:paddingLeft="10dp"
+                            android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+
+                    <TextView
+                        android:id="@+id/messageRemindLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="消息提醒"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <TextView
+                        android:id="@+id/shareApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="分享应用"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+                    <TextView
+                        android:id="@+id/supportUsTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="来支持我们"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+
+
+                    <TextView
+                        android:id="@+id/feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="意见反馈"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <TextView
+                        android:id="@+id/payHelpTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="支付帮助"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+                    <TextView
+                        android:id="@+id/check_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="检查更新"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+                    <TextView
+                        android:id="@+id/aboutUsTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_toLeftOf="@+id/bonus"
+                        android:background="@drawable/mine_select"
+                        android:gravity="center_vertical"
+                        android:text="关于我们"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

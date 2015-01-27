@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_next_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_background"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:background="@color/app_theme_color"
+            android:padding="0dp"
+            android:tag="actionBar"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/register_back"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:src="@drawable/ic_action_up" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/text_down_selector"
+                android:text="@string/complete_info"
+                android:textColor="#ffffffff"
+                android:textSize="18sp" />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:text="继续"
+                android:textColor="#fff"
+                android:background="@null"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="UselessLeaf">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/again_register_content1"
+                    android:textColor="@color/review_content_color1"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:id="@+id/shenfentv"
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing1"
+                        android:text="身份选择"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:id="@+id/shenfenValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:drawableRight="@drawable/ic_arrow"
+                        android:text="园长"
+                        android:textColor="#696969"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        tools:ignore="TextFields" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:id="@+id/real_name"
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing2"
+                        android:text="真实姓名"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/real_name_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="请输入姓名"
+                        android:minWidth="100dp"
+                        android:singleLine="true"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing3"
+                        android:text="性别"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+
+                    <TextView
+                        android:id="@+id/genderTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:drawableRight="@drawable/ic_arrow"
+                        android:text="男"
+                        android:textColor="#696969"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        tools:ignore="TextFields" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing4"
+                        android:text="联系电话"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/phone_number_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:hint="请输入电话"
+                        android:inputType="phone"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing5"
+                        android:text="幼儿园名称"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/youeryuanname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="请输入名称"
+                        android:singleLine="true"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing6"
+                        android:text="幼儿园地址"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/youeryuanaddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="请输入地址"
+                        android:singleLine="true"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing7"
+                        android:text="幼儿园电话"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/youeryuanphone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:background="@null"
+                        android:inputType="phone"
+                        android:hint="请输入电话"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#e1e1e1"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        android:visibility="invisible"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing8"
+                        android:text="邮箱"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/emailEt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="请输入邮箱地址"
+                        android:singleLine="true"
+                        android:inputType="textEmailAddress"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        android:visibility="invisible"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing9"
+                        android:text="QQ"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/qqEt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="请输入QQ号码"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        android:visibility="invisible"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing10"
+                        android:text="班级数"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/classCountEt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:background="@null"
+                        android:hint="请输入班级数"
+                        android:inputType="phone"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/complete_info_layout_height"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        android:visibility="invisible"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing11"
+                        android:text="学生人数"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/studentCountEt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="请输入学生人数"
+                        android:inputType="number"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>
