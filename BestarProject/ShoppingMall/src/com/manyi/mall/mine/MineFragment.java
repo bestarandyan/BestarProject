@@ -72,7 +72,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     }
 
     @SuppressLint("WorldReadableFiles")
-    @Click(R.id.mine_exit)
+    @Click(R.id.mine_exit_btn)
     void exit() {
         ManyiAnalysis.onEvent(getActivity(), "LogoutClick");
         if (CheckDoubleClick.isFastDoubleClick())
@@ -111,16 +111,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void feedBack() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-
-    }
-
-
-    @Click(R.id.mine_bonus)
-    void mineBonus() {
-        if (CheckDoubleClick.isFastDoubleClick())
-            return;
-        ManyiAnalysis.onEvent(getActivity(), "MyRewardsClick");
-
 
     }
 

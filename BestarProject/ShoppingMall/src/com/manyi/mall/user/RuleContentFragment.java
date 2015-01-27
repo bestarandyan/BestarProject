@@ -31,26 +31,26 @@ public class RuleContentFragment extends SuperFragment<Object> {
     }
 
     private void updateTitle() {
-        switch (type) {
-            case Constants.GOTO_RENT_CONTENT:
-                mTiltle.setText(getString(R.string.common_problem_rent_rule));
-                break;
-            case Constants.GOTO_SELL_CONTENT:
-                mTiltle.setText(getString(R.string.common_problem_sell_rule));
-                break;
-            case Constants.GOTO_AWARD_CONTENT:
-                mTiltle.setText(getString(R.string.common_problem_award_rule));
-                break;
-            case Constants.GOTO_REVIEW_CONTENT:
-                mTiltle.setText(getString(R.string.common_problem_review_rule));
-                break;
-            case Constants.GOTO_MONTH_ARARD_CONTENT_RENT:
-                mTiltle.setText(getString(R.string.common_problem_month_award_rule_rent));
-                break;
-            case Constants.GOTO_MONTH_ARARD_CONTENT_SELL:
-                mTiltle.setText(getString(R.string.common_problem_month_award_rule_sell));
-                break;
-        }
+//        switch (type) {
+//            case Constants.GOTO_RENT_CONTENT:
+//                mTiltle.setText(getString(R.string.common_problem_rent_rule));
+//                break;
+//            case Constants.GOTO_SELL_CONTENT:
+//                mTiltle.setText(getString(R.string.common_problem_sell_rule));
+//                break;
+//            case Constants.GOTO_AWARD_CONTENT:
+//                mTiltle.setText(getString(R.string.common_problem_award_rule));
+//                break;
+//            case Constants.GOTO_REVIEW_CONTENT:
+//                mTiltle.setText(getString(R.string.common_problem_review_rule));
+//                break;
+//            case Constants.GOTO_MONTH_ARARD_CONTENT_RENT:
+//                mTiltle.setText(getString(R.string.common_problem_month_award_rule_rent));
+//                break;
+//            case Constants.GOTO_MONTH_ARARD_CONTENT_SELL:
+//                mTiltle.setText(getString(R.string.common_problem_month_award_rule_sell));
+//                break;
+//        }
     }
 
 

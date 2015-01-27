@@ -18,7 +18,6 @@
             android:background="@drawable/button_checked"
             android:drawableLeft="@drawable/ic_action_up_home"
             android:gravity="center|center_horizontal"
-            android:text="@string/publish_description"
             android:textColor="#ffffffff"
             android:textSize="18sp" />
     </RelativeLayout>

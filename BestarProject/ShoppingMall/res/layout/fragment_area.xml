@@ -21,7 +21,6 @@
             android:background="@drawable/text_down_selector"
             android:drawableLeft="@drawable/ic_action_up"
             android:gravity="center|center_horizontal"
-            android:text="@string/area_back"
             android:textColor="#ffffffff"
             android:textSize="22sp" />
     </RelativeLayout>

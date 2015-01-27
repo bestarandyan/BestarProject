@@ -118,7 +118,7 @@ public class RegisterFragment extends SuperFragment<Object> {
 				timer.start();
 				int left = mSmsRegister.getPaddingLeft();
 				int right = mSmsRegister.getPaddingRight();
-				mSmsRegister.setBackgroundResource(R.drawable.btn_orange_dis);
+//				mSmsRegister.setBackgroundResource(R.drawable.btn_orange_dis);
 				mSmsRegister.setPadding(left, 0, right, 0);
 			}
 		});

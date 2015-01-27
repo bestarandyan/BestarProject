@@ -179,7 +179,7 @@ public class ContactsFragment extends SuperFragment<Integer> {
 					@Override
 					public void run() {
 						sendRecommendService(array);
-						sendMessage((mRecommendMsg != null && StringUtils.hasLength(mRecommendMsg)) ? mRecommendMsg : getResources().getString(R.string.share_app_content), array);
+//						sendMessage((mRecommendMsg != null && StringUtils.hasLength(mRecommendMsg)) ? mRecommendMsg : getResources().getString(R.string.share_app_content), array);
 						registerBack();
 					}
 				}).start();

@@ -92,7 +92,6 @@ public class ChangeNewPhoneNumberFragment extends SuperFragment<Object> {
                 timer.start();
                 int left = mGetVerification.getPaddingLeft();
                 int right = mGetVerification.getPaddingRight();
-                mGetVerification.setBackgroundResource(R.drawable.btn_orange_dis);
                 mGetVerification.setPadding(left, 0, right, 0);
             }
         });
@@ -122,10 +121,10 @@ public class ChangeNewPhoneNumberFragment extends SuperFragment<Object> {
 
     private boolean phonenumValidate() {
         if (mChangeNewPhoneNumber.getText().toString().length() == 0) {
-            onSendSMSError(getString(R.string.phone_null_error));
+            onSendSMSError("凑哦了");
             return false;
         } else if (mChangeNewPhoneNumber.getText().toString().length() < 11) {
-            onSendSMSError(getString(R.string.phone_not_error));
+            onSendSMSError("手机号码错误");
             return false;
         } else
             return true;

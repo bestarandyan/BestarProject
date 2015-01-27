@@ -27,29 +27,29 @@ public class FootprintListResponse extends Response {
 
 	public static class CheckedListResponse {
 
-		private int recordCount;// 当天审核成功数量
+		private String companyName;
 
-		private String resultDateStr; // 审核完成时间
+		private String cityName;
 
 		List<CheckedResponse> examineRecodList;
 
-		public int getRecordCount() {
-			return recordCount;
-		}
+        public String getCompanyName() {
+            return companyName;
+        }
 
-		public void setRecordCount(int recordCount) {
-			this.recordCount = recordCount;
-		}
+        public void setCompanyName(String companyName) {
+            this.companyName = companyName;
+        }
 
-		public String getResultDateStr() {
-			return resultDateStr;
-		}
+        public String getCityName() {
+            return cityName;
+        }
 
-		public void setResultDateStr(String resultDateStr) {
-			this.resultDateStr = resultDateStr;
-		}
+        public void setCityName(String cityName) {
+            this.cityName = cityName;
+        }
 
-		public List<CheckedResponse> getExamineRecodList() {
+        public List<CheckedResponse> getExamineRecodList() {
 			return examineRecodList;
 		}
 
@@ -61,133 +61,69 @@ public class FootprintListResponse extends Response {
 
 	public static class CheckedResponse {
 
-		private String estateName;// 小区名称
-		private String subEstateName;// 子划分名称
-		private int status;// 状态，1审核通过,2审核中，3审核失败, 4删除
-		private String statusStr;// 审核状态对应的文本
-		private int houseState;// 1出租，2出售，3即租又售，4即不租也不售
-		private String houseStateStr;// house状态对应的文本
-		private String publishDate;// 发布时间，此房源被发布，改盘，轮询的时间
-		private String building;// 楼栋号
-		private int historyId;
-		private int houseId;
-		private int typeId;// 记录 类型ID
-		private String typeName;// 记录 类型(1.发布出售2.发布出租3.改盘4.举报5.新增小区)
-		private String buildingNameStr;// 本土化后显示的楼栋名称
-		private int hot;// 热点： 1 是，0 不是
+		private String imgUrl;
+		private String productName;
+		private float price;
+		private Long clickCount;
+		private Long visitCount;
+		private Long priaseCount;
+		private int hasVoucher;// 是否可用代金券
 
-		public String getBuildingNameStr() {
-			return buildingNameStr;
-		}
+        public String getImgUrl() {
+            return imgUrl;
+        }
 
-		public void setBuildingNameStr(String buildingNameStr) {
-			this.buildingNameStr = buildingNameStr;
-		}
+        public void setImgUrl(String imgUrl) {
+            this.imgUrl = imgUrl;
+        }
 
-		public int getHot() {
-			return hot;
-		}
+        public String getProductName() {
+            return productName;
+        }
 
-		public void setHot(int hot) {
-			this.hot = hot;
-		}
+        public void setProductName(String productName) {
+            this.productName = productName;
+        }
 
-		public int getHouseId() {
-			return houseId;
-		}
+        public float getPrice() {
+            return price;
+        }
 
-		public void setHouseId(int houseId) {
-			this.houseId = houseId;
-		}
+        public void setPrice(float price) {
+            this.price = price;
+        }
 
-		public int getTypeId() {
-			return typeId;
-		}
+        public Long getClickCount() {
+            return clickCount;
+        }
 
-		public void setTypeId(int typeId) {
-			this.typeId = typeId;
-		}
+        public void setClickCount(Long clickCount) {
+            this.clickCount = clickCount;
+        }
 
-		public String getTypeName() {
-			return typeName;
-		}
+        public Long getVisitCount() {
+            return visitCount;
+        }
 
-		public void setTypeName(String typeName) {
-			this.typeName = typeName;
-		}
+        public void setVisitCount(Long visitCount) {
+            this.visitCount = visitCount;
+        }
 
-		public String getBuilding() {
-			return building;
-		}
+        public Long getPriaseCount() {
+            return priaseCount;
+        }
 
-		public void setBuilding(String building) {
-			this.building = building;
-		}
+        public void setPriaseCount(Long priaseCount) {
+            this.priaseCount = priaseCount;
+        }
 
-		public String getEstateName() {
-			return estateName;
-		}
+        public int getHasVoucher() {
+            return hasVoucher;
+        }
 
-		public void setEstateName(String estateName) {
-			this.estateName = estateName;
-		}
-
-		public String getSubEstateName() {
-			return subEstateName;
-		}
-
-		public void setSubEstateName(String subEstateName) {
-			this.subEstateName = subEstateName;
-		}
-
-		public int getStatus() {
-			return status;
-		}
-
-		public void setStatus(int status) {
-			this.status = status;
-		}
-
-		public String getStatusStr() {
-			return statusStr;
-		}
-
-		public void setStatusStr(String statusStr) {
-			this.statusStr = statusStr;
-		}
-
-		public int getHouseState() {
-			return houseState;
-		}
-
-		public void setHouseState(int houseState) {
-			this.houseState = houseState;
-		}
-
-		public String getHouseStateStr() {
-			return houseStateStr;
-		}
-
-		public void setHouseStateStr(String houseStateStr) {
-			this.houseStateStr = houseStateStr;
-		}
-
-		public String getPublishDate() {
-			return publishDate;
-		}
-
-		public void setPublishDate(String publishDate) {
-			this.publishDate = publishDate;
-		}
-
-		public int getHistoryId() {
-			return historyId;
-		}
-
-		public void setHistoryId(int historyId) {
-			this.historyId = historyId;
-		}
-
-	}
+        public void setHasVoucher(int hasVoucher) {
+            this.hasVoucher = hasVoucher;
+        }
+    }
 
 }

@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,10 +24,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @EFragment(R.layout.fragment_footprintlist)
@@ -46,21 +44,18 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         List<FootprintListResponse.CheckedListResponse> list = new ArrayList<>();
         for (int i=0;i<10;i++){
             FootprintListResponse.CheckedListResponse listResponse = new FootprintListResponse.CheckedListResponse();
-            listResponse.setRecordCount(10);
-            listResponse.setResultDateStr("12345678");
+            listResponse.setCityName("上海");
+            listResponse.setCompanyName("凯奇集团");
             List<FootprintListResponse.CheckedResponse> responses = new ArrayList<>();
             for (int j=0;j<3;j++){
                 FootprintListResponse.CheckedResponse response = new FootprintListResponse.CheckedResponse();
-                response.setBuilding("1-0");
-                response.setBuildingNameStr("asdfafadsf");
-                response.setEstateName("曹杨二村");
-                response.setHouseState(1);
-                response.setHouseStateStr("已租");
-                response.setPublishDate("20140404");
-                response.setTypeName("adsfaf");
-                response.setSubEstateName("adfadf");
-                response.setStatusStr("asdfadfadsf");
-                response.setStatus(1);
+                response.setClickCount(1000L);
+                response.setHasVoucher(1);
+                response.setImgUrl("adfadsfaf");
+                response.setPriaseCount(344L);
+                response.setPrice(453L);
+                response.setProductName("教学用书");
+                response.setVisitCount(8976L);
                 responses.add(response);
             }
             listResponse.setExamineRecodList(responses);
@@ -130,50 +125,25 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             ViewHolder holder = null;
             if (convertView == null) {
                 holder = new ViewHolder();
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_select_config_content, null);
-                holder.contentTv = (TextView) convertView.findViewById(R.id.contentTv);
-                holder.dateTv = (TextView) convertView.findViewById(R.id.sendDate);
-                holder.stateTv = (TextView) convertView.findViewById(R.id.stateTv);
-                holder.hotCityTv = (TextView) convertView.findViewById(R.id.hotCity);
+                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_footprint_list_product, null);
+                holder.productNameTv = (TextView) convertView.findViewById(R.id.companyNameTv);
+                holder.moneyTv = (TextView) convertView.findViewById(R.id.moneyTv);
+                holder.clickCountTv = (TextView) convertView.findViewById(R.id.clickCountTv);
+                holder.visitCountTv = (TextView) convertView.findViewById(R.id.visitCountTv);
+                holder.priaseCountTv = (TextView) convertView.findViewById(R.id.praiseCountTv);
+                holder.imageView = (ImageView) convertView.findViewById(R.id.imgCollect);
+                holder.voucherImg = (ImageView) convertView.findViewById(R.id.voucherImg);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
             // Map<String,String> map = ((ArrayList<Map<String,String>>)mList.get(section).get("itemList")).get(position);
             final FootprintListResponse.CheckedResponse response = responses.getResult().get(section).getExamineRecodList().get(position);
-            String content;
-            String name = null;
-            if (!StringUtil.isEmptyOrNull(response.getSubEstateName())) {
-                name = response.getEstateName() + response.getSubEstateName();
-            } else {
-                name = response.getEstateName();
-            }
-
-            if (("").equals(response.getBuildingNameStr())) {
-                content = name;
-            } else {
-                content = name + "·" + response.getBuildingNameStr();
-            }
-
-            String dateString = response.getPublishDate() + "  " + response.getHouseStateStr();
-            int state = response.getStatus();
-            String stateStr = response.getStatusStr();
-            holder.contentTv.setText(content);
-            holder.dateTv.setText(dateString);
-            if (state == 1) {// 审核成功
-                holder.stateTv.setTextColor(Color.parseColor("#12c1c4"));
-            } else if (state == 3) {// 审核失败
-                holder.stateTv.setTextColor(Color.parseColor("#8a000000"));
-            }
-            holder.stateTv.setText(stateStr);
-
-            int isHot = response.getHot();
-            if (isHot == 1) {
-                holder.hotCityTv.setVisibility(View.VISIBLE);
-                holder.hotCityTv.setText("[热点小区]");
-            } else {
-                holder.hotCityTv.setVisibility(View.GONE);
-            }
+            holder.productNameTv.setText(response.getProductName());
+            holder.moneyTv.setText(String.valueOf(response.getPrice()));
+            holder.clickCountTv.setText(String.valueOf(response.getClickCount()));
+            holder.visitCountTv.setText(String.valueOf(response.getVisitCount()));
+            holder.priaseCountTv.setText(String.valueOf(response.getPriaseCount()));
             convertView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -185,11 +155,13 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         }
 
         public class ViewHolder {
-            TextView contentTv, dateTv, stateTv, hotCityTv;
+            TextView productNameTv, moneyTv, clickCountTv,visitCountTv,priaseCountTv;
+            ImageView imageView;
+            ImageView voucherImg;
         }
 
         public class SectionHolder {
-            TextView titleTv;
+            TextView companyNameTv,cityNameTv;
         }
 
         @Override
@@ -197,29 +169,17 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             SectionHolder holder = null;
             if (convertView == null) {
                 holder = new SectionHolder();
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_select_config_title, null);
-                holder.titleTv = (TextView) convertView.findViewById(R.id.titleTv);
+                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_footprint_list_sections, null);
+                holder.companyNameTv = (TextView) convertView.findViewById(R.id.companyNameTv);
+                holder.cityNameTv = (TextView) convertView.findViewById(R.id.cityNameTv);
                 convertView.setTag(holder);
             } else {
                 holder = (SectionHolder) convertView.getTag();
             }
-            String countString = " 审核成功" + responses.getResult().get(section).getRecordCount() + "条";
-            String title = responses.getResult().get(section).getResultDateStr();
-
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-
-            Date localDate = new Date(System.currentTimeMillis());// 获取当前时间
-            String dateString = formatter.format(localDate);
-            Date dateData = null;
-            try {
-                dateData = formatter.parse(title);
-                localDate = formatter.parse(dateString);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-                title = responses.getResult().get(section).getResultDateStr();
-            holder.titleTv.setText(title + countString);
+            String companyName = responses.getResult().get(section).getCompanyName();
+            String cityName = responses.getResult().get(section).getCityName();
+            holder.companyNameTv.setText(companyName);
+            holder.cityNameTv.setText(cityName);
             return convertView;
         }
     }

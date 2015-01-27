@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@drawable/text_down_selector"
-                android:text="@string/complete_info"
+                android:text="完善资料"
                 android:textColor="#ffffffff"
                 android:textSize="18sp" />
             <Button
@@ -64,7 +64,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="@string/again_register_content1"
+                    android:text="真实资料"
                     android:textColor="@color/review_content_color1"
                     android:textSize="14sp" />
 

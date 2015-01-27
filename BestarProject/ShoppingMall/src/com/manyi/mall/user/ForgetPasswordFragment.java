@@ -92,7 +92,7 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 				timer.start();
 				int left = logincode.getPaddingLeft();
 				int right = logincode.getPaddingRight();
-				logincode.setBackgroundResource(R.drawable.btn_orange_dis);
+//				logincode.setBackgroundResource(R.drawable.btn_orange_dis);
 				logincode.setPadding(left, 0, right, 0);
 			}
 		});

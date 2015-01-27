@@ -168,9 +168,6 @@
         <item name="android:textSize">@dimen/text_size_smaller</item>
     </style>
 
-    <style name="NetDisk.Unified.Smaller.Blue2TabBarGray" parent="@style/NetDisk.Unified.Smaller">
-        <item name="android:textColor">@drawable/blue_tabbargray_reverse_drawable</item>
-    </style>
 
     <style name="text_14_9f9f9f">
         <item name="android:textSize">14sp</item>

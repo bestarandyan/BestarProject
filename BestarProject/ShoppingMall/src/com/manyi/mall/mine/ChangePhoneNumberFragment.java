@@ -54,7 +54,7 @@ public class ChangePhoneNumberFragment extends SuperFragment<Integer> {
                 phone = AESUtil.decrypt(phoneString, CommonConfig.AES_KEY);
             }
             if (phone != null) {
-                mCurrentPhoneNumber.setText(getString(R.string.current_phone_number, phone));
+                mCurrentPhoneNumber.setText(phone);
             }
             addAnimationListener(new Animation.AnimationListener() {
                 @Override
@@ -116,7 +116,6 @@ public class ChangePhoneNumberFragment extends SuperFragment<Integer> {
                 timer.start();
                 int left = mGetVerifyCode.getPaddingLeft();
                 int right = mGetVerifyCode.getPaddingRight();
-                mGetVerifyCode.setBackgroundResource(R.drawable.btn_orange_dis);
                 mGetVerifyCode.setPadding(left, 0, right, 0);
             }
         });
