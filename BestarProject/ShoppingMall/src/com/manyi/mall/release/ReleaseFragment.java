@@ -16,8 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,20 +26,11 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DeviceUtil;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
-import com.huoqiu.widget.FangYouInfoBar;
 import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.search.AdvertRequest;
-import com.manyi.mall.cachebean.search.AdvertResponse;
-import com.manyi.mall.cachebean.search.AdvertResponse.AdvertisingResponse;
-import com.manyi.mall.cachebean.search.UserTaskCountRequest;
-import com.manyi.mall.cachebean.search.UserTaskCountResponse;
 import com.manyi.mall.cachebean.user.UpdateUserPublicNumRequest;
 import com.manyi.mall.common.Constants;
-import com.manyi.mall.common.util.TaskCountResponseUtil;
-import com.manyi.mall.mine.ContactsFragment;
-import com.manyi.mall.service.AdvertisingService;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.UcService;
 import com.manyi.mall.service.UserTaskService;
@@ -55,13 +44,12 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @SuppressLint("HandlerLeak")
-@EFragment(R.layout.fragment_realse)
+@EFragment(R.layout.fragment_home)
 public class ReleaseFragment extends SuperFragment<Object> {
 
     @ViewById(R.id.release_radio_group)
@@ -78,7 +66,6 @@ public class ReleaseFragment extends SuperFragment<Object> {
 
     public UserTaskService mTaskService;
 
-    private UserTaskCountResponse countResponse;
 
     private int uid;
     int cityId = 0;
@@ -88,9 +75,6 @@ public class ReleaseFragment extends SuperFragment<Object> {
 
     private ScheduledExecutorService scheduledExecutor;
 
-    List<AdvertisingResponse> mDataList;
-
-    AdvertisingService mAdvertService;
     CommonService commonService;
     UcService mUserService;
 
@@ -149,7 +133,6 @@ public class ReleaseFragment extends SuperFragment<Object> {
     @AfterViews
     public void onUserTaskCountLoad() {
         cityId = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0);
-        mDataList = new ArrayList<AdvertisingResponse>();
         mAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mAdapter);
 
@@ -178,14 +161,6 @@ public class ReleaseFragment extends SuperFragment<Object> {
         try {
             int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
 
-            AdvertRequest request = new AdvertRequest();
-            request.setUserId(uid);
-            request.setCityId(cityId);
-
-            AdvertResponse response = mAdvertService.getAdvertList(request);
-            if (response != null && response.getErrorCode() == 0) {
-                mDataList = response.getList();
-            }
             notifyAdvert();
         } catch (RestException e) {
             // TODO Auto-generated catch block
@@ -204,12 +179,10 @@ public class ReleaseFragment extends SuperFragment<Object> {
         //cityId
 
 
-        if (mDataList != null && mDataList.size() > 0) {
             pageViews.clear();
-            for (int i = 0; i < mDataList.size(); i++) {
+            for (int i = 0; i < 2; i++) {
                 View mView = LayoutInflater.from(getActivity()).inflate(R.layout.item_release_viewpage, null);
                 TextView text = (TextView) mView.findViewById(R.id.viewpage_item_text);
-                text.setText(mDataList.get(i).getTitle());
                 mView.setTag(i);
                 pageViews.add(mView);
             }
@@ -244,7 +217,6 @@ public class ReleaseFragment extends SuperFragment<Object> {
 
         }
 
-    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void addAnimForView(View rootView) {
@@ -302,15 +274,6 @@ public class ReleaseFragment extends SuperFragment<Object> {
             int index = Integer.parseInt(v.getTag().toString());
 
             ManyiAnalysis.onEvent(getActivity(), "gotoAdvertDetailClick");
-            AdvertDetailFragment advertDetailFragment = GeneratedClassUtils.getInstance(AdvertDetailFragment.class);
-            advertDetailFragment.tag = AdvertDetailFragment.class.getName();
-            advertDetailFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                    R.anim.anim_fragment_close_out);
-            advertDetailFragment.setManager(getFragmentManager());
-            Bundle bundle = new Bundle();
-            bundle.putInt("advertId", mDataList.get(index).getId());
-            advertDetailFragment.setArguments(bundle);
-            advertDetailFragment.show(SuperFragment.SHOW_ADD_HIDE);
 
         }
 

@@ -15,10 +15,10 @@ import android.widget.TextView;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.common.Constants;
+import com.manyi.mall.footprint.FootPrintListFragment;
 import com.manyi.mall.mine.CollectFragment;
 import com.manyi.mall.mine.MineFragment;
 import com.manyi.mall.release.ReleaseFragment;
-import com.manyi.mall.search.SearchHouseFragment;
 
 @EFragment(R.layout.fragment_main)
 public class MainFragment extends SuperFragment<Object>{
@@ -35,7 +35,7 @@ public class MainFragment extends SuperFragment<Object>{
 
         mTabHost.addTab(createSpec(Constants.TAB_1, "首页"), GeneratedClassUtils.get(ReleaseFragment.class), null);
         mTabHost.addTab(createSpec(Constants.TAB_2, "我的收藏"), GeneratedClassUtils.get(CollectFragment.class), null);
-        mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(MineFragment.class), null);
+        mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(FootPrintListFragment.class), null);
         mTabHost.addTab(createSpec(Constants.TAB_4, "我的"), GeneratedClassUtils.get(MineFragment.class), null);
 
         mTabHost.setOnTabChangedListener(new OnTabChangeListener() {

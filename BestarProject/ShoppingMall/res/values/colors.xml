@@ -21,6 +21,11 @@
     <color name="gray_1">#D0D0D0</color>
     <color name="house_image_others">#42000000</color>
     <color name="house_image_red">#e60404</color>
+
+    <color name="red_light">#ffff4444</color>
+    <color name="green_light">#ff99cc00</color>
+    <color name="orange_light">#ffffbb33</color>
+    <color name="blue_light">#ff33b5e5</color>
     <!-- #2F4F4F -->
     <color name="actionbar">#12c1c4</color>
     <color name="actionbutton"> #0fa4a7</color>

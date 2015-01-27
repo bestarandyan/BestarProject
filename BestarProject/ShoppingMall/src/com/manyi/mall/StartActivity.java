@@ -1,9 +1,5 @@
 package com.manyi.mall;
 
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
-import org.androidannotations.annotations.WindowFeature;
-
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +13,15 @@ import com.huoqiu.framework.backstack.Op;
 import com.huoqiu.framework.rest.Configuration;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.StringUtil;
-import com.manyi.mall.cachebean.search.NotificationBean;
+import com.manyi.mall.cachebean.NotificationBean;
 import com.manyi.mall.common.push.Constants;
 import com.manyi.mall.common.push.Notifier;
 import com.manyi.mall.common.util.DBUtil;
+import com.manyi.mall.user.LoginFragment;
+
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.WindowFeature;
 
 @WindowFeature({ Window.FEATURE_NO_TITLE })
 @EActivity(R.layout.activity_start)
@@ -82,9 +83,9 @@ public class StartActivity extends BaseActivity {
 //    }
 
 	private void initFragment() {
-		StartFragment startFragment = GeneratedClassUtils.getInstance(StartFragment.class);
+		LoginFragment loginFragment = GeneratedClassUtils.getInstance(LoginFragment.class);
 		Bundle extra = getIntent().getBundleExtra("bundle");
-		startFragment.tag = StartFragment.class.getName();
+        loginFragment.tag = LoginFragment.class.getName();
 		Bundle bundle = new Bundle();
 		if (extra == null || extra.getBoolean("isEnterFromLauncher", true)) {
 			// startFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
@@ -94,9 +95,9 @@ public class StartActivity extends BaseActivity {
 		} else {
 			bundle.putBoolean("NotCheckNewVersion", true);
 		}
-		startFragment.setManager(getSupportFragmentManager());
-		startFragment.setArguments(bundle);
-		startFragment.setBackOp(new Op() {
+        loginFragment.setManager(getSupportFragmentManager());
+        loginFragment.setArguments(bundle);
+        loginFragment.setBackOp(new Op() {
 
 			@Override
 			public void setTag(String tag) {
@@ -109,10 +110,10 @@ public class StartActivity extends BaseActivity {
 
 			@Override
 			public String getTag() {
-				return StartFragment.class.getName();
+				return LoginFragment.class.getName();
 			}
 		});
-		startFragment.show();
+        loginFragment.show();
 	}
 
 	@Override

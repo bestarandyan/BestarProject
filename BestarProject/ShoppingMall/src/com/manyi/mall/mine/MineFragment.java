@@ -12,45 +12,29 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huoqiu.framework.analysis.ManyiAnalysis;
-import com.huoqiu.framework.app.AppConfig;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.exception.ClientException;
 import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
-import com.huoqiu.framework.util.StringUtil;
 import com.huoqiu.widget.filedownloader.FileDownloadListener;
 import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
-import com.manyi.mall.cachebean.mine.MineHomeRequest;
-import com.manyi.mall.cachebean.mine.MineHomeResponse;
-import com.manyi.mall.cachebean.user.AutoUpdateResponse;
-import com.manyi.mall.cachebean.user.VersionRequest;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.UcService;
-import com.manyi.mall.user.BandBankCardFragment;
-import com.manyi.mall.user.UpdateLoginPwdFragment;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
-import org.springframework.util.StringUtils;
 
 import java.io.File;
 
@@ -59,14 +43,10 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     private UcService mUserService;
     private CommonService mAppLoadService;
-    private MineHomeResponse mRes;
-
-    private AutoUpdateResponse mResponse;
 
     @AfterViews
     void loadDate() {
 
-        getData();
     }
 
     @Override
@@ -75,21 +55,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         super.onAttach(activity);
     }
 
-    @Background
-    void getData() {
-        try {
-            MineHomeRequest req = new MineHomeRequest();
-            int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
-            req.setUid(uid);
-            mRes = mUserService.Minehome(req);
-
-            setText();
-
-        } catch (Exception e) {
-            throw e;
-        }
-
-    }
 
     @SuppressLint({"ResourceAsColor", "InlinedApi"})
     @UiThread
@@ -146,13 +111,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void feedBack() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-        FeedBackFragment feedBackFragment = GeneratedClassUtils.getInstance(FeedBackFragment.class);
-        feedBackFragment.tag = MineAwardFragment.class.getName();
-        feedBackFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
-        feedBackFragment.setManager(getFragmentManager());
-        feedBackFragment.setContainerId(R.id.main_container);
-        feedBackFragment.show(SHOW_ADD_HIDE);
+
     }
 
 
@@ -162,24 +121,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             return;
         ManyiAnalysis.onEvent(getActivity(), "MyRewardsClick");
 
-        MineAwardFragment mineAwardFragBment = GeneratedClassUtils.getInstance(MineAwardFragment.class);
-        mineAwardFragBment.tag = MineAwardFragment.class.getName();
-        mineAwardFragBment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
-        mineAwardFragBment.setManager(getFragmentManager());
-        mineAwardFragBment.setContainerId(R.id.main_container);
-        mineAwardFragBment.setSelectListener(new SelectListener<Object>() {
 
-            @Override
-            public void onSelected(Object t) {
-                getData();
-            }
-
-            @Override
-            public void onCanceled() {
-            }
-        });
-        mineAwardFragBment.show(SHOW_ADD_HIDE);
     }
 
 
@@ -191,20 +133,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             ManyiAnalysis.onEvent(getActivity(), "CheckUpdateClick");
             if (CheckDoubleClick.isFastDoubleClick())
                 return;
-            mResponse = new AutoUpdateResponse();
-            VersionRequest versionRequest = new VersionRequest();
-            versionRequest.setVersion(AppConfig.versionName);
-            mResponse = mAppLoadService.getUpdateResponse2(versionRequest);
-            // 服务器版本大于当前版本
-            if (mResponse != null && StringUtils.hasLength(mResponse.getUrl()) && !mResponse.getVersion().equals(AppConfig.versionName)) {
-                String title = /* Const.APP_UPDATE_TITLE + */"发现新版本:" + mResponse.getVersion();
-                String msg = mResponse.getMessage().toString();
-                // String msg1 = "2.0版本已发布,更新内容：\n\n 1. 加了好多东西\n 2.修了好多Bug";
-                msg = msg.replace("\\n", "\n");
-                updateSuccess(title, msg, mResponse.getUrl(), mResponse.isIfForced());
-            } else {
-                updateFailed(mResponse);
-            }
         } catch (final RestException ex) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
@@ -239,20 +167,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     public void checkUnable() {
 //        mCheckUpdateLayout.setEnabled(false);
 
-    }
-
-    @UiThread
-    void updateFailed(AutoUpdateResponse response) {
-        if (getActivity() == null || getActivity().isFinishing()) {
-            return;
-        }
-
-        if (response == null) {
-            DialogBuilder.showSimpleDialog("服务失败了！", getBackOpActivity());
-        } else {
-            // 已经是最新版本了
-            DialogBuilder.showSimpleDialog(response.getMessage(), getBackOpActivity());
-        }
     }
 
     @UiThread
@@ -361,14 +275,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     @Click(R.id.payHelpTv)
     public void gotoCommonProblem() {
-        CommonProblemFragment commonProblemFragment = GeneratedClassUtils.getInstance(CommonProblemFragment.class);
-        commonProblemFragment.tag = CommonProblemFragment.class.getName();
-        commonProblemFragment.setManager(getFragmentManager());
-        commonProblemFragment.setContainerId(R.id.main_container);
-        commonProblemFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
 
-        commonProblemFragment.show(SHOW_ADD_HIDE);
     }
 
 

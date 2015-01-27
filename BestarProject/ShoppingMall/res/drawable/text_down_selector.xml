@@ -3,6 +3,6 @@
 
     <item android:drawable="@color/info_text_down"   android:state_selected="true"/>
     <item android:drawable="@color/info_text_down"  android:state_pressed="true"/>
-    <item android:drawable="@color/info_background" />
+    <item android:drawable="@color/app_theme_color" />
 
 </selector>

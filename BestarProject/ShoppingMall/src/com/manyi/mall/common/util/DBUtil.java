@@ -19,7 +19,7 @@ import android.util.Log;
 import com.huoqiu.framework.rest.Configuration;
 import com.huoqiu.framework.util.StringUtil;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.search.City;
+import com.manyi.mall.cachebean.City;
 import com.manyi.mall.provider.ManyiProvider;
 import com.manyi.mall.provider.contract.BankListContract;
 import com.manyi.mall.provider.contract.CityContract;
@@ -86,7 +86,6 @@ public class DBUtil {
 	/**
 	 * 更新 metrostation中的数据 地铁站 biaowang
 	 * 
-	 * @see #TABLE_METRO
 	 * @param itemList
 	 */
 	public void updateCityTable(Context context, final String versionID, final List<City> itemList) {

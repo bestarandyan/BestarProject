@@ -48,10 +48,10 @@ import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.rest.Response;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.mine.RecommendRequest;
 import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.util.AESUtil;
+import com.manyi.mall.common.util.Cn2Spell;
 import com.manyi.mall.mine.ContactsLetterListView.OnTouchingLetterChangedListener;
 import com.manyi.mall.service.UcService;
 
@@ -199,23 +199,6 @@ public class ContactsFragment extends SuperFragment<Integer> {
 		StringBuilder builder = new StringBuilder();
 		for (String num : array) {
 			builder.append(num + ",");
-		}
-		RecommendRequest request = new RecommendRequest();
-		int uid = getActivity().getSharedPreferences("LOGIN_times", 0).getInt("uid", 0);
-		request.setUid(uid);
-		request.setRecommendTel(builder.toString().trim());
-		String phone = getActivity().getSharedPreferences("LOGIN_times", 0).getString("name", "");
-		try {
-			request.setUserTel(AESUtil.decrypt(phone, CommonConfig.AES_KEY));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Response response = mUserService.saveRecommendNum(request);
-		int responseCode = response.getErrorCode();
-		if (responseCode == 0) {
-			tip("推荐成功");
-		} else {
-			tip("推荐失败");
 		}
 	}
 

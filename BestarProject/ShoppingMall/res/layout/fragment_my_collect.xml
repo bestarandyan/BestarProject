@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/actionbar"
+        android:background="@color/app_theme_color"
         android:padding="0dp"
         android:tag="actionBar" >
 

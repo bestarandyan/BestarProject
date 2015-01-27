@@ -12,7 +12,7 @@ import com.huoqiu.framework.backstack.BackOpFragmentActivity;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.StringUtil;
-import com.manyi.mall.cachebean.search.NotificationBean;
+import com.manyi.mall.cachebean.NotificationBean;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.push.PushServiceUtil;
 

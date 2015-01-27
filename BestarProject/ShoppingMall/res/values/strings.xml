@@ -20,6 +20,15 @@
     <string name="main_title_rent">出租</string>
     <string name="main_recent_search">最近搜索</string>
 
+
+    <string name="action_fastscroll">Fast scroll</string>
+    <string name="action_addpadding">Add padding</string>
+    <string name="action_showShadow">Show shadow</string>
+    <string name="action_showHeaderAndFooter">Show Header &amp; Footer</string>
+    <string name="action_updateDataset">Update dataset</string>
+
+
+
     <!-- Tab Search house -->
     <string name="search_house_search_key">输入小区名称搜索</string>
 

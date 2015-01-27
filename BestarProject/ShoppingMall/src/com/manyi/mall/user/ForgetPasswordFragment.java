@@ -27,9 +27,6 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.user.ForgetGetCordRequest;
-import com.manyi.mall.cachebean.user.ForgetGetCordResponse;
-import com.manyi.mall.cachebean.user.ForgetNextRequest;
 import com.manyi.mall.service.UcService;
 
 @EFragment(R.layout.fragment_forget_password)
@@ -43,7 +40,6 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 	@FragmentArg
 	String phone;
 	private long mCode;
-	private ForgetGetCordResponse mResponse;
 	private UcService mUserService;
 	private boolean isFirstEnter = true;
 	
@@ -87,36 +83,6 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 		super.onDestroy();
 		ManyiUtils.closeKeyBoard(getActivity(), mForgetCode);
 	}
-
-	/**
-	 * Get verify code of the user phone number.
-	 */
-	@Background
-	public void getVerifyCode() {
-		try {
-			String phone = mForgetUsername.getText().toString().trim();
-			ForgetGetCordRequest req = new ForgetGetCordRequest();
-			req.setPhone(phone);
-			mResponse = mUserService.Forgetgetcode(req);
-			onSendSMSSuccess();
-			mCode = mResponse.getRandom();
-		} catch (RestException e) {
-			logincodeError(e.getMessage());
-		}
-	}
-	
-	@Background
-	void next(long code) {
-		try {
-			ForgetNextRequest req = new ForgetNextRequest();
-			req.setCheckVerifyCode(code);
-			mUserService.ForgetNextRequest(req);
-			intentRest();
-		} catch (RestException e) {
-			nextError(e.getMessage());
-		}
-	}
-	
 	@UiThread
 	public void onSendSMSSuccess() {
 		logincode.setEnabled(false);
@@ -142,24 +108,6 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 		DialogBuilder.showSimpleDialog("验证码不能为空", getBackOpActivity());
 	}
 
-	@UiThread
-	void intentRest() {
-		if ((mCode + "").equals(mForgetCode.getText().toString().trim())) {
-			ResetPasswordFragment resetPasswordFragment = GeneratedClassUtils.getInstance(ResetPasswordFragment.class);
-			resetPasswordFragment.tag = ResetPasswordFragment.class.getName();
-			Bundle nBundle = new Bundle();
-			nBundle.putString("phone", mForgetUsername.getText().toString().trim());
-			resetPasswordFragment.setArguments(nBundle);
-			resetPasswordFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-					R.anim.anim_fragment_close_out);
-			resetPasswordFragment.setManager(getFragmentManager());
-			resetPasswordFragment.show(SHOW_ADD_HIDE);
-			timer.cancel();
-			ManyiUtils.closeKeyBoard(getActivity(), mForgetCode);
-		} else {
-			DialogBuilder.showSimpleDialog("请输入正确的验证码", getBackOpActivity());
-		}
-	}
 
 	@UiThread
 	@Click(R.id.get_code_next)
@@ -175,7 +123,6 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 			DialogBuilder.showSimpleDialog("请输入验证码", getBackOpActivity());
 			return;
 		}
-		next(mCode);
 	}
 
 	@UiThread
@@ -197,7 +144,6 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 		if (CheckDoubleClick.isFastDoubleClick()) {
 			return;
 		}
-		getVerifyCode();
 	}
 
 	CountDownTimer timer = new CountDownTimer(60000, 1000) {

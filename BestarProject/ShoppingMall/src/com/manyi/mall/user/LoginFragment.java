@@ -153,53 +153,10 @@ public class LoginFragment extends SuperFragment<Integer> {
             case Constants.ACCOUNT_REVIEW_SUCCESS:
                 if (isSkip || (alipayAccount != null && !TextUtils.isEmpty(alipayAccount))) {
                     initMainActivity();
-                } else {
-                    BandBankCardFragment bandBankCardFragment = GeneratedClassUtils.getInstance(BandBankCardFragment.class);
-                    bandBankCardFragment.tag = BandBankCardFragment.class.getName();
-                    bandBankCardFragment.setManager(getFragmentManager());
-                    bandBankCardFragment.setBackOp(new AbsOp(ReviewFragment.class.getName()) {
-
-                        @Override
-                        public void perform(BackOpFragmentActivity activity) {
-                            initMainActivity();
-                        }
-                    });
-                    bandBankCardFragment.show(SHOW_ADD_HIDE);
-                    SharedPreferences sharedPreferences = getBackOpActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE);
-                    Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("isShowBind", true);
-                    editor.commit();
                 }
                 break;
-            case Constants.ACCOUNT_REVIEW_ING:
-                ReviewFragment reviewFragment = GeneratedClassUtils.getInstance(ReviewFragment.class);
-                reviewFragment.tag = ReviewFragment.class.getName();
-                reviewFragment.setManager(getFragmentManager());
-                reviewFragment.setBackOp(new AbsOp(ReviewFragment.class.getName()) {
 
-                    @Override
-                    public void perform(BackOpFragmentActivity activity) {
-                        getActivity().finish();
-                    }
-                });
-                reviewFragment.show(SHOW_ADD_HIDE);
-                break;
-            case Constants.ACCOUNT_REVIEW_FAILED:
-                ReviewFailedFragment reviewFailedFragment = GeneratedClassUtils.getInstance(ReviewFailedFragment.class);
-                Bundle argsBundle = new Bundle();
-                argsBundle.putString("mUserName", mLoginUsername.getText().toString().trim());
-                reviewFailedFragment.setArguments(argsBundle);
-                reviewFailedFragment.tag = ReviewFailedFragment.class.getName();
-                reviewFailedFragment.setManager(getFragmentManager());
-                reviewFailedFragment.setBackOp(new AbsOp(ReviewFragment.class.getName()) {
 
-                    @Override
-                    public void perform(BackOpFragmentActivity activity) {
-                        getActivity().finish();
-                    }
-                });
-                reviewFailedFragment.show(SHOW_ADD_HIDE);
-                break;
         }
     }
 

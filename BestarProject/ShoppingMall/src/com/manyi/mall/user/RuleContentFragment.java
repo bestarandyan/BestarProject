@@ -1,17 +1,12 @@
 package com.manyi.mall.user;
 
-import android.content.Context;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.search.RuleContentRequest;
-import com.manyi.mall.cachebean.search.RuleContentResponse;
 import com.manyi.mall.common.Constants;
-import com.manyi.mall.service.RulePromptService;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
@@ -30,13 +25,9 @@ public class RuleContentFragment extends SuperFragment<Object> {
     @ViewById(R.id.rule_content_back)
     TextView mTiltle;
 
-    private RulePromptService userService;
-    private RuleContentResponse ruleResponse;
-
     @AfterViews
     public void init() {
         updateTitle();
-        getContent();
     }
 
     private void updateTitle() {
@@ -62,19 +53,10 @@ public class RuleContentFragment extends SuperFragment<Object> {
         }
     }
 
-    @Background
-    public void getContent() {
-        RuleContentRequest request = new RuleContentRequest();
-        request.setCityId(getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0));
-        request.setType(type);
-        ruleResponse = userService.getRuleContent(request);
-        updateContent();
-    }
 
     @UiThread
     public void updateContent() {
         if (ruleContent != null) {
-            ruleContent.setText(ruleResponse.getContent());
         }
     }
 

@@ -23,8 +23,6 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.user.CaptchaCodeRequest;
-import com.manyi.mall.cachebean.user.CheckMsgCodeRequest;
 import com.manyi.mall.cachebean.user.RegistRequest;
 import com.manyi.mall.service.UcService;
 
@@ -66,9 +64,7 @@ public class RegisterFragment extends SuperFragment<Object> {
 			request.setMobile(mPhoneNumber.getText().toString());
 			mUserService.check(request);
 
-			CaptchaCodeRequest req = new CaptchaCodeRequest();
-			req.setMobile(mPhoneNumber.getText().toString());
-			mUserService.code(req);
+
 			onSendSMSSuccess();
 
 		} catch (Exception e) {
@@ -189,21 +185,7 @@ public class RegisterFragment extends SuperFragment<Object> {
 			return;
 		}
 
-		try {
 
-			CheckMsgCodeRequest nextRequest = new CheckMsgCodeRequest();
-			nextRequest.setCheckVerifyCode(mSmsCaptcha.getText().toString().trim());
-			nextRequest.setPassword(mConfirmPwd.getText().toString().trim());
-			mUserService.checkMsgCode(nextRequest);
-			onGerRegisterDataSuccess();
-		} catch (Exception e) {
-			if (e instanceof ClientException) {
-				ClientException ce = (ClientException) e;
-				if (ce.getErrorCode() == ClientException.REPEATED_REQUEST || ce.getErrorCode() == ClientException.REQUEST_ABORTED)
-					return;
-			}
-			onGerRegisterDataError(e);
-		}
 
 	}
 

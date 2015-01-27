@@ -1,8 +1,6 @@
 package com.manyi.mall.mine;
 
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -14,11 +12,6 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.huoqiu.widget.PhoneEditTextView;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.mine.UpdateMobileRequest;
-import com.manyi.mall.cachebean.user.CaptchaCodeRequest;
-import com.manyi.mall.common.CommonConfig;
-import com.manyi.mall.common.Constants;
-import com.manyi.mall.common.util.AESUtil;
 import com.manyi.mall.service.UcService;
 
 import org.androidannotations.annotations.AfterViews;
@@ -71,37 +64,6 @@ public class ChangeNewPhoneNumberFragment extends SuperFragment<Object> {
 
     }
 
-    @Click(R.id.change_new_phone_complete)
-    @Background
-    public void changePhoneService(){
-        if (CheckDoubleClick.isFastDoubleClick())
-            return;
-        if (!phonenumValidate()) {
-            return;
-        }
-        if (mGetPhoneVerification.getText().toString().length() == 0) {
-            onSendSMSError("请输入验证码!");
-            return;
-        }
-        int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
-        UpdateMobileRequest mobileRequest = new UpdateMobileRequest();
-        mobileRequest.setUid(uid);
-        mobileRequest.setMobile(mChangeNewPhoneNumber.getTextString());
-        mobileRequest.setVerifyCode(mGetPhoneVerification.getText().toString());
-        mUcService.updatePhone(mobileRequest);
-
-        SharedPreferences mSharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        try {
-            mEditor.putString("userName",AESUtil.encrypt(mChangeNewPhoneNumber.getTextString(), CommonConfig.AES_KEY));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        mEditor.commit();
-
-        releaseSuccess("更换手机号成功!");
-
-    }
 
 
     @Click(R.id.get_verification)
@@ -113,9 +75,6 @@ public class ChangeNewPhoneNumberFragment extends SuperFragment<Object> {
         if (!phonenumValidate()) {
             return;
         }
-        CaptchaCodeRequest req = new CaptchaCodeRequest();
-        req.setMobile(mChangeNewPhoneNumber.getTextString());
-        mUcService.getNewPhoneCode(req);
         onSendSMSSuccess();
     }
 

@@ -22,7 +22,6 @@ public class BankListDBUtil {
 	/**
 	 * 获取对应Key的Value值
 	 * 
-	 * @param key
 	 * @return
 	 */
 	public ArrayList<String> getBankList(String bankName) {

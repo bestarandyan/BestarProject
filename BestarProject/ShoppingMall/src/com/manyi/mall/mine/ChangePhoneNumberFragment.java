@@ -17,8 +17,6 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.mine.ChangePhoneNumberNextRequest;
-import com.manyi.mall.cachebean.user.CaptchaCodeRequest;
 import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.util.AESUtil;
@@ -94,9 +92,6 @@ public class ChangePhoneNumberFragment extends SuperFragment<Integer> {
     @Background
     public void getVerifyCode() {
         try {
-            CaptchaCodeRequest req = new CaptchaCodeRequest();
-            req.setMobile(phone);
-            mUserService.getVerifyCode(req);
             onSendSMSSuccess();
         } catch (RestException e) {
             logincodeError(e.getMessage());
@@ -106,11 +101,6 @@ public class ChangePhoneNumberFragment extends SuperFragment<Integer> {
     @Background
     void next(String code) {
         try {
-            ChangePhoneNumberNextRequest req = new ChangePhoneNumberNextRequest();
-            req.verifyCode = code;
-            req.uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("uid", 0);
-            req.idCard = mCodeNumber.getText().toString().trim();
-            mUserService.changePhoneNumberNext(req);
             intentRest();
         } catch (RestException e) {
             nextError(e.getMessage());
