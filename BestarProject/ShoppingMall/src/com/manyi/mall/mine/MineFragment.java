@@ -137,6 +137,26 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     }
 
+    @Click(R.id.shareApp)
+    void shareApp() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+
+    }
+    @Click(R.id.supportUsTv)
+    void supportUs() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+
+    }
+
+ @Click(R.id.aboutUsTv)
+    void aboutUs() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+
+    }
+
 
     @Click(R.id.check_update)
     @Background
