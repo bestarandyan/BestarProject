@@ -65,26 +65,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fragment_home.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fragment_home.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/res/layout/fragment_home.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47067448" vertical-offset="18812" max-vertical-offset="19627">
-              <caret line="1007" column="43" selection-start-line="1007" selection-start-column="43" selection-end-line="1007" selection-end-column="43" />
+            <state vertical-scroll-proportion="-18.321428" vertical-offset="969" max-vertical-offset="2299">
+              <caret line="106" column="55" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
               <folding>
                 <element signature="e#1439#1453#0" expanded="true" />
+                <element signature="tag#RelativeLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
+                <element signature="tag#LinearLayout#0;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
                 <element signature="e#6109#6121#0" expanded="true" />
                 <element signature="e#7351#7363#0" expanded="true" />
                 <element signature="e#8592#8604#0" expanded="true" />
                 <element signature="e#9833#9845#0" expanded="true" />
+                <element signature="tag#LinearLayout#1;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
                 <element signature="e#11240#11262#0" expanded="true" />
                 <element signature="e#11765#11777#0" expanded="true" />
                 <element signature="e#13976#13998#0" expanded="true" />
                 <element signature="e#14565#14577#0" expanded="true" />
                 <element signature="e#16562#16584#0" expanded="true" />
                 <element signature="e#17153#17165#0" expanded="true" />
+                <element signature="tag#LinearLayout#2;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
                 <element signature="e#18825#18847#0" expanded="true" />
                 <element signature="e#19422#19444#0" expanded="true" />
                 <element signature="e#20551#20573#0" expanded="true" />
@@ -99,6 +103,7 @@
                 <element signature="e#28258#28270#0" expanded="true" />
                 <element signature="e#29498#29520#0" expanded="true" />
                 <element signature="e#30057#30069#0" expanded="true" />
+                <element signature="tag#LinearLayout#3;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
                 <element signature="e#31678#31700#0" expanded="true" />
                 <element signature="e#32275#32297#0" expanded="true" />
                 <element signature="e#34114#34136#0" expanded="true" />
@@ -111,6 +116,7 @@
                 <element signature="e#41199#41211#0" expanded="true" />
                 <element signature="e#42439#42461#0" expanded="true" />
                 <element signature="e#42996#43008#0" expanded="true" />
+                <element signature="tag#LinearLayout#4;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
                 <element signature="e#44617#44639#0" expanded="true" />
                 <element signature="e#45214#45236#0" expanded="true" />
                 <element signature="e#46417#46439#0" expanded="true" />
@@ -126,6 +132,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ShoppingMall/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="2717">
+              <caret line="81" column="58" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="colors.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -136,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HomeFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/release/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="5073">
-              <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
+            <state vertical-scroll-proportion="3.0479043" vertical-offset="609" max-vertical-offset="5187">
+              <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1798,7 +1814,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/user/SavePhotoFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/StartActivity.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/common/location/LBSHelper.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/provider/contract/BankListDBUtil.java" />
@@ -1831,7 +1846,6 @@
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/fragment_register_next.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/fragment_rule_content.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/fragment_update_login_pwd.xml" />
-        <option value="$PROJECT_DIR$/ShoppingMall/res/layout/item_release_viewpage.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/view_nodata_layout.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/fragment_mine.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/mine/MineFragment.java" />
@@ -1846,15 +1860,18 @@
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/MainFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/agency/AgencyFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/item_agency_list.xml" />
-        <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/release/HomeFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/res/layout/item_release_viewpage.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/release/HomeFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="400" />
-    <option name="width" value="1498" />
+    <option name="x" value="55" />
+    <option name="y" value="-8" />
+    <option name="width" value="1873" />
     <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -2211,13 +2228,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="400" y="0" width="1498" height="1096" extended-state="0" />
+    <frame x="55" y="-8" width="1873" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46244785" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46221733" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2227,14 +2244,14 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.102345414" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21215352" sideWeight="0.49934298" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.047974415" sideWeight="0.49934298" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29485396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29453945" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.078891255" sideWeight="0.4997242" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2255,7 +2272,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29485396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29453945" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.078891255" sideWeight="0.4997242" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
@@ -2264,12 +2281,12 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46244785" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46221733" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.102345414" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21215352" sideWeight="0.49934298" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.047974415" sideWeight="0.49934298" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2298,20 +2315,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/res/values/pull_refresh_strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08360836" vertical-offset="0" max-vertical-offset="909">
-          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/res/drawable/circle_h.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="909">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/res/drawable/button_down_selector.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="909">
@@ -2519,16 +2522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/res/layout/item_release_viewpage.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.392857" vertical-offset="0" max-vertical-offset="494">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/res/layout/view_nodata_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2717,14 +2710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/release/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="5073">
-          <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.379311" vertical-offset="30" max-vertical-offset="2470">
@@ -2741,25 +2726,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/res/layout/item_release_viewpage.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11363637" vertical-offset="0" max-vertical-offset="836">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="2717">
+          <caret line="81" column="58" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/res/layout/fragment_home.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47067448" vertical-offset="18812" max-vertical-offset="19627">
-          <caret line="1007" column="43" selection-start-line="1007" selection-start-column="43" selection-end-line="1007" selection-end-column="43" />
+        <state vertical-scroll-proportion="-18.321428" vertical-offset="969" max-vertical-offset="2299">
+          <caret line="106" column="55" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
           <folding>
             <element signature="e#1439#1453#0" expanded="true" />
+            <element signature="tag#RelativeLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
+            <element signature="tag#LinearLayout#0;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
             <element signature="e#6109#6121#0" expanded="true" />
             <element signature="e#7351#7363#0" expanded="true" />
             <element signature="e#8592#8604#0" expanded="true" />
             <element signature="e#9833#9845#0" expanded="true" />
+            <element signature="tag#LinearLayout#1;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
             <element signature="e#11240#11262#0" expanded="true" />
             <element signature="e#11765#11777#0" expanded="true" />
             <element signature="e#13976#13998#0" expanded="true" />
             <element signature="e#14565#14577#0" expanded="true" />
             <element signature="e#16562#16584#0" expanded="true" />
             <element signature="e#17153#17165#0" expanded="true" />
+            <element signature="tag#LinearLayout#2;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
             <element signature="e#18825#18847#0" expanded="true" />
             <element signature="e#19422#19444#0" expanded="true" />
             <element signature="e#20551#20573#0" expanded="true" />
@@ -2774,6 +2782,7 @@
             <element signature="e#28258#28270#0" expanded="true" />
             <element signature="e#29498#29520#0" expanded="true" />
             <element signature="e#30057#30069#0" expanded="true" />
+            <element signature="tag#LinearLayout#3;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
             <element signature="e#31678#31700#0" expanded="true" />
             <element signature="e#32275#32297#0" expanded="true" />
             <element signature="e#34114#34136#0" expanded="true" />
@@ -2786,6 +2795,7 @@
             <element signature="e#41199#41211#0" expanded="true" />
             <element signature="e#42439#42461#0" expanded="true" />
             <element signature="e#42996#43008#0" expanded="true" />
+            <element signature="tag#LinearLayout#4;tag#LinearLayout#0;tag#RelativeLayout#0;tag#LinearLayout#0;tag#ScrollView#0;tag#LinearLayout#0;tag#FrameLayout#0" expanded="false" />
             <element signature="e#44617#44639#0" expanded="true" />
             <element signature="e#45214#45236#0" expanded="true" />
             <element signature="e#46417#46439#0" expanded="true" />
@@ -2797,6 +2807,22 @@
             <element signature="e#52574#52596#0" expanded="true" />
             <element signature="e#53056#53068#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/androidstudio/sdk/platforms/android-21/android.jar!/android/view/animation/LayoutAnimationController.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3298611" vertical-offset="0" max-vertical-offset="1197">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/release/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.0479043" vertical-offset="609" max-vertical-offset="5187">
+          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

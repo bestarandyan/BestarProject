@@ -79,7 +79,7 @@
            android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/StartTheme"
-            android:windowSoftInputMode="adjustResize" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
              <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

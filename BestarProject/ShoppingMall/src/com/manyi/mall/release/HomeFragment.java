@@ -12,10 +12,13 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LayoutAnimationController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -115,15 +118,13 @@ public class HomeFragment extends SuperFragment<Object> {
         super.onPause();
     }
 
-    ;
-
     @AfterViews
     public void onUserTaskCountLoad() {
         cityId = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0);
         mAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mAdapter);
 
-//        getAdvertData();
+        getAdvertData();
     }
 
     @Override
@@ -170,6 +171,8 @@ public class HomeFragment extends SuperFragment<Object> {
             for (int i = 0; i < 2; i++) {
                 View mView = LayoutInflater.from(getActivity()).inflate(R.layout.item_release_viewpage, null);
                 TextView text = (TextView) mView.findViewById(R.id.viewpage_item_text);
+                text.setText("ViewPage"+i);
+                text.setGravity(Gravity.CENTER);
                 mView.setTag(i);
                 pageViews.add(mView);
             }
@@ -198,9 +201,9 @@ public class HomeFragment extends SuperFragment<Object> {
             addAnimForView((View) advertLayout.getParent());
             advertLayout.setVisibility(View.VISIBLE);
             currentItem = 0;
-            scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-            // * 四个参数：①要执行的任务②执行一次任务所用的时间③两次任务之间所隔的时间④时间单位
-            scheduledExecutor.scheduleAtFixedRate(new MyPageTask(), 3, 3, TimeUnit.SECONDS);
+//            scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+//            // * 四个参数：①要执行的任务②执行一次任务所用的时间③两次任务之间所隔的时间④时间单位
+//            scheduledExecutor.scheduleAtFixedRate(new MyPageTask(), 3, 3, TimeUnit.SECONDS);
 
         }
 
@@ -212,8 +215,14 @@ public class HomeFragment extends SuperFragment<Object> {
         if (DeviceUtil.getSDKVersionInt() >= 11 && rootView instanceof ViewGroup) {
             vg = (ViewGroup) rootView;
             LayoutTransition layoutTransition = new LayoutTransition();
-            layoutTransition.setDuration(400);
+            layoutTransition.setDuration(600);
             vg.setLayoutTransition(layoutTransition);
+            AlphaAnimation alphaAnimation =new AlphaAnimation(0.0f,1.0f);
+            alphaAnimation.setDuration(1000);
+            LayoutAnimationController controller = new LayoutAnimationController(alphaAnimation);
+            controller.setDelay(1000);
+//            vg.setLayoutAnimation(controller);
+
         }
     }
 
