@@ -114,6 +114,13 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     }
 
+    @Click(R.id.Layout1)
+    void layoutClick() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+
+    }
+
 
     @Click(R.id.check_update)
     @Background
