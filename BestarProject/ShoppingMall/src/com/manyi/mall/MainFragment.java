@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.manyi.mall.agency.AgencyFragment;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.footprint.FootPrintListFragment;
 import com.manyi.mall.collect.CollectFragment;
@@ -35,7 +36,11 @@ public class MainFragment extends SuperFragment<Object>{
 
         mTabHost.addTab(createSpec(Constants.TAB_1, "首页"), GeneratedClassUtils.get(HomeFragment.class), null);
         mTabHost.addTab(createSpec(Constants.TAB_2, "我的收藏"), GeneratedClassUtils.get(CollectFragment.class), null);
-        mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(FootPrintListFragment.class), null);
+        if (true){
+            mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(FootPrintListFragment.class), null);
+        }else{
+            mTabHost.addTab(createSpec(Constants.TAB_3, "我的代理"), GeneratedClassUtils.get(AgencyFragment.class), null);
+        }
         mTabHost.addTab(createSpec(Constants.TAB_4, "我的"), GeneratedClassUtils.get(MineFragment.class), null);
 
         mTabHost.setOnTabChangedListener(new OnTabChangeListener() {
