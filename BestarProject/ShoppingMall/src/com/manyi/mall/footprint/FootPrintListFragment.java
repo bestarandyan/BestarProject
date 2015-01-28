@@ -10,9 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.huoqiu.framework.analysis.ManyiAnalysis;
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.util.StringUtil;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.R;
@@ -148,7 +146,6 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
                 @Override
                 public void onClick(View v) {
-                    ManyiAnalysis.onEvent(getActivity(), "CheckedRecordItemClick");
                 }
             });
             return convertView;

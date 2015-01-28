@@ -8,11 +8,20 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
-import com.huoqiu.framework.analysis.ManyiAnalysis;
-import com.huoqiu.framework.app.AppConfig;
-import com.huoqiu.framework.util.*;
 
-import java.io.*;
+import com.huoqiu.framework.app.AppConfig;
+import com.huoqiu.framework.util.DateUtil;
+import com.huoqiu.framework.util.DialogBuilder;
+import com.huoqiu.framework.util.LogUtil;
+import com.huoqiu.framework.util.StringUtil;
+import com.huoqiu.framework.util.TimeUtil;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.lang.reflect.Field;
 
@@ -63,14 +72,12 @@ public class BaseUncaughtExceptionHandler implements UncaughtExceptionHandler {
             } else if (ex instanceof ServerException) {
                 if (AppConfig.IS_RELEASE_VERSION) {
                     // 收集错误信息
-                    ManyiAnalysis.reportError(mActivity, ex);
                 }
                 showErrorInfo(ex.getMessage());
                 LogUtil.w(TAG, ex);
             } else {
                 if (AppConfig.IS_RELEASE_VERSION) {
                     // 收集错误信息
-                    ManyiAnalysis.reportError(mActivity, ex);
                 }
                 // 处理错误信息
                 handleUncaughtException(thread, ex);

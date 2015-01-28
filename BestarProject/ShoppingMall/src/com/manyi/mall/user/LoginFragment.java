@@ -1,11 +1,5 @@
 package com.manyi.mall.user;
 
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -15,10 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 
-import com.huoqiu.framework.analysis.ManyiAnalysis;
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.backstack.AbsOp;
-import com.huoqiu.framework.backstack.BackOpFragmentActivity;
 import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
@@ -32,6 +23,12 @@ import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.util.AESUtil;
 import com.manyi.mall.service.UcService;
+
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
 
 @SuppressLint({"WorldReadableFiles", "WorldWriteableFiles"})
 @EFragment(R.layout.fragment_login)
@@ -48,13 +45,11 @@ public class LoginFragment extends SuperFragment<Integer> {
     @Override
     public void onResume() {
         super.onResume();
-        ManyiAnalysis.onPageStart(mPageName);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        ManyiAnalysis.onPageEnd(mPageName);
     }
 
     @Override
@@ -88,7 +83,6 @@ public class LoginFragment extends SuperFragment<Integer> {
     void loginbutton() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-        ManyiAnalysis.onEvent(getActivity(), "UserLoginClick");
 //        if (mLoginPassword.getText().toString().trim().length() != 0 && mLoginUsername.getText().toString().trim().length() != 0) {
 //            loginw();
         initMainActivity();

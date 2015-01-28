@@ -16,7 +16,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.huoqiu.framework.analysis.ManyiAnalysis;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.exception.ClientException;
 import com.huoqiu.framework.exception.RestException;
@@ -92,7 +91,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     @SuppressLint("WorldReadableFiles")
     @Click(R.id.mine_exit_btn)
     void exit() {
-        ManyiAnalysis.onEvent(getActivity(), "LogoutClick");
         if (CheckDoubleClick.isFastDoubleClick())
             return;
         DialogBuilder.showSimpleDialog("您确定退出?", "确定", "取消", getBackOpActivity(), new DialogInterface.OnClickListener() {
@@ -145,7 +143,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void checkUpdate() {
 
         try {
-            ManyiAnalysis.onEvent(getActivity(), "CheckUpdateClick");
             if (CheckDoubleClick.isFastDoubleClick())
                 return;
         } catch (final RestException ex) {

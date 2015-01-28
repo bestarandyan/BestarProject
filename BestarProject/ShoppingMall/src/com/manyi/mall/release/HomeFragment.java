@@ -22,7 +22,6 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.huoqiu.framework.analysis.ManyiAnalysis;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
@@ -41,15 +40,12 @@ import com.manyi.mall.user.HtmlLoadFragment;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 @SuppressLint("HandlerLeak")
 @EFragment(R.layout.fragment_home)
@@ -269,7 +265,6 @@ public class HomeFragment extends SuperFragment<Object> {
             }
             int index = Integer.parseInt(v.getTag().toString());
 
-            ManyiAnalysis.onEvent(getActivity(), "gotoAdvertDetailClick");
 
         }
 

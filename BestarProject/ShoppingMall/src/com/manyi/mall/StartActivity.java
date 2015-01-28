@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.FrameLayout;
 
-import com.huoqiu.framework.analysis.ManyiAnalysis;
 import com.huoqiu.framework.backstack.BackOpFragmentActivity;
 import com.huoqiu.framework.backstack.Op;
 import com.huoqiu.framework.rest.Configuration;
@@ -46,8 +45,6 @@ public class StartActivity extends BaseActivity {
 //			initBaseException();
 			initFragment();
 
-			// 初始化友盟
-			ManyiAnalysis.init(this);
 		}
 	}
 
