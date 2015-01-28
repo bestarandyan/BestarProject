@@ -78,6 +78,24 @@ public class LoginFragment extends SuperFragment<Integer> {
         ManyiUtils.closeKeyBoard(getActivity(), mLoginPassword);
     }
 
+    @Click(R.id.userRegisterTv)
+    @UiThread
+    void regisger() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        RegisterFragment registerFragment = GeneratedClassUtils.getInstance(RegisterFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("phone", mLoginUsername.getText().toString().trim());
+        registerFragment.setArguments(bundle);
+        registerFragment.tag = RegisterFragment.class.getName();
+
+        registerFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        registerFragment.setManager(getFragmentManager());
+        registerFragment.show(SHOW_ADD_HIDE);
+        ManyiUtils.closeKeyBoard(getActivity(), mLoginPassword);
+    }
+
     @SuppressLint("CommitPrefEdits")
     @Click(R.id.login_loginbutton)
     void loginbutton() {
