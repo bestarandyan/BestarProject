@@ -29,24 +29,42 @@ import com.manyi.mall.StartActivity;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.UcService;
+import com.manyi.mall.widget.switchView.ToggleButton;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
 
 @EFragment(R.layout.fragment_mine)
 public class MineFragment extends SuperFragment<Object> implements android.content.DialogInterface.OnClickListener {
-
+    @ViewById(R.id.switchBtn)
+    ToggleButton mSwitchBtn;
     private UcService mUserService;
     private CommonService mAppLoadService;
 
     @AfterViews
     void loadDate() {
+        //切换开关
+        mSwitchBtn.toggle();
+        //开关切换事件
+        mSwitchBtn.setOnToggleChanged(new ToggleButton.OnToggleChanged(){
+            @Override
+            public void onToggle(boolean on) {
+                if (on){
+                    Toast.makeText(getActivity(),"开",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(),"关",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+//        mSwitchBtn.setToggleOn();
+//        mSwitchBtn.setToggleOff();
     }
 
     @Override

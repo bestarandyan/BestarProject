@@ -78,7 +78,7 @@
     <color name="moren">#f5f5f5</color>
     <!-- 我的 -->
     <color name="mineselect">#bdc0c1</color>
-    <color name="minemoren">#ecf0f1</color>
+    <color name="minemoren">#ffffff</color>
 
     <!-- 启动页 -->
     <color name="splash">#12c1c4</color>

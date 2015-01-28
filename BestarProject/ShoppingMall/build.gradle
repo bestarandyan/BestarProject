@@ -17,6 +17,11 @@ repositories {
     mavenLocal()
 }
 
+
+dependencies {
+    compile 'com.facebook.rebound:rebound:0.3.+'
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 def AAVersion = '3.0.1'
