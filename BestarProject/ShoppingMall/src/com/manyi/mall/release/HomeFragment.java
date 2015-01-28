@@ -81,19 +81,6 @@ public class HomeFragment extends SuperFragment<Object> {
 
     ArrayList<View> pageViews = new ArrayList<View>();
 
-    @Click(R.id.model8Layout)
-    void allTypeLayoutClick(){
-        if (CheckDoubleClick.isFastDoubleClick()) {
-            return;
-        }
-        ManyiAnalysis.onEvent(getActivity(), "gotoAdvertDetailClick");
-        AllAreaFragment allAreaFragment = GeneratedClassUtils.getInstance(AllAreaFragment.class);
-        allAreaFragment.tag = AllAreaFragment.class.getName();
-        allAreaFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
-        allAreaFragment.setManager(getFragmentManager());
-        allAreaFragment.show(SuperFragment.SHOW_ADD_HIDE);
-    }
 
     private class MyPageTask implements Runnable {
         public void run() {
