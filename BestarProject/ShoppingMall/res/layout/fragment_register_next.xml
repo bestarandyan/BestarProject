@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dip"
-            android:background="@color/app_theme_color"
+            android:background="@color/color_ffffff"
             android:padding="0dp"
             android:tag="actionBar"
             tools:ignore="UselessParent">
@@ -32,9 +32,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@drawable/text_down_selector"
                 android:text="完善资料"
-                android:textColor="#ffffffff"
+                android:textColor="#333"
                 android:textSize="18sp" />
             <Button
                 android:layout_width="60dp"
@@ -45,7 +44,11 @@
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_theme_color"
+            ></View>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/app_bg_color"
                 tools:ignore="UselessLeaf">
 
                 <TextView
@@ -76,13 +80,11 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
                     tools:ignore="UselessParent">
 
                     <TextView
@@ -134,10 +136,10 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
                     android:gravity="center_vertical"
+                    android:background="@color/color_ffffff"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
 
@@ -183,13 +185,11 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
                     tools:ignore="UselessParent">
 
                     <TextView
@@ -236,9 +236,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -290,9 +290,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -337,9 +337,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -384,9 +384,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -439,9 +439,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -487,9 +487,9 @@
                     android:background="#e1e1e1"></View>
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -535,9 +535,9 @@
                     android:background="#e1e1e1"></View>
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -583,9 +583,9 @@
                     android:background="#e1e1e1"></View>
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/complete_info_layout_height"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
@@ -621,6 +621,7 @@
                         android:layout_centerVertical="true"
                         android:background="@null"
                         android:hint="请输入学生人数"
+                        android:layout_marginBottom="16dp"
                         android:inputType="number"
                         android:minWidth="100dp"
                         android:textColorHint="#afafaf" />

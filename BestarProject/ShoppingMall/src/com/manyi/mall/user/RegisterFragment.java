@@ -108,17 +108,29 @@ public class RegisterFragment extends SuperFragment<Object> {
 	public void getRegisterData() {
 		if (CheckDoubleClick.isFastDoubleClick())
 			return;
-		if (!phonenumValidate()) {
-			return;
-		}
-		if (mRegisterPwd.getText().toString().length() == 0) {
-			onSendSMSError("请输入密码");
-			return;
-		}
+//		if (!phonenumValidate()) {
+//			return;
+//		}
+//		if (mRegisterPwd.getText().toString().length() == 0) {
+//			onSendSMSError("请输入密码");
+//			return;
+//		}
 
-
+        gotoRegisterNextStep();
 
 	}
+
+    @UiThread
+    void gotoRegisterNextStep(){
+        RegisterNextFragment registerNextFragment = GeneratedClassUtils.getInstance(RegisterNextFragment.class);
+        registerNextFragment.tag = RegisterNextFragment.class.getName();
+
+        registerNextFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        registerNextFragment.setManager(getFragmentManager());
+        registerNextFragment.show(SHOW_ADD_HIDE);
+        ManyiUtils.closeKeyBoard(getActivity(), mRegisterPwd);
+    }
 
 
 
