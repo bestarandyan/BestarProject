@@ -121,5 +121,6 @@
     <color name="raward_red">#ff5104</color>
 
     <color name="app_theme_color">#FF4864</color>
+    <color name="app_bg_color">#EEEEEE</color>
 
 </resources>

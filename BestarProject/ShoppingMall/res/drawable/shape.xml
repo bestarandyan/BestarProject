@@ -6,6 +6,6 @@
     <solid android:color="#12c1c4" />
     <!-- 设置矩形的四个角为弧形 -->
     <!-- android:radius 弧形的半径 -->
-    <corners android:radius="7dip" />
+    <corners android:radius="@dimen/btn_radius_size" />
 
 </shape>

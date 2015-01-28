@@ -4,7 +4,7 @@
 
     <!-- 设置矩形的四个角为弧形 -->
     <!-- android:radius 弧形的半径 -->
-    <corners android:radius="10dp" />
-    <solid android:color="@color/app_theme_color"></solid>
+    <corners android:radius="@dimen/btn_radius_size" />
+    <solid android:color="@color/color_ffffff"></solid>
 
 </shape>

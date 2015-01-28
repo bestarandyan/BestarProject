@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="#333"
+    android:background="@color/app_theme_color"
     android:clickable="true"
      >
 
@@ -25,7 +25,8 @@
                 android:layout_height="48dp"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="请输入账号"
+                android:hint="请您输入账号"
+                android:textColorHint="@color/color_ffffff"
                 android:inputType="number"
                 android:maxLength="11"
                 android:textSize="16sp"
@@ -33,7 +34,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
+                android:layout_height="1dp"
                 android:background="#fff"
                 ></View>
             <EditText
@@ -42,9 +43,10 @@
                 android:layout_height="48dp"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="请输入密码"
+                android:hint="请您输入密码"
                 android:inputType="textPassword"
                 android:maxLength="20"
+                android:textColorHint="@color/color_ffffff"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -55,19 +57,19 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/shape_login_btn_bg_org"
+            android:background="@drawable/selector_login_btn"
             android:text="登录"
             android:layout_below="@+id/inputLayout"
-            android:textColor="@color/white_action"
-            android:textSize="16sp" />
+            android:textColor="@color/app_theme_color"
+            android:textSize="22sp" />
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_below="@+id/login_loginbutton"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentBottom="true"
             android:orientation="horizontal" >
 
             <TextView
