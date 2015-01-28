@@ -36,7 +36,7 @@ public class MainFragment extends SuperFragment<Object>{
 
         mTabHost.addTab(createSpec(Constants.TAB_1, "首页"), GeneratedClassUtils.get(HomeFragment.class), null);
         mTabHost.addTab(createSpec(Constants.TAB_2, "我的收藏"), GeneratedClassUtils.get(CollectFragment.class), null);
-        if (true){
+        if (false){
             mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(FootPrintListFragment.class), null);
         }else{
             mTabHost.addTab(createSpec(Constants.TAB_3, "我的代理"), GeneratedClassUtils.get(AgencyFragment.class), null);

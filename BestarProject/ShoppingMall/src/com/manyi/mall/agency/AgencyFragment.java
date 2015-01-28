@@ -79,8 +79,8 @@ public class AgencyFragment extends SuperFragment {
                 holder = new ViewHolder();
                 holder.img  = (ImageView)view.findViewById(R.id.imgCollect);
                 holder.companyTv = (TextView) view.findViewById(R.id.companyNameTv);
-                holder.connectTv = (TextView) view.findViewById(R.id.cityNameTv);
-                holder.agencyedTv = (TextView) view.findViewById(R.id.introduceTv);
+                holder.connectTv = (TextView) view.findViewById(R.id.connectTv);
+                holder.agencyedTv = (TextView) view.findViewById(R.id.agencyedTv);
                 view.setTag(holder);
             }else{
                 holder = (ViewHolder) view.getTag();
