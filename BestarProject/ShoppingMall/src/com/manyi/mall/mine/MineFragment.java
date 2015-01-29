@@ -22,12 +22,14 @@ import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.huoqiu.framework.util.ManyiUtils;
 import com.huoqiu.widget.filedownloader.FileDownloadListener;
 import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.UcService;
+import com.manyi.mall.user.ForgetPasswordFragment;
 import com.manyi.mall.widget.switchView.ToggleButton;
 
 import org.androidannotations.annotations.AfterViews;
@@ -134,7 +136,16 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void layoutClick() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
+        VoucherListFragment voucherListFragment = GeneratedClassUtils.getInstance(VoucherListFragment.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("phone", mLoginUsername.getText().toString().trim());
+//        voucherListFragment.setArguments(bundle);
+        voucherListFragment.tag = VoucherListFragment.class.getName();
 
+        voucherListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        voucherListFragment.setManager(getFragmentManager());
+        voucherListFragment.show(SHOW_ADD_HIDE);
     }
 
     @Click(R.id.shareApp)
