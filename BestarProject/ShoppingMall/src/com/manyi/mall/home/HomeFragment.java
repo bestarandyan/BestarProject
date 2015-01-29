@@ -1,4 +1,4 @@
-package com.manyi.mall.release;
+package com.manyi.mall.home;
 
 import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg_color"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:background="@color/color_ffffff"
+            android:padding="0dp"
+            android:tag="actionBar"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/feedbackBackBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:src="@drawable/ic_action_up" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="意见反馈"
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_theme_color"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessLeaf">
+
+
+            <EditText
+                android:id="@+id/feedbackContent"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_ffffff"
+                android:gravity="top|left"
+                android:hint="感谢反馈，请尽量详细地描述您遇到的问题，以便于我们帮您解决。"
+                android:maxLength="11"
+                android:numeric="integer"
+                android:padding="16dp"
+                android:textColorHint="#44000000"
+                android:textSize="16sp"
+                tools:ignore="TextFields,Deprecated" />
+
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/selector_submit_btn"
+                android:text="发送反馈"
+                android:textColor="@color/tetx_title_color"
+                android:textSize="22sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

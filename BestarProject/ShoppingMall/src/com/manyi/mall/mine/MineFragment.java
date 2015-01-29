@@ -129,7 +129,16 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void feedBack() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
+        FeedbackFragment feedbackFragment = GeneratedClassUtils.getInstance(FeedbackFragment.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("phone", mLoginUsername.getText().toString().trim());
+//        voucherListFragment.setArguments(bundle);
+        feedbackFragment.tag = FeedbackFragment.class.getName();
 
+        feedbackFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        feedbackFragment.setManager(getFragmentManager());
+        feedbackFragment.show(SHOW_ADD_HIDE);
     }
 
     @Click(R.id.Layout1)

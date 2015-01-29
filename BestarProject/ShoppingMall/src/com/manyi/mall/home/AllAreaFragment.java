@@ -1,4 +1,4 @@
-package com.manyi.mall.release;
+package com.manyi.mall.home;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;

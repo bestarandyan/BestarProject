@@ -19,7 +19,7 @@ import com.manyi.mall.common.Constants;
 import com.manyi.mall.footprint.FootPrintListFragment;
 import com.manyi.mall.collect.CollectFragment;
 import com.manyi.mall.mine.MineFragment;
-import com.manyi.mall.release.HomeFragment;
+import com.manyi.mall.home.HomeFragment;
 
 @EFragment(R.layout.fragment_main)
 public class MainFragment extends SuperFragment<Object>{
