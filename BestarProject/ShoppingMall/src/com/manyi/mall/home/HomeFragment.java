@@ -40,6 +40,7 @@ import com.manyi.mall.user.HtmlLoadFragment;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
@@ -301,6 +302,21 @@ public class HomeFragment extends SuperFragment<Object> {
         htmlLoadFragment.setManager(getFragmentManager());
 
         htmlLoadFragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
+
+    @Click(R.id.searchLayout)
+    void search() {
+        if (CheckDoubleClick.isFastDoubleClick()){
+            return;
+        }
+        SearchFragment searchFragment = GeneratedClassUtils.getInstance(SearchFragment.class);
+        searchFragment.tag = SearchFragment.class.getName();
+        searchFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        searchFragment.setContainerId(R.id.main_container);
+        searchFragment.setManager(getFragmentManager());
+
+        searchFragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
     @Background
