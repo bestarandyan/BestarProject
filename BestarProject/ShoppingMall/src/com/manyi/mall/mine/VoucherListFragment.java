@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.mine.VoucherBean;
+import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -24,14 +25,18 @@ import java.util.List;
  * Created by bestar on 2015/1/29.
  */
 @EFragment(R.layout.fragment_my_voucher)
-public class VoucherListFragment extends SuperFragment {
+public class VoucherListFragment extends SuperFragment implements NLPullRefreshView.RefreshListener{
     @ViewById(R.id.myVoucherListView)
     ListView mListView;
+
+    @ViewById(R.id.refreshable_view)
+    NLPullRefreshView mRefreshView;
 
     List<VoucherBean> mList = new ArrayList<VoucherBean>();
 
     @AfterViews
     void init(){
+        mRefreshView.setRefreshListener(this);
         for (int i = 0 ;i<10;i++){
             VoucherBean bean = new VoucherBean();
             bean.setImgUrl("");
@@ -41,15 +46,23 @@ public class VoucherListFragment extends SuperFragment {
             mList.add(bean);
         }
 
-        notifyListView();
+        notifyListView(false);
     }
-    private void notifyListView(){
+    private void notifyListView(boolean isRefresh){
+        if (isRefresh) {
+            mRefreshView.finishRefresh();
+        }
         VoucherListAdapter adapter = new VoucherListAdapter();
         mListView.setAdapter(adapter);
     }
     @ItemClick(R.id.myVoucherListView)
     void OnItemClick(int position){
 
+    }
+
+    @Override
+    public void onRefresh(NLPullRefreshView view) {
+        notifyListView(true);
     }
 
     class VoucherListAdapter extends BaseAdapter {

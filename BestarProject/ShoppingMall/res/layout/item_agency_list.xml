@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/section_item_selector"
     android:padding="12dp">
-
     <ImageView
         android:id="@+id/imgCollect"
         android:layout_width="80dp"
@@ -30,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="凯奇集团"
             android:textColor="#dd000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/list_item_title_text_size" />
 
 
         <LinearLayout
@@ -46,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:text="联系人："
                 android:textColor="#8a000000"
-                android:textSize="14sp" />
+                android:textSize="@dimen/list_item_content_text_size" />
 
             <TextView
                 android:id="@+id/connectTv"
@@ -55,7 +54,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="李老师"
                 android:textColor="#8a000000"
-                android:textSize="14sp" />
+                android:textSize="@dimen/list_item_content_text_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="已代理地区："
                 android:textColor="#8a000000"
-                android:textSize="14sp" />
+                android:textSize="@dimen/list_item_content_text_size" />
 
             <TextView
                 android:id="@+id/agencyedTv"
@@ -80,7 +79,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="杭州  宁波..."
                 android:textColor="#8a000000"
-                android:textSize="14sp" />
+                android:textSize="@dimen/list_item_content_text_size" />
         </LinearLayout>
     </LinearLayout>
 

@@ -28,5 +28,7 @@
     <dimen name="complete_info_layout_height">48dp</dimen>
     <dimen name="complete_info_textview_width">100dp</dimen>
     <dimen name="btn_radius_size">5dp</dimen>
+    <dimen name="list_item_title_text_size">16sp</dimen>
+    <dimen name="list_item_content_text_size">13sp</dimen>
 
 </resources>

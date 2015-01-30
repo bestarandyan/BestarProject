@@ -12,6 +12,7 @@ import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.mine.AgencyBean;
 import com.manyi.mall.cachebean.mine.CollectBean;
+import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -25,9 +26,13 @@ import java.util.List;
  * Created by bestar on 2015/1/26.
  */
 @EFragment(R.layout.fragment_my_agency)
-public class AgencyFragment extends SuperFragment {
+public class AgencyFragment extends SuperFragment implements NLPullRefreshView.RefreshListener {
     @ViewById(R.id.myAgencyListView)
     ListView mListView;
+
+    @ViewById(R.id.refreshable_view)
+    NLPullRefreshView mRefreshView;
+
 
     List<AgencyBean> mList = new ArrayList<AgencyBean>();
 
@@ -51,6 +56,11 @@ public class AgencyFragment extends SuperFragment {
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){
+
+    }
+
+    @Override
+    public void onRefresh(NLPullRefreshView view) {
 
     }
 
