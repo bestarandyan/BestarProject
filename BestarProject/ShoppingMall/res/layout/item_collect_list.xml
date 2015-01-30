@@ -6,7 +6,13 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="12dp">
-
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:visibility="gone"
+        android:layout_marginRight="10dp"
+        />
     <ImageView
         android:layout_width="80dp"
         android:layout_height="wrap_content"

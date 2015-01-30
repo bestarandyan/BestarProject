@@ -4,7 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import com.manyi.mall.R;
 import com.manyi.mall.cachebean.mine.CollectBean;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
@@ -28,7 +31,15 @@ public class CollectFragment extends SuperFragment {
     @ViewById(R.id.myCollectListView)
     ListView mListView;
 
+    @ViewById(R.id.editBtn)
+    TextView mEditBtn;
+
+    @ViewById(R.id.bottomLayout)
+    LinearLayout mBottomLayout;
+
     List<CollectBean> mList = new ArrayList<CollectBean>();
+
+    boolean isEditing = false;
 
     @AfterViews
     void init(){
@@ -52,6 +63,20 @@ public class CollectFragment extends SuperFragment {
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){
 
+    }
+
+    @Click(R.id.editBtn)
+    void edit(){
+        if (mBottomLayout.getVisibility() == View.GONE){
+            mBottomLayout.setVisibility(View.VISIBLE);
+            isEditing = true;
+            mEditBtn.setText("完成");
+        }else{
+            mBottomLayout.setVisibility(View.GONE);
+            isEditing = false;
+            mEditBtn.setText("编辑");
+        }
+        notifyListView();
     }
 
     class CollectListAdapter extends BaseAdapter{
@@ -84,6 +109,7 @@ public class CollectFragment extends SuperFragment {
                 holder.clickCountTv = (TextView) view.findViewById(R.id.clickCountTv);
                 holder.visitCountTv = (TextView) view.findViewById(R.id.visitCountTv);
                 holder.praiseTv = (TextView) view.findViewById(R.id.praiseCountTv);
+                holder.checkBox = (CheckBox) view.findViewById(R.id.checkBox);
                 view.setTag(holder);
             }else{
                 holder = (ViewHolder) view.getTag();
@@ -95,11 +121,17 @@ public class CollectFragment extends SuperFragment {
             holder.clickCountTv.setText(String.valueOf(bean.getClickCount()));
             holder.visitCountTv.setText(String.valueOf(bean.getVisitCount()));
             holder.praiseTv.setText(String.valueOf(bean.getPraiseCount()));
+            if (isEditing){
+                holder.checkBox.setVisibility(View.VISIBLE);
+            }else{
+                holder.checkBox.setVisibility(View.GONE);
+            }
             return view;
         }
 
         class ViewHolder{
             ImageView img;
+            CheckBox checkBox;
             TextView companyTv,cityTv,introduceTv,clickCountTv,visitCountTv,praiseTv;
         }
     }
