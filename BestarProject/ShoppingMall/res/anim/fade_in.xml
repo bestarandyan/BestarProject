@@ -6,7 +6,7 @@
         android:toXScale="1.0"   
         android:fromYScale="0.001"   
         android:toYScale="1.0"   
-        android:pivotX="1.0"  
-        android:pivotY="0.1"  
-        android:duration="200" />  
+        android:pivotX="1.0"
+        android:pivotY="0.1"
+        android:duration="200" />
    

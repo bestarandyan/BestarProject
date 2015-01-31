@@ -20,7 +20,8 @@
         android:layout_alignParentBottom="true"
         android:background="@color/color_ffffff"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:id="@+id/bottomShareLayout"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/wechatShareBtn"
