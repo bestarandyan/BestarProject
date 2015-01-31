@@ -14,6 +14,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
@@ -48,8 +49,15 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     private UcService mUserService;
     private CommonService mAppLoadService;
 
+    @ViewById(R.id.Layout1)
+    TextView mLayout1;
     @AfterViews
     void loadDate() {
+        if(true){
+            mLayout1.setText("代理付款明细");
+        }else{
+            mLayout1.setText("我的代金券");
+        }
         //切换开关
         mSwitchBtn.toggle();
         //开关切换事件
@@ -145,6 +153,16 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void layoutClick() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
+
+        if(true){
+            gotoAgencyPay();
+        }else{
+            gotoVoucher();
+        }
+
+    }
+
+    private void gotoVoucher(){
         VoucherListFragment voucherListFragment = GeneratedClassUtils.getInstance(VoucherListFragment.class);
 //        Bundle bundle = new Bundle();
 //        bundle.putString("phone", mLoginUsername.getText().toString().trim());
@@ -155,6 +173,19 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
                 R.anim.anim_fragment_close_out);
         voucherListFragment.setManager(getFragmentManager());
         voucherListFragment.show(SHOW_ADD_HIDE);
+    }
+
+    private void gotoAgencyPay(){
+        AgencyPayListFragment agencyPayListFragment = GeneratedClassUtils.getInstance(AgencyPayListFragment.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("phone", mLoginUsername.getText().toString().trim());
+//        agencyPayListFragment.setArguments(bundle);
+        agencyPayListFragment.tag = AgencyPayListFragment.class.getName();
+
+        agencyPayListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        agencyPayListFragment.setManager(getFragmentManager());
+        agencyPayListFragment.show(SHOW_ADD_HIDE);
     }
 
     @Click(R.id.shareApp)
