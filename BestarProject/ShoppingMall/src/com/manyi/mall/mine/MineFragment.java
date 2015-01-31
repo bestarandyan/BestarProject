@@ -188,11 +188,24 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         agencyPayListFragment.show(SHOW_ADD_HIDE);
     }
 
+    private void gotoShare(){
+        ShareFragment shareFragment = GeneratedClassUtils.getInstance(ShareFragment.class);
+    //        Bundle bundle = new Bundle();
+    //        bundle.putString("phone", mLoginUsername.getText().toString().trim());
+    //        agencyPayListFragment.setArguments(bundle);
+        shareFragment.tag = ShareFragment.class.getName();
+
+//        shareFragment.setCustomAnimations(R.anim.slide_in_from_bottom, R.anim.slide_out_to_top, R.anim.slide_in_from_top,
+//                    R.anim.slide_out_to_bottom);
+        shareFragment.setManager(getFragmentManager());
+        shareFragment.show(SHOW_ADD_HIDE);
+        }
+
     @Click(R.id.shareApp)
     void shareApp() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-
+        gotoShare();
     }
     @Click(R.id.supportUsTv)
     void supportUs() {
