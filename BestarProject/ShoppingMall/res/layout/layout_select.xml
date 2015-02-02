@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/transLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000"
+        android:clickable="true"
+        android:orientation="vertical"></LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/color_ffffff"
+        android:divider="@color/line_mine_color"
+        android:dividerHeight="1dp"
+        android:id="@+id/selectListView"
+        android:fadeScrollbars="@null"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        ></ListView>
+</RelativeLayout>

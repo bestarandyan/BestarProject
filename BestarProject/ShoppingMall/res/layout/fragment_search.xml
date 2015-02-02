@@ -33,21 +33,82 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:gravity="center"
                     android:drawableLeft="@drawable/searchfield_ic_search"
+                    android:gravity="center"
                     android:text="请输入搜索内容"
-                    android:textColor="#a1a1a1"
-                     />
+                    android:textColor="#a1a1a1" />
             </LinearLayout>
         </RelativeLayout>
 
+        <com.manyi.mall.widget.filtrate.FiltrateView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg_color"
+            android:id="@+id/filtrateView"
+            android:orientation="vertical">
+
             <LinearLayout
+                android:id="@+id/selectLayoutParent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/app_bg_color"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/selectLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/icon_menu"
+                    android:drawablePadding="6dp"
+                    android:drawableRight="@drawable/up_arrow"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="户外大型游乐"
+                    android:textColor="#80000000" />
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/line_mine_color"></View>
+
+                <TextView
+                    android:id="@+id/selectLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/upanddownarrow"
+                    android:drawablePadding="6dp"
+                    android:drawableRight="@drawable/up_arrow"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:text="智能排序"
+                    android:textColor="#80000000" />
             </LinearLayout>
+
+            <View
+                android:id="@+id/selectLayoutLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/selectLayoutParent"
+                android:background="@color/line_mine_color"></View>
+
+            <com.manyi.mall.widget.refreshview.NLPullRefreshView
+                android:id="@+id/refreshable_view"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:background="@color/color_ffffff"
+                android:layout_below="@id/selectLayoutLine"
+                android:layout_height="match_parent" >
+                <com.huoqiu.widget.pinnedlistview.PinnedHeaderListView
+                    android:id="@+id/searchListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null" >
+                </com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
+            </com.manyi.mall.widget.refreshview.NLPullRefreshView>
+        </com.manyi.mall.widget.filtrate.FiltrateView>
     </LinearLayout>
 </FrameLayout>

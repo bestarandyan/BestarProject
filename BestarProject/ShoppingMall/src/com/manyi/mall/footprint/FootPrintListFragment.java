@@ -84,7 +84,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     }
     @Override
     public void onRefresh(NLPullRefreshView view) {
-
+          notifyCheckedList(true);
     }
 
 
