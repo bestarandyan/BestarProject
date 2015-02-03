@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Cap;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.RectF;
 
@@ -252,9 +253,32 @@ public class ToggleButton extends View{
 		canvas.drawRoundRect(rect, spotR, spotR, paint);
 		
 	}
-	
-	
-	/**
+    float startx,starty;
+    boolean isChangeFromEvent = false;
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN){
+            startx = event.getX();
+            starty = event.getY();
+            isChangeFromEvent = false;
+        }else if (event.getAction() == MotionEvent.ACTION_MOVE){
+            if (startx > event.getX() && startx - event.getX() > 2 && toggleOn){//向左   关闭
+                toggle();
+                isChangeFromEvent = true;
+            }else if (startx < event.getX() && Math.abs(startx - event.getX()) > 2 && !toggleOn){//向右  打开
+                toggle();
+                isChangeFromEvent = true;
+            }
+        }else if (event.getAction() == MotionEvent.ACTION_UP){
+            if (Math.abs(startx - event.getX()) <= 2 || !isChangeFromEvent){//向右  打开
+                toggle();
+            }
+        }
+        return true;
+    }
+
+    /**
 	 * @author ThinkPad
 	 *
 	 */
