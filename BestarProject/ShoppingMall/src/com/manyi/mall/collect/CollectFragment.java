@@ -1,5 +1,6 @@
 package com.manyi.mall.collect;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,11 @@ public class CollectFragment extends SuperFragment {
     List<CollectBean> mList = new ArrayList<CollectBean>();
 
     boolean isEditing = false;
-
+    @Override
+    public void onAttach(Activity activity) {
+        setBackOp(null);
+        super.onAttach(activity);
+    }
     @AfterViews
     void init(){
         for (int i = 0 ;i<10;i++){

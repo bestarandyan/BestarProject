@@ -1,5 +1,6 @@
 package com.manyi.mall.footprint;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -61,6 +62,13 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         }
         mResponse.setResult(list);
         notifyCheckedList(false);
+    }
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        setBackOp(null);
+        super.onAttach(activity);
     }
 
     @UiThread
