@@ -33,6 +33,7 @@ import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.user.UpdateUserPublicNumRequest;
 import com.manyi.mall.common.Constants;
+import com.manyi.mall.search.SearchFragment;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.UcService;
 import com.manyi.mall.service.UserTaskService;
@@ -309,14 +310,45 @@ public class HomeFragment extends SuperFragment<Object> {
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
-        ProductListFragment searchFragment = GeneratedClassUtils.getInstance(ProductListFragment.class);
-        searchFragment.tag = ProductListFragment.class.getName();
+        SearchFragment searchFragment = GeneratedClassUtils.getInstance(SearchFragment.class);
+        searchFragment.tag = SearchFragment.class.getName();
         searchFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         searchFragment.setContainerId(R.id.main_container);
         searchFragment.setManager(getFragmentManager());
 
         searchFragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
+
+    @Click(R.id.model1Layout1)
+    void model1Layout1() {
+        gotoProductListFragment();
+    }
+    @Click(R.id.model1Layout2)
+    void model1Layout2() {
+        gotoProductListFragment();
+    }
+    @Click(R.id.model1Layout3)
+    void model1Layout3() {
+        gotoProductListFragment();
+    }
+    @Click(R.id.model1Layout4)
+    void model1Layout4() {
+        gotoProductListFragment();
+    }
+
+    private void gotoProductListFragment(){
+        if (CheckDoubleClick.isFastDoubleClick()){
+            return;
+        }
+        ProductListFragment productListFragment = GeneratedClassUtils.getInstance(ProductListFragment.class);
+        productListFragment.tag = ProductListFragment.class.getName();
+        productListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        productListFragment.setContainerId(R.id.main_container);
+        productListFragment.setManager(getFragmentManager());
+
+        productListFragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
     @Background
