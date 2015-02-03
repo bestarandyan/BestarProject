@@ -309,8 +309,8 @@ public class HomeFragment extends SuperFragment<Object> {
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
-        SearchFragment searchFragment = GeneratedClassUtils.getInstance(SearchFragment.class);
-        searchFragment.tag = SearchFragment.class.getName();
+        ProductListFragment searchFragment = GeneratedClassUtils.getInstance(ProductListFragment.class);
+        searchFragment.tag = ProductListFragment.class.getName();
         searchFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         searchFragment.setContainerId(R.id.main_container);

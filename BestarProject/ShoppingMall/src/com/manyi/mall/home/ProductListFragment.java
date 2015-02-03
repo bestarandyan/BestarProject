@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
@@ -30,15 +28,13 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by bestar on 2015/1/29.
  */
-@EFragment(R.layout.fragment_search)
-public class SearchFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
+@EFragment(R.layout.fragment_product_list)
+public class ProductListFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
     @ViewById(R.id.filtrateView)
     FiltrateView mFiltrateView;
 
