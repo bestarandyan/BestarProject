@@ -52,18 +52,8 @@ public class StartActivity extends BaseActivity {
 	 * 获取测试Ip
 	 */
 	private void initIp() {
-		if (Configuration.DEFAULT == Configuration.TEST) {
-			String ip = DBUtil.getInstance().getUserSetting(this, "ip");
-			String port = DBUtil.getInstance().getUserSetting(this, "port");
-			if (!StringUtil.isEmptyOrNull(ip) && !StringUtil.isEmptyOrNull(port)) {
-				Configuration.DEFAULT.hostname = ip;
-				Configuration.DEFAULT.port = StringUtil.toInt(port);
-			}
-		} else {
-			Configuration.DEFAULT.hostname = "fyb365.com";
+			Configuration.DEFAULT.hostname = "shopapp.iiyey.com";
 			Configuration.DEFAULT.port = 80;
-
-		}
 		Configuration.DEFAULT.protocol = "http";
 		Configuration.DEFAULT.path = "/rest";
 	}

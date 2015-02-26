@@ -39,7 +39,7 @@ public class AppAuthInterceptor implements ClientHttpRequestInterceptor {
     private String userId = "user_id"; // 已登录用户ID
     private String u_ticket = "u_ticket";// 已登录用户的Cookie
 
-    private String appKeyLabel = "App-Key"; // key
+    private String appKeyLabel = "appKey"; // key
     private String appSecretLabel = "App-Secret"; // secret
     private String distance = "distance";
 
@@ -55,11 +55,6 @@ public class AppAuthInterceptor implements ClientHttpRequestInterceptor {
         } else {
             data = "".getBytes();
             map = new HashMap<String, Object>(0);
-        }
-
-        if (Configuration.DEFAULT == Configuration.TEST || Configuration.DEFAULT == Configuration.IWJW_TEST) {
-            // 非正式版本，打印服务Log
-            showRequestJSON(map);
         }
 
         List<Map.Entry<String, Object>> params = new ArrayList<Map.Entry<String, Object>>(map.entrySet());//

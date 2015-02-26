@@ -238,9 +238,6 @@ public class DBUtil {
 			File tmpFile = new File(tmpDatabaseFullPath);
 			tmpFile.delete();
 
-			if (Configuration.DEFAULT == Configuration.TEST) {
-				copyFile(context, null, null);
-			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

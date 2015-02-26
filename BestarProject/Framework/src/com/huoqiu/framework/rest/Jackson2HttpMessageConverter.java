@@ -19,17 +19,7 @@ public class Jackson2HttpMessageConverter extends MappingJackson2HttpMessageConv
     protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage) throws IOException {
         getObjectMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
-        if (Configuration.DEFAULT == Configuration.TEST || Configuration.DEFAULT == Configuration.IWJW_TEST) {
-            String jsonData = getStringFromStream(inputMessage.getBody());
-
-            Log.d(TAG, "------------------- Respose Start  --------------");
-            Log.d(TAG, jsonData);
-            Log.d(TAG, "------------------- Respose  End   --------------");
-            JavaType javaType = getJavaType(clazz);
-            return super.getObjectMapper().readValue(jsonData, javaType);
-        } else {
             return super.readInternal(clazz, inputMessage);
-        }
     }
 
     public String getStringFromStream(InputStream in) throws IOException {

@@ -6,6 +6,8 @@ import com.huoqiu.framework.rest.RequestMapping;
 import com.huoqiu.framework.rest.Response;
 import com.huoqiu.framework.rest.RestService;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.GetProvinceRequest;
+import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.user.LoginRequest;
 import com.manyi.mall.cachebean.user.LoginResponse;
 import com.manyi.mall.cachebean.user.ModifyLoginPwdRequest;
@@ -15,13 +17,13 @@ import com.manyi.mall.cachebean.user.RegisterAgainRequest;
 import com.manyi.mall.cachebean.user.ResetPasswordRequest;
 import com.manyi.mall.cachebean.user.UpdateUserPublicNumRequest;
 
-@RequestMapping(value = "/uc", interceptors = AppAuthInterceptor.class)
+@RequestMapping(value = "/", interceptors = AppAuthInterceptor.class)
 public interface UcService extends RestService {
 
     //
-    @Loading(value = R.id.loading, layout = R.layout.loading, container = R.id.login_relative_layout)
-    @RequestMapping("/userLogin.rest")
-    public LoginResponse login(LoginRequest request);
+    @Loading(value = R.id.loading, layout = R.layout.loading, container = R.id.register_next_relative_layout)
+    @RequestMapping("NoLogin.aspx")
+    public GetProvinceResponse getProvince(GetProvinceRequest request);
 
 
 

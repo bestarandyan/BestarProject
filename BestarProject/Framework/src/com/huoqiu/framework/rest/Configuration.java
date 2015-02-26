@@ -2,29 +2,7 @@ package com.huoqiu.framework.rest;
 
 public enum Configuration {
     /***************FYB Configuration**********************/
-    // TEST("http", "192.168.1.244", 8889, "/rest"),
-    // RELEASE("http", "agentapp.iwjw.com", 80, "/IWAgentSOA/agentapp"),
-    // TEST("http", "userappbeta.iwjw.com", 8101, "/ihouse"),
-    // RELEASE("http", "fyb365.com", 80, "/rest"),
-
-    TEST("http", "192.168.1.14", 8123, "/contractAppserver"),
-//     TEST("http", "121.40.129.114", 8125, "/contractAppserver"),
-//    TEST("http", "121.40.129.114", 8103, "/rest"),
-//    RELEASE("http", "contractappsrv.iwjwagent.com", 80, ""),
-    RELEASE("http", "contractappsrv.iwjwagent.com", 80, ""),
-
-//    TEST("http", "192.168.1.14", 8103, "/rest"),RELEASE("http", "fyb365.com", 80, "/rest"),
-
-
-
-    /***************IW Configuration**********************/
-    IWJW_RELEASE("http", "userapp.iwjw.com", 80, "/ihouse"),
-    IWJW_BETA("http", "userappbeta.iwjw.com", 8101, "/ihouse"),
-    IWJW_TEST("http", "192.168.1.15", 8101, "/ihouse"),
-    IWJW_TEST2("http", "192.168.1.213", 8080, "/ihouse"),
-    IWJW_TEST3("http", "192.168.1.183", 8080, "/ihouse");
-
-
+    RELEASE("http", "shopapp.iiyey.com", 0, "");
 
     private Configuration(String protocol, String hostname, int port, String path) {
         this.protocol = protocol;
@@ -32,9 +10,9 @@ public enum Configuration {
         this.port = port;
     }
 
-    public static Configuration DEFAULT = TEST;
+    public static Configuration DEFAULT = RELEASE;
 
-    public String appKey = "fybao.superjia.com";
+    public String appKey = "123456";
     // 报文头需要的字段
     public String appKeyLabel = "App-Key"; // key
     public String appSecretLabel = "App-Secret"; // secret
@@ -51,11 +29,11 @@ public enum Configuration {
     public String path = "/rest";
 
     public String getRootUrl() {
-        return protocol + "://" + hostname + ":" + port + path;
+        return protocol + "://" + hostname;
     }
 
     public String getDomain() {
-        return protocol + "://" + hostname + ":" + port;
+        return protocol + "://" + hostname ;
     }
 
 }

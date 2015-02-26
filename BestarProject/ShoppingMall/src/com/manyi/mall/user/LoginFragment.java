@@ -122,39 +122,39 @@ public class LoginFragment extends SuperFragment<Integer> {
         req.setLoginName(name);
         req.setPassword(password);
 
-        try {
-            LoginResponse res = mUserService.login(req);
-            if (getActivity() != null && !getActivity().isFinishing()) {
-                int state = res.getState();
-                String bankCode = res.getBankCode();
-                SharedPreferences sharedPreferences2 = getBackOpActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE);
-                Editor editor = sharedPreferences2.edit();
-                editor.putInt("uid", res.getUid());
-                editor.putInt("sumCount", res.getPublishCount());
-                editor.putInt("state", res.getState());
-                try {
-                    editor.putString("password", AESUtil.encrypt(password, CommonConfig.AES_KEY));
-                    editor.putString("name", AESUtil.encrypt(name, CommonConfig.AES_KEY));
-                    editor.putString("userName", AESUtil.encrypt(res.getUserName(), CommonConfig.AES_KEY));
-                    editor.putString("realName", AESUtil.encrypt(res.getRealName(), CommonConfig.AES_KEY));
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-                editor.putInt("PublishCount", res.getPublishCount());
-                editor.putInt("surplusCount", res.getSumCount());
-                editor.putBoolean("isfisrt", isfisrt);
-                editor.putInt("cityId", res.getCityId());
-                editor.putString("cityName", res.getCityName());
-                editor.commit();
-                initTab(state, bankCode);
-                ManyiUtils.closeKeyBoard(getBackOpActivity(), mLoginPassword);
-            }
-
-        } catch (RestException e) {
-            throw e;
-        }
+//        try {
+//            LoginResponse res = mUserService.login(req);
+//            if (getActivity() != null && !getActivity().isFinishing()) {
+//                int state = res.getState();
+//                String bankCode = res.getBankCode();
+//                SharedPreferences sharedPreferences2 = getBackOpActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE);
+//                Editor editor = sharedPreferences2.edit();
+//                editor.putInt("uid", res.getUid());
+//                editor.putInt("sumCount", res.getPublishCount());
+//                editor.putInt("state", res.getState());
+//                try {
+//                    editor.putString("password", AESUtil.encrypt(password, CommonConfig.AES_KEY));
+//                    editor.putString("name", AESUtil.encrypt(name, CommonConfig.AES_KEY));
+//                    editor.putString("userName", AESUtil.encrypt(res.getUserName(), CommonConfig.AES_KEY));
+//                    editor.putString("realName", AESUtil.encrypt(res.getRealName(), CommonConfig.AES_KEY));
+//                } catch (Exception e) {
+//                    // TODO Auto-generated catch block
+//                    e.printStackTrace();
+//                }
+//
+//                editor.putInt("PublishCount", res.getPublishCount());
+//                editor.putInt("surplusCount", res.getSumCount());
+//                editor.putBoolean("isfisrt", isfisrt);
+//                editor.putInt("cityId", res.getCityId());
+//                editor.putString("cityName", res.getCityName());
+//                editor.commit();
+//                initTab(state, bankCode);
+//                ManyiUtils.closeKeyBoard(getBackOpActivity(), mLoginPassword);
+//            }
+//
+//        } catch (RestException e) {
+//            throw e;
+//        }
 
     }
 

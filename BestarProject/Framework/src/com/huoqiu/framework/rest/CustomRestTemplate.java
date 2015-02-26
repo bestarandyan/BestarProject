@@ -81,7 +81,7 @@ public class CustomRestTemplate extends RestTemplate {
 			} else {
 				return null;
 			}
-			
+
 		} catch (ConnectTimeoutException e) {
 			throw new ClientException("请求超时，请稍后重试！", ClientException.REQUEST_NETWORK, e);
 		} catch (Exception ex) {
