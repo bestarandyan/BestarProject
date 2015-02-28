@@ -1,16 +1,12 @@
 package com.manyi.mall.user;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
@@ -18,11 +14,7 @@ import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.MainActivity;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.user.LoginRequest;
-import com.manyi.mall.cachebean.user.LoginResponse;
-import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
-import com.manyi.mall.common.util.AESUtil;
-import com.manyi.mall.service.UcService;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
@@ -34,7 +26,6 @@ import org.androidannotations.annotations.ViewById;
 @EFragment(R.layout.fragment_login)
 public class LoginFragment extends SuperFragment<Integer> {
     private final String mPageName = LoginFragment.class.getSimpleName();
-    private UcService mUserService;
     private boolean isfisrt;
 
     @ViewById(R.id.login_password)

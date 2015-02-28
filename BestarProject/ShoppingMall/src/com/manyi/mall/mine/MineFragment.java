@@ -23,14 +23,11 @@ import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
-import com.huoqiu.framework.util.ManyiUtils;
 import com.huoqiu.widget.filedownloader.FileDownloadListener;
 import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.CommonService;
-import com.manyi.mall.service.UcService;
-import com.manyi.mall.user.ForgetPasswordFragment;
 import com.manyi.mall.widget.switchView.ToggleButton;
 
 import org.androidannotations.annotations.AfterViews;
@@ -46,7 +43,6 @@ import java.io.File;
 public class MineFragment extends SuperFragment<Object> implements android.content.DialogInterface.OnClickListener {
     @ViewById(R.id.switchBtn)
     ToggleButton mSwitchBtn;
-    private UcService mUserService;
     private CommonService mAppLoadService;
 
     @ViewById(R.id.Layout1)

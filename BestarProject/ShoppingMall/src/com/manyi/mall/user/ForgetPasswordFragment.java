@@ -1,19 +1,7 @@
 package com.manyi.mall.user;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.FragmentArg;
-import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
-
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.animation.Animation;
@@ -21,13 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
-import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
-import com.manyi.mall.service.UcService;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @EFragment(R.layout.fragment_forget_password)
 public class ForgetPasswordFragment extends SuperFragment<Integer> {
@@ -40,7 +35,6 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 	@FragmentArg
 	String phone;
 	private long mCode;
-	private UcService mUserService;
 	private boolean isFirstEnter = true;
 	
 	public static boolean isPhoneNumberValid(String text) {

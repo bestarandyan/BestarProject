@@ -77,6 +77,16 @@ public String register(String UserName,String Password,String RealName,String Se
  		return msgString;
  	}
 
+public String getRegisterCode(String MobilePhone){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "yanzhen"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
+ 		params.add(new BasicNameValuePair("MobilePhone", MobilePhone));
+ 		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
 
 	
 	/**

@@ -20,7 +20,6 @@ import com.manyi.mall.R;
 import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.util.AESUtil;
-import com.manyi.mall.service.UcService;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -40,7 +39,6 @@ public class ChangePhoneNumberFragment extends SuperFragment<Integer> {
     @ViewById(R.id.get_verify_code)
     Button mGetVerifyCode;
     private String phone;
-    private UcService mUserService;
     private boolean isFirstEnter = true;
 
     /**

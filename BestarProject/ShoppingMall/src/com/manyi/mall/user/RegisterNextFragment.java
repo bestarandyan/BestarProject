@@ -1,7 +1,6 @@
 package com.manyi.mall.user;
 
 import android.annotation.TargetApi;
-import android.drm.DrmStore;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -16,13 +15,12 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.BaseResponse;
-import com.manyi.mall.cachebean.GetProvinceRequest;
-import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
-import com.manyi.mall.service.UcService;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
@@ -31,7 +29,6 @@ import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Map;
@@ -89,7 +86,6 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     @FragmentArg
     String password;
 
-    UcService mUcService;
     List<Map<String,String>> provinceList;
     List<Map<String,String>> cityList;
     List<Map<String,String>> countyList;
@@ -241,6 +237,17 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     @UiThread
     void registerSuccess(){
         Toast.makeText(getActivity(),"注册成功",Toast.LENGTH_LONG).show();
+        gotoNextStep();
+    }
+    @UiThread
+    void gotoNextStep(){
+        RegisterPhoneCheckFragment fragment = GeneratedClassUtils.getInstance(RegisterPhoneCheckFragment.class);
+        fragment.tag = RegisterPhoneCheckFragment.class.getName();
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
+        ManyiUtils.closeKeyBoard(getActivity(), mStudentCountEt);
     }
 
     @UiThread

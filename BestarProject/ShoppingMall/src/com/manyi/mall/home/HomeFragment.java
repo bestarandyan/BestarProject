@@ -31,11 +31,9 @@ import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.user.UpdateUserPublicNumRequest;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.search.SearchFragment;
 import com.manyi.mall.service.CommonService;
-import com.manyi.mall.service.UcService;
 import com.manyi.mall.service.UserTaskService;
 import com.manyi.mall.user.HtmlLoadFragment;
 
@@ -77,7 +75,6 @@ public class HomeFragment extends SuperFragment<Object> {
     private ScheduledExecutorService scheduledExecutor;
 
     CommonService commonService;
-    UcService mUserService;
 
 
     ArrayList<View> pageViews = new ArrayList<View>();
@@ -351,24 +348,5 @@ public class HomeFragment extends SuperFragment<Object> {
         productListFragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
-    @Background
-    public void onUpdateSellRecord() {
-        uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
-        UpdateUserPublicNumRequest numRequest = new UpdateUserPublicNumRequest();
-        numRequest.setUserId(uid);
-        numRequest.setType(2);
-        mUserService.updatePublicNum(numRequest);
-    }
-
-
-
-    @Background
-    public void onUpdateRentRecord() {
-        uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
-        UpdateUserPublicNumRequest numRequest = new UpdateUserPublicNumRequest();
-        numRequest.setUserId(uid);
-        numRequest.setType(1);
-        mUserService.updatePublicNum(numRequest);
-    }
 
 }

@@ -1,17 +1,5 @@
 package com.manyi.mall.mine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Pattern;
-
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.ViewById;
-import org.springframework.util.StringUtils;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -45,15 +33,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.rest.Response;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.manyi.mall.R;
-import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
-import com.manyi.mall.common.util.AESUtil;
 import com.manyi.mall.common.util.Cn2Spell;
 import com.manyi.mall.mine.ContactsLetterListView.OnTouchingLetterChangedListener;
-import com.manyi.mall.service.UcService;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ViewById;
+import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * 联系人列表
@@ -84,7 +80,6 @@ public class ContactsFragment extends SuperFragment<Integer> {
 	ProgressBar mProgressBar;
 	private List<ContentValues> list = null;
 	private int checkNum = 0;
-	private UcService mUserService;
 
 
 	/* 建立两个mServiceReceiver对象，作为类成员变量 */

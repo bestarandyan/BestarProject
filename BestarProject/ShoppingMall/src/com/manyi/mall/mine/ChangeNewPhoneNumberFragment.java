@@ -12,7 +12,6 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.huoqiu.widget.PhoneEditTextView;
 import com.manyi.mall.R;
-import com.manyi.mall.service.UcService;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -36,7 +35,6 @@ public class ChangeNewPhoneNumberFragment extends SuperFragment<Object> {
     @ViewById(R.id.get_verification)
     Button mGetVerification; //获取验证码
 
-    private UcService mUcService;
     private boolean isFirstEnter = true;
 
 

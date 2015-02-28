@@ -1,11 +1,5 @@
 package com.manyi.mall.user;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,7 +19,12 @@ import com.manyi.mall.cachebean.user.ModifyLoginPwdRequest;
 import com.manyi.mall.common.CommonConfig;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.util.AESUtil;
-import com.manyi.mall.service.UcService;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
 
 @EFragment(R.layout.fragment_update_login_pwd)
 public class UpdateLoginPwdFragment extends SuperFragment<Object> {
@@ -46,7 +45,6 @@ public class UpdateLoginPwdFragment extends SuperFragment<Object> {
 	public TextView mModifyPasswordBack;
 
 	
-	private UcService mUserService;
 
 	private ProgressDialog mUpdateDialog;
 	private ProgressDialog mUpdateSuccessDialog;
@@ -106,31 +104,31 @@ public class UpdateLoginPwdFragment extends SuperFragment<Object> {
 
 					@Override
 					public void run() {
-						try {
-							ModifyLoginPwdRequest updateLoginPwdRequest = new ModifyLoginPwdRequest();
-							int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
-							updateLoginPwdRequest.setUid(uid);
-							updateLoginPwdRequest.setOldPwd(mOldPassword.getEditableText().toString().trim());
-							updateLoginPwdRequest.setNewPwd(mNewPassword.getEditableText().toString().trim());
-							updateLoginPwdRequest.setConfPwd(mConfirmPassword.getEditableText().toString().trim());
-							Response response = mUserService.modifyLoginPwd(updateLoginPwdRequest);
-							int responseCode = response.getErrorCode();
-							if (responseCode == 0) {
-								// 修改成功
-								onUpdateSuccess1();
-								try {
-									Thread.sleep(2000);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-								onUpdateSuccess2();
-							} else {
-								onNetworkFailed(response.getMessage());
-							}
-						} catch (Exception e) {
-							// 修改失败
-							onUpdateFailed(e.getMessage());
-						}
+//						try {
+//							ModifyLoginPwdRequest updateLoginPwdRequest = new ModifyLoginPwdRequest();
+//							int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
+//							updateLoginPwdRequest.setUid(uid);
+//							updateLoginPwdRequest.setOldPwd(mOldPassword.getEditableText().toString().trim());
+//							updateLoginPwdRequest.setNewPwd(mNewPassword.getEditableText().toString().trim());
+//							updateLoginPwdRequest.setConfPwd(mConfirmPassword.getEditableText().toString().trim());
+//							Response response = mUserService.modifyLoginPwd(updateLoginPwdRequest);
+//							int responseCode = response.getErrorCode();
+//							if (responseCode == 0) {
+//								// 修改成功
+//								onUpdateSuccess1();
+//								try {
+//									Thread.sleep(2000);
+//								} catch (InterruptedException e) {
+//									e.printStackTrace();
+//								}
+//								onUpdateSuccess2();
+//							} else {
+//								onNetworkFailed(response.getMessage());
+//							}
+//						} catch (Exception e) {
+//							// 修改失败
+//							onUpdateFailed(e.getMessage());
+//						}
 					}
 				}).start();
 			} else {

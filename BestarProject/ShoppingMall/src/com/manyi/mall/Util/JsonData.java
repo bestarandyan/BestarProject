@@ -11,6 +11,7 @@ import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
+import com.manyi.mall.cachebean.user.GetRegisterCodeResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -156,6 +157,20 @@ public class JsonData {
             bean = new BaseResponse();
             bean.setCode(jsonObject.getString("Code"));
             bean.setMessage(jsonObject.getString("Message"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return bean;
+    }
+
+    public GetRegisterCodeResponse JsonRegisterCode(String msg) {
+        GetRegisterCodeResponse bean =null;
+        try {
+            JSONObject jsonObject = new JSONObject(msg);
+            bean = new GetRegisterCodeResponse();
+            bean.setCode(jsonObject.getString("Code"));
+            bean.setMessage(jsonObject.getString("Message"));
+            bean.setYZCode(jsonObject.getString("YZCode"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
