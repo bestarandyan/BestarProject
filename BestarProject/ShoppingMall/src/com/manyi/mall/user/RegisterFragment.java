@@ -24,6 +24,7 @@ import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.user.RegistRequest;
+import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.service.UcService;
 
 @EFragment(R.layout.fragment_register)
@@ -34,6 +35,8 @@ public class RegisterFragment extends SuperFragment<Object> {
 
 	@ViewById(R.id.register_pwd)
 	EditText mRegisterPwd;
+
+
 
 	private UcService mUserService;
 
@@ -85,6 +88,7 @@ public class RegisterFragment extends SuperFragment<Object> {
 	}
 
 
+
 	@Click({ R.id.register_back })
 	public void registerBack() {
 		if (CheckDoubleClick.isFastDoubleClick())
@@ -124,7 +128,10 @@ public class RegisterFragment extends SuperFragment<Object> {
     void gotoRegisterNextStep(){
         RegisterNextFragment registerNextFragment = GeneratedClassUtils.getInstance(RegisterNextFragment.class);
         registerNextFragment.tag = RegisterNextFragment.class.getName();
-
+        Bundle bundle = new Bundle();
+        bundle.putString("userName",mPhoneNumber.getText().toString());
+        bundle.putString("password",mRegisterPwd.getText().toString());
+        registerNextFragment.setArguments(bundle);
         registerNextFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         registerNextFragment.setManager(getFragmentManager());

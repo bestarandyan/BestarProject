@@ -44,9 +44,10 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:text="继续"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:background="@null"
                 android:layout_alignParentRight="true"
+                android:id="@+id/goonBtn"
                 />
         </RelativeLayout>
         <View
@@ -449,54 +450,7 @@
                     android:layout_marginTop="10dp"
                     android:background="#e1e1e1"></View>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:background="@color/color_ffffff"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    tools:ignore="UselessParent">
 
-                    <TextView
-                        android:id="@+id/xing8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        android:visibility="invisible"
-                        tools:ignore="TextFields" />
-
-                    <TextView
-                        android:layout_width="@dimen/complete_info_textview_width"
-                        android:gravity="right"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing8"
-                        android:text="邮箱"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
-
-                    <EditText
-                        android:id="@+id/emailEt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@null"
-                        android:hint="请输入邮箱地址"
-                        android:singleLine="true"
-                        android:inputType="textEmailAddress"
-                        android:minWidth="100dp"
-                        android:textColorHint="#afafaf" />
-                </RelativeLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#e1e1e1"></View>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

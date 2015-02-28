@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
@@ -147,24 +148,19 @@ public class JsonData {
         }
         return jsonStr;
     }
-//	/**
-//	 * 入园
-//	 * @param msg
-//	 */
-//	public InSchoolBean jsonInSchool(String msg) {
-//        InSchoolBean bean =null;
-//        try {
-//            JSONObject jsonObject = new JSONObject(msg);
-//            bean = new InSchoolBean();
-//            bean.setResult(jsonObject.getString("result"));
-//            bean.setInfo(jsonObject.getString("info"));
-//            bean.setEntertime(jsonObject.getString("entertime"));
-//            bean.setLeavetime(jsonObject.getString("leavetime"));
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        return bean;
-//    }
+
+	public BaseResponse JsonBase(String msg) {
+        BaseResponse bean =null;
+        try {
+            JSONObject jsonObject = new JSONObject(msg);
+            bean = new BaseResponse();
+            bean.setCode(jsonObject.getString("Code"));
+            bean.setMessage(jsonObject.getString("Message"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return bean;
+    }
 //
 //	/**
 //	 * 出园

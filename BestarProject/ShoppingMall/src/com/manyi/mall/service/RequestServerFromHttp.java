@@ -54,26 +54,26 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-	public String OutSchool(String schoolId,String persionId){
+public String register(String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
- 		params.add(new BasicNameValuePair("method", "Door.SchoolIn"));
+ 		params.add(new BasicNameValuePair("method", "GardenerRegister"));
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
- 		params.add(new BasicNameValuePair("SchoolID", schoolId));
- 		params.add(new BasicNameValuePair("Personid", persionId));
- 		params.add(new BasicNameValuePair("Remarks","1"));
- 		msgString = getData(SERVER_ADDRESS, params);
- 		return msgString;
- 	}
-
-	public String getStudentData(String schoolId,String userCode){
- 		String msgString = "";
- 		List<NameValuePair> params = new ArrayList<NameValuePair>();
- 		params.add(new BasicNameValuePair("method", "Door.SchoolPersonnel_List"));
- 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
- 		params.add(new BasicNameValuePair("SchoolID", schoolId));
- 		params.add(new BasicNameValuePair("UserCode", userCode));
- 		msgString = getData(SERVER_ADDRESS, params);
+ 		params.add(new BasicNameValuePair("UserName", UserName));
+ 		params.add(new BasicNameValuePair("Password", Password));
+ 		params.add(new BasicNameValuePair("Type", "2"));
+ 		params.add(new BasicNameValuePair("RealName", RealName));
+ 		params.add(new BasicNameValuePair("Sex", Sex));
+ 		params.add(new BasicNameValuePair("Phone", Phone));
+ 		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
+ 		params.add(new BasicNameValuePair("CityID", CityID));
+ 		params.add(new BasicNameValuePair("CountyID", CountyID));
+ 		params.add(new BasicNameValuePair("Address", Address));
+ 		params.add(new BasicNameValuePair("QQ", QQ));
+ 		params.add(new BasicNameValuePair("SchoolName", SchoolName));
+ 		params.add(new BasicNameValuePair("ClassNum", ClassNum));
+ 		params.add(new BasicNameValuePair("StudentNum", StudentNum));
+ 		msgString = getData(USER_SERVICE, params);
  		return msgString;
  	}
 
