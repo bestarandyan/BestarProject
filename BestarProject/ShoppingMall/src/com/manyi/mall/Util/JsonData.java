@@ -7,6 +7,8 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.manyi.mall.cachebean.GetCityResponse;
+import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
 
 import org.json.JSONException;
@@ -55,6 +57,52 @@ public class JsonData {
                 Map<String,String> map = new HashMap<>();
                 map.put("ID", bean.getID());
                 map.put("ProvinceName", bean.getProvinceName());
+                listData.add(map);
+//                int a = database.update(GetProvinceResponse.tbName, contentValues, "ID=?", new String[]{bean.getID()+""});
+//                if(a == 0){
+//                    database.insert(GetProvinceResponse.tbName, null, contentValues);
+//                }
+            }
+        }
+        return listData;
+    }
+    public List<Map<String,String>> jsonCityMsg(String msg,SQLiteDatabase database){
+        List<Map<String,String>> listData = new ArrayList<>();
+        Type listType = new TypeToken<LinkedList<GetCityResponse>>(){}.getType();
+        Gson gson = new Gson();
+        LinkedList<GetCityResponse> list;
+        GetCityResponse bean;
+        list = gson.fromJson(msg, listType);
+        if(list!=null && list.size()>0){
+            for(Iterator<GetCityResponse> iterator = list.iterator();iterator.hasNext();){
+                bean = iterator.next();
+                Map<String,String> map = new HashMap<>();
+                map.put("ID", bean.getID());
+                map.put("CityName", bean.getCityName());
+                listData.add(map);
+//                int a = database.update(GetProvinceResponse.tbName, contentValues, "ID=?", new String[]{bean.getID()+""});
+//                if(a == 0){
+//                    database.insert(GetProvinceResponse.tbName, null, contentValues);
+//                }
+            }
+        }
+        return listData;
+    }
+
+    public List<Map<String,String>> jsonCountyMsg(String msg,SQLiteDatabase database){
+        List<Map<String,String>> listData = new ArrayList<>();
+        Type listType = new TypeToken<LinkedList<GetCountyResponse>>(){}.getType();
+        Gson gson = new Gson();
+        LinkedList<GetCountyResponse> list;
+        GetCountyResponse bean;
+        list = gson.fromJson(msg, listType);
+        if(list!=null && list.size()>0){
+            for(Iterator<GetCountyResponse> iterator = list.iterator();iterator.hasNext();){
+                bean = iterator.next();
+                Map<String,String> map = new HashMap<>();
+                map.put("ID", bean.getID());
+                map.put("CountyName", bean.getCountyName());
+                map.put("CityID", bean.getCityID());
                 listData.add(map);
 //                int a = database.update(GetProvinceResponse.tbName, contentValues, "ID=?", new String[]{bean.getID()+""});
 //                if(a == 0){

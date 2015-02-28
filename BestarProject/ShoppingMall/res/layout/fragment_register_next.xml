@@ -661,19 +661,31 @@
             android:layout_height="match_parent"
             android:divider="#666"
             android:dividerHeight="1dp" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#66000000"
+            ></View>
         <ListView
             android:id="@+id/CityList"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:divider="#666"
             android:scrollbars="none"
+            android:visibility="gone"
             android:dividerHeight="1dp" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#66000000"
+            ></View>
         <ListView
             android:id="@+id/CountyList"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:divider="#666"
             android:scrollbars="none"
+            android:visibility="gone"
             android:dividerHeight="1dp" />
     </LinearLayout>
     </android.support.v4.widget.DrawerLayout>

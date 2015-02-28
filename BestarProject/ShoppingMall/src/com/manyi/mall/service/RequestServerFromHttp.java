@@ -34,6 +34,26 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
+    public String getCity(String ProvinceID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetCityList"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
+ 		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
+ 		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getCounty(String cityId){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetCountyList"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
+ 		params.add(new BasicNameValuePair("CityID", cityId));
+ 		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
 	public String OutSchool(String schoolId,String persionId){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();

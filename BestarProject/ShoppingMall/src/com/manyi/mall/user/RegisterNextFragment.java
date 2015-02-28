@@ -1,11 +1,13 @@
 package com.manyi.mall.user;
 
 import android.annotation.TargetApi;
+import android.drm.DrmStore;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
@@ -21,6 +23,7 @@ import com.manyi.mall.service.UcService;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.w3c.dom.Text;
@@ -53,8 +56,16 @@ public class RegisterNextFragment extends ImageLoaderFragment {
 
     UcService mUcService;
     List<Map<String,String>> provinceList;
+    List<Map<String,String>> cityList;
+    List<Map<String,String>> countyList;
 
+    private int provincePosition = 0;
+    private int cityPosition = 0;
+    private int countyPosition = 0;
 
+    private String selectProvince = "";
+    private String selectCity = "";
+    private String selectCounty = "";
     @Click(R.id.genderTv)
     void selectGender(){
         showGenderPopmenu();
@@ -96,12 +107,67 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         provinceList = jsonData.jsonProvinceMsg(msg, null);
         notifyProvince();
     }
+    @Background
+    void getCity(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String provinceId = provinceList.get(provincePosition).get("ID");
+        String msg = request.getCity(provinceId);
+        JsonData jsonData = new JsonData();
+        cityList = jsonData.jsonCityMsg(msg, null);
+        notifyCity();
+    }
+ @Background
+    void getCounty(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String cityId = cityList.get(cityPosition).get("ID");
+        String msg = request.getCounty(cityId);
+        JsonData jsonData = new JsonData();
+        countyList = jsonData.jsonCountyMsg(msg, null);
+        notifyCounty();
+    }
 
     @UiThread
     void notifyProvince(){
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),provinceList,R.layout.item_content,new String[]{"ProvinceName"},new int[]{R.id.contentTv});
         mProvinceList.setAdapter(adapter);
         mDrawerLayout.openDrawer(Gravity.RIGHT);
+    }
+
+    @UiThread
+    void notifyCity(){
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(),cityList,R.layout.item_content,new String[]{"CityName"},new int[]{R.id.contentTv});
+        mCityList.setAdapter(adapter);
+        mCityList.setVisibility(View.VISIBLE);
+    }
+
+    @UiThread
+    void notifyCounty(){
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(),countyList,R.layout.item_content,new String[]{"CountyName"},new int[]{R.id.contentTv});
+        mCountyList.setAdapter(adapter);
+        mCountyList.setVisibility(View.VISIBLE);
+    }
+
+    @ItemClick(R.id.ProvinceList)
+    void provinceListItemClick(int position){
+        provincePosition = position;
+        selectProvince = provinceList.get(provincePosition).get("ProvinceName").toString();
+        getCity();
+        mCountyList.setVisibility(View.GONE);
+    }
+
+    @ItemClick(R.id.CityList)
+    void cityListItemClick(int position){
+        cityPosition = position;
+        selectCity = cityList.get(cityPosition).get("CityName").toString();
+        getCounty();
+    }
+
+    @ItemClick(R.id.CountyList)
+    void countyListItemClick(int position){
+        countyPosition = position;
+        selectCounty = countyList.get(countyPosition).get("CountyName").toString();
+        mDrawerLayout.closeDrawer(Gravity.RIGHT);
+        mAddress.setText(selectProvince+"  "+selectCity+"  "+selectCounty);
     }
 
     @Click(R.id.shenfenValue)
