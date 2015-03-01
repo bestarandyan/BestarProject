@@ -3,7 +3,7 @@ package com.manyi.mall.cachebean.user;
 /**
  * Created by bestar on 2015/2/28.
  */
-public class GetRegisterCodeResponse {
+public class CodeResponse {
 
     String Code;
     String Message;

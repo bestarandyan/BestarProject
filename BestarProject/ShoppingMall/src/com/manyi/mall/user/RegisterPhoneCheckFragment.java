@@ -15,7 +15,7 @@ import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.MainActivity;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
-import com.manyi.mall.cachebean.user.GetRegisterCodeResponse;
+import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.AfterViews;
@@ -35,7 +35,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 	EditText mPhoneEt;
 	@ViewById(R.id.forget_code)
 	EditText mCodeEt;
-	@ViewById(R.id.get_code_next)
+	@ViewById(R.id.checkCodeBtn)
 	Button mCheckCodeBtn;
 
     @ViewById(R.id.getCodeBtn)
@@ -79,12 +79,12 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 
     @Click(R.id.getCodeBtn)
     void getCode(){
-        mGetCodeBtn.setClickable(false);
-        mGetCodeBtn.setEnabled(false);
+//        mGetCodeBtn.setClickable(false);
+//        mGetCodeBtn.setEnabled(false);
         getRegisterCode();
     }
 
-    @Click(R.id.get_code_next)
+    @Click(R.id.checkCodeBtn)
     void submitCode(){
         String code = mCodeEt.getText().toString();
         if (code .equals(mCode)){
@@ -102,7 +102,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
     void getRegisterCode(){
         RequestServerFromHttp request = new RequestServerFromHttp();
         String msg = request.getRegisterCode(mPhoneEt.getText().toString());
-        GetRegisterCodeResponse response = new JsonData().JsonRegisterCode(msg);
+        CodeResponse response = new JsonData().JsonCode(msg);
         mCode = response.getYZCode();
         onSendSMSSuccess();
     }
@@ -133,8 +133,6 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 	}
 
 
-	@UiThread
-	@Click(R.id.checkCodeBtn)
 	public void nextSuccess() {
 		if (CheckDoubleClick.isFastDoubleClick()) {
 			return;
@@ -161,13 +159,6 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 		}
 		ManyiUtils.closeKeyBoard(getActivity(), mPhoneEt);
 		remove();
-	}
-	
-	@Click(R.id.login_code)
-	void logincode() {
-		if (CheckDoubleClick.isFastDoubleClick()) {
-			return;
-		}
 	}
 
 }

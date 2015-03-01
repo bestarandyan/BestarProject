@@ -20,7 +20,10 @@ import java.util.List;
 
 public class RequestServerFromHttp {
 	public static final String SERVER_ADDRESS = "http://shopapp.iiyey.com/";//外网服务器总接口地址
-	public static final String USER_SERVICE = SERVER_ADDRESS+"NoLogin.aspx";//外网服务器总接口地址
+	public static final String USER_SERVICE = SERVER_ADDRESS+"NoLogin.aspx";
+	public static final String GET_GETPSW_SERVICE = SERVER_ADDRESS+"customer.aspx";
+    public static final String SHOPCLASS_SERVICE = SERVER_ADDRESS+"shopclass.aspx";
+    public static final String PRODUCT_SERVICE = SERVER_ADDRESS+"product.aspx";
 	public static final String USER_APPKEY = "123456";//
 	public static final String IMGURL = "http://servercomponents.iiyey.com/";//
 
@@ -84,6 +87,91 @@ public String getRegisterCode(String MobilePhone){
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("MobilePhone", MobilePhone));
  		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+public String login(String userName,String psw){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "Login"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
+ 		params.add(new BasicNameValuePair("UserName", userName));
+ 		params.add(new BasicNameValuePair("Password", psw));
+ 		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+public String getForgetPswCode(String mobile,String appKey){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "BackPWDyanzhen"));
+ 		params.add(new BasicNameValuePair("appKey", "abcd"));
+ 		params.add(new BasicNameValuePair("MobilePhone", mobile));
+ 		msgString = getData(GET_GETPSW_SERVICE, params);
+ 		return msgString;
+ 	}
+
+public String getForgetPsw(String mobile,String appKey){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "BackPWD"));
+ 		params.add(new BasicNameValuePair("appKey", "abcd"));
+ 		params.add(new BasicNameValuePair("MobilePhone", mobile));
+ 		msgString = getData(GET_GETPSW_SERVICE, params);
+ 		return msgString;
+ 	}
+
+
+    public String getTypeFirst(String appKey){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetFirstClass"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		msgString = getData(SHOPCLASS_SERVICE, params);
+ 		return msgString;
+ 	}
+
+ public String getTypeSecond(String appKey,String classId){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetSecondClass"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("ClassID", classId));
+ 		msgString = getData(SHOPCLASS_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getProductList(String appKey,String id,String productNum){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetSecondClassAndProductList"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("ID", id));
+ 		params.add(new BasicNameValuePair("ProductNum", productNum));
+ 		msgString = getData(SHOPCLASS_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getProducts(String appKey,String classId,String PageIndex,String PageSize){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetProductList"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("ClassID", classId));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		params.add(new BasicNameValuePair("OrderByField", "ID"));
+ 		params.add(new BasicNameValuePair("OrderWay", "desc"));
+ 		msgString = getData(PRODUCT_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getOrderInfo(String appKey){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetOrderInfo"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		msgString = getData(PRODUCT_SERVICE, params);
  		return msgString;
  	}
 

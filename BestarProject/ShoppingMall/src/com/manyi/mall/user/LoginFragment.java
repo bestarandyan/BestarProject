@@ -1,10 +1,13 @@
 package com.manyi.mall.user;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
@@ -13,8 +16,10 @@ import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.MainActivity;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.user.LoginRequest;
+import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.cachebean.user.LoginResponse;
 import com.manyi.mall.common.Constants;
+import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
@@ -92,61 +97,38 @@ public class LoginFragment extends SuperFragment<Integer> {
     void loginbutton() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-//        if (mLoginPassword.getText().toString().trim().length() != 0 && mLoginUsername.getText().toString().trim().length() != 0) {
-//            loginw();
-        initMainActivity();
-//        } else if (mLoginUsername.getText().toString().trim().length() == 0) {
-//            DialogBuilder.showSimpleDialog("请输入手机号", getBackOpActivity());
-//
-//        } else if (mLoginPassword.getText().toString().trim().length() == 0) {
-//            DialogBuilder.showSimpleDialog("请输入密码", getBackOpActivity());
-//
-//        }
+        if (mLoginPassword.getText().toString().trim().length() != 0 && mLoginUsername.getText().toString().trim().length() != 0) {
+            loginw();
+        } else if (mLoginUsername.getText().toString().trim().length() == 0) {
+            DialogBuilder.showSimpleDialog("请输入手机号", getBackOpActivity());
+
+        } else if (mLoginPassword.getText().toString().trim().length() == 0) {
+            DialogBuilder.showSimpleDialog("请输入密码", getBackOpActivity());
+
+        }
     }
 
     @Background
     public void loginw() {
         String password = mLoginPassword.getText().toString().trim();
         String name = mLoginUsername.getText().toString().trim();
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.login(name,password);
+        LoginResponse response = new JsonData().JsonLoginMsg(msg);
+        if (response.getCode().equals("0")){
+            SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = mySharedPreferences.edit();
+            editor.putString("appkey", response.getAppKey());
+            editor.commit();
+            initMainActivity();
+        }else{
+            loginFailed(response.getMessage());
+        }
+    }
 
-        LoginRequest req = new LoginRequest();
-        req.setLoginName(name);
-        req.setPassword(password);
-
-//        try {
-//            LoginResponse res = mUserService.login(req);
-//            if (getActivity() != null && !getActivity().isFinishing()) {
-//                int state = res.getState();
-//                String bankCode = res.getBankCode();
-//                SharedPreferences sharedPreferences2 = getBackOpActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE);
-//                Editor editor = sharedPreferences2.edit();
-//                editor.putInt("uid", res.getUid());
-//                editor.putInt("sumCount", res.getPublishCount());
-//                editor.putInt("state", res.getState());
-//                try {
-//                    editor.putString("password", AESUtil.encrypt(password, CommonConfig.AES_KEY));
-//                    editor.putString("name", AESUtil.encrypt(name, CommonConfig.AES_KEY));
-//                    editor.putString("userName", AESUtil.encrypt(res.getUserName(), CommonConfig.AES_KEY));
-//                    editor.putString("realName", AESUtil.encrypt(res.getRealName(), CommonConfig.AES_KEY));
-//                } catch (Exception e) {
-//                    // TODO Auto-generated catch block
-//                    e.printStackTrace();
-//                }
-//
-//                editor.putInt("PublishCount", res.getPublishCount());
-//                editor.putInt("surplusCount", res.getSumCount());
-//                editor.putBoolean("isfisrt", isfisrt);
-//                editor.putInt("cityId", res.getCityId());
-//                editor.putString("cityName", res.getCityName());
-//                editor.commit();
-//                initTab(state, bankCode);
-//                ManyiUtils.closeKeyBoard(getBackOpActivity(), mLoginPassword);
-//            }
-//
-//        } catch (RestException e) {
-//            throw e;
-//        }
-
+    @UiThread
+    void loginFailed(String msg){
+        Toast.makeText(getActivity(),msg,Toast.LENGTH_LONG).show();
     }
 
     @UiThread
@@ -163,7 +145,8 @@ public class LoginFragment extends SuperFragment<Integer> {
         }
     }
 
-    private void initMainActivity() {
+    @UiThread
+    void initMainActivity() {
         Intent loginIntent = new Intent(getActivity(), GeneratedClassUtils.get(MainActivity.class));
         getActivity().overridePendingTransition(R.anim.anim_fragment_in, R.anim.anim_fragment_out);
         startActivity(loginIntent);

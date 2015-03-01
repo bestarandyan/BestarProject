@@ -3,7 +3,6 @@
  */
 package com.manyi.mall.Util;
 
-import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,7 +10,8 @@ import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
-import com.manyi.mall.cachebean.user.GetRegisterCodeResponse;
+import com.manyi.mall.cachebean.user.CodeResponse;
+import com.manyi.mall.cachebean.user.LoginResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -163,11 +163,11 @@ public class JsonData {
         return bean;
     }
 
-    public GetRegisterCodeResponse JsonRegisterCode(String msg) {
-        GetRegisterCodeResponse bean =null;
+    public CodeResponse JsonCode(String msg) {
+        CodeResponse bean =null;
         try {
             JSONObject jsonObject = new JSONObject(msg);
-            bean = new GetRegisterCodeResponse();
+            bean = new CodeResponse();
             bean.setCode(jsonObject.getString("Code"));
             bean.setMessage(jsonObject.getString("Message"));
             bean.setYZCode(jsonObject.getString("YZCode"));
@@ -175,6 +175,39 @@ public class JsonData {
             e.printStackTrace();
         }
         return bean;
+    }
+
+    public LoginResponse JsonLoginMsg(String msg){
+        LoginResponse bean = new LoginResponse();
+        try {
+            JSONObject jsonObject = new JSONObject(msg);
+            String code = jsonObject.getString("Code");
+            String message = jsonObject.getString("Message");
+            bean.setCode(code);
+            bean.setMessage(message);
+            if (code.equals("0")){
+                String data = jsonObject.getString("Data");
+                if (data!=null && data.length()>0){
+                    JsonLoginData(data,bean);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return bean;
+    }
+
+    public void JsonLoginData(String msg,LoginResponse bean) {
+        try {
+            JSONObject jsonObject = new JSONObject(msg);
+            bean.setAppKey(jsonObject.getString("AppKey"));
+            bean.setId(jsonObject.getString("id"));
+            bean.setRealName(jsonObject.getString("RealName"));
+            bean.setType(jsonObject.getString("Type"));
+            bean.setUserName(jsonObject.getString("UserName"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 //
 //	/**

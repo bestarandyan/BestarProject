@@ -1,5 +1,6 @@
 package com.manyi.mall.user;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.CountDownTimer;
@@ -13,8 +14,13 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
+import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.cachebean.BaseResponse;
+import com.manyi.mall.cachebean.user.CodeResponse;
+import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
@@ -29,8 +35,8 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 	@ViewById(R.id.forget_code)
 	EditText mForgetCode;
 	@ViewById(R.id.forget_username)
-	EditText mForgetUsername;
-	@ViewById(R.id.login_code)
+	EditText mForgetPhone;
+	@ViewById(R.id.getCodeNextBtn)
 	Button logincode;
 	@FragmentArg
 	String phone;
@@ -48,28 +54,7 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 	 */
 	@AfterViews
 	void init() {
-		if (phone != null) {
-			mForgetUsername.setText(phone);
-		}
-		addAnimationListener(new Animation.AnimationListener() {
-			@Override
-			public void onAnimationStart(Animation animation) {
 
-			}
-
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				if (isFirstEnter) {
-					ManyiUtils.showKeyBoard(getActivity(), mForgetUsername);
-					isFirstEnter = false;
-				}
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-
-			}
-		});
 	}
 
 	@Override
@@ -77,52 +62,43 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 		super.onDestroy();
 		ManyiUtils.closeKeyBoard(getActivity(), mForgetCode);
 	}
-	@UiThread
-	public void onSendSMSSuccess() {
-		logincode.setEnabled(false);
-		DialogBuilder.showSimpleDialog("验证码已发送!", getBackOpActivity(), new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				timer.start();
-				int left = logincode.getPaddingLeft();
-				int right = logincode.getPaddingRight();
-//				logincode.setBackgroundResource(R.drawable.btn_orange_dis);
-				logincode.setPadding(left, 0, right, 0);
-			}
-		});
-	}
 
 	@UiThread
-	public void logincodeError(String e) {
+	public void showDialog(String e) {
 		DialogBuilder.showSimpleDialog(e, getBackOpActivity());
 	}
 
-	@UiThread
-	public void showerror() {
-		DialogBuilder.showSimpleDialog("验证码不能为空", getBackOpActivity());
-	}
 
 
 	@UiThread
-	@Click(R.id.get_code_next)
+	@Click(R.id.getCodeNextBtn)
 	public void nextSuccess() {
 		if (CheckDoubleClick.isFastDoubleClick()) {
 			return;
 		}
-		if (TextUtils.isEmpty(mForgetUsername.getText().toString()) || TextUtils.isEmpty(mForgetUsername.getText().toString().trim())) {
+		if (TextUtils.isEmpty(mForgetPhone.getText().toString()) || TextUtils.isEmpty(mForgetPhone.getText().toString().trim())) {
 			DialogBuilder.showSimpleDialog("请输入电话号码", getBackOpActivity());
 			return;
-		}
-		if (TextUtils.isEmpty(mForgetCode.getText().toString()) || TextUtils.isEmpty(mForgetCode.getText().toString().trim())) {
+		}else if (TextUtils.isEmpty(mForgetCode.getText().toString()) || TextUtils.isEmpty(mForgetCode.getText().toString().trim())) {
 			DialogBuilder.showSimpleDialog("请输入验证码", getBackOpActivity());
 			return;
-		}
+		}else{
+            getBackPsw();
+        }
 	}
 
-	@UiThread
-	public void nextError(String e) {
-		DialogBuilder.showSimpleDialog(e, getBackOpActivity());
-	}
+    @Background
+    void getBackPsw(){
+        String mobile = mForgetPhone.getText().toString().trim();
+        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey","");
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.getForgetPsw(mobile,appkey);
+        BaseResponse response = new JsonData().JsonBase(msg);
+        showDialog(response.getMessage());
+        if (response.getCode().equals("0")){
+            remove();
+        }
+    }
 
 	@Click(R.id.forgetback)
 	void back() {
@@ -133,28 +109,28 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 		remove();
 	}
 	
-	@Click(R.id.login_code)
-	void logincode() {
+	@Click(R.id.getPswCodeBtn)
+	void getCodeClick() {
 		if (CheckDoubleClick.isFastDoubleClick()) {
 			return;
 		}
+        if (TextUtils.isEmpty(mForgetPhone.getText().toString()) || TextUtils.isEmpty(mForgetPhone.getText().toString().trim())) {
+            DialogBuilder.showSimpleDialog("请输入电话号码", getBackOpActivity());
+            return;
+        }else{
+            getCode();
+        }
+
 	}
+    CodeResponse response =null;
+    @Background
+    void getCode(){
+        String mobile = mForgetPhone.getText().toString().trim();
+        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey","");
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.getForgetPswCode(mobile,appkey);
+        response = new JsonData().JsonCode(msg);
+        showDialog("验证码以发送到您手机！");
+    }
 
-	CountDownTimer timer = new CountDownTimer(60000, 1000) {
-
-		@Override
-		public void onTick(long arg0) {
-			logincode.setText("获取短信(" + arg0 / 1000 + ")...");
-		}
-
-		@Override
-		public void onFinish() {
-			logincode.setText(R.string.register_get_captcha);
-			logincode.setEnabled(true);
-			int left = logincode.getPaddingLeft();
-			int right = logincode.getPaddingRight();
-			logincode.setBackgroundResource(R.drawable.start_selector);
-			logincode.setPadding(left, 0, right, 0);
-		}
-	};
 }
