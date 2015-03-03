@@ -391,6 +391,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="五大领域"
                                         android:textColor="#B2DED5"
+                                        android:id="@+id/sjTitle1"
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
@@ -404,6 +405,7 @@
                                     <ImageView
                                         style="@style/home_image"
                                         android:maxWidth="60dp"
+                                        android:id="@+id/sjImg1"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
 
@@ -422,6 +424,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="音乐艺术"
                                         android:textColor="#B2DED5"
+                                        android:id="@+id/sjTitle2"
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
@@ -435,6 +438,7 @@
                                     <ImageView
                                         style="@style/home_image"
                                         android:maxWidth="60dp"
+                                        android:id="@+id/sjImg2"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
 
@@ -452,6 +456,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="儿童美语"
+                                        android:id="@+id/sjTitle3"
                                         android:textColor="#B2DED5"
                                         android:textSize="@dimen/_16_text_size" />
 
@@ -465,6 +470,7 @@
 
                                     <ImageView
                                         style="@style/home_image"
+                                        android:id="@+id/sjImg3"
                                         android:maxWidth="60dp"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
@@ -486,7 +492,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv7"
+                                        android:id="@+id/sjTitle4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="数学思维"
@@ -505,6 +511,7 @@
                                     <ImageView
                                         style="@style/home_image"
                                         android:maxWidth="60dp"
+                                        android:id="@+id/sjImg4"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
 
@@ -518,7 +525,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv9"
+                                        android:id="@+id/sjTitle5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="全脑开发"
@@ -537,6 +544,7 @@
                                     <ImageView
                                         style="@style/home_image"
                                         android:maxWidth="60dp"
+                                        android:id="@+id/sjImg5"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
 
@@ -550,7 +558,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv11"
+                                        android:id="@+id/sjTitle6"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="测评类"
@@ -568,6 +576,7 @@
 
                                     <ImageView
                                         style="@style/home_image"
+                                        android:id="@+id/sjImg6"
                                         android:maxWidth="60dp"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>

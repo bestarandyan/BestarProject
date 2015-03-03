@@ -10,6 +10,7 @@ import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
+import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
 
@@ -114,30 +115,20 @@ public class JsonData {
         }
         return listData;
     }
-//    private void jsonFamily(String msg,SQLiteDatabase database){
-//        Type listType = new TypeToken<LinkedList<FamilyBean>>(){}.getType();
-//        Gson gson = new Gson();
-//        LinkedList<FamilyBean> list;
-//        FamilyBean bean;
-//        list = gson.fromJson(msg, listType);
+    public List<MainDataBean> jsonMainData(String msg,SQLiteDatabase database){
+        Type listType = new TypeToken<LinkedList<MainDataBean>>(){}.getType();
+        Gson gson = new Gson();
+        LinkedList<MainDataBean> list;
+        MainDataBean bean;
+        list = gson.fromJson(msg, listType);
 //        if(list!=null && list.size()>0){
-//            for(Iterator<FamilyBean> iterator = list.iterator();iterator.hasNext();){
+//            for(Iterator<MainDataBean> iterator = list.iterator();iterator.hasNext();){
 //                bean = iterator.next();
-//                ContentValues contentValues = new ContentValues();
-//                contentValues.put("ID", bean.getID());
-//                contentValues.put("SchoolPersonnelID", bean.getSchoolPersonnelID());
-//                contentValues.put("ContactTitle", bean.getContactTitle());
-//                contentValues.put("ContactName", bean.getContactName());
-//                contentValues.put("ContactTel", bean.getContactTel());
-//                contentValues.put("IDCard", bean.getIDCard());
-//                contentValues.put("PortraitPath", bean.getPortraitPath());
-//                int a = database.update(FamilyBean.tbName, contentValues, "ID=?", new String[]{bean.getID()+""});
-//                if(a == 0){
-//                    database.insert(FamilyBean.tbName, null, contentValues);
-//                }
+//
 //            }
 //        }
-//    }
+        return list;
+    }
 
     public String getJsonObject(String msg,String json) {
         String jsonStr = "";

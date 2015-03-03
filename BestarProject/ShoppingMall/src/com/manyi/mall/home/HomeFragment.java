@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,10 +33,19 @@ import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.R;
+import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.common.Constants;
-import com.manyi.mall.service.CommonService;
-import com.manyi.mall.service.UserTaskService;
+import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.user.HtmlLoadFragment;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -44,6 +55,9 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 
 @SuppressLint("HandlerLeak")
@@ -56,15 +70,45 @@ public class HomeFragment extends SuperFragment<Object> {
     @ViewById(R.id.view_page)
     FangyouReleasedViewPage mViewPage;
 
+    @ViewById(R.id.sjImg1)
+    ImageView mSjImg1;
+
+    @ViewById(R.id.sjImg2)
+    ImageView mSjImg2;
+
+    @ViewById(R.id.sjImg3)
+    ImageView mSjImg3;
+
+    @ViewById(R.id.sjImg4)
+    ImageView mSjImg4;
+
+    @ViewById(R.id.sjImg5)
+    ImageView mSjImg5;
+
+    @ViewById(R.id.sjImg6)
+    ImageView mSjImg6;
+
+    @ViewById(R.id.sjTitle1)
+    TextView mSjTitle1;
+
+    @ViewById(R.id.sjTitle2)
+    TextView mSjTitle2;
+
+    @ViewById(R.id.sjTitle3)
+    TextView mSjTitle3;
+
+    @ViewById(R.id.sjTitle4)
+    TextView mSjTitle4;
+
+    @ViewById(R.id.sjTitle5)
+    TextView mSjTitle5;
+
+    @ViewById(R.id.sjTitle6)
+    TextView mSjTitle6;
+
     @ViewById(R.id.advertLayout)
     RelativeLayout advertLayout;
-
-
     private int currentItem;// 页面当前所处的位置
-
-    public UserTaskService mTaskService;
-
-
     private int uid;
     int cityId = 0;
 
@@ -72,11 +116,11 @@ public class HomeFragment extends SuperFragment<Object> {
     int RadioID = 0x001100;
 
     private ScheduledExecutorService scheduledExecutor;
-
-    CommonService commonService;
-
-
     ArrayList<View> pageViews = new ArrayList<View>();
+
+    List<MainDataBean> mDataList;
+    TextView[] mSjTvArray = null;
+    ImageView[] mSjImgArray = null;
 
 
     private class MyPageTask implements Runnable {
@@ -101,7 +145,24 @@ public class HomeFragment extends SuperFragment<Object> {
 
         ;
     };
+    public void initOption(){
 
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.take_photos_list_no__thumbnail)
+                .showImageForEmptyUri(R.drawable.take_photos_list_no__thumbnail)
+                .showImageOnFail(R.drawable.take_photos_list_no__thumbnail)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .displayer(new RoundedBitmapDisplayer(20))
+                .build();
+    }
+    @Override
+    public void onDestroy() {
+        ImageLoader.getInstance().clearMemoryCache();
+        ImageLoader.getInstance().clearDiskCache();
+        super.onDestroy();
+    }
 
     @Override
     public void onPause() {
@@ -113,12 +174,106 @@ public class HomeFragment extends SuperFragment<Object> {
     }
 
     @AfterViews
-    public void onUserTaskCountLoad() {
+    public void init() {
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
+        initOption();
+        mSjTvArray = new TextView[]{mSjTitle1,mSjTitle2,mSjTitle3,mSjTitle4,mSjTitle5,mSjTitle6};
+        mSjImgArray = new ImageView[]{mSjImg1,mSjImg2,mSjImg3,mSjImg4,mSjImg5,mSjImg6};
         cityId = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0);
         mAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mAdapter);
-
         getAdvertData();
+        getDataRequest();
+    }
+    private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
+
+        static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
+
+        @Override
+        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+            if (loadedImage != null) {
+                ImageView imageView = (ImageView) view;
+                if (loadedImage!=null){
+                    imageView.setImageBitmap(loadedImage);
+                }
+                boolean firstDisplay = !displayedImages.contains(imageUri);
+                if (firstDisplay) {
+                    FadeInBitmapDisplayer.animate(imageView, 500);
+                    displayedImages.add(imageUri);
+                }
+            }
+        }
+
+        @Override
+        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+            ImageView imageView = (ImageView) view;
+            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            super.onLoadingFailed(imageUri, view, failReason);
+        }
+
+        @Override
+        public void onLoadingCancelled(String imageUri, View view) {
+            ImageView imageView = (ImageView) view;
+            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            super.onLoadingCancelled(imageUri, view);
+        }
+    }
+    DisplayImageOptions options;
+    private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
+    @Background
+    void getDataRequest(){
+        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey","");
+        RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
+        String msg = requestServerFromHttp.getMainData(appkey);
+        mDataList = new JsonData().jsonMainData(msg, null);
+        if (mDataList!=null && mDataList.size()>0){
+               for (int i=0;i<mDataList.size();i++){
+                   if (mDataList.get(i).getClassName().equals("装修设计")){
+
+                   }else if (mDataList.get(i).getClassName().equals("幼儿园日用品")){
+
+                   }else if (mDataList.get(i).getClassName().equals("胎教早教课程")){
+
+                   }else if (mDataList.get(i).getClassName().equals("进修培训讲座")){
+
+                   }else if (mDataList.get(i).getClassName().equals("加盟连锁服务")){
+
+                   }else if (mDataList.get(i).getClassName().equals("教材书籍")){
+                       setSjData(i);
+                   }else if (mDataList.get(i).getClassName().equals("国际品牌")){
+
+                   }else if (mDataList.get(i).getClassName().equals("管理软件")){
+
+                   }else if (mDataList.get(i).getClassName().equals("室内教玩具")){
+
+                   }else if (mDataList.get(i).getClassName().equals("配套设备")){
+
+                   }
+               }
+        }
+    }
+    @UiThread
+    void setSjData(int position){
+        List<MainDataBean.ShopClasses> shopClasseses = mDataList.get(position).getShopclasses();
+        for (int s=0;s<shopClasseses.size();s++){
+            MainDataBean.ShopClasses shopClasses = shopClasseses.get(s);
+            mSjTvArray[s].setText(shopClasses.getClassName());
+            MainDataBean.Products products = getProducts(position,shopClasses.getID());
+            if (products!=null){
+                ImageLoader.getInstance().displayImage(products.getPicUrl(), mSjImgArray[s], options, animateFirstListener);
+            }
+        }
+    }
+
+    private MainDataBean.Products getProducts(int position,Long classId){
+        List<MainDataBean.Products> productses = mDataList.get(position).getProducts();
+        for (int i=0;i<productses.size();i++){
+            MainDataBean.Products product = productses.get(i);
+            if(product.getClassID() == classId){
+                return product;
+            }
+        }
+        return null;
     }
 
     @Override

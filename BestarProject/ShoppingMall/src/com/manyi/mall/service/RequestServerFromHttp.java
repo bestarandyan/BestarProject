@@ -25,7 +25,7 @@ public class RequestServerFromHttp {
     public static final String SHOPCLASS_SERVICE = SERVER_ADDRESS+"shopclass.aspx";
     public static final String PRODUCT_SERVICE = SERVER_ADDRESS+"product.aspx";
 	public static final String USER_APPKEY = "123456";//
-	public static final String IMGURL = "http://servercomponents.iiyey.com/";//
+	public static final String IMGURL = "http://servercomponents.iiyey.com/";
 
 
  	public String getProvince(){
@@ -172,6 +172,15 @@ public String getForgetPsw(String mobile,String appKey){
  		params.add(new BasicNameValuePair("method", "GetOrderInfo"));
  		params.add(new BasicNameValuePair("appKey", appKey));
  		msgString = getData(PRODUCT_SERVICE, params);
+ 		return msgString;
+ 	}
+////http://shopapp.iiyey.com/shopclass.aspx?appKey=abcd&&method=GetAllClassAndProductList
+    public String getMainData(String appKey){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAllClassAndProductList"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		msgString = getData(SHOPCLASS_SERVICE, params);
  		return msgString;
  	}
 
