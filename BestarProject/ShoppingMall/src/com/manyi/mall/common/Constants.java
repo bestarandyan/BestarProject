@@ -150,8 +150,8 @@ public class Constants {
 	public final static String TAB_3 = "tab_zuji";
 	public final static String TAB_4 = "tab_mine";
 
-	public final static String UNSLECTED_TEXT_COLOR = "#8affffff";
-	public final static String SLECTED_TEXT_COLOR = "#ffffff";
+	public final static String UNSLECTED_TEXT_COLOR = "#7f7f7f";
+	public final static String SLECTED_TEXT_COLOR = "#FF4864";
 	
 	//AreaChildDialogFragment
 	public final static String CURRENT_TIME = "DIALOG_SELECT";

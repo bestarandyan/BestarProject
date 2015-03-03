@@ -30,6 +30,7 @@
                 android:inputType="number"
                 android:maxLength="11"
                 android:textSize="16sp"
+                android:textColor="@color/color_ffffff"
                 tools:ignore="TextFields,Deprecated" />
 
             <View
@@ -45,6 +46,7 @@
                 android:gravity="center"
                 android:hint="请您输入密码"
                 android:inputType="textPassword"
+                android:textColor="@color/color_ffffff"
                 android:maxLength="20"
                 android:textColorHint="@color/color_ffffff"
                 android:textSize="16sp" />

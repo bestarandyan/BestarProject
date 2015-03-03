@@ -21,6 +21,7 @@ import com.manyi.mall.cachebean.user.LoginResponse;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.RequestServerFromHttp;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
@@ -53,6 +54,23 @@ public class LoginFragment extends SuperFragment<Integer> {
         super.onDestroy();
         if (mLoginPassword != null) {
             ManyiUtils.closeKeyBoard(getActivity(), mLoginPassword);
+        }
+    }
+
+    @AfterViews
+    void init(){
+        String username = getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE).getString("userName","");
+        String password = getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE).getString("password","");
+        if (username!=null && username.length() > 0 && password!=null && password.length()>0){
+            mLoginUsername.setText(username);
+            mLoginPassword.setText(password);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            showRequestDialog("登录", "正在登录，请稍候!");
+            loginw();
         }
     }
 
@@ -98,6 +116,7 @@ public class LoginFragment extends SuperFragment<Integer> {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
         if (mLoginPassword.getText().toString().trim().length() != 0 && mLoginUsername.getText().toString().trim().length() != 0) {
+            showRequestDialog("登录","正在登录，请稍候!");
             loginw();
         } else if (mLoginUsername.getText().toString().trim().length() == 0) {
             DialogBuilder.showSimpleDialog("请输入手机号", getBackOpActivity());
@@ -110,6 +129,7 @@ public class LoginFragment extends SuperFragment<Integer> {
 
     @Background
     public void loginw() {
+
         String password = mLoginPassword.getText().toString().trim();
         String name = mLoginUsername.getText().toString().trim();
         RequestServerFromHttp request = new RequestServerFromHttp();
@@ -120,6 +140,12 @@ public class LoginFragment extends SuperFragment<Integer> {
             SharedPreferences.Editor editor = mySharedPreferences.edit();
             editor.putString("appkey", response.getAppKey());
             editor.commit();
+
+            SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor1 = userInfo.edit();
+            editor1.putString("userName", name);
+            editor1.putString("password", password);
+            editor1.commit();
             initMainActivity();
         }else{
             loginFailed(response.getMessage());
@@ -129,6 +155,7 @@ public class LoginFragment extends SuperFragment<Integer> {
     @UiThread
     void loginFailed(String msg){
         Toast.makeText(getActivity(),msg,Toast.LENGTH_LONG).show();
+        disimissRequestDialog();
     }
 
     @UiThread
@@ -147,6 +174,7 @@ public class LoginFragment extends SuperFragment<Integer> {
 
     @UiThread
     void initMainActivity() {
+        disimissRequestDialog();
         Intent loginIntent = new Intent(getActivity(), GeneratedClassUtils.get(MainActivity.class));
         getActivity().overridePendingTransition(R.anim.anim_fragment_in, R.anim.anim_fragment_out);
         startActivity(loginIntent);

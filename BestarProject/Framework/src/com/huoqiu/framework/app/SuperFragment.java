@@ -4,6 +4,7 @@
 package com.huoqiu.framework.app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +15,8 @@ import com.huoqiu.framework.backstack.AbsOp;
 import com.huoqiu.framework.backstack.BackOpFragmentActivity;
 import com.huoqiu.framework.backstack.Op;
 import com.huoqiu.framework.rest.RestProxyFragment;
+
+import org.androidannotations.annotations.UiThread;
 
 /**
  * @author leo
@@ -214,5 +217,20 @@ public abstract class SuperFragment<T> extends RestProxyFragment {
 		public void onCollectionSelected(long id, boolean collect);
 
 	}
+    public ProgressDialog mRequestDialog;
+    public void showRequestDialog(String title,String msg){
+        mRequestDialog = new ProgressDialog(getActivity());
+        mRequestDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mRequestDialog.setMessage(msg);
+        mRequestDialog.setTitle(title);
+        mRequestDialog.setCancelable(false);
+        mRequestDialog.show();
+    }
+    public void disimissRequestDialog(){
+        if (mRequestDialog!=null){
+            mRequestDialog.dismiss();
+            mRequestDialog = null;
+        }
+    }
 
 }

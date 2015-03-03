@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
@@ -54,38 +55,46 @@ public class MainFragment extends SuperFragment<Object>{
                 TextView tab2Tv = (TextView) mainTabLayout2.findViewById(R.id.main_tab_item);
                 TextView tab3Tv = (TextView) mainTabLayout3.findViewById(R.id.main_tab_item);
                 TextView tab4Tv = (TextView) mainTabLayout4.findViewById(R.id.main_tab_item);
+                ImageView tab1iconView = (ImageView) mainTabLayout1.findViewById(R.id.iconView);
+                ImageView tab2iconView = (ImageView) mainTabLayout2.findViewById(R.id.iconView);
+                ImageView tab3iconView = (ImageView) mainTabLayout3.findViewById(R.id.iconView);
+                ImageView tab4iconView = (ImageView) mainTabLayout4.findViewById(R.id.iconView);
                 if (tabId.equals(Constants.TAB_1)) {
-//                    searchTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_search_pre, 0, 0, 0);
                     tab1Tv.setTextColor(Color.parseColor(Constants.SLECTED_TEXT_COLOR));
-//                    postTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_post_org, 0, 0, 0);
                     tab2Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
-//                    mineTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_agent_org, 0, 0, 0);
                     tab3Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
                     tab4Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+                    tab1iconView.setImageResource(R.drawable.home_h);
+                    tab2iconView.setImageResource(R.drawable.collection);
+                    tab3iconView.setImageResource(R.drawable.footprint);
+                    tab4iconView.setImageResource(R.drawable.me);
                 } else if (tabId.equals(Constants.TAB_2)) {
-//                    searchTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_search_org, 0, 0, 0);
                     tab1Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
-//                    postTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_post_pre, 0, 0, 0);
                     tab2Tv.setTextColor(Color.parseColor(Constants.SLECTED_TEXT_COLOR));
-//                    mineTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_agent_org, 0, 0, 0);
                     tab3Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
                     tab4Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+                    tab1iconView.setImageResource(R.drawable.home);
+                    tab2iconView.setImageResource(R.drawable.collection_h);
+                    tab3iconView.setImageResource(R.drawable.footprint);
+                    tab4iconView.setImageResource(R.drawable.me);
                 } else if (tabId.equals(Constants.TAB_3)) {
-//                    searchTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_search_org, 0, 0, 0);
                     tab1Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
-//                    postTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_post_org, 0, 0, 0);
                     tab2Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
-//                    mineTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_agent_pre, 0, 0, 0);
                     tab3Tv.setTextColor(Color.parseColor(Constants.SLECTED_TEXT_COLOR));
                     tab4Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+                    tab1iconView.setImageResource(R.drawable.home);
+                    tab2iconView.setImageResource(R.drawable.collection);
+                    tab3iconView.setImageResource(R.drawable.footprint_h);
+                    tab4iconView.setImageResource(R.drawable.me);
                 }else if (tabId.equals(Constants.TAB_4)) {
-//                    searchTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_search_org, 0, 0, 0);
                     tab1Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
-//                    postTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_post_org, 0, 0, 0);
                     tab2Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
-//                    mineTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_agent_pre, 0, 0, 0);
                     tab4Tv.setTextColor(Color.parseColor(Constants.SLECTED_TEXT_COLOR));
                     tab3Tv.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+                    tab1iconView.setImageResource(R.drawable.home);
+                    tab2iconView.setImageResource(R.drawable.collection);
+                    tab3iconView.setImageResource(R.drawable.footprint);
+                    tab4iconView.setImageResource(R.drawable.me_h);
                 }
             }
         });
@@ -98,13 +107,20 @@ public class MainFragment extends SuperFragment<Object>{
 	private TabSpec createSpec(String tag, String label) {
         View spec = View.inflate(getActivity(), R.layout.view_tab_indicator, null);
         TextView title = (TextView) spec.findViewById(R.id.main_tab_item);
-//        if (tag.equals(Constants.TAB_SEATCH_HOUSE)) {
-//			title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_search_org, 0, 0, 0);
-//		} else if (tag.equals(Constants.TAB_POST)) {
-//			title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_post_org, 0, 0, 0);
-//		} else if (tag.equals(Constants.TAB_MINE)) {
-//			title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tabbar_ic_agent_org, 0, 0, 0);
-//		}
+        ImageView iconView = (ImageView) spec.findViewById(R.id.iconView);
+        if (tag.equals(Constants.TAB_1)) {
+            iconView.setImageResource(R.drawable.home_h);
+            title.setTextColor(Color.parseColor(Constants.SLECTED_TEXT_COLOR));
+		} else if (tag.equals(Constants.TAB_2)) {
+            iconView.setImageResource(R.drawable.collection);
+            title.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+		} else if (tag.equals(Constants.TAB_3)) {
+            iconView.setImageResource(R.drawable.footprint);
+            title.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+		}else if (tag.equals(Constants.TAB_4)) {
+            iconView.setImageResource(R.drawable.me);
+            title.setTextColor(Color.parseColor(Constants.UNSLECTED_TEXT_COLOR));
+        }
 		title.setText(label);
 
 		return mTabHost.newTabSpec(tag).setIndicator(spec);
