@@ -26,7 +26,7 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:src="@drawable/ic_action_up" />
+                android:src="@drawable/back" />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -95,7 +95,7 @@ public class UrlTouchImageView extends RelativeLayout {
             public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
                 mProgressBar.setVisibility(View.GONE);
                 mImageView.setScaleType(ScaleType.CENTER_INSIDE);
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_fail);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.take_photos_list_no__thumbnail);
                 mImageView.setImageBitmap(bitmap);
             }
 
@@ -147,7 +147,7 @@ public class UrlTouchImageView extends RelativeLayout {
 		protected void onPostExecute(Bitmap bitmap) {
 			if (bitmap == null) {
 				mImageView.setScaleType(ScaleType.CENTER);
-				bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.no_photo);
+				bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.take_photos_list_no__thumbnail);
 				mImageView.setImageBitmap(bitmap);
 			} else {
 				mImageView.setScaleType(ScaleType.MATRIX);

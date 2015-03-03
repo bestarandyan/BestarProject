@@ -42,7 +42,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/head_default"
+                            android:src="@drawable/head"
                             app:border_width="2dp"
                             app:border_color="@color/blue" />
 
@@ -83,7 +83,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/home_next" />
 
                         <ImageView
                             android:layout_width="10dp"
@@ -91,7 +92,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
                             android:layout_toLeftOf="@+id/mineRightArrow"
-                            android:src="@drawable/container_num" />
+                            android:src="@drawable/prompt" />
                     </RelativeLayout>
 
                     <View
@@ -161,7 +162,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/home_next" />
 
                     </RelativeLayout>
 
@@ -189,7 +191,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/home_next" />
 
                     </RelativeLayout>
 
@@ -224,7 +227,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/home_next" />
 
                     </RelativeLayout>
 
@@ -252,7 +256,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/home_next" />
 
                     </RelativeLayout>
 
@@ -281,7 +286,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/home_next" />
 
                         <TextView
                             android:id="@+id/currentVersionTv"
@@ -319,8 +325,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_arrow" />
+                            android:src="@drawable/home_next" />
 
                     </RelativeLayout>
 

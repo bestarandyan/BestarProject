@@ -22,9 +22,9 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 public final class ImageLoaderConfig {
 
     public static final DisplayImageOptions options = new DisplayImageOptions.Builder()
-            .showImageOnLoading(R.drawable.img_loading_src)// 设置图片在下载期间显示的图片
-            .showImageForEmptyUri(R.drawable.img_fail)// 设置图片Uri为空或是错误的时候显示的图片
-            .showImageOnFail(R.drawable.img_fail)// 设置图片加载/解码过程中错误时候显示的图片
+            .showImageOnLoading(R.drawable.take_photos_list_no__thumbnail)// 设置图片在下载期间显示的图片
+            .showImageForEmptyUri(R.drawable.take_photos_list_no__thumbnail)// 设置图片Uri为空或是错误的时候显示的图片
+            .showImageOnFail(R.drawable.take_photos_list_no__thumbnail)// 设置图片加载/解码过程中错误时候显示的图片
             .cacheInMemory(false)// 是否缓存都內存中
             .cacheOnDisk(true)// 是否缓存到sd卡上
             .considerExifParams(true)
@@ -33,9 +33,9 @@ public final class ImageLoaderConfig {
             .displayer(new SimpleBitmapDisplayer()).build();
 
     public static final DisplayImageOptions options_small = new DisplayImageOptions.Builder()
-            .showImageOnLoading(R.drawable.img_loading_src)// 设置图片在下载期间显示的图片
-            .showImageForEmptyUri(R.drawable.img_fail_small)// 设置图片Uri为空或是错误的时候显示的图片
-            .showImageOnFail(R.drawable.img_fail_small)// 设置图片加载/解码过程中错误时候显示的图片
+            .showImageOnLoading(R.drawable.take_photos_list_no__thumbnail)// 设置图片在下载期间显示的图片
+            .showImageForEmptyUri(R.drawable.take_photos_list_no__thumbnail)// 设置图片Uri为空或是错误的时候显示的图片
+            .showImageOnFail(R.drawable.take_photos_list_no__thumbnail)// 设置图片加载/解码过程中错误时候显示的图片
             .cacheInMemory(false)// 是否缓存都內存中
             .cacheOnDisk(true)// 是否缓存到sd卡上
             .considerExifParams(true)

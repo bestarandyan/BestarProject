@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:background="@drawable/text_down_selector"
-            android:drawableLeft="@drawable/ic_action_up_home"
+            android:drawableLeft="@drawable/back"
             android:gravity="center|center_horizontal"
             android:text="选择联系人"
             android:textColor="#ffffffff"

@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:background="@drawable/button_checked"
-            android:drawableLeft="@drawable/ic_action_up_home"
+            android:drawableLeft="@drawable/back"
             android:gravity="center|center_horizontal"
             android:textColor="#ffffffff"
             android:textSize="18sp" />

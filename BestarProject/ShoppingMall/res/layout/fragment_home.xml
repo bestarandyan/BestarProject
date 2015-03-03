@@ -17,29 +17,28 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/app_theme_color"
-            android:padding="10dp"
+            android:background="#fff"
             android:tag="actionBar">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_home_top_search_bg"
+                android:layout_centerInParent="true"
+                android:background="@null"
                 android:gravity="center"
-                android:id="@+id/searchLayout"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/searchEt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:drawableLeft="@drawable/searchfield_ic_search"
-                    android:text="请输入搜索内容"
-                    android:textColor="#a1a1a1"
-                     />
-            </LinearLayout>
+                android:text="幼教精品网"
+                android:textColor="#333"
+                android:textSize="20sp" />
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/selector_search_btn"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/searchBtn"
+                android:padding="10dp"
+                />
         </RelativeLayout>
 
         <ScrollView
@@ -95,9 +94,9 @@
 
                     <LinearLayout
                         android:id="@+id/ll_left"
-                        android:layout_below="@id/advertLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/advertLayout"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -117,7 +116,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/ic_publish_agent" />
+                                    android:background="@drawable/selector_ptsb_btn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -140,7 +139,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/ic_publish_agent" />
+                                    android:background="@drawable/selector_snwj_btn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -163,7 +162,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/ic_publish_agent" />
+                                    android:background="@drawable/selector_glrj_btn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -186,7 +185,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/ic_publish_agent" />
+                                    android:background="@drawable/selector_gjpp_btn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"

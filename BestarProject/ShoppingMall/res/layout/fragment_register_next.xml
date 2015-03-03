@@ -30,7 +30,7 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:src="@drawable/ic_action_up" />
+                android:src="@drawable/back" />
 
             <TextView
 
@@ -120,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableRight="@drawable/text"
                         android:text="园长"
                         android:textColor="#696969"
                         android:textSize="16sp"
@@ -227,7 +227,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableRight="@drawable/text"
                         android:text="男"
                         android:textColor="#696969"
                         android:textSize="16sp"
@@ -385,7 +385,7 @@
                         android:textSize="16sp"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
-                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableRight="@drawable/text"
                         android:minWidth="100dp"
                         android:textColorHint="#afafaf" />
                 </RelativeLayout>

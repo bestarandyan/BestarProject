@@ -26,7 +26,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:id="@+id/register_back"
-                android:src="@drawable/ic_action_up"
+                android:src="@drawable/back"
                 />
 
             <TextView

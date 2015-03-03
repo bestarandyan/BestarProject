@@ -32,7 +32,6 @@ import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.R;
 import com.manyi.mall.common.Constants;
-import com.manyi.mall.search.SearchFragment;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.UserTaskService;
 import com.manyi.mall.user.HtmlLoadFragment;
@@ -302,19 +301,11 @@ public class HomeFragment extends SuperFragment<Object> {
         htmlLoadFragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
-    @Click(R.id.searchLayout)
+    @Click(R.id.searchBtn)
     void search() {
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
-        SearchFragment searchFragment = GeneratedClassUtils.getInstance(SearchFragment.class);
-        searchFragment.tag = SearchFragment.class.getName();
-        searchFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
-        searchFragment.setContainerId(R.id.main_container);
-        searchFragment.setManager(getFragmentManager());
-
-        searchFragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
     @Click(R.id.model1Layout1)
