@@ -90,9 +90,8 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
     @Background
     void getBackPsw(){
         String mobile = mForgetPhone.getText().toString().trim();
-        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey","");
         RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.getForgetPsw(mobile,appkey);
+        String msg = request.getForgetPsw(mobile);
         BaseResponse response = new JsonData().JsonBase(msg);
         showDialog(response.getMessage());
         if (response.getCode().equals("0")){
@@ -126,9 +125,8 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
     @Background
     void getCode(){
         String mobile = mForgetPhone.getText().toString().trim();
-        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey","");
         RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.getForgetPswCode(mobile,appkey);
+        String msg = request.getForgetPswCode(mobile);
         response = new JsonData().JsonCode(msg);
         showDialog("验证码以发送到您手机！");
     }

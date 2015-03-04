@@ -106,16 +106,16 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             public void onClick(DialogInterface dialog, int which) {
 
                 // @SuppressWarnings({ })
-                SharedPreferences sharedPreferences2 = getBackOpActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE);
-                Editor editor = sharedPreferences2.edit();
-
-                editor.putString("password", null);
-                editor.putString("name", null);
-                editor.putString("realName", null);
-                editor.putBoolean("isSkip", false);
-                editor.putInt("cityId", 0);
-                editor.putString("cityName", null);
+                SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mySharedPreferences.edit();
+                editor.putString("appkey", "");
                 editor.commit();
+
+                SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = userInfo.edit();
+                editor1.putString("userName", "");
+                editor1.putString("password", "");
+                editor1.commit();
 
                 Intent intent = new Intent(getBackOpActivity(), GeneratedClassUtils.get(StartActivity.class));
                 Bundle bundle = new Bundle();

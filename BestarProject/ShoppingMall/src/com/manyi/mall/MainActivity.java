@@ -29,13 +29,13 @@ public class MainActivity extends BaseActivity {
             AppConfig.UID = String.format("%d", getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0));
 			initFragment();
 			// 启动推送服务
-			Thread serviceThread = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					PushServiceUtil.startNotificationService(MainActivity.this);
-				}
-			});
-			serviceThread.start();
+//			Thread serviceThread = new Thread(new Runnable() {
+//				@Override
+//				public void run() {
+//					PushServiceUtil.startNotificationService(MainActivity.this);
+//				}
+//			});
+//			serviceThread.start();
 		}
 
 	}

@@ -101,21 +101,21 @@ public String login(String userName,String psw){
  		return msgString;
  	}
 
-public String getForgetPswCode(String mobile,String appKey){
+public String getForgetPswCode(String mobile){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "BackPWDyanzhen"));
- 		params.add(new BasicNameValuePair("appKey", "abcd"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("MobilePhone", mobile));
  		msgString = getData(GET_GETPSW_SERVICE, params);
  		return msgString;
  	}
 
-public String getForgetPsw(String mobile,String appKey){
+public String getForgetPsw(String mobile){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "BackPWD"));
- 		params.add(new BasicNameValuePair("appKey", "abcd"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("MobilePhone", mobile));
  		msgString = getData(GET_GETPSW_SERVICE, params);
  		return msgString;

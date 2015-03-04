@@ -17,7 +17,7 @@ import com.tjeannin.provigen.model.Constraint;
 import com.tjeannin.provigen.model.Constraint.OnConflict;
 
 public class ManyiProvider extends ProviGenProvider {
-    public static final String DATABASE_NAME = "manyi_ex.db";
+    public static final String DATABASE_NAME = "manyi_mall.db";
     public static final int DATABASE_VERSION = 7;
 
     // 数据库表
