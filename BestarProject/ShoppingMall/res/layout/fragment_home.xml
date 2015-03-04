@@ -19,6 +19,7 @@
             android:layout_height="60dp"
             android:background="#fff"
             android:tag="actionBar">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -28,17 +29,17 @@
                 android:text="幼教精品网"
                 android:textColor="#333"
                 android:textSize="20sp" />
+
             <ImageButton
+                android:id="@+id/searchBtn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/selector_search_btn"
-                android:background="@null"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
-                android:id="@+id/searchBtn"
+                android:background="@null"
                 android:padding="10dp"
-                />
+                android:src="@drawable/selector_search_btn" />
         </RelativeLayout>
 
         <ScrollView
@@ -200,7 +201,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_height="0.5dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
@@ -209,40 +210,40 @@
                             android:background="#fff"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <RelativeLayout
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
                                 android:background="#fff"
                                 android:orientation="vertical"
                                 android:padding="10dp">
 
                                 <TextView
-                                    android:id="@+id/bottomModel1tv1"
+                                    android:id="@+id/sjTitle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="胎教早教课程"
+                                    android:text="教材书籍"
                                     android:textColor="#EC3C44"
                                     android:textSize="@dimen/_16_text_size" />
 
                                 <TextView
-                                    android:id="@+id/bottomModel1tv2"
+                                    android:id="@+id/sjCp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_below="@id/sjTitle"
                                     android:layout_marginTop="6dp"
                                     android:text="新一代创新"
                                     android:textColor="#CFCFCF"
                                     android:textSize="@dimen/_12" />
 
                                 <ImageView
+                                    android:id="@+id/sjImg"
                                     style="@style/home_image"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentRight="true"
                                     android:maxWidth="60dp"
                                     android:src="@drawable/take_photos_list_no__thumbnail" />
-                            </LinearLayout>
+                            </RelativeLayout>
 
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -266,7 +267,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/bottomModel1tv3"
+                                            android:id="@+id/jmtitle"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="加盟连锁服务"
@@ -274,7 +275,7 @@
                                             android:textSize="@dimen/_16_text_size" />
 
                                         <TextView
-                                            android:id="@+id/bottomModel1tv4"
+                                            android:id="@+id/jmcp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="6dp"
@@ -284,15 +285,11 @@
                                     </LinearLayout>
 
                                     <ImageView
+                                        android:id="@+id/jmImg"
                                         style="@style/home_image"
                                         android:maxWidth="60dp"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:background="@color/line_mine_color"></View>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -310,7 +307,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/bottomModel1tv5"
+                                            android:id="@+id/jxtitle"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="进修培训讲座"
@@ -318,7 +315,7 @@
                                             android:textSize="@dimen/_16_text_size" />
 
                                         <TextView
-                                            android:id="@+id/bottomModel1tv6"
+                                            android:id="@+id/jxCp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="6dp"
@@ -328,6 +325,7 @@
                                     </LinearLayout>
 
                                     <ImageView
+                                        android:id="@+id/jxImg"
                                         style="@style/home_image"
                                         android:maxWidth="60dp"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
@@ -338,7 +336,13 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_mine_color"></View>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="20dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
@@ -356,7 +360,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="教育书籍"
+                                    android:text="胎教早教课程"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
 
@@ -373,7 +377,7 @@
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="0.5dp"
                                 android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
@@ -382,210 +386,83 @@
                                 android:orientation="horizontal">
 
 
-                                <LinearLayout
+                                <RelativeLayout
                                     style="@style/home_layout"
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/zjTitle1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="五大领域"
+                                        android:text=""
                                         android:textColor="#B2DED5"
-                                        android:id="@+id/sjTitle1"
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
+                                        android:id="@+id/zjcp1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_below="@id/zjTitle1"
                                         android:layout_marginTop="6dp"
-                                        android:text="智能管理"
+                                        android:text="胎儿教育"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/zjImg1"
                                         style="@style/home_image"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
                                         android:maxWidth="60dp"
-                                        android:id="@+id/sjImg1"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
 
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-
-                                <LinearLayout
+                                <RelativeLayout
                                     style="@style/home_layout"
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/zjTitle2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="音乐艺术"
-                                        android:textColor="#B2DED5"
-                                        android:id="@+id/sjTitle2"
+                                        android:text=""
+                                        android:textColor="@color/app_theme_color"
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
+                                        android:id="@+id/zjcp2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:text="儿童时光"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        style="@style/home_image"
-                                        android:maxWidth="60dp"
-                                        android:id="@+id/sjImg2"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="儿童美语"
-                                        android:id="@+id/sjTitle3"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/zjTitle2"
                                         android:layout_marginTop="6dp"
                                         android:text="了解宝宝详情"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/zjImg2"
                                         style="@style/home_image"
-                                        android:id="@+id/sjImg3"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
                                         android:maxWidth="60dp"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
+
+
                             </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="#fff"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/sjTitle4"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="数学思维"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/bottomModel2tv8"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:text="智能管理"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        style="@style/home_image"
-                                        android:maxWidth="60dp"
-                                        android:id="@+id/sjImg4"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/sjTitle5"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="全脑开发"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/bottomModel2tv10"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:text="儿童时光"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        style="@style/home_image"
-                                        android:maxWidth="60dp"
-                                        android:id="@+id/sjImg5"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/sjTitle6"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="测评类"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/bottomModel2tv12"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:text="了解宝宝详情"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        style="@style/home_image"
-                                        android:id="@+id/sjImg6"
-                                        android:maxWidth="60dp"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
-                            </LinearLayout>
                         </LinearLayout>
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_height="0.55dp"
+                            android:background="@color/line_mine_color"></View>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="20dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
@@ -618,102 +495,80 @@
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <LinearLayout
+                                <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:orientation="vertical"
                                     android:padding="10dp">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
+                                    <TextView
+                                        android:id="@+id/rypTitle1"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:background="#fff"
-                                        android:orientation="vertical">
+                                        android:text=""
+                                        android:textColor="#B2DED5"
+                                        android:textSize="@dimen/_16_text_size" />
 
-                                        <TextView
-                                            android:id="@+id/bottomModel3tv3"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="餐具"
-                                            android:textColor="#B2DED5"
-                                            android:textSize="@dimen/_16_text_size" />
-
-                                        <TextView
-                                            android:id="@+id/bottomModel3tv4"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="6dp"
-                                            android:text="新一代创新"
-                                            android:textColor="#CFCFCF"
-                                            android:textSize="@dimen/_12" />
-                                    </LinearLayout>
+                                    <TextView
+                                        android:id="@+id/rypCp1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/rypTitle1"
+                                        android:layout_marginTop="6dp"
+                                        android:text="新一代创新"
+                                        android:textColor="#CFCFCF"
+                                        android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/rypImg1"
                                         style="@style/home_image"
-                                        android:maxWidth="60dp"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_below="@id/rypCp1"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
 
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
 
-                                <LinearLayout
+                                <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:orientation="vertical"
                                     android:padding="10dp">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
+                                    <TextView
+                                        android:id="@+id/rypTitle2"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:background="#fff"
-                                        android:orientation="vertical">
+                                        android:text="寝具"
+                                        android:textColor="#B2DED5"
+                                        android:textSize="@dimen/_16_text_size" />
 
-                                        <TextView
-                                            android:id="@+id/bottomModel3tv5"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="寝具"
-                                            android:textColor="#B2DED5"
-                                            android:textSize="@dimen/_16_text_size" />
-
-                                        <TextView
-                                            android:id="@+id/bottomModel3tv6"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="6dp"
-                                            android:text="标准的幼儿园校车"
-                                            android:textColor="#CFCFCF"
-                                            android:textSize="@dimen/_12" />
-                                    </LinearLayout>
+                                    <TextView
+                                        android:id="@+id/rypCp2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/rypTitle2"
+                                        android:layout_marginTop="6dp"
+                                        android:text="标准的幼儿园校车"
+                                        android:textColor="#CFCFCF"
+                                        android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/rypImg2"
                                         style="@style/home_image"
-                                        android:maxWidth="60dp"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_below="@id/rypCp2"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
                             </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -721,12 +576,12 @@
                                 android:background="#fff"
                                 android:orientation="horizontal">
 
-                                <LinearLayout
+                                <RelativeLayout
                                     style="@style/home_layout"
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel3tv7"
+                                        android:id="@+id/rypTitle3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="制服"
@@ -734,31 +589,31 @@
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
-                                        android:id="@+id/bottomModel3tv8"
+                                        android:id="@+id/rypCp3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
                                         android:text="最新科技"
                                         android:textColor="#CFCFCF"
+                                        android:layout_below="@id/rypTitle3"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/rypImg3"
                                         style="@style/home_image"
-                                        android:maxWidth="60dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_below="@id/rypCp3"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
 
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
 
-                                <LinearLayout
+                                <RelativeLayout
                                     style="@style/home_layout"
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel3tv9"
+                                        android:id="@+id/rypTitle4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="清洁用品"
@@ -766,51 +621,55 @@
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
-                                        android:id="@+id/bottomModel3tv10"
+                                        android:id="@+id/rypCp4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
+                                        android:layout_below="@id/rypTitle4"
                                         android:text="儿童音乐"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/rypImg4"
                                         style="@style/home_image"
-                                        android:maxWidth="60dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_below="@id/rypCp4"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
 
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
 
-                                <LinearLayout
+                                <RelativeLayout
                                     style="@style/home_layout"
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel3tv11"
+                                        android:id="@+id/rypTitle5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="饮水机"
+                                        android:text="aa"
                                         android:textColor="#B2DED5"
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
-                                        android:id="@+id/bottomModel3tv12"
+                                        android:id="@+id/rypCp5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
-                                        android:text="可爱桌椅"
+                                        android:text="aa"
+                                        android:layout_below="@id/rypTitle5"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
+                                        android:id="@+id/rypImg5"
                                         style="@style/home_image"
-                                        android:maxWidth="60dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_below="@id/rypCp5"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
+                                </RelativeLayout>
 
                             </LinearLayout>
 
@@ -818,7 +677,13 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/line_mine_color"></View>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="20dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
@@ -851,10 +716,6 @@
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -867,7 +728,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv3"
+                                        android:id="@+id/zxTitle1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="环保设计"
@@ -875,7 +736,7 @@
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv4"
+                                        android:id="@+id/zxcp1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
@@ -889,16 +750,12 @@
                                         android:orientation="vertical">
 
                                         <ImageView
+                                            android:id="@+id/zximg1"
                                             style="@style/home_image"
                                             android:maxWidth="60dp"
                                             android:src="@drawable/take_photos_list_no__thumbnail" />
                                     </LinearLayout>
                                 </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
 
 
                                 <LinearLayout
@@ -906,7 +763,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv5"
+                                        android:id="@+id/zxTitle2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="地垫"
@@ -914,7 +771,7 @@
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
-                                        android:id="@+id/bottomModel2tv6"
+                                        android:id="@+id/zxcp2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
@@ -928,16 +785,12 @@
                                         android:orientation="vertical">
 
                                         <ImageView
+                                            android:id="@+id/zximg2"
                                             style="@style/home_image"
                                             android:maxWidth="60dp"
                                             android:src="@drawable/take_photos_list_no__thumbnail" />
                                     </LinearLayout>
                                 </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
 
 
                                 <LinearLayout
@@ -945,6 +798,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/zxTitle3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="环境设计"
@@ -952,6 +806,7 @@
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
+                                        android:id="@+id/zxcp3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
@@ -965,16 +820,12 @@
                                         android:orientation="vertical">
 
                                         <ImageView
+                                            android:id="@+id/zximg3"
                                             style="@style/home_image"
                                             android:maxWidth="60dp"
                                             android:src="@drawable/take_photos_list_no__thumbnail" />
                                     </LinearLayout>
                                 </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
 
 
                                 <LinearLayout
@@ -982,13 +833,15 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/zxTitle4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="墙体彩绘"
+                                        android:text=""
                                         android:textColor="#B2DED5"
                                         android:textSize="@dimen/_16_text_size" />
 
                                     <TextView
+                                        android:id="@+id/zxcp4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
@@ -1002,6 +855,7 @@
                                         android:orientation="vertical">
 
                                         <ImageView
+                                            android:id="@+id/zximg4"
                                             style="@style/home_image"
                                             android:maxWidth="60dp"
                                             android:src="@drawable/take_photos_list_no__thumbnail" />
@@ -1011,7 +865,13 @@
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="20dp"
+                                android:layout_height="0.5dp"
+                                android:background="@color/line_mine_color"></View>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_marginTop="20dp"
                                 android:background="@color/line_mine_color"></View>
 
                             <LinearLayout

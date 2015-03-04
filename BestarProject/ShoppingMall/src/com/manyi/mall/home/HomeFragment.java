@@ -53,6 +53,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,48 +64,94 @@ import java.util.concurrent.ScheduledExecutorService;
 @SuppressLint("HandlerLeak")
 @EFragment(R.layout.fragment_home)
 public class HomeFragment extends SuperFragment<Object> {
-
     @ViewById(R.id.release_radio_group)
     CirclePageIndicator mIndicator;
-
     @ViewById(R.id.view_page)
     FangyouReleasedViewPage mViewPage;
-
-    @ViewById(R.id.sjImg1)
-    ImageView mSjImg1;
-
-    @ViewById(R.id.sjImg2)
-    ImageView mSjImg2;
-
-    @ViewById(R.id.sjImg3)
-    ImageView mSjImg3;
-
-    @ViewById(R.id.sjImg4)
-    ImageView mSjImg4;
-
-    @ViewById(R.id.sjImg5)
-    ImageView mSjImg5;
-
-    @ViewById(R.id.sjImg6)
-    ImageView mSjImg6;
-
-    @ViewById(R.id.sjTitle1)
-    TextView mSjTitle1;
-
-    @ViewById(R.id.sjTitle2)
-    TextView mSjTitle2;
-
-    @ViewById(R.id.sjTitle3)
-    TextView mSjTitle3;
-
-    @ViewById(R.id.sjTitle4)
-    TextView mSjTitle4;
-
-    @ViewById(R.id.sjTitle5)
-    TextView mSjTitle5;
-
-    @ViewById(R.id.sjTitle6)
-    TextView mSjTitle6;
+    @ViewById(R.id.sjImg)
+    ImageView mSjImg;
+    @ViewById(R.id.sjTitle)
+    TextView mSjTitle;
+    @ViewById(R.id.sjCp)
+    TextView mSjcp;
+    @ViewById(R.id.rypImg1)
+    ImageView mrypImg1;
+    @ViewById(R.id.rypImg2)
+    ImageView mrypImg2;
+    @ViewById(R.id.rypImg3)
+    ImageView mrypImg3;
+    @ViewById(R.id.rypImg4)
+    ImageView mrypImg4;
+    @ViewById(R.id.rypImg5)
+    ImageView mrypImg5;
+    @ViewById(R.id.rypTitle1)
+    TextView mrypTitle1;
+    @ViewById(R.id.rypTitle2)
+    TextView mrypTitle2;
+    @ViewById(R.id.rypTitle3)
+    TextView mrypTitle3;
+    @ViewById(R.id.rypTitle4)
+    TextView mrypTitle4;
+    @ViewById(R.id.rypTitle5)
+    TextView mrypTitle5;
+    @ViewById(R.id.rypCp1)
+    TextView mrypcp1;
+    @ViewById(R.id.rypCp1)
+    TextView mrypcp2;
+    @ViewById(R.id.rypCp1)
+    TextView mrypcp3;
+    @ViewById(R.id.rypCp1)
+    TextView mrypcp4;
+    @ViewById(R.id.rypCp1)
+    TextView mrypcp5;
+    @ViewById(R.id.zxTitle1)
+    TextView mZxTitle1;
+    @ViewById(R.id.zxTitle2)
+    TextView mZxTitle2;
+    @ViewById(R.id.zxTitle3)
+    TextView mZxTitle3;
+    @ViewById(R.id.zxTitle4)
+    TextView mZxTitle4;
+    @ViewById(R.id.zxcp1)
+    TextView mZxCp1;
+    @ViewById(R.id.zxcp2)
+    TextView mZxCp2;
+    @ViewById(R.id.zxcp3)
+    TextView mZxCp3;
+    @ViewById(R.id.zxcp4)
+    TextView mZxCp4;
+    @ViewById(R.id.zximg1)
+    ImageView mZxImg1;
+    @ViewById(R.id.zximg2)
+    ImageView mZxImg2;
+    @ViewById(R.id.zximg3)
+    ImageView mZxImg3;
+    @ViewById(R.id.zximg4)
+    ImageView mZxImg4;
+    @ViewById(R.id.zjcp1)
+    TextView mZjCp1;
+    @ViewById(R.id.zjcp2)
+    TextView mZjCp2;
+    @ViewById(R.id.zjImg1)
+    ImageView mZjImg1;
+    @ViewById(R.id.zjImg2)
+    ImageView mZjImg2;
+    @ViewById(R.id.zjTitle1)
+    TextView mZjTitle1;
+    @ViewById(R.id.zjTitle2)
+    TextView mZjTitle2;
+    @ViewById(R.id.jmcp)
+    TextView mjmCp;
+    @ViewById(R.id.jmImg)
+    ImageView mJmImg;
+    @ViewById(R.id.jmtitle)
+    TextView mJmTitle;
+    @ViewById(R.id.jxCp)
+    TextView mjxCp;
+    @ViewById(R.id.jxImg)
+    ImageView mjxImg;
+    @ViewById(R.id.jxtitle)
+    TextView mjxTitle;
 
     @ViewById(R.id.advertLayout)
     RelativeLayout advertLayout;
@@ -121,6 +168,22 @@ public class HomeFragment extends SuperFragment<Object> {
     List<MainDataBean> mDataList;
     TextView[] mSjTvArray = null;
     ImageView[] mSjImgArray = null;
+    TextView[] mSjcpArray = null;
+    TextView[] mZxTvArray = null;
+    ImageView[] mZxImgArray = null;
+    TextView[] mZxcpArray = null;
+    TextView[] mrypTvArray = null;
+    ImageView[] mrypImgArray = null;
+    TextView[] mrypcpArray = null;
+    TextView[] mzjTvArray = null;
+    ImageView[] mzjImgArray = null;
+    TextView[] mzjCpArray = null;
+    TextView[] mjmTvArray = null;
+    ImageView[] mjmImgArray = null;
+    TextView[] mjmcpArray = null;
+    TextView[] mjxTvArray = null;
+    ImageView[] mjxImgArray = null;
+    TextView[] mjxcpArray = null;
 
 
     private class MyPageTask implements Runnable {
@@ -177,8 +240,27 @@ public class HomeFragment extends SuperFragment<Object> {
     public void init() {
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
-        mSjTvArray = new TextView[]{mSjTitle1,mSjTitle2,mSjTitle3,mSjTitle4,mSjTitle5,mSjTitle6};
-        mSjImgArray = new ImageView[]{mSjImg1,mSjImg2,mSjImg3,mSjImg4,mSjImg5,mSjImg6};
+        mSjTvArray = new TextView[]{mSjTitle};
+        mSjImgArray = new ImageView[]{mSjImg};
+        mSjcpArray = new TextView[]{mSjcp};
+
+        mZxTvArray = new TextView[]{mZxTitle1,mZxTitle2,mZxTitle3,mZxTitle4};
+        mZxImgArray = new ImageView[]{mZxImg1,mZxImg2,mZxImg3,mZxImg4};
+        mZxcpArray = new TextView[]{mZxCp1,mZxCp2,mZxCp3,mZxCp4};
+
+        mrypTvArray = new TextView[]{mrypTitle1,mrypTitle2,mrypTitle3,mrypTitle4,mrypTitle5};
+        mrypImgArray = new ImageView[]{mrypImg1,mrypImg2,mrypImg3,mrypImg4,mrypImg5};
+        mrypcpArray = new TextView[]{mrypcp1,mrypcp2,mrypcp3,mrypcp4,mrypcp5};
+        mzjTvArray = new TextView[]{mZjTitle1,mZjTitle2};
+        mzjImgArray = new ImageView[]{mZjImg1,mZjImg2};
+        mzjCpArray = new TextView[]{mZjCp1,mZjCp2};
+        mjmTvArray = new TextView[]{mJmTitle};
+        mjmImgArray = new ImageView[]{mJmImg};
+        mjmcpArray = new TextView[]{mjmCp};
+        mjxTvArray = new TextView[]{mjxTitle};
+        mjxImgArray = new ImageView[]{mjxImg};
+        mjxcpArray = new TextView[]{mjxCp};
+
         cityId = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0);
         mAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mAdapter);
@@ -229,17 +311,17 @@ public class HomeFragment extends SuperFragment<Object> {
         if (mDataList!=null && mDataList.size()>0){
                for (int i=0;i<mDataList.size();i++){
                    if (mDataList.get(i).getClassName().equals("装修设计")){
-
+                       setViewData(i,mZxTvArray,mZxImgArray,mZxcpArray);
                    }else if (mDataList.get(i).getClassName().equals("幼儿园日用品")){
-
+                       setViewData(i,mrypTvArray,mrypImgArray,mrypcpArray);
                    }else if (mDataList.get(i).getClassName().equals("胎教早教课程")){
-
+                       setViewData(i,mzjTvArray,mzjImgArray,mzjCpArray);
                    }else if (mDataList.get(i).getClassName().equals("进修培训讲座")){
-
-                   }else if (mDataList.get(i).getClassName().equals("加盟连锁服务")){
-
+                       setViewData(i,mjxTvArray,mjxImgArray,mjxcpArray);
+                   }else if (mDataList.get(i).getClassName().equals("加盟联锁服务")){
+                       setViewData(i,mjmTvArray,mjmImgArray,mjmcpArray);
                    }else if (mDataList.get(i).getClassName().equals("教材书籍")){
-                       setSjData(i);
+                       setViewData(i,mSjTvArray,mSjImgArray,mSjcpArray);
                    }else if (mDataList.get(i).getClassName().equals("国际品牌")){
 
                    }else if (mDataList.get(i).getClassName().equals("管理软件")){
@@ -253,20 +335,27 @@ public class HomeFragment extends SuperFragment<Object> {
         }
     }
     @UiThread
-    void setSjData(int position){
+    void setViewData(int position,TextView[] titleArray,ImageView[] imgArray,TextView[] productArray){
         List<MainDataBean.ShopClasses> shopClasseses = mDataList.get(position).getShopclasses();
         for (int s=0;s<shopClasseses.size();s++){
+            if (s > titleArray.length-1){
+                break;
+            }
             MainDataBean.ShopClasses shopClasses = shopClasseses.get(s);
-            mSjTvArray[s].setText(shopClasses.getClassName());
+            titleArray[s].setText(shopClasses.getClassName());
             MainDataBean.Products products = getProducts(position,shopClasses.getID());
             if (products!=null){
-                ImageLoader.getInstance().displayImage(products.getPicUrl(), mSjImgArray[s], options, animateFirstListener);
+                ImageLoader.getInstance().displayImage(products.getPicUrl(), imgArray[s], options, animateFirstListener);
+                productArray[s].setText(products.getProductName());
             }
         }
     }
 
     private MainDataBean.Products getProducts(int position,Long classId){
         List<MainDataBean.Products> productses = mDataList.get(position).getProducts();
+        if (productses==null){
+            return null;
+        }
         for (int i=0;i<productses.size();i++){
             MainDataBean.Products product = productses.get(i);
             if(product.getClassID() == classId){

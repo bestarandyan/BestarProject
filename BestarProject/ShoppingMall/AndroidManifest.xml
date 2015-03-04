@@ -68,7 +68,7 @@
         android:name="com.manyi.mall.FybaoApplication_"
         android:configChanges="orientation|keyboardHidden"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/head"
+        android:icon="@drawable/launcher_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme" >
@@ -79,7 +79,7 @@
            android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/StartTheme"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" >
+            android:windowSoftInputMode="adjustResize|stateHidden" >
              <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,12 +92,12 @@
             android:configChanges="orientation|keyboardHidden|screenSize|keyboard"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" >
+            android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
 
         <provider
             android:name="com.manyi.mall.provider.ManyiProvider"
-            android:authorities="com.manyi.fyb"
+            android:authorities="com.manyi.mall"
             android:exported="false" />
 
         <service
