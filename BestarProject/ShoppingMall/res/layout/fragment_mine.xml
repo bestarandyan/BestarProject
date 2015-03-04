@@ -44,6 +44,7 @@
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/head"
                             app:border_width="2dp"
+                            android:id="@+id/headLayout"
                             app:border_color="@color/blue" />
 
                         <TextView

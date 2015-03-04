@@ -21,7 +21,7 @@
     <color name="gray_1">#D0D0D0</color>
     <color name="house_image_others">#42000000</color>
     <color name="house_image_red">#e60404</color>
-    <color name="line_mine_color">#887f7f7f</color>
+    <color name="line_mine_color">#667f7f7f</color>
 
     <color name="red_light">#ffff4444</color>
     <color name="green_light">#ff99cc00</color>
@@ -61,7 +61,7 @@
     <color name="district_parent_item_color">#3d4040</color>
 
     <!-- 注册 -->
-    <color name="register_background">#ecf0f1</color>
+    <color name="register_background">#fff</color>
     <color name="register_title_background">#1abc9c</color>
     <color name="tetx_title_color">#fff</color>
     <color name="text_color">#3c3c3c</color>
@@ -121,7 +121,7 @@
     <color name="raward_red">#ff5104</color>
 
     <color name="app_theme_color">#FF4864</color>
-    <color name="app_bg_color">#EEEEEE</color>
+    <color name="app_bg_color">#ffffff</color>
     <color name="main_tab_text_color">#7f7f7f</color>
     <color name="main_tab_text_color_h">#FF4864</color>
 

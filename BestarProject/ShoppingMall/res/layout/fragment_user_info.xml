@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_next_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_background"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content_frame"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:background="@color/color_ffffff"
+            android:padding="0dp"
+            android:tag="actionBar"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/userInfoBack"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/text_down_selector"
+                android:src="@drawable/back" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="我的资料"
+                android:textColor="#333"
+                android:textSize="22sp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_mine_color"
+            ></View>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/app_bg_color"
+                tools:ignore="UselessLeaf">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:id="@+id/headViewLayout"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/shenfentv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing1"
+                        android:text="头像"
+                        android:textSize="18sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:id="@+id/headArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:drawableRight="@drawable/text"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        tools:ignore="TextFields" />
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/headImgView"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/head"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:layout_toLeftOf="@id/headArrow"
+                        />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_mine_color"></View>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/line_mine_color"></View>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:background="@color/color_ffffff"
+                    android:orientation="horizontal"
+                    android:id="@+id/userNameLayout"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/real_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing2"
+                        android:text="会员名"
+                        android:textSize="18sp"
+                        tools:ignore="TextFields" />
+                    <ImageView
+                        android:id="@+id/nameArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/text"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:visibility="invisible"
+                        tools:ignore="TextFields" />
+                    <TextView
+                        android:id="@+id/real_name_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:layout_toLeftOf="@id/nameArrow"
+                        android:textSize="16sp"
+                        android:text="13588888888"
+                        android:textColor="#cc333333" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:id="@+id/pswLayout"
+                    tools:ignore="UselessParent">
+
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing3"
+                        android:text="密   码"
+                        android:textSize="18sp"
+                        tools:ignore="TextFields" />
+
+
+                    <TextView
+                        android:id="@+id/pswArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:drawableRight="@drawable/text"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        tools:ignore="TextFields" />
+                    <TextView
+                        android:id="@+id/pswTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="123456"
+                        android:inputType="textPassword"
+                        android:layout_marginRight="20dp"
+                        android:layout_toLeftOf="@id/pswArrow"
+                        tools:ignore="TextFields" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_mine_color"></View>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/line_mine_color"></View>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
+                    android:gravity="center_vertical"
+                    android:id="@+id/moreInfoLayout"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing6"
+                        android:text="更多资料"
+                        android:textSize="18sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:id="@+id/youeryuanaddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:drawableRight="@drawable/text"
+                        />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_mine_color"></View>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

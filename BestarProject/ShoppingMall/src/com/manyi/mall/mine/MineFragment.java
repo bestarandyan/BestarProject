@@ -28,6 +28,7 @@ import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.CommonService;
+import com.manyi.mall.widget.imageView.CircleImageView;
 import com.manyi.mall.widget.switchView.ToggleButton;
 
 import org.androidannotations.annotations.AfterViews;
@@ -44,6 +45,8 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     @ViewById(R.id.switchBtn)
     ToggleButton mSwitchBtn;
     private CommonService mAppLoadService;
+    @ViewById(R.id.headLayout)
+    CircleImageView mHeadImgView;
 
     @ViewById(R.id.Layout1)
     TextView mLayout1;
@@ -77,7 +80,18 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         setBackOp(null);
         super.onAttach(activity);
     }
+    @Click(R.id.headLayout)
+    void gotoUserInfo(){
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        UserInfoFragment fragment = GeneratedClassUtils.getInstance(UserInfoFragment.class);
+        fragment.tag = UserInfoFragment.class.getName();
 
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
+    }
 
     @SuppressLint({"ResourceAsColor", "InlinedApi"})
     @UiThread
