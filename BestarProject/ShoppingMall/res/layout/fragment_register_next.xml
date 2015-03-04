@@ -40,12 +40,11 @@
                 android:text="完善资料"
                 android:textColor="#333"
                 android:textSize="18sp" />
-            <Button
+            <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:text="继续"
-                android:textColor="#000"
                 android:background="@null"
+                android:src="@drawable/next"
                 android:layout_alignParentRight="true"
                 android:id="@+id/goonBtn"
                 />
@@ -121,7 +120,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:drawableRight="@drawable/text"
-                        android:text="园长"
+                        android:drawablePadding="10dp"
+                        android:text="商家"
                         android:textColor="#696969"
                         android:textSize="16sp"
                         android:gravity="center"
@@ -173,9 +173,11 @@
 
                     <EditText
                         android:id="@+id/real_name_et"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/real_name"
+                        android:gravity="right"
                         android:layout_centerVertical="true"
                         android:background="@null"
                         android:hint="请输入姓名"
@@ -228,6 +230,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:drawableRight="@drawable/text"
+                        android:drawablePadding="10dp"
                         android:text="男"
                         android:textColor="#696969"
                         android:textSize="16sp"
@@ -267,15 +270,18 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:layout_toRightOf="@+id/xing4"
+                        android:id="@+id/xing4Tv"
                         android:text="联系电话"
                         android:textSize="16sp"
                         tools:ignore="TextFields" />
 
                     <EditText
                         android:id="@+id/phone_number_et"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/xing4Tv"
+                        android:gravity="right"
                         android:layout_centerVertical="true"
                         android:background="@null"
                         android:textSize="16sp"
@@ -322,15 +328,18 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:layout_toRightOf="@+id/xing5"
+                        android:id="@+id/xing5Tv"
                         android:text="幼儿园名称"
                         android:textSize="16sp"
                         tools:ignore="TextFields" />
 
                     <EditText
                         android:id="@+id/youeryuanname"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/xing5Tv"
+                        android:gravity="right"
                         android:layout_centerVertical="true"
                         android:background="@null"
                         android:hint="请输入名称"
@@ -344,6 +353,60 @@
                     android:layout_height="1dp"
                     android:background="#e1e1e1"></View>
 
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/color_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/xing7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="*"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <TextView
+                        android:layout_width="@dimen/complete_info_textview_width"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                        android:layout_toRightOf="@+id/xing7"
+                        android:id="@+id/xing7Tv"
+                        android:text="幼儿园电话"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/youeryuanphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/xing7Tv"
+                        android:gravity="right"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:background="@null"
+                        android:inputType="phone"
+                        android:hint="请输入电话"
+                        android:textSize="16sp"
+                        android:minWidth="100dp"
+                        android:textColorHint="#afafaf" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e1e1e1"></View>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -385,65 +448,16 @@
                         android:textSize="16sp"
                         android:gravity="right|center_vertical"
                         android:singleLine="true"
+                        android:drawablePadding="5dp"
                         android:drawableRight="@drawable/text"
                         android:minWidth="100dp"
+                        android:maxLength="15"
                         android:textColorHint="#afafaf" />
                 </RelativeLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#e1e1e1"></View>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:background="@color/color_ffffff"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    tools:ignore="UselessParent">
-
-                    <TextView
-                        android:id="@+id/xing7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
-
-                    <TextView
-                        android:layout_width="@dimen/complete_info_textview_width"
-                        android:gravity="right"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing7"
-                        android:text="幼儿园电话"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
-
-                    <EditText
-                        android:id="@+id/youeryuanphone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:singleLine="true"
-                        android:background="@null"
-                        android:inputType="phone"
-                        android:hint="请输入电话"
-                        android:textSize="16sp"
-                        android:minWidth="100dp"
-                        android:textColorHint="#afafaf" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#e1e1e1"></View>
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -478,15 +492,18 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:layout_toRightOf="@+id/xing9"
+                        android:id="@+id/xing9Tv"
                         android:text="QQ"
                         android:textSize="16sp"
                         tools:ignore="TextFields" />
 
                     <EditText
                         android:id="@+id/qqEt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/xing9Tv"
+                        android:gravity="right"
                         android:layout_centerVertical="true"
                         android:background="@null"
                         android:hint="请输入QQ号码"
@@ -526,15 +543,18 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:layout_toRightOf="@+id/xing10"
+                        android:id="@+id/xing10Tv"
                         android:text="班级数"
                         android:textSize="16sp"
                         tools:ignore="TextFields" />
 
                     <EditText
                         android:id="@+id/classCountEt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/xing10Tv"
+                        android:gravity="right"
                         android:layout_centerVertical="true"
                         android:singleLine="true"
                         android:background="@null"
@@ -574,15 +594,18 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:layout_toRightOf="@+id/xing11"
+                        android:id="@+id/xing11Tv"
                         android:text="学生人数"
                         android:textSize="16sp"
                         tools:ignore="TextFields" />
 
                     <EditText
                         android:id="@+id/studentCountEt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/xing11Tv"
+                        android:gravity="right"
                         android:singleLine="true"
                         android:layout_centerVertical="true"
                         android:background="@null"
@@ -613,8 +636,8 @@
             android:layout_width="100dp"
             android:scrollbars="none"
             android:layout_height="match_parent"
-            android:divider="#666"
-            android:dividerHeight="1dp" />
+            android:divider="#66666666"
+            android:dividerHeight="0.5dp" />
         <View
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
@@ -624,10 +647,10 @@
             android:id="@+id/CityList"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:divider="#666"
+            android:divider="#66666666"
             android:scrollbars="none"
             android:visibility="gone"
-            android:dividerHeight="1dp" />
+            android:dividerHeight="0.5dp" />
         <View
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
@@ -637,10 +660,10 @@
             android:id="@+id/CountyList"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:divider="#666"
+            android:divider="#66666666"
             android:scrollbars="none"
             android:visibility="gone"
-            android:dividerHeight="1dp" />
+            android:dividerHeight="0.5dp" />
     </LinearLayout>
     </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>

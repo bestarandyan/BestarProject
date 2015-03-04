@@ -85,14 +85,17 @@ public class RegisterFragment extends SuperFragment<Object> {
 		remove();
 	}
 
-	private boolean phonenumValidate() {
+	private boolean userInfoCheck() {
 		if (mPhoneNumber.getText().toString().length() == 0) {
 			onSendSMSError("请输入手机号");
 			return false;
 		} else if (mPhoneNumber.getText().toString().length() < 11) {
 			onSendSMSError("手机号码格式不正确!");
 			return false;
-		} else
+		}else if (mRegisterPwd.getText().toString().length()  == 0) {
+            onSendSMSError("请输入密码!");
+            return false;
+        } else
 			return true;
 	}
 
@@ -101,14 +104,9 @@ public class RegisterFragment extends SuperFragment<Object> {
 	public void getRegisterData() {
 		if (CheckDoubleClick.isFastDoubleClick())
 			return;
-//		if (!phonenumValidate()) {
-//			return;
-//		}
-//		if (mRegisterPwd.getText().toString().length() == 0) {
-//			onSendSMSError("请输入密码");
-//			return;
-//		}
-
+		if (!userInfoCheck()) {
+			return;
+		}
         gotoRegisterNextStep();
 
 	}

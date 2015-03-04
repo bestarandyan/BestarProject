@@ -56,39 +56,34 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 	 */
 	@AfterViews
 	void init() {
-//		addAnimationListener(new Animation.AnimationListener() {
-//			@Override
-//			public void onAnimationStart(Animation animation) {
-//
-//			}
-//
-//			@Override
-//			public void onAnimationEnd(Animation animation) {
-//				if (isFirstEnter) {
-//					ManyiUtils.showKeyBoard(getActivity(), mForgetUsername);
-//					isFirstEnter = false;
-//				}
-//			}
-//
-//			@Override
-//			public void onAnimationRepeat(Animation animation) {
-//
-//			}
-//		});
+
 	}
+
 
     @Click(R.id.getCodeBtn)
     void getCode(){
 //        mGetCodeBtn.setClickable(false);
 //        mGetCodeBtn.setEnabled(false);
+        if (mPhoneEt.getText().toString().length() == 0){
+            showDialog("请输入手机号码！");
+            return;
+        }
         getRegisterCode();
     }
 
     @Click(R.id.checkCodeBtn)
     void submitCode(){
         String code = mCodeEt.getText().toString();
-        if (code .equals(mCode)){
+        if (mPhoneEt.getText().toString().length() == 0){
+            showDialog("请输入手机号码！");
+            return;
+        }
+        if (code!=null && code.trim().length() == 0){
+            showDialog("请输入验证码！");
+        }else if (code .equals(mCode)){
             gotoNextStep();
+        }else{
+            showDialog("请输入正确的验证码！");
         }
     }
     @UiThread
@@ -104,7 +99,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
         String msg = request.getRegisterCode(mPhoneEt.getText().toString());
         CodeResponse response = new JsonData().JsonCode(msg);
         mCode = response.getYZCode();
-        onSendSMSSuccess();
+        showDialog("验证码将发送到手机上！");
     }
 
 	@Override
@@ -112,26 +107,11 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 		super.onDestroy();
 		ManyiUtils.closeKeyBoard(getActivity(), mPhoneEt);
 	}
-	@UiThread
-	public void onSendSMSSuccess() {
-
-		DialogBuilder.showSimpleDialog("验证码已发送!", getBackOpActivity(), new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-			}
-		});
-	}
 
 	@UiThread
-	public void logincodeError(String e) {
+	public void showDialog(String e) {
 		DialogBuilder.showSimpleDialog(e, getBackOpActivity());
 	}
-
-	@UiThread
-	public void showerror() {
-		DialogBuilder.showSimpleDialog("验证码不能为空", getBackOpActivity());
-	}
-
 
 	public void nextSuccess() {
 		if (CheckDoubleClick.isFastDoubleClick()) {

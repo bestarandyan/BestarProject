@@ -3,18 +3,21 @@ package com.manyi.mall.user;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
+import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
@@ -22,6 +25,7 @@ import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
@@ -57,7 +61,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     DrawerLayout mDrawerLayout;
 
     @ViewById(R.id.goonBtn)
-    Button mGoonBtn;
+    ImageButton mGoonBtn;
 
     @ViewById(R.id.real_name_et)
     EditText mRealNameEt;
@@ -98,7 +102,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     private String selectCity = "";
     private String selectCounty = "";
 
-    private int type = 1;//1渠道商2园长
+    private String type = "1";//1渠道商2园长
     private int sex = 0;//男0女1
     @Click(R.id.genderTv)
     void selectGender(){
@@ -129,6 +133,57 @@ public class RegisterNextFragment extends ImageLoaderFragment {
             }
         });
     }
+    @UiThread
+    public void onSMSError(String e) {
+        if (getActivity() == null || getActivity().isFinishing()) {
+            return;
+        }
+        DialogBuilder.showSimpleDialog(e, getActivity());
+    }
+    @Click(R.id.register_back)
+    void back(){
+        remove();
+    }
+    @AfterViews
+    void init(){
+        mDrawerLayout.setAlwaysDrawnWithCacheEnabled(false);
+//        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
+        mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View view, float v) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View view) {
+                if (provinceList == null || provinceList.size()>0){
+                    getProvince();
+                }
+                ManyiUtils.closeKeyBoard(getActivity(), mStudentCountEt);
+            }
+
+            @Override
+            public void onDrawerClosed(View view) {
+                mCityList.setVisibility(View.GONE);
+                mCountyList.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int i) {
+
+            }
+        });
+    }
+
+    @Override
+    public boolean canFragmentGoback(int from) {
+        if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)){
+               mDrawerLayout.closeDrawer(Gravity.RIGHT);
+            return false;
+        }
+            return super.canFragmentGoback(from);
+    }
+
 
     @Click(R.id.youeryuanaddress)
     void getAddress(){
@@ -203,12 +258,36 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         countyPosition = position;
         selectCounty = countyList.get(countyPosition).get("CountyName").toString();
         mDrawerLayout.closeDrawer(Gravity.RIGHT);
-        mAddress.setText(selectProvince+"  "+selectCity+"  "+selectCounty);
+        String address = selectProvince+"  "+selectCity+"  "+selectCounty;
+        mAddress.setText(address);
     }
 
     @Click(R.id.goonBtn)
     void goon(){
-        register();
+        if (checkUserInfo()){
+            register();
+        }
+    }
+
+    private boolean checkUserInfo(){
+        if (mRealNameEt.getText().toString().length() == 0){
+            onSMSError("请输入真实姓名！");
+            return false;
+        }else if (mPhoneNumberEt.getText().toString().length() == 0){
+            onSMSError("请输入联系电话！");
+            return false;
+        }else if (mSchoolNameEt.getText().toString().length() == 0){
+            onSMSError("请输入幼儿园名称！");
+            return false;
+        }else if (mSchoolPhone.getText().toString().length() == 0){
+            onSMSError("请输入幼儿园电话！");
+            return false;
+        }else if (mAddress.getText().toString().length() == 0){
+            onSMSError("请选择幼儿园地址！");
+            return false;
+        }else{
+            return true;
+        }
     }
 
     @Background
@@ -217,14 +296,14 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         String realName = mRealNameEt.getText().toString().trim();
         String phone = mPhoneNumberEt.getText().toString().trim();
         String ProvinceID = provinceList.get(provincePosition).get("ID");
-        String CityID = cityList.get(provincePosition).get("ID");
-        String CountyID = countyList.get(provincePosition).get("ID");
+        String CityID = cityList.get(cityPosition).get("ID");
+        String CountyID = countyList.get(countyPosition).get("ID");
         String Address = mAddress.getText().toString().trim();
         String QQ = mQQEt.getText().toString().trim();
         String SchoolName = mSchoolNameEt.getText().toString().trim();
         String ClassNum = mClassCountEt.getText().toString().trim();
         String StudentNum = mStudentCountEt.getText().toString().trim();
-        String msg = request.register(userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID, Address, QQ, SchoolName, ClassNum, StudentNum);
+        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID, Address, QQ, SchoolName, ClassNum, StudentNum);
         System.out.print(msg);
         BaseResponse response = new JsonData().JsonBase(msg);
         if (response.getCode().equals("0")){
@@ -268,10 +347,10 @@ public class RegisterNextFragment extends ImageLoaderFragment {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.menu_shengFen_type1){
                     mShengFenTv.setText("商家");
-                    type = 1;
+                    type = "1";
                 }else if (menuItem.getItemId() == R.id.menu_shengFen_type2){
                     mShengFenTv.setText("园长");
-                    type = 2;
+                    type = "2";
                 }
                 return false;
             }

@@ -57,14 +57,14 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-public String register(String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum){
+public String register(String type,String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GardenerRegister"));
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("UserName", UserName));
  		params.add(new BasicNameValuePair("Password", Password));
- 		params.add(new BasicNameValuePair("Type", "2"));
+ 		params.add(new BasicNameValuePair("Type", type));
  		params.add(new BasicNameValuePair("RealName", RealName));
  		params.add(new BasicNameValuePair("Sex", Sex));
  		params.add(new BasicNameValuePair("Phone", Phone));
