@@ -3,6 +3,7 @@ package com.manyi.mall;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
@@ -11,7 +12,9 @@ import android.widget.FrameLayout;
 import com.huoqiu.framework.backstack.BackOpFragmentActivity;
 import com.huoqiu.framework.backstack.Op;
 import com.huoqiu.framework.rest.Configuration;
+import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.huoqiu.framework.util.NetworkUtil;
 import com.huoqiu.framework.util.StringUtil;
 import com.manyi.mall.cachebean.NotificationBean;
 import com.manyi.mall.common.push.Constants;
@@ -33,6 +36,15 @@ public class StartActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        if (!NetworkUtil.isOpenNetwork(this)){
+            DialogBuilder.showSimpleDialog("未检测到网络连接", "确定", this, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            return ;
+        }
 		// 通知
 		if (getIntent() != null && getIntent().getStringExtra(Constants.TAG) != null) {
 			Intent intent = getIntent();

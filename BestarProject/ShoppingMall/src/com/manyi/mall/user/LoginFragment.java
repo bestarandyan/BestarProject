@@ -129,26 +129,29 @@ public class LoginFragment extends SuperFragment<Integer> {
 
     @Background
     public void loginw() {
+        try {
+            String password = mLoginPassword.getText().toString().trim();
+            String name = mLoginUsername.getText().toString().trim();
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String msg = request.login(name,password);
+            LoginResponse response = new JsonData().JsonLoginMsg(msg);
+            if (response.getCode().equals("0")){
+                SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mySharedPreferences.edit();
+                editor.putString("appkey", response.getAppKey());
+                editor.commit();
 
-        String password = mLoginPassword.getText().toString().trim();
-        String name = mLoginUsername.getText().toString().trim();
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.login(name,password);
-        LoginResponse response = new JsonData().JsonLoginMsg(msg);
-        if (response.getCode().equals("0")){
-            SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
-            SharedPreferences.Editor editor = mySharedPreferences.edit();
-            editor.putString("appkey", response.getAppKey());
-            editor.commit();
-
-            SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
-            SharedPreferences.Editor editor1 = userInfo.edit();
-            editor1.putString("userName", name);
-            editor1.putString("password", password);
-            editor1.commit();
-            initMainActivity();
-        }else{
-            loginFailed(response.getMessage());
+                SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = userInfo.edit();
+                editor1.putString("userName", name);
+                editor1.putString("password", password);
+                editor1.commit();
+                initMainActivity();
+            }else{
+                loginFailed(response.getMessage());
+            }
+        }catch (Exception e){
+            loginFailed("登陆失败，请检查网络连接，或重试！");
         }
     }
 

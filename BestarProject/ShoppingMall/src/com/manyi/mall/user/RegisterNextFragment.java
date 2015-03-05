@@ -48,18 +48,6 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     @ViewById(R.id.shenfenValue)
     TextView mShengFenTv;
 
-    @ViewById(R.id.ProvinceList)
-    ListView mProvinceList;
-
-    @ViewById(R.id.CityList)
-    ListView mCityList;
-
-    @ViewById(R.id.CountyList)
-    ListView mCountyList;
-
-    @ViewById(R.id.drawer_layout)
-    DrawerLayout mDrawerLayout;
-
     @ViewById(R.id.goonBtn)
     ImageButton mGoonBtn;
 
@@ -90,17 +78,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     @FragmentArg
     String password;
 
-    List<Map<String,String>> provinceList;
-    List<Map<String,String>> cityList;
-    List<Map<String,String>> countyList;
 
-    private int provincePosition = 0;
-    private int cityPosition = 0;
-    private int countyPosition = 0;
-
-    private String selectProvince = "";
-    private String selectCity = "";
-    private String selectCounty = "";
 
     private String type = "1";//1渠道商2园长
     private int sex = 0;//男0女1
@@ -146,121 +124,39 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     }
     @AfterViews
     void init(){
-        mDrawerLayout.setAlwaysDrawnWithCacheEnabled(false);
-//        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
-        mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(View view, float v) {
 
-            }
-
-            @Override
-            public void onDrawerOpened(View view) {
-                if (provinceList == null || provinceList.size()>0){
-                    getProvince();
-                }
-                ManyiUtils.closeKeyBoard(getActivity(), mStudentCountEt);
-            }
-
-            @Override
-            public void onDrawerClosed(View view) {
-                mCityList.setVisibility(View.GONE);
-                mCountyList.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onDrawerStateChanged(int i) {
-
-            }
-        });
     }
 
     @Override
     public boolean canFragmentGoback(int from) {
-        if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)){
-               mDrawerLayout.closeDrawer(Gravity.RIGHT);
-            return false;
-        }
+
             return super.canFragmentGoback(from);
     }
 
 
     @Click(R.id.youeryuanaddress)
     void getAddress(){
-        getProvince();
+        SelectAddressFragment fragment = GeneratedClassUtils.getInstance(SelectAddressFragment.class);
+        fragment.tag = SelectAddressFragment.class.getName();
+        fragment.setSelectListener(new SelectListener() {
+            @Override
+            public void onSelected(Object o) {
+
+            }
+
+            @Override
+            public void onCanceled() {
+
+            }
+        });
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
+        ManyiUtils.closeKeyBoard(getActivity(), mStudentCountEt);
     }
 
-    @Background
-    void getProvince(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.getProvince();
-        JsonData jsonData = new JsonData();
-        provinceList = jsonData.jsonProvinceMsg(msg, null);
-        notifyProvince();
-    }
-    @Background
-    void getCity(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String provinceId = provinceList.get(provincePosition).get("ID");
-        String msg = request.getCity(provinceId);
-        JsonData jsonData = new JsonData();
-        cityList = jsonData.jsonCityMsg(msg, null);
-        notifyCity();
-    }
- @Background
-    void getCounty(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String cityId = cityList.get(cityPosition).get("ID");
-        String msg = request.getCounty(cityId);
-        JsonData jsonData = new JsonData();
-        countyList = jsonData.jsonCountyMsg(msg, null);
-        notifyCounty();
-    }
 
-    @UiThread
-    void notifyProvince(){
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(),provinceList,R.layout.item_content,new String[]{"ProvinceName"},new int[]{R.id.contentTv});
-        mProvinceList.setAdapter(adapter);
-        mDrawerLayout.openDrawer(Gravity.RIGHT);
-    }
-
-    @UiThread
-    void notifyCity(){
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(),cityList,R.layout.item_content,new String[]{"CityName"},new int[]{R.id.contentTv});
-        mCityList.setAdapter(adapter);
-        mCityList.setVisibility(View.VISIBLE);
-    }
-
-    @UiThread
-    void notifyCounty(){
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(),countyList,R.layout.item_content,new String[]{"CountyName"},new int[]{R.id.contentTv});
-        mCountyList.setAdapter(adapter);
-        mCountyList.setVisibility(View.VISIBLE);
-    }
-
-    @ItemClick(R.id.ProvinceList)
-    void provinceListItemClick(int position){
-        provincePosition = position;
-        selectProvince = provinceList.get(provincePosition).get("ProvinceName").toString();
-        getCity();
-        mCountyList.setVisibility(View.GONE);
-    }
-
-    @ItemClick(R.id.CityList)
-    void cityListItemClick(int position){
-        cityPosition = position;
-        selectCity = cityList.get(cityPosition).get("CityName").toString();
-        getCounty();
-    }
-
-    @ItemClick(R.id.CountyList)
-    void countyListItemClick(int position){
-        countyPosition = position;
-        selectCounty = countyList.get(countyPosition).get("CountyName").toString();
-        mDrawerLayout.closeDrawer(Gravity.RIGHT);
-        String address = selectProvince+"  "+selectCity+"  "+selectCounty;
-        mAddress.setText(address);
-    }
 
     @Click(R.id.goonBtn)
     void goon(){
@@ -289,15 +185,13 @@ public class RegisterNextFragment extends ImageLoaderFragment {
             return true;
         }
     }
+    String ProvinceID,CityID,CountyID ;
 
     @Background
     void register(){
         RequestServerFromHttp request = new RequestServerFromHttp();
         String realName = mRealNameEt.getText().toString().trim();
         String phone = mPhoneNumberEt.getText().toString().trim();
-        String ProvinceID = provinceList.get(provincePosition).get("ID");
-        String CityID = cityList.get(cityPosition).get("ID");
-        String CountyID = countyList.get(countyPosition).get("ID");
         String Address = mAddress.getText().toString().trim();
         String QQ = mQQEt.getText().toString().trim();
         String SchoolName = mSchoolNameEt.getText().toString().trim();
