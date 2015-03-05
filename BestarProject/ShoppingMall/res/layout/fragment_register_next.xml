@@ -4,7 +4,7 @@
     android:id="@+id/register_next_relative_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/register_background"
+    android:background="@color/user_bg"
     android:clickable="true">
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -19,8 +19,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dip"
-            android:background="@color/color_ffffff"
+            android:layout_height="@dimen/title_layout_height"
+            android:background="@color/user_title_layout_bg"
             android:padding="0dp"
             android:tag="actionBar"
             tools:ignore="UselessParent">
@@ -30,7 +30,7 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:src="@drawable/back" />
+                android:src="@drawable/selector_back_btn" />
 
             <TextView
 
@@ -44,7 +44,7 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:src="@drawable/next"
+                android:src="@drawable/selector_next_btn"
                 android:layout_alignParentRight="true"
                 android:id="@+id/goonBtn"
                 />
@@ -52,7 +52,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/app_theme_color"
+            android:background="@color/line_mine_color"
             ></View>
         <ScrollView
             android:layout_width="match_parent"
@@ -64,17 +64,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/app_bg_color"
+                android:background="@color/user_bg"
                 tools:ignore="UselessLeaf">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="真实资料"
-                    android:textColor="@color/review_content_color1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="点击继续即表示您已确认填写内容无误并已阅读隐私政策即同意服务条款"
+                    android:lineSpacingExtra="5dp"
+                    android:textColor="@color/shao_an_text_color"
                     android:textSize="14sp" />
 
                 <View
@@ -271,7 +272,7 @@
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:layout_toRightOf="@+id/xing4"
                         android:id="@+id/xing4Tv"
-                        android:text="联系电话"
+                        android:text="联系手机"
                         android:textSize="16sp"
                         tools:ignore="TextFields" />
 

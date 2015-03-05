@@ -85,7 +85,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                         <ImageView
                             android:layout_width="10dp"
@@ -164,7 +164,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                     </RelativeLayout>
 
@@ -193,7 +193,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                     </RelativeLayout>
 
@@ -229,7 +229,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                     </RelativeLayout>
 
@@ -258,7 +258,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                     </RelativeLayout>
 
@@ -288,7 +288,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                         <TextView
                             android:id="@+id/currentVersionTv"

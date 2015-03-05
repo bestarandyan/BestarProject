@@ -28,6 +28,7 @@ import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.CommonService;
+import com.manyi.mall.user.UserInfoFragment;
 import com.manyi.mall.widget.imageView.CircleImageView;
 import com.manyi.mall.widget.switchView.ToggleButton;
 

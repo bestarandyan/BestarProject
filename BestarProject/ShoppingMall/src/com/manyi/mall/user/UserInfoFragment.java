@@ -1,4 +1,4 @@
-package com.manyi.mall.mine;
+package com.manyi.mall.user;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
@@ -45,7 +45,17 @@ public class UserInfoFragment extends SuperFragment {
 
     @Click(R.id.moreInfoLayout)
     void gotoUpdateMoInfo() {
-        remove();
-    }
+        if (CheckDoubleClick.isFastDoubleClick()) {
+            return;
+        }
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        MoreUserInfoFragment fragment = GeneratedClassUtils.getInstance(MoreUserInfoFragment.class);
+        fragment.tag = MoreUserInfoFragment.class.getName();
 
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
+    }
 }

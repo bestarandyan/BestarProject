@@ -21,7 +21,7 @@
     <color name="gray_1">#D0D0D0</color>
     <color name="house_image_others">#42000000</color>
     <color name="house_image_red">#e60404</color>
-    <color name="line_mine_color">#667f7f7f</color>
+    <color name="line_mine_color">#DBDBDB</color>
 
     <color name="red_light">#ffff4444</color>
     <color name="green_light">#ff99cc00</color>
@@ -124,5 +124,9 @@
     <color name="app_bg_color">#ffffff</color>
     <color name="main_tab_text_color">#7f7f7f</color>
     <color name="main_tab_text_color_h">#FF4864</color>
+    <color name="shao_an_text_color">#787878</color>
+    <color name="user_title_layout_bg">#F5F5F5</color>
+    <color name="user_bg">#EEEEEE</color>
+
 
 </resources>

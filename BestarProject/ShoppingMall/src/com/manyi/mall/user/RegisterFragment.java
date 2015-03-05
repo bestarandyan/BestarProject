@@ -89,10 +89,10 @@ public class RegisterFragment extends SuperFragment<Object> {
 		if (mPhoneNumber.getText().toString().length() == 0) {
 			onSendSMSError("请输入手机号");
 			return false;
-		} else if (mPhoneNumber.getText().toString().length() < 11) {
-			onSendSMSError("手机号码格式不正确!");
-			return false;
-		}else if (mRegisterPwd.getText().toString().length()  == 0) {
+		} else if (mPhoneNumber.getText().toString().length() != 11 || !mPhoneNumber.getText().toString().startsWith("1")){
+            onSendSMSError("手机号码格式不正确!");
+            return false;
+        }else if (mRegisterPwd.getText().toString().length()  == 0) {
             onSendSMSError("请输入密码!");
             return false;
         } else

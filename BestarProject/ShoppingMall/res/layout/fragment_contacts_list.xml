@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/title_view"
         android:layout_width="match_parent"
-        android:layout_height="48dip"
+        android:layout_height="@dimen/title_layout_height"
         android:layout_alignParentTop="true"
         android:background="@color/info_background"
         android:clickable="true"

@@ -16,7 +16,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/title_layout_height"
             android:background="#fff"
             android:tag="actionBar">
 
@@ -370,7 +370,9 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="更多"
+                                    android:text="全部"
+                                    android:drawableRight="@drawable/home_next"
+                                    android:drawablePadding="10dp"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
@@ -490,7 +492,9 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="更多"
+                                    android:text="全部"
+                                    android:drawableRight="@drawable/home_next"
+                                    android:drawablePadding="10dp"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
@@ -711,7 +715,9 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="更多"
+                                    android:text="全部"
+                                    android:drawablePadding="10dp"
+                                    android:drawableRight="@drawable/home_next"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>

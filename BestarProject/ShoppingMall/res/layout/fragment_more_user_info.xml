@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_next_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_background"
+    android:clickable="true">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_layout_height"
+                android:background="@color/user_title_layout_bg"
+                android:padding="0dp"
+                android:tag="actionBar"
+                tools:ignore="UselessParent">
+
+                <ImageButton
+                    android:id="@+id/register_back"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:src="@drawable/selector_back_btn"/>
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="更多资料"
+                    android:textColor="#333"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/goonBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:src="@drawable/selector_edit_info_btn" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_mine_color"></View>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EEEEEE"
+                android:gravity="center_vertical"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#EEEEEE"
+                    android:orientation="vertical"
+                    tools:ignore="UselessLeaf">
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:id="@+id/real_name"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing2"
+                            android:gravity="right"
+                            android:text="真实姓名"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/real_name_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/real_name"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:text="威尼斯"
+                            android:textColor="@color/shao_an_text_color"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/gender"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing3"
+                            android:gravity="right"
+                            android:text="性别"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+
+                        <TextView
+                            android:id="@+id/genderTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawablePadding="10dp"
+                            android:drawableRight="@drawable/text"
+                            android:gravity="center"
+                            android:text="男"
+                            android:textColor="#696969"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+
+                        <TextView
+                            android:id="@+id/xing4Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing4"
+                            android:gravity="right"
+                            android:text="联系电话"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/phone_number_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/xing4Tv"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:minWidth="100dp"
+                            android:textColor="@color/shao_an_text_color"
+                            android:text="13588888888"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/xing5Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing5"
+                            android:gravity="right"
+                            android:text="幼儿园名称"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/youeryuanname"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/xing5Tv"
+                            android:text="小红帽幼儿园"
+                            android:textColor="@color/shao_an_text_color"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+
+                        <TextView
+                            android:id="@+id/xing7Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing7"
+                            android:gravity="right"
+                            android:text="幼儿园电话"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/youeryuanphone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/xing7Tv"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:text="0571-88665566"
+                            android:textColor="@color/shao_an_text_color"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textColorHint="#afafaf"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+
+                        <TextView
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing6"
+                            android:gravity="right"
+                            android:text="幼儿园地址"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/youeryuanaddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:drawablePadding="5dp"
+                            android:drawableRight="@drawable/text"
+                            android:gravity="right|center_vertical"
+                            android:hint="省  市  区 地址"
+                            android:maxLength="15"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textColorHint="#afafaf"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#e1e1e1"></View>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/xing9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="*"
+                            android:textColor="#ff0000"
+                            android:textSize="16sp"
+                            android:visibility="invisible"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/xing9Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing9"
+                            android:gravity="right"
+                            android:text="QQ"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/qqEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/xing9Tv"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:text="923351045"
+                            android:textColor="@color/shao_an_text_color"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textColorHint="#afafaf" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/xing10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="*"
+                            android:textColor="#ff0000"
+                            android:textSize="16sp"
+                            android:visibility="invisible"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/xing10Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing10"
+                            android:gravity="right"
+                            android:text="班级数"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/classCountEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/xing10Tv"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:text="12"
+                            android:textColor="@color/shao_an_text_color"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textColorHint="#afafaf" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/xing11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="*"
+                            android:textColor="#ff0000"
+                            android:textSize="16sp"
+                            android:visibility="invisible"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/xing11Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:layout_toRightOf="@+id/xing11"
+                            android:gravity="right"
+                            android:text="学生人数"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <TextView
+                            android:id="@+id/studentCountEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginBottom="16dp"
+                            android:layout_toRightOf="@id/xing11Tv"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:text="108"
+                            android:textColor="@color/shao_an_text_color"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textColorHint="#afafaf" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e1e1e1"></View>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/left_drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="#fff"
+            android:choiceMode="singleChoice"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/ProvinceList"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:divider="#66666666"
+                android:dividerHeight="0.5dp"
+                android:scrollbars="none" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="#66000000"></View>
+
+            <ListView
+                android:id="@+id/CityList"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:divider="#66666666"
+                android:dividerHeight="0.5dp"
+                android:scrollbars="none"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="#66000000"></View>
+
+            <ListView
+                android:id="@+id/CountyList"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:divider="#66666666"
+                android:dividerHeight="0.5dp"
+                android:scrollbars="none"
+                android:visibility="gone" />
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

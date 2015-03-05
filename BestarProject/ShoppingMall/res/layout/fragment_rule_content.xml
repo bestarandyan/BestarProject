@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/rule_content_title"
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/title_layout_height"
         android:background="@color/actionbar"
         android:padding="0dp"
         android:tag="actionBar" >
