@@ -158,6 +158,15 @@ public class JsonData {
         }
         return bean;
     }
+public String JsonUrl(String msg) {
+        try {
+            JSONObject jsonObject = new JSONObject(msg);
+            return jsonObject.getString("WebIndex");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
     public CodeResponse JsonCode(String msg) {
         CodeResponse bean =null;

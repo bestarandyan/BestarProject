@@ -1,6 +1,7 @@
 package com.manyi.mall.collect;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.mine.CollectBean;
+import com.manyi.mall.user.HtmlLoadFragment;
+import com.manyi.mall.wap.BusinessWapFragment;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -46,6 +50,9 @@ public class CollectFragment extends SuperFragment {
         setBackOp(null);
         super.onAttach(activity);
     }
+
+
+
     @AfterViews
     void init(){
         for (int i = 0 ;i<10;i++){
@@ -67,7 +74,18 @@ public class CollectFragment extends SuperFragment {
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){
+        BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
+        fragment.tag = BusinessWapFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", "11");;
+        bundle.putString("CustomerID", "1");
+        fragment.setArguments(bundle);
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setContainerId(R.id.main_container);
+        fragment.setManager(getFragmentManager());
 
+        fragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
     @Click(R.id.editBtn)

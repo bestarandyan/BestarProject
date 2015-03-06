@@ -174,6 +174,15 @@ public String getForgetPsw(String mobile){
  		msgString = getData(PRODUCT_SERVICE, params);
  		return msgString;
  	}
+
+    public String getUrl(String appKey){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetWebURL"));
+ 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		msgString = getData(GET_GETPSW_SERVICE, params);
+ 		return msgString;
+ 	}
 ////http://shopapp.iiyey.com/shopclass.aspx?appKey=abcd&&method=GetAllClassAndProductList
     public String getMainData(String appKey){
  		String msgString = "";

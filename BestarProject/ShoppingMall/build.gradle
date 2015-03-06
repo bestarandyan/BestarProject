@@ -94,22 +94,22 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("manyi.keystore")
-            storePassword "manyi520"
-            keyAlias "manyi"
-            keyPassword "manyi520"
+            storeFile file("bestar.keystore")
+            storePassword "bestar1234"
+            keyAlias "bestar"
+            keyPassword "bestar1234"
         }
     }
 
     //run proguard before signature
-    buildTypes {
-        release {
-            runProguard true
-            proguardFile getDefaultProguardFile('proguard-android.txt')
-            proguardFile 'proguard.cfg'
-            signingConfig signingConfigs.release
-        }
-    }
+//    buildTypes {
+//        release {
+//            runProguard false
+//            proguardFile getDefaultProguardFile('proguard-android.txt')
+//            proguardFile 'proguard.cfg'
+//            signingConfig signingConfigs.release
+//        }
+//    }
 
     task wrapper(type: Wrapper) {
         gradleVersion = '1.12'
