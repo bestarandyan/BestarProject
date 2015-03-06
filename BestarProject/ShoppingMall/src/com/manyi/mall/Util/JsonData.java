@@ -116,17 +116,22 @@ public class JsonData {
         return listData;
     }
     public List<MainDataBean> jsonMainData(String msg,SQLiteDatabase database){
-        Type listType = new TypeToken<LinkedList<MainDataBean>>(){}.getType();
-        Gson gson = new Gson();
-        LinkedList<MainDataBean> list;
+        LinkedList<MainDataBean> list =null;
         MainDataBean bean;
-        list = gson.fromJson(msg, listType);
+        try {
+            Type listType = new TypeToken<LinkedList<MainDataBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
 //        if(list!=null && list.size()>0){
 //            for(Iterator<MainDataBean> iterator = list.iterator();iterator.hasNext();){
 //                bean = iterator.next();
 //
 //            }
 //        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return list;
     }
 

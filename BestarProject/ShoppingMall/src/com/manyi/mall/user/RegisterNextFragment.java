@@ -2,6 +2,7 @@ package com.manyi.mall.user;
 
 import android.annotation.TargetApi;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.DragEvent;
 import android.view.Gravity;
@@ -77,7 +78,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
 
     @FragmentArg
     String password;
-
+    String address;
 
 
     private String type = "1";//1渠道商2园长
@@ -141,7 +142,12 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         fragment.setSelectListener(new SelectListener() {
             @Override
             public void onSelected(Object o) {
-
+                Bundle bundle = (Bundle) o;
+                ProvinceID = bundle.getString("provinceId");
+                CityID = bundle.getString("cityId");
+                CountyID = bundle.getString("countyId");
+                address = bundle.getString("address");
+                mAddress.setText(address);
             }
 
             @Override
@@ -192,12 +198,11 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         RequestServerFromHttp request = new RequestServerFromHttp();
         String realName = mRealNameEt.getText().toString().trim();
         String phone = mPhoneNumberEt.getText().toString().trim();
-        String Address = mAddress.getText().toString().trim();
         String QQ = mQQEt.getText().toString().trim();
         String SchoolName = mSchoolNameEt.getText().toString().trim();
         String ClassNum = mClassCountEt.getText().toString().trim();
         String StudentNum = mStudentCountEt.getText().toString().trim();
-        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID, Address, QQ, SchoolName, ClassNum, StudentNum);
+        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum);
         System.out.print(msg);
         BaseResponse response = new JsonData().JsonBase(msg);
         if (response.getCode().equals("0")){
@@ -216,6 +221,10 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     void gotoNextStep(){
         RegisterPhoneCheckFragment fragment = GeneratedClassUtils.getInstance(RegisterPhoneCheckFragment.class);
         fragment.tag = RegisterPhoneCheckFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("userName",userName);
+        bundle.putString("password",password);
+        fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         fragment.setManager(getFragmentManager());

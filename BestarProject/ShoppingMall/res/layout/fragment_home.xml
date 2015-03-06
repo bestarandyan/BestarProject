@@ -42,10 +42,15 @@
                 android:src="@drawable/selector_search_btn" />
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_mine_color"></View>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff"
+            android:background="@color/user_bg"
             android:gravity="center_vertical"
             android:scrollbars="none"
             tools:ignore="UselessLeaf,UselessParent">
@@ -53,7 +58,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
+                android:background="@color/user_bg"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -103,6 +108,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/color_ffffff"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -201,7 +207,13 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
+                            android:layout_height="1dp"
+                            android:background="@color/line_mine_color"></View>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
@@ -244,6 +256,10 @@
                                     android:src="@drawable/take_photos_list_no__thumbnail" />
                             </RelativeLayout>
 
+                            <View
+                                android:layout_width="0.5dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -291,6 +307,11 @@
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </LinearLayout>
 
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="@color/line_mine_color"></View>
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -336,18 +357,19 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
+                            android:layout_height="1dp"
                             android:background="@color/line_mine_color"></View>
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/color_ffffff"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -370,16 +392,16 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="全部"
-                                    android:drawableRight="@drawable/home_next"
                                     android:drawablePadding="10dp"
+                                    android:drawableRight="@drawable/home_next"
+                                    android:text="全部"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="0.5dp"
+                                android:layout_height="1dp"
                                 android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
@@ -418,6 +440,11 @@
                                         android:maxWidth="60dp"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </RelativeLayout>
+
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <RelativeLayout
                                     style="@style/home_layout"
@@ -458,18 +485,19 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.55dp"
+                            android:layout_height="1dp"
                             android:background="@color/line_mine_color"></View>
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/color_ffffff"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -492,13 +520,17 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="全部"
-                                    android:drawableRight="@drawable/home_next"
                                     android:drawablePadding="10dp"
+                                    android:drawableRight="@drawable/home_next"
+                                    android:text="全部"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -538,6 +570,10 @@
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </RelativeLayout>
 
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
@@ -573,11 +609,15 @@
                                 </RelativeLayout>
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="#fff"
+                                android:background="@color/color_ffffff"
                                 android:orientation="horizontal">
 
                                 <RelativeLayout
@@ -596,21 +636,25 @@
                                         android:id="@+id/rypCp3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_below="@id/rypTitle3"
                                         android:layout_marginTop="6dp"
                                         android:text="最新科技"
                                         android:textColor="#CFCFCF"
-                                        android:layout_below="@id/rypTitle3"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
                                         android:id="@+id/rypImg3"
                                         style="@style/home_image"
-                                        android:layout_alignParentRight="true"
                                         android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
                                         android:layout_below="@id/rypCp3"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </RelativeLayout>
 
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <RelativeLayout
                                     style="@style/home_layout"
@@ -628,8 +672,8 @@
                                         android:id="@+id/rypCp4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
                                         android:layout_below="@id/rypTitle4"
+                                        android:layout_marginTop="6dp"
                                         android:text="儿童音乐"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
@@ -637,12 +681,16 @@
                                     <ImageView
                                         android:id="@+id/rypImg4"
                                         style="@style/home_image"
-                                        android:layout_alignParentRight="true"
                                         android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
                                         android:layout_below="@id/rypCp4"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </RelativeLayout>
 
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <RelativeLayout
                                     style="@style/home_layout"
@@ -660,17 +708,17 @@
                                         android:id="@+id/rypCp5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_below="@id/rypTitle5"
                                         android:layout_marginTop="6dp"
                                         android:text="aa"
-                                        android:layout_below="@id/rypTitle5"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
                                     <ImageView
                                         android:id="@+id/rypImg5"
                                         style="@style/home_image"
-                                        android:layout_alignParentRight="true"
                                         android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
                                         android:layout_below="@id/rypCp5"
                                         android:src="@drawable/take_photos_list_no__thumbnail" />
                                 </RelativeLayout>
@@ -681,18 +729,19 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
+                            android:layout_height="1dp"
                             android:background="@color/line_mine_color"></View>
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/color_ffffff"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -715,13 +764,17 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginTop="6dp"
-                                    android:text="全部"
                                     android:drawablePadding="10dp"
                                     android:drawableRight="@drawable/home_next"
+                                    android:text="全部"
                                     android:textColor="#333"
                                     android:textSize="@dimen/_16_text_size" />
                             </RelativeLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/line_mine_color"></View>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -763,6 +816,10 @@
                                     </LinearLayout>
                                 </LinearLayout>
 
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <LinearLayout
                                     style="@style/home_layout"
@@ -798,6 +855,10 @@
                                     </LinearLayout>
                                 </LinearLayout>
 
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <LinearLayout
                                     style="@style/home_layout"
@@ -833,6 +894,10 @@
                                     </LinearLayout>
                                 </LinearLayout>
 
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/line_mine_color"></View>
 
                                 <LinearLayout
                                     style="@style/home_layout"
@@ -871,13 +936,13 @@
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="0.5dp"
+                                android:layout_height="1dp"
                                 android:background="@color/line_mine_color"></View>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="0.5dp"
-                                android:layout_marginTop="20dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="10dp"
                                 android:background="@color/line_mine_color"></View>
 
                             <LinearLayout

@@ -1,13 +1,17 @@
 package com.manyi.mall.user;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
@@ -18,6 +22,7 @@ import com.manyi.mall.MainActivity;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.user.CodeResponse;
+import com.manyi.mall.cachebean.user.LoginResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.AfterViews;
@@ -44,6 +49,12 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 
     @ViewById(R.id.getCodeBtn)
 	Button mGetCodeBtn;
+
+    @FragmentArg
+    String userName;
+
+    @FragmentArg
+    String password;
 
     int mTime = 60;//60s  时间
 	@FragmentArg
@@ -80,10 +91,10 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
         mGetCodeBtn.setClickable(state);
         mGetCodeBtn.setEnabled(state);
         if (state){
-            mGetCodeBtn.setTextColor(R.color.app_theme_color);
+            mGetCodeBtn.setTextColor(getResources().getColor(R.color.app_theme_color));
             mGetCodeBtn.setBackgroundResource(R.drawable.selector_mine_exit_btn_bg);
         }else{
-            mGetCodeBtn.setTextColor(R.color.color_ffffff);
+            mGetCodeBtn.setTextColor(Color.parseColor("#ffffff"));
             mGetCodeBtn.setBackgroundResource(R.drawable.shape_mine_exit_btn_bg_pre);
         }
     }
@@ -149,10 +160,41 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
         if (code!=null && code.trim().length() == 0){
             showDialog("请输入验证码！");
         }else if (code .equals(mCode)){
-            gotoNextStep();
+            login();
         }else{
             showDialog("请输入正确的验证码！");
         }
+    }
+    @Background
+    public void login() {
+        try {
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String msg = request.login(userName,password);
+            LoginResponse response = new JsonData().JsonLoginMsg(msg);
+            if (response.getCode().equals("0")){
+                SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mySharedPreferences.edit();
+                editor.putString("appkey", response.getAppKey());
+                editor.commit();
+
+                SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = userInfo.edit();
+                editor1.putString("userName", userName);
+                editor1.putString("password", password);
+                editor1.commit();
+                gotoNextStep();//userName = {java.lang.String@830038226280}"12554555554"
+            }else{
+                loginFailed(response.getMessage());
+            }
+        }catch (Exception e){
+            loginFailed("登陆失败，请检查网络连接，或重试！");
+        }
+    }
+
+    @UiThread
+    void loginFailed(String msg){
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+        disimissRequestDialog();
     }
     @UiThread
     void gotoNextStep(){
@@ -166,9 +208,20 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
         RequestServerFromHttp request = new RequestServerFromHttp();
         String msg = request.getRegisterCode(mPhoneEt.getText().toString());
         CodeResponse response = new JsonData().JsonCode(msg);
-        mCode = response.getYZCode();
-        showDialog("验证码将发送到:"+mPhoneEt.getText().toString());
-        startTimer();
+        String code = response.getCode();
+        if (code!=null){
+            mCode = response.getYZCode();
+            if (code.equals("0") && mCode!=null &&mCode.length()>0){
+                showDialog("验证码将发送到:"+mPhoneEt.getText().toString());
+                startTimer();
+            }else{
+                showDialog(response.getMessage());
+            }
+        }else{
+            showDialog("发送失败，请重试！");
+        }
+
+
     }
 
 	@Override
