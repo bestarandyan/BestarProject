@@ -167,7 +167,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     @Click(R.id.goonBtn)
     void goon(){
         if (checkUserInfo()){
-            register();
+            gotoNextStep();
         }
     }
 
@@ -193,48 +193,38 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     }
     String ProvinceID,CityID,CountyID ;
 
-    @Background
-    void register(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
+
+    @UiThread
+    void gotoNextStep(){
         String realName = mRealNameEt.getText().toString().trim();
         String phone = mPhoneNumberEt.getText().toString().trim();
         String QQ = mQQEt.getText().toString().trim();
         String SchoolName = mSchoolNameEt.getText().toString().trim();
         String ClassNum = mClassCountEt.getText().toString().trim();
         String StudentNum = mStudentCountEt.getText().toString().trim();
-        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum);
-        System.out.print(msg);
-        BaseResponse response = new JsonData().JsonBase(msg);
-        if (response.getCode().equals("0")){
-            registerSuccess();
-        }else{
-            registerFailed();
-        }
-    }
-
-    @UiThread
-    void registerSuccess(){
-        Toast.makeText(getActivity(),"注册成功",Toast.LENGTH_LONG).show();
-        gotoNextStep();
-    }
-    @UiThread
-    void gotoNextStep(){
         RegisterPhoneCheckFragment fragment = GeneratedClassUtils.getInstance(RegisterPhoneCheckFragment.class);
         fragment.tag = RegisterPhoneCheckFragment.class.getName();
         Bundle bundle = new Bundle();
         bundle.putString("userName",userName);
         bundle.putString("password",password);
+        bundle.putString("realName",realName);
+        bundle.putString("phone",phone);
+        bundle.putString("QQ",QQ);
+        bundle.putString("SchoolName",SchoolName);
+        bundle.putString("ClassNum",ClassNum);
+        bundle.putString("StudentNum",StudentNum);
+        bundle.putString("type",type);
+        bundle.putString("sex",sex+"");
+        bundle.putString("ProvinceID",ProvinceID);
+        bundle.putString("CityID",CityID);
+        bundle.putString("CountyID",CountyID);
+        bundle.putString("address",address);
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         fragment.setManager(getFragmentManager());
         fragment.show(SHOW_ADD_HIDE);
         ManyiUtils.closeKeyBoard(getActivity(), mStudentCountEt);
-    }
-
-    @UiThread
-    void registerFailed(){
-        Toast.makeText(getActivity(),"注册失败",Toast.LENGTH_LONG).show();
     }
 
     @Click(R.id.shenfenValue)

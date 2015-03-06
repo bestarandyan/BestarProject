@@ -550,6 +550,7 @@ public class HomeFragment extends SuperFragment<Object> {
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
+        gotoProductListFragment();
     }
 
     @Click(R.id.model1Layout1)

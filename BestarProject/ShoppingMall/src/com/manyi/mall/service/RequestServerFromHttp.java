@@ -107,7 +107,7 @@ public String getForgetPswCode(String mobile){
  		params.add(new BasicNameValuePair("method", "BackPWDyanzhen"));
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("MobilePhone", mobile));
- 		msgString = getData(GET_GETPSW_SERVICE, params);
+ 		msgString = getData(USER_SERVICE, params);
  		return msgString;
  	}
 
@@ -117,7 +117,7 @@ public String getForgetPsw(String mobile){
  		params.add(new BasicNameValuePair("method", "BackPWD"));
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("MobilePhone", mobile));
- 		msgString = getData(GET_GETPSW_SERVICE, params);
+ 		msgString = getData(USER_SERVICE, params);
  		return msgString;
  	}
 

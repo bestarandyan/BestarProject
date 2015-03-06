@@ -1,6 +1,7 @@
 package com.manyi.mall.user;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -19,8 +20,10 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.MainActivity;
+import com.manyi.mall.MainActivity_;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
@@ -56,20 +59,79 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
     @FragmentArg
     String password;
 
+    @FragmentArg
+    String realName;
+
+    @FragmentArg
+    String type;
+
+    @FragmentArg
+    String sex;
+
+    @FragmentArg
+    String ProvinceID;
+
+    @FragmentArg
+    String CityID;
+
+    @FragmentArg
+    String CountyID;
+
+    @FragmentArg
+    String address;
+
+    @FragmentArg
+    String QQ;
+
+    @FragmentArg
+    String SchoolName;
+
+    @FragmentArg
+    String ClassNum;
+
+    @FragmentArg
+    String StudentNum;
+
     int mTime = 60;//60s  时间
 	@FragmentArg
 	String phone;
 	private String mCode;
 	private boolean isFirstEnter = true;
 
+    ProgressDialog mProgress;
+    private void showProgress(String msg){
+        mProgress = new ProgressDialog(getActivity());
+        mProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgress.setMessage(msg);
+        mProgress.show();
+    }
+    private void dismiss(){
+        if(mProgress!=null){
+            mProgress.dismiss();
+            mProgress = null;
+        }
+    }
+
     Timer mTimer;
     TimerTask mTimerTask;
-	
+    @Background
+    void register(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum);
+        System.out.print(msg);
+        BaseResponse response = new JsonData().JsonBase(msg);
+        if (response.getCode().equals("0")){
+           login();
+        }else{
+            registerFailed();
+        }
+    }
 	public static boolean isPhoneNumberValid(String text) {
 		Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
 		Matcher m = p.matcher(text);
 		return m.matches();
 	}
+
     @UiThread
     void startTimer(){
         if (mTime<=0){
@@ -149,6 +211,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 
     @Click(R.id.checkCodeBtn)
     void submitCode(){
+        ManyiUtils.closeKeyBoard(getActivity(), mPhoneEt);
         String code = mCodeEt.getText().toString();
         if (mPhoneEt.getText().toString().length() == 0){
             showDialog("请输入手机号码！");
@@ -160,11 +223,20 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
         if (code!=null && code.trim().length() == 0){
             showDialog("请输入验证码！");
         }else if (code .equals(mCode)){
-            login();
+            showProgress("正在验证，请稍候...");
+            register();
         }else{
             showDialog("请输入正确的验证码！");
         }
     }
+
+
+    @UiThread
+    void registerFailed(){
+        Toast.makeText(getActivity(),"注册失败",Toast.LENGTH_LONG).show();
+        dismiss();
+    }
+
     @Background
     public void login() {
         try {
@@ -195,12 +267,14 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
     void loginFailed(String msg){
         Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
         disimissRequestDialog();
+        dismiss();
     }
     @UiThread
     void gotoNextStep(){
-        Intent loginIntent = new Intent(getActivity(), GeneratedClassUtils.get(MainActivity.class));
-        getActivity().overridePendingTransition(R.anim.anim_fragment_in, R.anim.anim_fragment_out);
-        startActivity(loginIntent);
+        dismiss();
+        Intent loginIntent = new Intent(getActivity(),MainActivity_.class);
+//        getActivity().overridePendingTransition(R.anim.anim_fragment_in, R.anim.anim_fragment_out);
+        getActivity().startActivity(loginIntent);
         getActivity().finish();
     }
     @Background
@@ -228,6 +302,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 	public void onDestroy() {
 		super.onDestroy();
 		ManyiUtils.closeKeyBoard(getActivity(), mPhoneEt);
+        cancleTimeTask();
 	}
 
 	@UiThread
