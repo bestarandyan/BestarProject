@@ -14,6 +14,7 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.MainActivity;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
@@ -61,6 +62,8 @@ public class LoginFragment extends SuperFragment<Integer> {
     void init(){
         String username = getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE).getString("userName","");
         String password = getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE).getString("password","");
+//        String username = BestarApplication.getInstance().getUserName();
+//        String password = BestarApplication.getInstance().getPassword();
         if (username!=null && username.length() > 0 && password!=null && password.length()>0){
             mLoginUsername.setText(username);
             mLoginPassword.setText(password);
@@ -146,6 +149,11 @@ public class LoginFragment extends SuperFragment<Integer> {
                 editor1.putString("userName", name);
                 editor1.putString("password", password);
                 editor1.commit();
+
+                BestarApplication.getInstance().setAppkey(response.getAppKey());
+                BestarApplication.getInstance().setUserName(name);
+                BestarApplication.getInstance().setPassword(password);
+                BestarApplication.getInstance().setType(response.getType().equals("园长")?"2":"1");
                 initMainActivity();
             }else{
                 loginFailed(response.getMessage());

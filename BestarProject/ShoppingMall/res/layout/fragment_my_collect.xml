@@ -28,9 +28,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:text="编辑"
-            android:textColor="#ffffffff"
-            android:textSize="16sp" />
+            android:background="@drawable/selector_edit_info_btn"
+           />
     </RelativeLayout>
 
     <ListView

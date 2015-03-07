@@ -190,22 +190,31 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
     CodeResponse response =null;
     @Background
     void getCode(){
-        String mobile = mForgetPhone.getText().toString().trim();
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.getForgetPswCode(mobile);
-        response = new JsonData().JsonCode(msg);
-        String code = response.getCode();
-        if (code!=null){
-            mCode = response.getYZCode();
-            if (code.equals("0") && mCode!=null &&mCode.length()>0){
-                showDialog("验证码将发送到:"+mForgetPhone.getText().toString());
-                startTimer();
-            }else{
-                showDialog(response.getMessage());
+        try{
+            String mobile = mForgetPhone.getText().toString().trim();
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String msg = request.getForgetPswCode(mobile);
+            if (msg!=null && !msg.equals("404") && msg.equals("")) {
+                response = new JsonData().JsonCode(msg);
+                String code = response.getCode();
+                if (code != null) {
+                    mCode = response.getYZCode();
+                    if (code.equals("0") && mCode != null && mCode.length() > 0) {
+                        showDialog("验证码将发送到:" + mForgetPhone.getText().toString());
+                        startTimer();
+                    } else {
+                        showDialog(response.getMessage());
+                    }
+                } else {
+                    showDialog("发送失败，请重试！");
+                }
+            }else {
+                showDialog("发送失败，请重试！");
             }
-        }else{
+        }catch (Exception e){
             showDialog("发送失败，请重试！");
         }
+
     }
 
 }

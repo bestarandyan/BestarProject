@@ -24,6 +24,7 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.filedownloader.FileDownloadListener;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
 import com.manyi.mall.common.Constants;
@@ -51,13 +52,21 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     @ViewById(R.id.Layout1)
     TextView mLayout1;
+
+    @ViewById(R.id.nameTV)
+    TextView mNameTv;
+
+    String type;
+
     @AfterViews
     void loadDate() {
-        if(true){
+        type = BestarApplication.getInstance().getType();
+        if(type.equals("1")){//渠道
             mLayout1.setText("代理付款明细");
-        }else{
+        }else{//园长
             mLayout1.setText("我的代金券");
         }
+        mNameTv.setText(BestarApplication.getInstance().getUserName());
         //切换开关
         mSwitchBtn.toggle();
         //开关切换事件
@@ -165,7 +174,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         if (CheckDoubleClick.isFastDoubleClick())
             return;
 
-        if(true){
+        if(type.equals("1")){//渠道
             gotoAgencyPay();
         }else{
             gotoVoucher();

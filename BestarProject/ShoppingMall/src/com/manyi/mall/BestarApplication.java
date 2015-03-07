@@ -11,10 +11,10 @@ import com.huoqiu.framework.app.AppConfig;
 import com.manyi.mall.common.util.DBUtil;
 
 @EApplication
-public class FybaoApplication extends Application {
-	private static FybaoApplication application = null;
+public class BestarApplication extends Application {
+	private static BestarApplication application = null;
 
-	public static FybaoApplication getInstance() {
+	public static BestarApplication getInstance() {
 		return application;
 	}
 
@@ -30,7 +30,53 @@ public class FybaoApplication extends Application {
 		loadData();
 	}
 
-	/**
+    public String userName;
+    public String password;
+    public String appkey;
+    public String realName;
+    public String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAppkey() {
+        return appkey;
+    }
+
+    public void setAppkey(String appkey) {
+        this.appkey = appkey;
+    }
+
+    /**
 	 * 拷贝数据库
 	 */
 	@Background

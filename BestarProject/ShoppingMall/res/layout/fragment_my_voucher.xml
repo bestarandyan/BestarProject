@@ -34,27 +34,27 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:background="@null"
-            android:src="@drawable/next" />
+            android:src="@drawable/selector_help_btn" />
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/app_theme_color"></View>
+        android:background="@color/line_mine_color"></View>
 
     <com.manyi.mall.widget.refreshview.NLPullRefreshView
         android:id="@+id/refreshable_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:background="@color/color_ffffff"
+        android:background="@color/user_bg"
         android:orientation="vertical">
 
         <ListView
             android:id="@+id/myVoucherListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/color_ffffff"
+            android:background="@color/user_bg"
             android:cacheColorHint="#00000000"
             android:divider="@color/app_bg_color"
             android:dividerHeight="5dp"
