@@ -91,22 +91,11 @@
                     tools:ignore="UselessParent">
 
                     <TextView
-                        android:id="@+id/xing1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
-
-                    <TextView
                         android:id="@+id/shenfentv"
                         android:layout_width="@dimen/complete_info_textview_width"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing1"
                         android:gravity="right"
                         android:text="身份选择"
                         android:textSize="16sp"
@@ -148,22 +137,11 @@
                     tools:ignore="UselessParent">
 
                     <TextView
-                        android:id="@+id/xing2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
-
-                    <TextView
                         android:id="@+id/real_name"
                         android:layout_width="@dimen/complete_info_textview_width"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing2"
                         android:gravity="right"
                         android:text="真实姓名"
                         android:textSize="16sp"
@@ -199,15 +177,6 @@
                     android:padding="16dp"
                     tools:ignore="UselessParent">
 
-                    <TextView
-                        android:id="@+id/xing3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
 
                     <TextView
                         android:id="@+id/gender"
@@ -215,7 +184,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing3"
                         android:gravity="right"
                         android:text="性别"
                         android:textSize="16sp"
@@ -253,22 +221,11 @@
                     tools:ignore="UselessParent">
 
                     <TextView
-                        android:id="@+id/xing4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
-
-                    <TextView
                         android:id="@+id/xing4Tv"
                         android:layout_width="@dimen/complete_info_textview_width"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing4"
                         android:gravity="right"
                         android:text="联系手机"
                         android:textSize="16sp"
@@ -309,17 +266,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp"
+                    android:id="@+id/yeymcLayout"
                     tools:ignore="UselessParent">
-
-                    <TextView
-                        android:id="@+id/xing5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
 
                     <TextView
                         android:id="@+id/xing5Tv"
@@ -327,7 +275,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing5"
                         android:gravity="right"
                         android:text="幼儿园名称"
                         android:textSize="16sp"
@@ -362,17 +309,9 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp"
+                    android:id="@+id/yeydhLayout"
                     tools:ignore="UselessParent">
 
-                    <TextView
-                        android:id="@+id/xing7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
 
                     <TextView
                         android:id="@+id/xing7Tv"
@@ -380,7 +319,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing7"
                         android:gravity="right"
                         android:text="幼儿园电话"
                         android:textSize="16sp"
@@ -417,25 +355,16 @@
                     android:padding="16dp"
                     tools:ignore="UselessParent">
 
-                    <TextView
-                        android:id="@+id/xing6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="*"
-                        android:textColor="#ff0000"
-                        android:textSize="16sp"
-                        tools:ignore="TextFields" />
 
                     <TextView
                         android:layout_width="@dimen/complete_info_textview_width"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing6"
                         android:gravity="right"
                         android:text="幼儿园地址"
                         android:textSize="16sp"
+                        android:id="@+id/addressTitleTv"
                         tools:ignore="TextFields" />
 
                     <TextView
@@ -528,6 +457,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp"
+                    android:id="@+id/bjLayout"
                     tools:ignore="UselessParent">
 
                     <TextView
@@ -581,6 +511,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp"
+                    android:id="@+id/studentsLayout"
                     tools:ignore="UselessParent">
 
                     <TextView

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Map;
@@ -72,6 +74,21 @@ public class RegisterNextFragment extends ImageLoaderFragment {
 
     @ViewById(R.id.studentCountEt)
     EditText mStudentCountEt;
+
+    @ViewById(R.id.yeymcLayout)
+    RelativeLayout mYeymcLayout;
+
+    @ViewById(R.id.yeydhLayout)
+    RelativeLayout mYeydhLayout;
+
+    @ViewById(R.id.addressTitleTv)
+    TextView mAddressTitleTv;
+
+    @ViewById(R.id.bjLayout)
+    RelativeLayout mBjLayout;
+
+    @ViewById(R.id.studentsLayout)
+    RelativeLayout mStudentsLayout;
 
     @FragmentArg
     String userName;
@@ -178,14 +195,27 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         }else if (mPhoneNumberEt.getText().toString().length() == 0){
             onSMSError("请输入联系电话！");
             return false;
-        }else if (mSchoolNameEt.getText().toString().length() == 0){
+        }else if (mSchoolNameEt.getText().toString().length() == 0 && type.equals("2")){
             onSMSError("请输入幼儿园名称！");
             return false;
-        }else if (mSchoolPhone.getText().toString().length() == 0){
+        }else if (mSchoolPhone.getText().toString().length() == 0  && type.equals("2")){
             onSMSError("请输入幼儿园电话！");
             return false;
         }else if (mAddress.getText().toString().length() == 0){
-            onSMSError("请选择幼儿园地址！");
+            if (type.equals("2")){
+                onSMSError("请选择幼儿园地址！");
+            }else{
+                onSMSError("请选择所在地区！");
+            }
+            return false;
+        }else if(mQQEt.getText().toString().length() == 0 ){
+            onSMSError("请输入您的QQ号码！");
+            return false;
+        }else if(mClassCountEt.getText().toString().length() == 0 && type.equals("2")){
+            onSMSError("请输入班级数！");
+            return false;
+        }else if(mStudentCountEt.getText().toString().length() == 0 && type.equals("2")){
+            onSMSError("请输入学生人数！");
             return false;
         }else{
             return true;
@@ -210,9 +240,9 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         bundle.putString("realName",realName);
         bundle.putString("phone",phone);
         bundle.putString("QQ",QQ);
-        bundle.putString("SchoolName",SchoolName);
-        bundle.putString("ClassNum",ClassNum);
-        bundle.putString("StudentNum",StudentNum);
+        bundle.putString("SchoolName",type.equals("2")?SchoolName:"");
+        bundle.putString("ClassNum",type.equals("2")?ClassNum:"");
+        bundle.putString("StudentNum",type.equals("2")?StudentNum:"");
         bundle.putString("type",type);
         bundle.putString("sex",sex+"");
         bundle.putString("ProvinceID",ProvinceID);
@@ -241,9 +271,11 @@ public class RegisterNextFragment extends ImageLoaderFragment {
                 if (menuItem.getItemId() == R.id.menu_shengFen_type1){
                     mShengFenTv.setText("商家");
                     type = "1";
+                    changeInfoFromType();
                 }else if (menuItem.getItemId() == R.id.menu_shengFen_type2){
                     mShengFenTv.setText("园长");
                     type = "2";
+                    changeInfoFromType();
                 }
                 return false;
             }
@@ -255,5 +287,22 @@ public class RegisterNextFragment extends ImageLoaderFragment {
             public void onDismiss(PopupMenu popupMenu) {
             }
         });
+    }
+
+    private void changeInfoFromType(){
+        if (type.equals("1")){
+            mYeydhLayout.setVisibility(View.GONE);
+            mYeymcLayout.setVisibility(View.GONE);
+            mBjLayout.setVisibility(View.GONE);
+            mStudentsLayout.setVisibility(View.GONE);
+            mAddressTitleTv.setText("所在地区");
+        }else if(type.equals("2")){
+            mYeydhLayout.setVisibility(View.VISIBLE);
+            mYeymcLayout.setVisibility(View.VISIBLE);
+            mBjLayout.setVisibility(View.VISIBLE);
+            mStudentsLayout.setVisibility(View.VISIBLE);
+            mAddressTitleTv.setText("幼儿园地址");
+        }
+
     }
 }
