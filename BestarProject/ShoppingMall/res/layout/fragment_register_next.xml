@@ -242,6 +242,7 @@
                         android:gravity="right"
                         android:hint="请输入电话"
                         android:inputType="phone"
+                        android:maxLength="11"
                         android:minWidth="100dp"
                         android:singleLine="true"
                         android:textColorHint="#afafaf"
@@ -267,6 +268,7 @@
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:id="@+id/yeymcLayout"
+                    android:visibility="gone"
                     tools:ignore="UselessParent">
 
                     <TextView
@@ -299,6 +301,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:id="@+id/yeymcLine"
+                    android:visibility="gone"
                     android:background="#e1e1e1"></View>
 
 
@@ -310,6 +314,7 @@
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:id="@+id/yeydhLayout"
+                    android:visibility="gone"
                     tools:ignore="UselessParent">
 
 
@@ -344,6 +349,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:id="@+id/yeydhLine"
+                    android:visibility="gone"
                     android:background="#e1e1e1"></View>
 
                 <RelativeLayout
@@ -362,7 +369,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
                         android:gravity="right"
-                        android:text="幼儿园地址"
+                        android:text="所属地区"
                         android:textSize="16sp"
                         android:id="@+id/addressTitleTv"
                         tools:ignore="TextFields" />
@@ -458,6 +465,7 @@
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:id="@+id/bjLayout"
+                    android:visibility="gone"
                     tools:ignore="UselessParent">
 
                     <TextView
@@ -502,6 +510,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:id="@+id/bjLine"
+                    android:visibility="gone"
                     android:background="#e1e1e1"></View>
 
                 <RelativeLayout
@@ -511,6 +521,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp"
+                    android:visibility="gone"
                     android:id="@+id/studentsLayout"
                     tools:ignore="UselessParent">
 
@@ -557,6 +568,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:id="@+id/studentsLine"
+                    android:visibility="gone"
                     android:background="#e1e1e1"></View>
             </LinearLayout>
         </ScrollView>

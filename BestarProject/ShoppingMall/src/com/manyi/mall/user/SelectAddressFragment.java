@@ -1,7 +1,9 @@
 package com.manyi.mall.user;
 
+import android.accounts.NetworkErrorException;
 import android.annotation.TargetApi;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -22,6 +24,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
@@ -64,48 +67,85 @@ public class SelectAddressFragment extends SuperFragment {
     @ViewById(R.id.inputAddressEt)
     EditText mInputAddressEt;
 
+    @FragmentArg
+    String type;
+
+    private ProgressDialog mDialog;
+
+    private void showDialog(String msg){
+        mDialog = new ProgressDialog(getActivity());
+        mDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mDialog.setMessage(msg);
+        mDialog.setCancelable(false);
+        mDialog.show();
+    }
+
+    private void dismiss(){
+        if (mDialog!=null && mDialog.isShowing()){
+            mDialog.dismiss();
+        }
+    }
+
     @AfterViews
     void init(){
+        showDialog("请求数据中，请稍候...");
         getProvince();
     }
 
 
     @Background
     void getProvince(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.getProvince();
-        JsonData jsonData = new JsonData();
-        provinceList = jsonData.jsonProvinceMsg(msg, null);
-        notifyProvince();
+        try{
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String msg = request.getProvince();
+            JsonData jsonData = new JsonData();
+            provinceList = jsonData.jsonProvinceMsg(msg, null);
+            notifyProvince();
+        } catch (Exception e){
+           showErrorMsg("请求失败，请检查网络连接或重试...");
+        }
+    }
+
+    @UiThread
+    void showErrorMsg(String msg){
+        DialogBuilder.showSimpleDialog(msg,getActivity());
     }
     @Background
     void getCity(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String provinceId = provinceList.get(provincePosition).get("ID");
-        String msg = request.getCity(provinceId);
-        JsonData jsonData = new JsonData();
-        cityList = jsonData.jsonCityMsg(msg, null);
-        notifyCity();
+        try {
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String provinceId = provinceList.get(provincePosition).get("ID");
+            String msg = request.getCity(provinceId);
+            JsonData jsonData = new JsonData();
+            cityList = jsonData.jsonCityMsg(msg, null);
+            notifyCity();
+        } catch (Exception e) {
+            showErrorMsg("请求失败，请检查网络连接或重试...");
+        }
     }
     @Background
     void getCounty(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String cityId = cityList.get(cityPosition).get("ID");
-        String msg = request.getCounty(cityId);
-        JsonData jsonData = new JsonData();
-        countyList = jsonData.jsonCountyMsg(msg, null);
-        if (countyList!= null && countyList.size()>0){
-            notifyCounty();
-        }else{
-            hideListLayout();
+        try {
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String cityId = cityList.get(cityPosition).get("ID");
+            String msg = request.getCounty(cityId);
+            JsonData jsonData = new JsonData();
+            countyList = jsonData.jsonCountyMsg(msg, null);
+            if (countyList != null && countyList.size() > 0) {
+                notifyCounty();
+            } else {
+                hideListLayout();
+            }
+        } catch (Exception e) {
+            showErrorMsg("请求失败，请检查网络连接或重试...");
         }
-
     }
 
     @UiThread
     void notifyProvince(){
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),provinceList,R.layout.item_content,new String[]{"ProvinceName"},new int[]{R.id.contentTv});
         mProvinceList.setAdapter(adapter);
+        dismiss();
     }
 
     @UiThread
@@ -113,6 +153,7 @@ public class SelectAddressFragment extends SuperFragment {
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),cityList,R.layout.item_content,new String[]{"CityName"},new int[]{R.id.contentTv});
         mCityList.setAdapter(adapter);
         mCityList.setVisibility(View.VISIBLE);
+        dismiss();
     }
 
     @UiThread
@@ -120,6 +161,7 @@ public class SelectAddressFragment extends SuperFragment {
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),countyList,R.layout.item_content,new String[]{"CountyName"},new int[]{R.id.contentTv});
         mCountyList.setAdapter(adapter);
         mCountyList.setVisibility(View.VISIBLE);
+        dismiss();
     }
 
     @ItemClick(R.id.ProvinceList)
@@ -128,6 +170,7 @@ public class SelectAddressFragment extends SuperFragment {
         selectProvince = provinceList.get(provincePosition).get("ProvinceName").toString();
         address = selectProvince;
         mSelectAddress.setText(address);
+        showDialog("请求数据中，请稍候...");
         getCity();
         mCountyList.setVisibility(View.GONE);
         mSelectAddress.setVisibility(View.VISIBLE);
@@ -140,8 +183,20 @@ public class SelectAddressFragment extends SuperFragment {
         selectCity = cityList.get(cityPosition).get("CityName").toString();
         address = selectProvince+" - "+selectCity;
         mSelectAddress.setText(address);
-        getCounty();
         mSelectAddress.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.shangla, 0);
+        if (type.equals("2")){
+            showDialog("请求数据中，请稍候...");
+            getCounty();
+            setInputViewState(View.VISIBLE);
+        }else{
+            hideListLayout();
+            setInputViewState(View.GONE);
+        }
+    }
+
+    @UiThread
+    void setInputViewState(int state){
+        mInputAddressEt.setVisibility(state);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -161,6 +216,7 @@ public class SelectAddressFragment extends SuperFragment {
         mCityList.setVisibility(View.GONE);
         mCountyList.setVisibility(View.GONE);
         mSelectAddress.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.xiala, 0);
+        dismiss();
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -183,7 +239,7 @@ public class SelectAddressFragment extends SuperFragment {
 
     @Click(R.id.completeBtn)
     void complete(){
-        if (mInputAddressEt.getText().toString().trim().length() == 0){
+        if (mInputAddressEt.getText().toString().trim().length() == 0 && type!=null && type.equals("2")){
             DialogBuilder.showSimpleDialog("请输入详细地址",getActivity());
         }else{
             Bundle bundle =new Bundle();
@@ -193,7 +249,12 @@ public class SelectAddressFragment extends SuperFragment {
             bundle.putString("provinceId",provinceId);
             bundle.putString("cityId",cityId);
             bundle.putString("countyId",countyId);
-            bundle.putString("address",address+"  "+mInputAddressEt.getText().toString());
+            if (type.equals("2")){
+                bundle.putString("address",address+"  "+mInputAddressEt.getText().toString());
+            }else{
+                bundle.putString("address",address);
+            }
+
             notifySelected(bundle);
         }
     }

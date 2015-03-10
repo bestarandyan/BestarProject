@@ -66,7 +66,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         }else{//园长
             mLayout1.setText("我的代金券");
         }
-        mNameTv.setText(BestarApplication.getInstance().getUserName());
+        mNameTv.setText(BestarApplication.getInstance().getRealName());
         //切换开关
         mSwitchBtn.toggle();
         //开关切换事件

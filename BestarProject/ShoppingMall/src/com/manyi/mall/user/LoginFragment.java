@@ -152,8 +152,9 @@ public class LoginFragment extends SuperFragment<Integer> {
 
                 BestarApplication.getInstance().setAppkey(response.getAppKey());
                 BestarApplication.getInstance().setUserName(name);
+                BestarApplication.getInstance().setRealName(response.getRealName());
                 BestarApplication.getInstance().setPassword(password);
-                BestarApplication.getInstance().setType(response.getType().equals("园长")?"2":"1");
+                BestarApplication.getInstance().setType((response.getType().equals("园长") || response.getType().equals("2"))?"2":"1");
                 initMainActivity();
             }else{
                 loginFailed(response.getMessage());

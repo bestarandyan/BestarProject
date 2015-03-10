@@ -213,7 +213,12 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
         String SchoolName = mSchoolNameEt.getText().toString().trim();
         String ClassNum = mClassCountEt.getText().toString().trim();
         String StudentNum = mStudentCountEt.getText().toString().trim();
-        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID, Address, QQ, SchoolName, ClassNum, StudentNum);
+        String msg = "";//request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID, Address, QQ, SchoolName, ClassNum, StudentNum);
+        if (type.equals("2")){
+//            msg = request.registerYZ(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum,CompanyPhone);
+        }else{
+            msg = request.registerAgent(type,userName,password,realName,sex+"",phone,ProvinceID, CityID , QQ);
+        }
         System.out.print(msg);
         BaseResponse response = new JsonData().JsonBase(msg);
         if (response.getCode().equals("0")){

@@ -57,7 +57,7 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-public String register(String type,String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum){
+public String registerYZ(String type,String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum,String CompanyPhone){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GardenerRegister"));
@@ -76,6 +76,25 @@ public String register(String type,String UserName,String Password,String RealNa
  		params.add(new BasicNameValuePair("SchoolName", SchoolName));
  		params.add(new BasicNameValuePair("ClassNum", ClassNum));
  		params.add(new BasicNameValuePair("StudentNum", StudentNum));
+ 		params.add(new BasicNameValuePair("CompanyPhone", CompanyPhone));
+ 		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+public String registerAgent(String type,String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String QQ){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "AgentRegister"));
+ 		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
+ 		params.add(new BasicNameValuePair("UserName", UserName));
+ 		params.add(new BasicNameValuePair("Password", Password));
+ 		params.add(new BasicNameValuePair("Type", type));
+ 		params.add(new BasicNameValuePair("RealName", RealName));
+ 		params.add(new BasicNameValuePair("Sex", Sex));
+ 		params.add(new BasicNameValuePair("Phone", Phone));
+ 		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
+ 		params.add(new BasicNameValuePair("CityID", CityID));
+ 		params.add(new BasicNameValuePair("QQ", QQ));
  		msgString = getData(USER_SERVICE, params);
  		return msgString;
  	}

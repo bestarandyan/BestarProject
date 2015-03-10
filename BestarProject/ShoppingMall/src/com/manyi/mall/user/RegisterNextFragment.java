@@ -90,6 +90,18 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     @ViewById(R.id.studentsLayout)
     RelativeLayout mStudentsLayout;
 
+    @ViewById(R.id.yeydhLine)
+    View mYeydhLine;
+
+    @ViewById(R.id.yeymcLine)
+    View mYeymcLine;
+
+    @ViewById(R.id.bjLine)
+    View mBjLine;
+
+    @ViewById(R.id.studentsLine)
+    View mStudentsLine;
+
     @FragmentArg
     String userName;
 
@@ -156,6 +168,9 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     void getAddress(){
         SelectAddressFragment fragment = GeneratedClassUtils.getInstance(SelectAddressFragment.class);
         fragment.tag = SelectAddressFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("type",type);
+        fragment.setArguments(bundle);
         fragment.setSelectListener(new SelectListener() {
             @Override
             public void onSelected(Object o) {
@@ -239,6 +254,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
         bundle.putString("password",password);
         bundle.putString("realName",realName);
         bundle.putString("phone",phone);
+        bundle.putString("CompanyPhone",mSchoolPhone.getText().toString().trim());
         bundle.putString("QQ",QQ);
         bundle.putString("SchoolName",type.equals("2")?SchoolName:"");
         bundle.putString("ClassNum",type.equals("2")?ClassNum:"");
@@ -295,12 +311,20 @@ public class RegisterNextFragment extends ImageLoaderFragment {
             mYeymcLayout.setVisibility(View.GONE);
             mBjLayout.setVisibility(View.GONE);
             mStudentsLayout.setVisibility(View.GONE);
+            mBjLine.setVisibility(View.GONE);
+            mStudentsLine.setVisibility(View.GONE);
+            mYeydhLine.setVisibility(View.GONE);
+            mYeymcLine.setVisibility(View.GONE);
             mAddressTitleTv.setText("所在地区");
         }else if(type.equals("2")){
             mYeydhLayout.setVisibility(View.VISIBLE);
             mYeymcLayout.setVisibility(View.VISIBLE);
             mBjLayout.setVisibility(View.VISIBLE);
             mStudentsLayout.setVisibility(View.VISIBLE);
+            mBjLine.setVisibility(View.VISIBLE);
+            mStudentsLine.setVisibility(View.VISIBLE);
+            mYeydhLine.setVisibility(View.VISIBLE);
+            mYeymcLine.setVisibility(View.VISIBLE);
             mAddressTitleTv.setText("幼儿园地址");
         }
 

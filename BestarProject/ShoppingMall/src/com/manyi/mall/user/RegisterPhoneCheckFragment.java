@@ -19,6 +19,7 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.MainActivity;
 import com.manyi.mall.MainActivity_;
 import com.manyi.mall.R;
@@ -92,6 +93,9 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
     @FragmentArg
     String StudentNum;
 
+    @FragmentArg
+    String CompanyPhone;
+
     int mTime = 60;//60s  时间
 	@FragmentArg
 	String phone;
@@ -117,8 +121,12 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
     @Background
     void register(){
         RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum);
-        System.out.print(msg);
+        String msg = "";
+        if (type.equals("2")){
+            msg = request.registerYZ(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum,CompanyPhone);
+        }else{
+            msg = request.registerAgent(type,userName,password,realName,sex+"",phone,ProvinceID, CityID , QQ);
+        }
         BaseResponse response = new JsonData().JsonBase(msg);
         if (response.getCode().equals("0")){
            login();
@@ -254,6 +262,12 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
                 editor1.putString("userName", userName);
                 editor1.putString("password", password);
                 editor1.commit();
+
+                BestarApplication.getInstance().setAppkey(response.getAppKey());
+                BestarApplication.getInstance().setUserName(response.getUserName());
+                BestarApplication.getInstance().setRealName(response.getRealName());
+                BestarApplication.getInstance().setPassword(password);
+                BestarApplication.getInstance().setType((response.getType().equals("园长") || response.getType().equals("2"))?"2":"1");
                 gotoNextStep();//userName = {java.lang.String@830038226280}"12554555554"
             }else{
                 loginFailed(response.getMessage());
