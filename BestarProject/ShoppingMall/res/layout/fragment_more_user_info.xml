@@ -7,11 +7,6 @@
     android:background="@color/register_background"
     android:clickable="true">
 
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
@@ -85,19 +80,19 @@
                         android:orientation="horizontal"
                         android:padding="16dp"
                         tools:ignore="UselessParent">
+
                         <TextView
                             android:id="@+id/real_name"
                             android:layout_width="@dimen/complete_info_textview_width"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                            android:layout_toRightOf="@+id/xing2"
                             android:gravity="right"
                             android:text="真实姓名"
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/real_name_et"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -106,10 +101,10 @@
                             android:layout_toRightOf="@id/real_name"
                             android:background="@null"
                             android:gravity="right"
-                            android:text="威尼斯"
-                            android:textColor="@color/shao_an_text_color"
+                            android:hint="请输入姓名"
                             android:minWidth="100dp"
                             android:singleLine="true"
+                            android:textColorHint="#afafaf"
                             android:textSize="16sp" />
                     </RelativeLayout>
 
@@ -127,13 +122,13 @@
                         android:padding="16dp"
                         tools:ignore="UselessParent">
 
+
                         <TextView
                             android:id="@+id/gender"
                             android:layout_width="@dimen/complete_info_textview_width"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                            android:layout_toRightOf="@+id/xing3"
                             android:gravity="right"
                             android:text="性别"
                             android:textSize="16sp"
@@ -170,20 +165,18 @@
                         android:padding="16dp"
                         tools:ignore="UselessParent">
 
-
                         <TextView
                             android:id="@+id/xing4Tv"
                             android:layout_width="@dimen/complete_info_textview_width"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                            android:layout_toRightOf="@+id/xing4"
                             android:gravity="right"
-                            android:text="联系电话"
+                            android:text="联系手机"
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/phone_number_et"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -192,10 +185,12 @@
                             android:layout_toRightOf="@id/xing4Tv"
                             android:background="@null"
                             android:gravity="right"
+                            android:hint="请输入电话"
+                            android:inputType="phone"
+                            android:maxLength="11"
                             android:minWidth="100dp"
-                            android:textColor="@color/shao_an_text_color"
-                            android:text="13588888888"
                             android:singleLine="true"
+                            android:textColorHint="#afafaf"
                             android:textSize="16sp" />
                     </RelativeLayout>
 
@@ -217,6 +212,8 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="16dp"
+                        android:id="@+id/yeymcLayout"
+                        android:visibility="gone"
                         tools:ignore="UselessParent">
 
                         <TextView
@@ -225,67 +222,21 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                            android:layout_toRightOf="@+id/xing5"
                             android:gravity="right"
                             android:text="幼儿园名称"
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/youeryuanname"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/xing5Tv"
-                            android:text="小红帽幼儿园"
-                            android:textColor="@color/shao_an_text_color"
                             android:background="@null"
                             android:gravity="right"
-                            android:minWidth="100dp"
-                            android:singleLine="true"
-                            android:textSize="16sp" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e1e1e1"></View>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/color_ffffff"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        tools:ignore="UselessParent">
-
-
-                        <TextView
-                            android:id="@+id/xing7Tv"
-                            android:layout_width="@dimen/complete_info_textview_width"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                            android:layout_toRightOf="@+id/xing7"
-                            android:gravity="right"
-                            android:text="幼儿园电话"
-                            android:textSize="16sp"
-                            tools:ignore="TextFields" />
-
-                        <TextView
-                            android:id="@+id/youeryuanphone"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/xing7Tv"
-                            android:background="@null"
-                            android:gravity="right"
-                            android:text="0571-88665566"
-                            android:textColor="@color/shao_an_text_color"
+                            android:hint="请输入名称"
                             android:minWidth="100dp"
                             android:singleLine="true"
                             android:textColorHint="#afafaf"
@@ -295,6 +246,56 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:id="@+id/yeymcLine"
+                        android:visibility="gone"
+                        android:background="#e1e1e1"></View>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:id="@+id/yeydhLayout"
+                        android:visibility="gone"
+                        tools:ignore="UselessParent">
+
+
+                        <TextView
+                            android:id="@+id/xing7Tv"
+                            android:layout_width="@dimen/complete_info_textview_width"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
+                            android:gravity="right"
+                            android:text="幼儿园电话"
+                            android:textSize="16sp"
+                            tools:ignore="TextFields" />
+
+                        <EditText
+                            android:id="@+id/youeryuanphone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/xing7Tv"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请输入电话"
+                            android:inputType="phone"
+                            android:minWidth="100dp"
+                            android:singleLine="true"
+                            android:textColorHint="#afafaf"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:id="@+id/yeydhLine"
+                        android:visibility="gone"
                         android:background="#e1e1e1"></View>
 
                     <RelativeLayout
@@ -312,10 +313,10 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                            android:layout_toRightOf="@+id/xing6"
                             android:gravity="right"
-                            android:text="幼儿园地址"
+                            android:text="所属地区"
                             android:textSize="16sp"
+                            android:id="@+id/addressTitleTv"
                             tools:ignore="TextFields" />
 
                         <TextView
@@ -380,7 +381,7 @@
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/qqEt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -389,8 +390,8 @@
                             android:layout_toRightOf="@id/xing9Tv"
                             android:background="@null"
                             android:gravity="right"
-                            android:text="923351045"
-                            android:textColor="@color/shao_an_text_color"
+                            android:hint="请输入QQ号码"
+                            android:inputType="phone"
                             android:minWidth="100dp"
                             android:singleLine="true"
                             android:textColorHint="#afafaf" />
@@ -408,6 +409,8 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="16dp"
+                        android:id="@+id/bjLayout"
+                        android:visibility="gone"
                         tools:ignore="UselessParent">
 
                         <TextView
@@ -433,7 +436,7 @@
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/classCountEt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -442,8 +445,8 @@
                             android:layout_toRightOf="@id/xing10Tv"
                             android:background="@null"
                             android:gravity="right"
-                            android:text="12"
-                            android:textColor="@color/shao_an_text_color"
+                            android:hint="请输入班级数"
+                            android:inputType="phone"
                             android:minWidth="100dp"
                             android:singleLine="true"
                             android:textColorHint="#afafaf" />
@@ -452,6 +455,8 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:id="@+id/bjLine"
+                        android:visibility="gone"
                         android:background="#e1e1e1"></View>
 
                     <RelativeLayout
@@ -461,6 +466,8 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="16dp"
+                        android:visibility="gone"
+                        android:id="@+id/studentsLayout"
                         tools:ignore="UselessParent">
 
                         <TextView
@@ -486,7 +493,7 @@
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/studentCountEt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -496,65 +503,22 @@
                             android:layout_toRightOf="@id/xing11Tv"
                             android:background="@null"
                             android:gravity="right"
-                            android:text="108"
-                            android:textColor="@color/shao_an_text_color"
+                            android:hint="请输入学生人数"
+                            android:inputType="number"
                             android:minWidth="100dp"
                             android:singleLine="true"
                             android:textColorHint="#afafaf" />
                     </RelativeLayout>
 
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:id="@+id/studentsLine"
+                        android:visibility="gone"
                         android:background="#e1e1e1"></View>
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/left_drawer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:background="#fff"
-            android:choiceMode="singleChoice"
-            android:orientation="horizontal">
-
-            <ListView
-                android:id="@+id/ProvinceList"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:divider="#66666666"
-                android:dividerHeight="0.5dp"
-                android:scrollbars="none" />
-
-            <View
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:background="#66000000"></View>
-
-            <ListView
-                android:id="@+id/CityList"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:divider="#66666666"
-                android:dividerHeight="0.5dp"
-                android:scrollbars="none"
-                android:visibility="gone" />
-
-            <View
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:background="#66000000"></View>
-
-            <ListView
-                android:id="@+id/CountyList"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:divider="#66666666"
-                android:dividerHeight="0.5dp"
-                android:scrollbars="none"
-                android:visibility="gone" />
-        </LinearLayout>
-    </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>

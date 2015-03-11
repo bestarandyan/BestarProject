@@ -35,6 +35,15 @@ public class BestarApplication extends Application {
     public String appkey;
     public String realName;
     public String type;
+    public String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getType() {
         return type;
@@ -81,7 +90,7 @@ public class BestarApplication extends Application {
 	 */
 	@Background
 	public void loadData() {
-		DBUtil.loadDataFromRawDatabase(getApplicationContext());
+//		DBUtil.loadDataFromRawDatabase(getApplicationContext());
 	}
 
 	/**

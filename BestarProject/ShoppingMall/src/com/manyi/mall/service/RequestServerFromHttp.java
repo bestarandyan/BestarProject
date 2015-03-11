@@ -1,5 +1,7 @@
 package com.manyi.mall.service;
 
+import com.manyi.mall.BestarApplication;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -78,6 +80,28 @@ public String registerYZ(String type,String UserName,String Password,String Real
  		params.add(new BasicNameValuePair("StudentNum", StudentNum));
  		params.add(new BasicNameValuePair("CompanyPhone", CompanyPhone));
  		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String updateInfo(String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum,String CompanyPhone,String CustomerID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "ModifyInfo"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("RealName", RealName));
+ 		params.add(new BasicNameValuePair("Sex", Sex));
+ 		params.add(new BasicNameValuePair("Phone", Phone));
+ 		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
+ 		params.add(new BasicNameValuePair("CityID", CityID));
+ 		params.add(new BasicNameValuePair("CountyID", CountyID));
+ 		params.add(new BasicNameValuePair("Address", Address));
+ 		params.add(new BasicNameValuePair("QQ", QQ));
+ 		params.add(new BasicNameValuePair("SchoolName", SchoolName));
+ 		params.add(new BasicNameValuePair("ClassNum", ClassNum));
+ 		params.add(new BasicNameValuePair("StudentNum", StudentNum));
+ 		params.add(new BasicNameValuePair("CompanyPhone", CompanyPhone));
+ 		params.add(new BasicNameValuePair("CustomerID", CustomerID));
+ 		msgString = getData(GET_GETPSW_SERVICE, params);
  		return msgString;
  	}
 

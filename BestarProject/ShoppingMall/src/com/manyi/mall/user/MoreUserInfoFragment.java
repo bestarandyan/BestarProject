@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.BaseResponse;
@@ -72,6 +74,33 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
 
     @ViewById(R.id.studentCountEt)
     TextView mStudentCountEt;
+
+    @ViewById(R.id.yeymcLayout)
+    RelativeLayout mYeymcLayout;
+
+    @ViewById(R.id.yeydhLayout)
+    RelativeLayout mYeydhLayout;
+
+    @ViewById(R.id.addressTitleTv)
+    TextView mAddressTitleTv;
+
+    @ViewById(R.id.bjLayout)
+    RelativeLayout mBjLayout;
+
+    @ViewById(R.id.studentsLayout)
+    RelativeLayout mStudentsLayout;
+
+    @ViewById(R.id.yeydhLine)
+    View mYeydhLine;
+
+    @ViewById(R.id.yeymcLine)
+    View mYeymcLine;
+
+    @ViewById(R.id.bjLine)
+    View mBjLine;
+
+    @ViewById(R.id.studentsLine)
+    View mStudentsLine;
 
     @FragmentArg
     String userName;
@@ -135,6 +164,8 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     }
     @AfterViews
     void init(){
+        type = BestarApplication.getInstance().getType();
+        changeInfoFromType();
     }
 
     @Override
@@ -156,7 +187,13 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
                 CityID = bundle.getString("cityId");
                 CountyID = bundle.getString("countyId");
                 address = bundle.getString("address");
-                mAddress.setText(address);
+                String addressStr = "";
+                if (address.length()>=25){
+                    addressStr = address.substring(0,22)+"...";
+                }else{
+                    addressStr = address;
+                }
+                mAddress.setText(addressStr);
             }
 
             @Override
@@ -171,6 +208,30 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
         ManyiUtils.closeKeyBoard(getActivity(), mStudentCountEt);
     }
 
+    private void changeInfoFromType(){
+        if (type.equals("1")){
+            mYeydhLayout.setVisibility(View.GONE);
+            mYeymcLayout.setVisibility(View.GONE);
+            mBjLayout.setVisibility(View.GONE);
+            mStudentsLayout.setVisibility(View.GONE);
+            mBjLine.setVisibility(View.GONE);
+            mStudentsLine.setVisibility(View.GONE);
+            mYeydhLine.setVisibility(View.GONE);
+            mYeymcLine.setVisibility(View.GONE);
+            mAddressTitleTv.setText("所在地区");
+        }else if(type.equals("2")){
+            mYeydhLayout.setVisibility(View.VISIBLE);
+            mYeymcLayout.setVisibility(View.VISIBLE);
+            mBjLayout.setVisibility(View.VISIBLE);
+            mStudentsLayout.setVisibility(View.VISIBLE);
+            mBjLine.setVisibility(View.VISIBLE);
+            mStudentsLine.setVisibility(View.VISIBLE);
+            mYeydhLine.setVisibility(View.VISIBLE);
+            mYeymcLine.setVisibility(View.VISIBLE);
+            mAddressTitleTv.setText("幼儿园地址");
+        }
+
+    }
 
     @Click(R.id.goonBtn)
     void goon(){
@@ -213,9 +274,10 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
         String SchoolName = mSchoolNameEt.getText().toString().trim();
         String ClassNum = mClassCountEt.getText().toString().trim();
         String StudentNum = mStudentCountEt.getText().toString().trim();
-        String msg = "";//request.register(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID, Address, QQ, SchoolName, ClassNum, StudentNum);
+        String schoolPhone = mSchoolPhone.getText().toString().trim();
+        String msg = "";
         if (type.equals("2")){
-//            msg = request.registerYZ(type,userName,password,realName,sex+"",phone,ProvinceID, CityID, CountyID,  address , QQ, SchoolName, ClassNum, StudentNum,CompanyPhone);
+            msg = request.updateInfo(realName,sex+"",phone,ProvinceID,CityID,CountyID,Address,QQ,SchoolName,ClassNum,StudentNum,schoolPhone, BestarApplication.getInstance().getUserId());
         }else{
             msg = request.registerAgent(type,userName,password,realName,sex+"",phone,ProvinceID, CityID , QQ);
         }

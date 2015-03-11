@@ -158,10 +158,10 @@ public class JsonData {
         }
         return bean;
     }
-public String JsonUrl(String msg) {
+public String JsonUrl(String msg,String tag ) {
         try {
             JSONObject jsonObject = new JSONObject(msg);
-            return jsonObject.getString("WebIndex");
+            return jsonObject.getString(tag);
         } catch (JSONException e) {
             e.printStackTrace();
         }

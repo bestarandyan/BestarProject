@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.DialogBuilder;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
@@ -67,7 +68,6 @@ public class SelectAddressFragment extends SuperFragment {
     @ViewById(R.id.inputAddressEt)
     EditText mInputAddressEt;
 
-    @FragmentArg
     String type;
 
     private ProgressDialog mDialog;
@@ -88,6 +88,7 @@ public class SelectAddressFragment extends SuperFragment {
 
     @AfterViews
     void init(){
+        type = BestarApplication.getInstance().getType();
         showDialog("请求数据中，请稍候...");
         getProvince();
     }

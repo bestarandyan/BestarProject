@@ -32,12 +32,15 @@ import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.user.HtmlLoadFragment;
+import com.manyi.mall.wap.BusinessWapFragment;
+import com.manyi.mall.wap.DetailProductFragment;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -51,6 +54,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.w3c.dom.Text;
@@ -225,6 +229,22 @@ public class HomeFragment extends SuperFragment<Object> {
         ImageLoader.getInstance().clearMemoryCache();
         ImageLoader.getInstance().clearDiskCache();
         super.onDestroy();
+    }
+
+    @Click(R.id.shujuLayout)
+    void gotoDetailProdect(){
+        DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
+        fragment.tag = DetailProductFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", "11");
+        bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
+        fragment.setArguments(bundle);
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setContainerId(R.id.main_container);
+        fragment.setManager(getFragmentManager());
+
+        fragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
     @Override

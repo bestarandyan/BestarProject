@@ -267,6 +267,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
                 BestarApplication.getInstance().setUserName(response.getUserName());
                 BestarApplication.getInstance().setRealName(response.getRealName());
                 BestarApplication.getInstance().setPassword(password);
+                BestarApplication.getInstance().setUserId(response.getId());
                 BestarApplication.getInstance().setType((response.getType().equals("园长") || response.getType().equals("2"))?"2":"1");
                 gotoNextStep();//userName = {java.lang.String@830038226280}"12554555554"
             }else{

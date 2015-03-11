@@ -1,10 +1,7 @@
 package com.manyi.mall.wap;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -22,11 +19,11 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 /**
- * Created by bestar on 2015/3/6.
+ * Created by bestar on 2015/3/11.
  */
-@EFragment(R.layout.fragment_business_wap)
-public class BusinessWapFragment extends SuperFragment{
-    @ViewById(R.id.businessWebView)
+@EFragment(R.layout.fragment_product_wap)
+public class DetailProductFragment extends SuperFragment{
+    @ViewById(R.id.detailWebView)
     WebView mWebview;
 
     String mUrl = "";
@@ -49,8 +46,8 @@ public class BusinessWapFragment extends SuperFragment{
         String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey", "");
         if (appkey!=null && appkey.length()>0){
             String msg = request.getUrl(appkey);
-            if (msg!=null && msg.contains("WebIndex")){
-                mUrl = new JsonData().JsonUrl(msg,"WebIndex");
+            if (msg!=null && msg.contains("ProductInfo")){
+                mUrl = new JsonData().JsonUrl(msg,"ProductInfo");
                 if (mUrl!=null && mUrl.length()>0){
                     loadUrl();
                 }
