@@ -102,6 +102,10 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     @ViewById(R.id.studentsLine)
     View mStudentsLine;
 
+    @ViewById(R.id.editBtn)
+    ImageButton mEditBtn;
+
+
     @FragmentArg
     String userName;
 
@@ -122,6 +126,24 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
 
     private String type = "1";//1渠道商2园长
     private int sex = 0;//男0女1
+    private boolean isEditing = false;
+
+
+    @Click(R.id.editBtn)
+    void editUserInfo(){
+        if(isEditing){
+            isEditing = false;
+            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
+        }else{
+            isEditing = true;
+            mEditBtn.setImageResource(0);
+            mEditBtn.
+        }
+    }
+
+
+
+
     @Click(R.id.genderTv)
     void selectGender(){
         showGenderPopmenu();

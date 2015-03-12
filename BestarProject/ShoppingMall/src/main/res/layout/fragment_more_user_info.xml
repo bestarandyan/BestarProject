@@ -37,13 +37,12 @@
                     android:textColor="#333"
                     android:textSize="18sp" />
 
-                <ImageButton
-                    android:id="@+id/goonBtn"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
+                <Button
+                    android:id="@+id/editBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:background="@null"
-                    android:src="@drawable/selector_edit_info_btn" />
+                    android:background="@drawable/selector_edit_info_btn" />
             </RelativeLayout>
 
             <View
