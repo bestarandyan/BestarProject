@@ -85,361 +85,19 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.manyi.mall" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="749a56cd-93d4-48a1-bb5a-494578f1216b" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\BestarProject.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\Framework\Framework.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\ShoppingMall.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\Widget\Widget.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Framework/libs/Native_Libs1.jar" afterPath="$PROJECT_DIR$/Framework/libs/Native_Libs1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/libs/Native_Libs2.jar" afterPath="$PROJECT_DIR$/ShoppingMall/libs/Native_Libs2.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Framework/Framework.iml" afterPath="$PROJECT_DIR$/Framework/Framework.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/ShoppingMall.iml" afterPath="$PROJECT_DIR$/ShoppingMall/ShoppingMall.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Widget/Widget.iml" afterPath="$PROJECT_DIR$/Widget/Widget.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/androidannotations_api_3_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/androidannotations_api_3_0_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/build.gradle" afterPath="$PROJECT_DIR$/ShoppingMall/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rebound_0_3_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rebound_0_3_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\AndroidManifest.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\alpha_in.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/alpha_in.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\alpha_out.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/alpha_out.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\anim_fragment_close_in.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/anim_fragment_close_in.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\anim_fragment_close_out.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/anim_fragment_close_out.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\anim_fragment_in.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/anim_fragment_in.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\anim_fragment_out.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/anim_fragment_out.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\anim_interpolator_fragment.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/anim_interpolator_fragment.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\dialog_animation_set.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/dialog_animation_set.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\dialog_animation_translate.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/dialog_animation_translate.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\fade_in.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/fade_in.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\fade_out.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/fade_out.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_in_from_bottom.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_in_from_bottom.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_in_from_top.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_in_from_top.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_in_left.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_in_left.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_in_right.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_in_right.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_in_up.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_in_up.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_out_down.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_out_down.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_out_left.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_out_left.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_out_right.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_out_right.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_out_to_bottom.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_out_to_bottom.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\anim\slide_out_to_top.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/anim/slide_out_to_top.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\color\common_colour.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/color/common_colour.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\color\district_parent_item_text_color.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/color/district_parent_item_text_color.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\color\mm_tab_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/color/mm_tab_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\color\radiobutton_textcolor_state.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/color/radiobutton_textcolor_state.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\agent.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/agent.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\agent_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/agent_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\back.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/back.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\back_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/back_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\choice.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/choice.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\collection.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/collection.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\collection_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/collection_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\complete.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/complete.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\complete_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/complete_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\crown.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/crown.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\diamond.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/diamond.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\down.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/down.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\edit.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/edit.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\edit_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/edit_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\footprint.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/footprint.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\footprint_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/footprint_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\guan.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/guan.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\head.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/head.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\history.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/history.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\history_dian.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/history_dian.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\history_dian_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/history_dian_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\home.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/home.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\home_dian.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/home_dian.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\home_dian_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/home_dian_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\home_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/home_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\home_next.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/home_next.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\home_next_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/home_next_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_call.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_call.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_down.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_down.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_gjpp.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_gjpp.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_gjpp_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_gjpp_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_glrj.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_glrj.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_glrj_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_glrj_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_login_logo.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_login_logo.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_ptsb.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_ptsb.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_ptsb_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_ptsb_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_search.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_search.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_snwj.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_snwj.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_snwj_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_snwj_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\icon_up.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/icon_up.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/launcher_icon.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\me.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/me.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\me_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/me_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\method.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/method.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\method_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/method_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\more.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/more.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\more_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/more_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\next.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/next.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\next_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/next_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\open.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/open.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\prompt.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/prompt.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\r_pre.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/r_pre.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\screening.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/screening.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\screening_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/screening_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\search.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/search.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\search_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/search_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\shangla.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/shangla.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\take_photos_list_no__thumbnail.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/take_photos_list_no__thumbnail.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\text.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/text.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\ticket.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/ticket.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\unprepared.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/unprepared.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\up.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/up.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\voucher.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/voucher.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\xiala.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/xiala.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\zc.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/zc.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-hdpi\zc_h.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/zc_h.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-mdpi\launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-mdpi/launcher_icon.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-nodpi\launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-nodpi/launcher_icon.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-nodpi\tab_btn_normal.9.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-nodpi/tab_btn_normal.9.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-nodpi\tab_btn_pressed.9.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-nodpi/tab_btn_pressed.9.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-xhdpi\launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xhdpi/launcher_icon.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable-xxhdpi\launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xxhdpi/launcher_icon.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\button_checked.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/button_checked.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\button_down_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/button_down_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\button_font_style.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/button_font_style.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\circle.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/circle.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\circle_back.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/circle_back.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\circle_h.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/circle_h.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\contacts_textview_corner.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/contacts_textview_corner.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\dialog_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/dialog_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\download_progress_drawable.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/download_progress_drawable.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\img.jpg" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/img.jpg" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\item_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/item_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\launcher_background.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/launcher_background.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\main_background.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/main_background.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\main_tab_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/main_tab_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\main_title_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/main_title_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\mine_select.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/mine_select.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\popupwindow_title_bg.9.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/popupwindow_title_bg.9.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\section_item_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/section_item_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_all_type_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_all_type_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_back_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_back_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_comple.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_comple.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_edit_info_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_edit_info_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_gjpp_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_gjpp_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_glrj_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_glrj_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_help_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_help_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_house_config_type.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_house_config_type.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_login_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_login_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_mine_exit_btn_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_mine_exit_btn_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_next_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_next_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_ptsb_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_ptsb_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_search_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_search_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_snwj_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_snwj_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\selector_submit_btn.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/selector_submit_btn.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_alltype_btn_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_alltype_btn_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_alltype_btn_bg_pre.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_alltype_btn_bg_pre.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_forget_psw_code_btn_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_forget_psw_code_btn_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_home_top_search_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_home_top_search_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_login_btn_bg_org.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_login_btn_bg_org.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_login_btn_bg_pre.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_login_btn_bg_pre.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_login_input_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_login_input_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_mine_exit_btn_bg.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_mine_exit_btn_bg.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_mine_exit_btn_bg_pre.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_mine_exit_btn_bg_pre.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_submit_btn_bg_org.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_submit_btn_bg_org.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\shape_submit_btn_bg_pre.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_submit_btn_bg_pre.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\start_background.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/start_background.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\start_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/start_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\tab_btn_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/tab_btn_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\tabbar_bg_org.9.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/tabbar_bg_org.9.png" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\tabbar_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/tabbar_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\text_down_selector.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/text_down_selector.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\drawable\textselect.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/textselect.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\activity_loading.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/activity_loading.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\activity_main.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/activity_main.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\activity_start.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/activity_start.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_add_select.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_add_select.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_agency_pay.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_agency_pay.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_business_wap.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_business_wap.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_collect_business.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_collect_business.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_contacts_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_contacts_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_container.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_container.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_data_null.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_data_null.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_feedback.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_feedback.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_footprintlist.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_footprintlist.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_forget_password.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_forget_password.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_help.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_help.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_home.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_html_load.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_html_load.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_loading.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_loading.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_login.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_login.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_main.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_main.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_mine.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_mine.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_more_user_info.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_more_user_info.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_my_agency.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_agency.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_my_collect.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_collect.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_my_voucher.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_voucher.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_product_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_product_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_product_wap.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_product_wap.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_register.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_register.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_register_next.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_register_next.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_register_phone_check.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_register_phone_check.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_rule_content.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_rule_content.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_select_address.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_select_address.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_share.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_share.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_update_password.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_update_password.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\fragment_user_info.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_user_info.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_agency_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_agency_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_agency_pay_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_agency_pay_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_appending.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_appending.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_collect_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_collect_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_contact_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_contact_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_content.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_content.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_footprint_list_product.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_footprint_list_sections.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_sections.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_refresh_top.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_refresh_top.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_release_viewpage.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_release_viewpage.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_select_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_select_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\item_voucher_list.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_voucher_list.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\layout_select.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/layout_select.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\view_contact_letter.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/view_contact_letter.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\view_nodata_layout.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/view_nodata_layout.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\layout\view_tab_indicator.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/view_tab_indicator.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\menu\actions_gender.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/menu/actions_gender.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\menu\actions_shengfen.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/menu/actions_shengfen.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\raw\manyi.db" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/raw/manyi.db" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values-sw600dp\dimens.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values-sw600dp/dimens.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values-sw720dp-land\dimens.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values-sw720dp-land/dimens.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values-v11\styles.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values-v11/styles.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values-v14\styles.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values-v14/styles.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\activity_cre_dlaog.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/activity_cre_dlaog.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\anim_speed.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/anim_speed.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\arrays.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/arrays.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\attrs.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/attrs.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\colors.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/colors.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\dimens.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/dimens.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\pull_refresh_strings.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/pull_refresh_strings.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\strings.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\styles.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/styles.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\res\values\toggle_button_attrs.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/toggle_button_attrs.xml" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\BaseActivity.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/BaseActivity.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\BestarApplication.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/BestarApplication.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\MainActivity.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/MainActivity.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\MainFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/MainFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\StartActivity.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/StartActivity.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\Util\JsonData.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/Util/JsonData.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\agency\AgencyFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/agency/AgencyFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\BaseResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/BaseResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\City.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/City.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\ClassResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/ClassResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\GetCityResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/GetCityResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\GetCountyResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/GetCountyResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\GetProvinceRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/GetProvinceRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\GetProvinceResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/GetProvinceResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\MainDataBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/MainDataBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\NotificationBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/NotificationBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\AgencyBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/AgencyBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\AgencyPayBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/AgencyPayBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\CollectBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/CollectBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\CollectResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/CollectResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\FootprintListRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/FootprintListRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\FootprintListResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/FootprintListResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\mine\VoucherBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/VoucherBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\CodeResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/CodeResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\LoginResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/LoginResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\ModifyLoginPwdRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/ModifyLoginPwdRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\ResetPasswordRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/ResetPasswordRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\ResetPasswordResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/ResetPasswordResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\UpdateAppRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/UpdateAppRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\UpdateUserPublicNumRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/UpdateUserPublicNumRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\UploadFileRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/UploadFileRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\UserInfoBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/UserInfoBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\UserLocationRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/UserLocationRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\UserLocationResponse.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/UserLocationResponse.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\cachebean\user\VersionRequest.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/user/VersionRequest.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\collect\CollectBusinessFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/collect/CollectBusinessFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\collect\CollectFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/collect/CollectFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\CommonConfig.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/CommonConfig.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\Constants.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/Constants.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\location\LBSHelper.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/location/LBSHelper.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\location\LBSListener.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/location/LBSListener.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\location\LBSManager.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/location/LBSManager.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\location\ManyiLoacationMannger.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/location/ManyiLoacationMannger.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\location\ManyiLocation.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/location/ManyiLocation.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\ConnectivityReceiver.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/ConnectivityReceiver.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\Constants.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/Constants.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\NotificationIQ.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/NotificationIQ.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\NotificationIQProvider.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/NotificationIQProvider.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\NotificationPacketListener.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/NotificationPacketListener.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\NotificationReceiver.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/NotificationReceiver.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\NotificationService.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/NotificationService.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\Notifier.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/Notifier.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\PersistentConnectionListener.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/PersistentConnectionListener.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\PhoneStateChangeListener.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/PhoneStateChangeListener.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\PushServiceUtil.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/PushServiceUtil.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\ReconnectionThread.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/ReconnectionThread.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\UserPresentReceiver.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/UserPresentReceiver.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\push\XmppManager.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/push/XmppManager.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\util\AESUtil.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/util/AESUtil.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\util\Cn2Spell.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/util/Cn2Spell.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\util\CommonUtil.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/util/CommonUtil.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\util\DBUtil.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/util/DBUtil.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\util\ItemContent.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/util/ItemContent.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\common\util\ObjectFileOperator.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/common/util/ObjectFileOperator.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\footprint\FootPrintListFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/footprint/FootPrintListFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\home\HomeFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\home\ProductListFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/ProductListFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\interfaces\SelectItemClickListener.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/interfaces/SelectItemClickListener.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\interfaces\SelectViewCloseListener.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/interfaces/SelectViewCloseListener.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\AgencyPayListFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/AgencyPayListFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\ContactsFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/ContactsFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\ContactsLetterListView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/ContactsLetterListView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\FeedbackFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/FeedbackFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\MineFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/MineFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\ShareFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/ShareFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\mine\VoucherListFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/VoucherListFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\LoaderIds.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/LoaderIds.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\ManyiBaseContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/ManyiBaseContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\ManyiProvider.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/ManyiProvider.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\BankListContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/BankListContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\BankListDBUtil.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/BankListDBUtil.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\CityContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/CityContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\EstateSubAreaContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/EstateSubAreaContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\LocalHistoryContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/LocalHistoryContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\PictureContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/PictureContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\provider\contract\SystemPropertiesContract.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/provider/contract/SystemPropertiesContract.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\service\CommonService.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/CommonService.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\service\RequestServerFromHttp.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/RequestServerFromHttp.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\service\UserLocationService.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/UserLocationService.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\service\UserTaskService.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/UserTaskService.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\AreaUrlBean.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/AreaUrlBean.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\ForgetPasswordFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/ForgetPasswordFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\HelpFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/HelpFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\HtmlLoadFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/HtmlLoadFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\ImageLoaderFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/ImageLoaderFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\LoginFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/LoginFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\MoreUserInfoFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/MoreUserInfoFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\RegisterFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/RegisterFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\RegisterNextFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/RegisterNextFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\RegisterPhoneCheckFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/RegisterPhoneCheckFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\RuleContentFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/RuleContentFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\SelectAddressFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/SelectAddressFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\UpdatePswFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/UpdatePswFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\user\UserInfoFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/UserInfoFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\wap\BusinessWapFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/BusinessWapFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\wap\DetailProductFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/DetailProductFragment.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\GalleryWidget\BasePagerAdapter.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/GalleryWidget/BasePagerAdapter.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\GalleryWidget\FilePagerAdapter.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/GalleryWidget/FilePagerAdapter.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\GalleryWidget\GalleryViewPager.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/GalleryWidget/GalleryViewPager.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\GalleryWidget\IwjwGallery.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/GalleryWidget/IwjwGallery.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\GalleryWidget\UrlPagerAdapter.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/GalleryWidget/UrlPagerAdapter.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\filtrate\FiltrateView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/filtrate/FiltrateView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\imageView\CircleImageView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/imageView/CircleImageView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\refreshview\NLPullRefreshView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/refreshview/NLPullRefreshView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\switchView\ToggleButton.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/switchView/ToggleButton.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\EclairMotionEvent.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/EclairMotionEvent.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\FileTouchImageView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/FileTouchImageView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\ImageLoaderConfig.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/ImageLoaderConfig.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\InputStreamWrapper.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/InputStreamWrapper.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\TouchImageView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/TouchImageView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\UrlTouchImageView.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/UrlTouchImageView.java" />
-      <change type="MOVED" beforePath="D:\github\BestarProject\BestarProject\BestarProject\ShoppingMall\src\com\manyi\mall\widget\touchview\WrapMotionEvent.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/touchview/WrapMotionEvent.java" />
     </list>
     <ignored path="BestarProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -465,7 +123,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1198" max-vertical-offset="3146">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2508" max-vertical-offset="2717">
               <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
               <folding />
             </state>
@@ -475,7 +133,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="330">
+            <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="285">
               <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
               <folding />
             </state>
@@ -485,8 +143,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38978103" vertical-offset="811" max-vertical-offset="2332">
-              <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.28108108" vertical-offset="1478" max-vertical-offset="2033">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -495,7 +153,7 @@
       <file leaf-file-name="settings.gradle" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="198">
+            <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="171">
               <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
               <folding />
             </state>
@@ -505,7 +163,7 @@
       <file leaf-file-name="BestarApplication.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/BestarApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="3014">
+            <state vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="2603">
               <caret line="13" column="30" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="30" />
               <folding />
             </state>
@@ -549,12 +207,12 @@
                 <option name="path" value="$PROJECT_DIR$/Widget" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value=":ShoppingMall" />
-                <option name="path" value="$PROJECT_DIR$/ShoppingMall" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="BestarProject" />
                 <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value=":ShoppingMall" />
+                <option name="path" value="$PROJECT_DIR$/ShoppingMall" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value=":Framework" />
@@ -2517,7 +2175,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="D:/androidStudioProject/ManyiProject" value="8515325274412" />
-        <entry key="$PROJECT_DIR$" value="7130062983288" />
+        <entry key="$PROJECT_DIR$" value="7130554034575" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2683,8 +2341,8 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/1269c617598b66261036cf8ddbf480483042d551/androidannotations-api-3.0.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/beb7e0a75c753383e7ef68c0e1639999db301c33/androidannotations-api-3.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/1269c617598b66261036cf8ddbf480483042d551/androidannotations-api-3.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/beb7e0a75c753383e7ef68c0e1639999db301c33/androidannotations-api-3.0.1.jar" />
                             <option value="$MODULE_DIR$/libs/android-support-v4.jar" />
                             <option value="$MODULE_DIR$/libs/jackson-annotations-2.4.0.jar" />
                             <option value="$MODULE_DIR$/libs/jackson-core-2.4.1.jar" />
@@ -2695,8 +2353,8 @@
                             <option value="$MODULE_DIR$/libs/spring-android-rest-template-1.0.1.release.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/8cc08fdd043c3f61e4631f4abc982c3d17dd264c/android-apt-1.4-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/2ee9dad8e86284f7518ae3818c4d269556567e92/android-apt-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/8cc08fdd043c3f61e4631f4abc982c3d17dd264c/android-apt-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/2ee9dad8e86284f7518ae3818c4d269556567e92/android-apt-1.4.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
@@ -2814,10 +2472,10 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.rebound/rebound/0.3.7/4c94eef1c8e348c181d3d35233faca59eb6ff69c/rebound-0.3.7-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.rebound/rebound/0.3.7/da23f0d13a0a572e01a1b53b547cbdc7a5b52209/rebound-0.3.7.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/1269c617598b66261036cf8ddbf480483042d551/androidannotations-api-3.0.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/beb7e0a75c753383e7ef68c0e1639999db301c33/androidannotations-api-3.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.facebook.rebound/rebound/0.3.7/4c94eef1c8e348c181d3d35233faca59eb6ff69c/rebound-0.3.7-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.facebook.rebound/rebound/0.3.7/da23f0d13a0a572e01a1b53b547cbdc7a5b52209/rebound-0.3.7.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/1269c617598b66261036cf8ddbf480483042d551/androidannotations-api-3.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/beb7e0a75c753383e7ef68c0e1639999db301c33/androidannotations-api-3.0.1.jar" />
                             <option value="$MODULE_DIR$/libs/gson-1.7.1.jar" />
                             <option value="$MODULE_DIR$/libs/asmack_fyb.jar" />
                             <option value="$MODULE_DIR$/libs/BaiduLBS_Android.jar" />
@@ -2831,8 +2489,8 @@
                             <option value="$MODULE_DIR$/libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/8cc08fdd043c3f61e4631f4abc982c3d17dd264c/android-apt-1.4-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/2ee9dad8e86284f7518ae3818c4d269556567e92/android-apt-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/8cc08fdd043c3f61e4631f4abc982c3d17dd264c/android-apt-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/2ee9dad8e86284f7518ae3818c4d269556567e92/android-apt-1.4.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
@@ -2950,12 +2608,12 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/1269c617598b66261036cf8ddbf480483042d551/androidannotations-api-3.0.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/beb7e0a75c753383e7ef68c0e1639999db301c33/androidannotations-api-3.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/1269c617598b66261036cf8ddbf480483042d551/androidannotations-api-3.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.0.1/beb7e0a75c753383e7ef68c0e1639999db301c33/androidannotations-api-3.0.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/8cc08fdd043c3f61e4631f4abc982c3d17dd264c/android-apt-1.4-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/2ee9dad8e86284f7518ae3818c4d269556567e92/android-apt-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/8cc08fdd043c3f61e4631f4abc982c3d17dd264c/android-apt-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/caches/modules-2/files-2.1/com.neenbedankt.gradle.plugins/android-apt/1.4/2ee9dad8e86284f7518ae3818c4d269556567e92/android-apt-1.4.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
@@ -3027,108 +2685,6 @@
               <option name="name" value="Widget" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/announce" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/antlr" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/build-comparison" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/build-init" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cli" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/code-quality" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/cunit" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/dependency-management" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/diagnostics" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ear" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ide-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-integ-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/internal-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ivy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jacoco" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/javascript" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/jetty" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-java" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/language-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/launcher" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/maven" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/messaging" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/model-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/open-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/osgi" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-base" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/platform-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-development" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugin-use" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/plugins" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/publish" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/reporting" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/resources-http" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/scala" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/signing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/sonar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/tooling-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/ui" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/wrapper" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-1.9.3.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/ant-launcher-1.9.3.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-cli-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-core-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-docs-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-resources-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-ui-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/groovy-all-2.3.6.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-antlr-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-cunit-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-dependency-management-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-diagnostics-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ide-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-ivy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-groovy-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-java-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-osgi-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -3197,10 +2753,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="55" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1873" />
-    <option name="height" value="1096" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -3247,6 +2803,18 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BestarProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3303,18 +2871,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BestarProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3324,15 +2880,13 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="options.lastSelected" value="gradle.experimental" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="577b22e" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -3359,13 +2913,52 @@
     </key>
   </component>
   <component name="RunManager" selected="Android Application.ShoppingMall">
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
       <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -3389,12 +2982,13 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -3436,46 +3030,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="ShoppingMall" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -3558,69 +3112,69 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="-8" width="1873" height="1096" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.4997242" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15671642" sideWeight="0.58246" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4360341" sideWeight="0.50137895" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16161059" sideWeight="0.500684" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23880596" sideWeight="0.50137895" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17697228" sideWeight="0.78985107" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23876405" sideWeight="0.49806702" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4360341" sideWeight="0.50137895" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18091561" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4241573" sideWeight="0.49871135" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.4997242" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1769663" sideWeight="0.78930414" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1769663" sideWeight="0.21005155" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18041237" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.619403" sideWeight="0.5008274" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15671642" sideWeight="0.58246" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16161059" sideWeight="0.500684" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3783784" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38379532" sideWeight="0.4997242" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23880596" sideWeight="0.49862108" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3783784" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38379532" sideWeight="0.4997242" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22068231" sideWeight="0.4169884" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22068231" sideWeight="0.4169884" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21180364" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49253732" sideWeight="0.4997242" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22068231" sideWeight="0.4169884" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26640928" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48827294" sideWeight="0.58301157" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16161059" sideWeight="0.500684" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26545843" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20042644" sideWeight="0.49917263" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22068231" sideWeight="0.4169884" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48827294" sideWeight="0.58301157" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26545843" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26640928" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49253732" sideWeight="0.4997242" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22068231" sideWeight="0.4169884" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20042644" sideWeight="0.49917263" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21180364" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22068231" sideWeight="0.4169884" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16161059" sideWeight="0.500684" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3731,6 +3285,30 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="171">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/BestarApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2603">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/BestarApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_voucher_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7142856" vertical-offset="0" max-vertical-offset="1691">
@@ -4003,13 +3581,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_mine.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.178571" vertical-offset="817" max-vertical-offset="7898">
           <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Widget/res/values/attrs.xml">
@@ -4023,13 +3601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="264">
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BestarProject.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="418">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -4048,25 +3619,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="743">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/BestarApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2266">
           <caret line="13" column="30" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/ShoppingMall.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -4102,8 +3659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38978103" vertical-offset="811" max-vertical-offset="2332">
-          <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.28108108" vertical-offset="1478" max-vertical-offset="2033">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding />
         </state>
       </provider>
