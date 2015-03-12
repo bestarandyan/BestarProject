@@ -1,6 +1,7 @@
 package com.manyi.mall.user;
 
 import android.annotation.TargetApi;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -8,6 +9,7 @@ import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -103,7 +105,7 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     View mStudentsLine;
 
     @ViewById(R.id.editBtn)
-    ImageButton mEditBtn;
+    Button mEditBtn;
 
 
     @FragmentArg
@@ -133,11 +135,11 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     void editUserInfo(){
         if(isEditing){
             isEditing = false;
-            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
+            mEditBtn.setBackgroundResource(R.drawable.selector_edit_info_btn);
         }else{
             isEditing = true;
-            mEditBtn.setImageResource(0);
-            mEditBtn.
+            mEditBtn.setBackgroundColor(Color.TRANSPARENT);
+            mEditBtn.setText("保存");
         }
     }
 
