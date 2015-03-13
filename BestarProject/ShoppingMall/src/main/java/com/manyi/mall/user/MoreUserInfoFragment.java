@@ -136,6 +136,7 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
         if(isEditing){
             isEditing = false;
             mEditBtn.setBackgroundResource(R.drawable.selector_edit_info_btn);
+            mEditBtn.setText("");
         }else{
             isEditing = true;
             mEditBtn.setBackgroundColor(Color.TRANSPARENT);
