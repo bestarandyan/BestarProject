@@ -105,7 +105,10 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     View mStudentsLine;
 
     @ViewById(R.id.editBtn)
-    Button mEditBtn;
+    ImageButton mEditBtn;
+
+    @ViewById(R.id.SavaBtn)
+    Button mSaveBtn;
 
 
     @FragmentArg
@@ -135,12 +138,10 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     void editUserInfo(){
         if(isEditing){
             isEditing = false;
-            mEditBtn.setBackgroundResource(R.drawable.selector_edit_info_btn);
-            mEditBtn.setText("");
+            mEditBtn.setVisibility(View.GONE);
         }else{
             isEditing = true;
             mEditBtn.setBackgroundColor(Color.TRANSPARENT);
-            mEditBtn.setText("保存");
         }
     }
 
