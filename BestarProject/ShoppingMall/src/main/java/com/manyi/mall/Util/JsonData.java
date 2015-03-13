@@ -11,6 +11,7 @@ import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
+import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
 
@@ -120,6 +121,26 @@ public class JsonData {
         MainDataBean bean;
         try {
             Type listType = new TypeToken<LinkedList<MainDataBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+//        if(list!=null && list.size()>0){
+//            for(Iterator<MainDataBean> iterator = list.iterator();iterator.hasNext();){
+//                bean = iterator.next();
+//
+//            }
+//        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<CollectListBean> jsonCollectList(String msg){
+        LinkedList<CollectListBean> list =null;
+        CollectListBean bean;
+        try {
+            Type listType = new TypeToken<LinkedList<CollectListBean>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
 //        if(list!=null && list.size()>0){

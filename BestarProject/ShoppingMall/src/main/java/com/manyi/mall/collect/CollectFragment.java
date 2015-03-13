@@ -15,14 +15,17 @@ import android.widget.TextView;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.R;
-import com.manyi.mall.cachebean.mine.CollectBean;
-import com.manyi.mall.user.HtmlLoadFragment;
+import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.cachebean.collect.CollectListBean;
+import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.wap.BusinessWapFragment;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
@@ -42,7 +45,7 @@ public class CollectFragment extends SuperFragment {
     @ViewById(R.id.bottomLayout)
     LinearLayout mBottomLayout;
 
-    List<CollectBean> mList = new ArrayList<CollectBean>();
+    List<CollectListBean> mList = new ArrayList<CollectListBean>();
 
     boolean isEditing = false;
     @Override
@@ -55,20 +58,23 @@ public class CollectFragment extends SuperFragment {
 
     @AfterViews
     void init(){
-        for (int i = 0 ;i<10;i++){
-            CollectBean bean = new CollectBean();
-            bean.setCityName("上海");
-            bean.setCompany("凯奇集团");
-            bean.setIntroduce("中国最具权威幼儿园设计");
-            bean.setClickCount(1234L);
-            bean.setVisitCount(4567L);
-            bean.setPraiseCount(9876L);
-            mList.add(bean);
+        getData();
+
+    }
+
+    @Background
+    void getData(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.getCollect("1","20");
+        mList = new JsonData().jsonCollectList(msg);
+        if (mList!=null && mList.size() == 0){
+            notifyListView();
         }
 
-        notifyListView();
     }
-    private void notifyListView(){
+
+    @UiThread
+    void notifyListView(){
         CollectListAdapter adapter = new CollectListAdapter();
         mListView.setAdapter(adapter);
     }
@@ -137,13 +143,13 @@ public class CollectFragment extends SuperFragment {
             }else{
                 holder = (ViewHolder) view.getTag();
             }
-            CollectBean bean = mList.get(i);
-            holder.companyTv.setText(bean.getCompany());
+            CollectListBean bean = mList.get(i);
+            holder.companyTv.setText(bean.getProviderName());
             holder.cityTv.setText(bean.getCityName());
-            holder.introduceTv.setText(bean.getIntroduce());
-            holder.clickCountTv.setText(String.valueOf(bean.getClickCount()));
-            holder.visitCountTv.setText(String.valueOf(bean.getVisitCount()));
-            holder.praiseTv.setText(String.valueOf(bean.getPraiseCount()));
+            holder.introduceTv.setText(bean.getFilmIntroduction());
+            holder.clickCountTv.setText(String.valueOf(bean.getClickNum()));
+            holder.visitCountTv.setText(String.valueOf(bean.getConsultNum()));
+            holder.praiseTv.setText(String.valueOf(bean.getPraiseNum()));
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
             }else{

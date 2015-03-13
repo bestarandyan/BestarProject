@@ -23,6 +23,7 @@ import java.util.List;
 public class RequestServerFromHttp {
 	public static final String SERVER_ADDRESS = "http://shopapp.iiyey.com/";//外网服务器总接口地址
 	public static final String USER_SERVICE = SERVER_ADDRESS+"NoLogin.aspx";
+	public static final String COLLECT_SERVICE = SERVER_ADDRESS+"provider.aspx";
 	public static final String GET_GETPSW_SERVICE = SERVER_ADDRESS+"customer.aspx";
     public static final String SHOPCLASS_SERVICE = SERVER_ADDRESS+"shopclass.aspx";
     public static final String PRODUCT_SERVICE = SERVER_ADDRESS+"product.aspx";
@@ -46,6 +47,17 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
  		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+    public String getCollect(String pageIndex,String pageSize){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetCollectionList"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("pageIndex", pageIndex));
+ 		params.add(new BasicNameValuePair("pageSize", pageSize));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		msgString = getData(COLLECT_SERVICE, params);
  		return msgString;
  	}
 
