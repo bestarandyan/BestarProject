@@ -12,6 +12,7 @@ import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.collect.CollectListBean;
+import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
 
@@ -154,6 +155,94 @@ public class JsonData {
         }
 
         return list;
+    }
+    public List<Map<String,Object>> jsonFootprint(String msg){
+        List<Map<String,Object>> resultList = new ArrayList<>();
+        LinkedList<FootprintListResponse> list =null;
+        FootprintListResponse bean;
+        try {
+            Type listType = new TypeToken<LinkedList<FootprintListResponse>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+            int isAddedPosition = 0;
+            if(list!=null && list.size()>0){
+                for(Iterator<FootprintListResponse> iterator = list.iterator();iterator.hasNext();){
+                    bean = iterator.next();
+                    String ProviderID = bean.getProviderID();
+                    String ClassID = bean.getClassID();
+                    String AddTime = bean.getAddTime();
+                    String beizhu = bean.getBeizhu();
+                    String ClickNum = bean.getBeizhu();
+                    String ConsultNum = bean.getConsultNum();
+                    String ID = bean.getID();
+                    String PicUrl = bean.getPicUrl();
+                    String PraiseNum = bean.getPraiseNum();
+                    String Price = bean.getPrice();
+                    String ProductName = bean.getProductName();
+                    String ProviderCityName = bean.getProviderCityName();
+                    String ProviderName = bean.getProviderName();
+                    String Recommend = bean.getRecommend();
+                    String Specification = bean.getSpecification();
+                    String SwfUrl = bean.getSwfUrl();
+                    isAddedPosition = 0;
+                    boolean isAdded = false;
+                    for (int i=0;i<resultList.size();i++){
+                        Map<String,Object> map = resultList.get(i);
+                        String providerId = map.get("ProviderID").toString();
+                        if (providerId.equals(ProviderID)){
+                            isAddedPosition = i;
+                            isAdded = true;
+                            break;
+                        }
+                    }
+                    if (!isAdded){//代表没有加入过resultList
+                        Map<String,Object> map = new HashMap<>();
+                        map.put("ProviderID",ProviderID);
+                        map.put("ClassID",ClassID);
+                        map.put("ProviderCityName",ProviderCityName);
+                        map.put("ProviderName",ProviderName);
+                        List<Map<String,String>> productList = new ArrayList<>();
+                        Map<String,String> productMap = new HashMap<>();
+                        productMap.put("AddTime",AddTime);
+                        productMap.put("beizhu",beizhu);
+                        productMap.put("ClickNum",ClickNum);
+                        productMap.put("ConsultNum",ConsultNum);
+                        productMap.put("ID",ID);
+                        productMap.put("PicUrl",PicUrl);
+                        productMap.put("PraiseNum",PraiseNum);
+                        productMap.put("Price",Price);
+                        productMap.put("ProductName",ProductName);
+                        productMap.put("Recommend",Recommend);
+                        productMap.put("Specification",Specification);
+                        productMap.put("SwfUrl",SwfUrl);
+                        productList.add(productMap);
+                        map.put("productList",productList);
+                        resultList.add(map);
+                    }else{
+                        List<Map<String,String>> productList = (List<Map<String, String>>) resultList.get(isAddedPosition).get("productList");
+                        Map<String,String> productMap = new HashMap<>();
+                        productMap.put("AddTime",AddTime);
+                        productMap.put("beizhu",beizhu);
+                        productMap.put("ClickNum",ClickNum);
+                        productMap.put("ConsultNum",ConsultNum);
+                        productMap.put("ID",ID);
+                        productMap.put("PicUrl",PicUrl);
+                        productMap.put("PraiseNum",PraiseNum);
+                        productMap.put("Price",Price);
+                        productMap.put("ProductName",ProductName);
+                        productMap.put("Recommend",Recommend);
+                        productMap.put("Specification",Specification);
+                        productMap.put("SwfUrl",SwfUrl);
+                        productList.add(productMap);
+                    }
+
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return resultList;
     }
 
     public String getJsonObject(String msg,String json) {

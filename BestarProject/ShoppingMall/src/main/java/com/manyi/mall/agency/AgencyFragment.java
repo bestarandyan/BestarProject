@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.mine.AgencyBean;
-import com.manyi.mall.cachebean.mine.CollectBean;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 
 import org.androidannotations.annotations.AfterViews;

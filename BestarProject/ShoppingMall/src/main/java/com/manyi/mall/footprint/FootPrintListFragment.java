@@ -2,6 +2,7 @@ package com.manyi.mall.footprint;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,19 +13,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.wap.DetailProductFragment;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @EFragment(R.layout.fragment_footprintlist)
 public class FootPrintListFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
@@ -35,32 +43,35 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     PinnedHeaderListView mCheckedListView;
 
     FootprintSectionListAdapter mAdapter = null;
-    FootprintListResponse mResponse;
+    List<Map<String,Object>> mLists =null;
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
-        mResponse = new FootprintListResponse();
-        List<FootprintListResponse.CheckedListResponse> list = new ArrayList<>();
-        for (int i=0;i<10;i++){
-            FootprintListResponse.CheckedListResponse listResponse = new FootprintListResponse.CheckedListResponse();
-            listResponse.setCityName("上海");
-            listResponse.setCompanyName("凯奇集团");
-            List<FootprintListResponse.CheckedResponse> responses = new ArrayList<>();
-            for (int j=0;j<3;j++){
-                FootprintListResponse.CheckedResponse response = new FootprintListResponse.CheckedResponse();
-                response.setClickCount(1000L);
-                response.setHasVoucher(1);
-                response.setImgUrl("adfadsfaf");
-                response.setPriaseCount(344L);
-                response.setPrice(453L);
-                response.setProductName("教学用书");
-                response.setVisitCount(8976L);
-                responses.add(response);
-            }
-            listResponse.setExamineRecodList(responses);
-            list.add(listResponse);
-        }
-        mResponse.setResult(list);
+        getData();
+    }
+    void OnItemClick(int section,int position){
+        DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
+        fragment.tag = DetailProductFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
+        bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
+        fragment.setArguments(bundle);
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setContainerId(R.id.main_container);
+        fragment.setManager(getFragmentManager());
+
+        fragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
+
+    @Background
+    void getData(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.getFootList("1","20");
+//        String msg = "[{\"ID\":10,\"ProductName\":\"cc\",\"ProviderID\":11,\"ClassID\":50,\"Specification\":\"cc\",\"Price\":150.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031516307459667.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031516396835859.flv\",\"AddTime\":\"2015-03-03T15:01:15.03\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"北京\"}\n" +
+//                ",{\"ID\":9,\"ProductName\":\"产品二\",\"ProviderID\":11,\"ClassID\":50,\"Specification\":\"bb\",\"Price\":200.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515145731150.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515209325760.flv\",\"AddTime\":\"2015-03-03T15:00:15.717\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"北京\"}\n" +
+//                ",{\"ID\":8,\"ProductName\":\"产品二\",\"ProviderID\":12,\"ClassID\":51,\"Specification\":\"bb\",\"Price\":200.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515145731150.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515209325760.flv\",\"AddTime\":\"2015-03-03T15:00:15.717\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"上海\"}]";
+        mLists =  new JsonData().jsonFootprint(msg);
         notifyCheckedList(false);
     }
 
@@ -83,10 +94,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         emptyView.setLayoutParams(layoutParams);
         mCheckedListView.setEmptyView(emptyView);
-        if (mResponse == null || mResponse.getErrorCode() != 0 || mResponse.getResult() == null) {
-            return;
-        }
-        mAdapter = new FootprintSectionListAdapter(mResponse);
+        mAdapter = new FootprintSectionListAdapter();
         mCheckedListView.setAdapter(mAdapter);
 
     }
@@ -100,15 +108,11 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
         FootprintListResponse responses;
 
-        // 选择颜色 ： 12c1c4
-        public FootprintSectionListAdapter(FootprintListResponse responses) {
-            this.responses = responses;
-        }
 
         // 审核成功：文字颜色12c1c4 失败：8a000000
         @Override
         public Object getItem(int section, int position) {
-            return responses.getResult().get(section).getExamineRecodList().get(position);
+            return ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
         }
 
         @Override
@@ -118,12 +122,12 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
         @Override
         public int getSectionCount() {
-            return responses.getResult().size();
+            return mLists.size();
         }
 
         @Override
         public int getCountForSection(int section) {
-            return responses.getResult().get(section).getExamineRecodList().size();
+            return ((List<Map<String,String>>)mLists.get(section).get("productList")).size();
         }
 
         @Override
@@ -144,16 +148,17 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 holder = (ViewHolder) convertView.getTag();
             }
             // Map<String,String> map = ((ArrayList<Map<String,String>>)mList.get(section).get("itemList")).get(position);
-            final FootprintListResponse.CheckedResponse response = responses.getResult().get(section).getExamineRecodList().get(position);
-            holder.productNameTv.setText(response.getProductName());
-            holder.moneyTv.setText(String.valueOf(response.getPrice()));
-            holder.clickCountTv.setText(String.valueOf(response.getClickCount()));
-            holder.visitCountTv.setText(String.valueOf(response.getVisitCount()));
-            holder.priaseCountTv.setText(String.valueOf(response.getPriaseCount()));
+            final Map<String,String> response = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
+            holder.productNameTv.setText(response.get("ProductName"));
+            holder.moneyTv.setText(response.get("Price"));
+            holder.clickCountTv.setText(response.get("ClickNum"));
+            holder.visitCountTv.setText(response.get("ConsultNum"));
+            holder.priaseCountTv.setText(response.get("PraiseNum"));
             convertView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
+                    OnItemClick(section,position);
                 }
             });
             return convertView;
@@ -181,8 +186,8 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             } else {
                 holder = (SectionHolder) convertView.getTag();
             }
-            String companyName = responses.getResult().get(section).getCompanyName();
-            String cityName = responses.getResult().get(section).getCityName();
+            String companyName = mLists.get(section).get("ProviderName").toString();
+            String cityName = mLists.get(section).get("ProviderCityName").toString();
             holder.companyNameTv.setText(companyName);
             holder.cityNameTv.setText(cityName);
             return convertView;

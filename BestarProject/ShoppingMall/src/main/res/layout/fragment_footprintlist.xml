@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/footprintLayout"
+    android:background="@color/app_bg_color"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,7 +39,9 @@
             android:id="@+id/footprintListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null" >
+            android:divider="#fafafa"
+            android:dividerHeight="1dp"
+            >
         </com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
     </com.manyi.mall.widget.refreshview.NLPullRefreshView>
 

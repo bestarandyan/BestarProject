@@ -12,118 +12,148 @@ import com.huoqiu.framework.rest.Response;
  * 
  */
 public class FootprintListResponse extends Response {
+    private String AddTime;
+    private String beizhu;
+    private String ClassID;
+    private String ClickNum;
+    private String ConsultNum;
+    private String ID;
+    private String PicUrl;
+    private String PraiseNum;
+    private String Price;
+    private String ProductName;
+    private String ProviderCityName;
+    private String ProviderID;
+    private String ProviderName;
+    private String Recommend;
+    private String Specification;
+    private String SwfUrl;
 
-	public List<CheckedListResponse> result;
-
-	
-
-	public List<CheckedListResponse> getResult() {
-		return result;
-	}
-
-	public void setResult(List<CheckedListResponse> result) {
-		this.result = result;
-	}
-
-	public static class CheckedListResponse {
-
-		private String companyName;
-
-		private String cityName;
-
-		List<CheckedResponse> examineRecodList;
-
-        public String getCompanyName() {
-            return companyName;
-        }
-
-        public void setCompanyName(String companyName) {
-            this.companyName = companyName;
-        }
-
-        public String getCityName() {
-            return cityName;
-        }
-
-        public void setCityName(String cityName) {
-            this.cityName = cityName;
-        }
-
-        public List<CheckedResponse> getExamineRecodList() {
-			return examineRecodList;
-		}
-
-		public void setExamineRecodList(List<CheckedResponse> examineRecodList) {
-			this.examineRecodList = examineRecodList;
-		}
-
-	}
-
-	public static class CheckedResponse {
-
-		private String imgUrl;
-		private String productName;
-		private float price;
-		private Long clickCount;
-		private Long visitCount;
-		private Long priaseCount;
-		private int hasVoucher;// 是否可用代金券
-
-        public String getImgUrl() {
-            return imgUrl;
-        }
-
-        public void setImgUrl(String imgUrl) {
-            this.imgUrl = imgUrl;
-        }
-
-        public String getProductName() {
-            return productName;
-        }
-
-        public void setProductName(String productName) {
-            this.productName = productName;
-        }
-
-        public float getPrice() {
-            return price;
-        }
-
-        public void setPrice(float price) {
-            this.price = price;
-        }
-
-        public Long getClickCount() {
-            return clickCount;
-        }
-
-        public void setClickCount(Long clickCount) {
-            this.clickCount = clickCount;
-        }
-
-        public Long getVisitCount() {
-            return visitCount;
-        }
-
-        public void setVisitCount(Long visitCount) {
-            this.visitCount = visitCount;
-        }
-
-        public Long getPriaseCount() {
-            return priaseCount;
-        }
-
-        public void setPriaseCount(Long priaseCount) {
-            this.priaseCount = priaseCount;
-        }
-
-        public int getHasVoucher() {
-            return hasVoucher;
-        }
-
-        public void setHasVoucher(int hasVoucher) {
-            this.hasVoucher = hasVoucher;
-        }
+    public String getAddTime() {
+        return AddTime;
     }
 
+    public void setAddTime(String addTime) {
+        AddTime = addTime;
+    }
+
+    public String getBeizhu() {
+        return beizhu;
+    }
+
+    public void setBeizhu(String beizhu) {
+        this.beizhu = beizhu;
+    }
+
+    public String getClassID() {
+        return ClassID;
+    }
+
+    public void setClassID(String classID) {
+        ClassID = classID;
+    }
+
+    public String getClickNum() {
+        return ClickNum;
+    }
+
+    public void setClickNum(String clickNum) {
+        ClickNum = clickNum;
+    }
+
+    public String getConsultNum() {
+        return ConsultNum;
+    }
+
+    public void setConsultNum(String consultNum) {
+        ConsultNum = consultNum;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getPicUrl() {
+        return PicUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        PicUrl = picUrl;
+    }
+
+    public String getPraiseNum() {
+        return PraiseNum;
+    }
+
+    public void setPraiseNum(String praiseNum) {
+        PraiseNum = praiseNum;
+    }
+
+    public String getPrice() {
+        return Price;
+    }
+
+    public void setPrice(String price) {
+        Price = price;
+    }
+
+    public String getProductName() {
+        return ProductName;
+    }
+
+    public void setProductName(String productName) {
+        ProductName = productName;
+    }
+
+    public String getProviderCityName() {
+        return ProviderCityName;
+    }
+
+    public void setProviderCityName(String providerCityName) {
+        ProviderCityName = providerCityName;
+    }
+
+    public String getProviderID() {
+        return ProviderID;
+    }
+
+    public void setProviderID(String providerID) {
+        ProviderID = providerID;
+    }
+
+    public String getProviderName() {
+        return ProviderName;
+    }
+
+    public void setProviderName(String providerName) {
+        ProviderName = providerName;
+    }
+
+    public String getRecommend() {
+        return Recommend;
+    }
+
+    public void setRecommend(String recommend) {
+        Recommend = recommend;
+    }
+
+    public String getSpecification() {
+        return Specification;
+    }
+
+    public void setSpecification(String specification) {
+        Specification = specification;
+    }
+
+    public String getSwfUrl() {
+        return SwfUrl;
+    }
+
+    public void setSwfUrl(String swfUrl) {
+        SwfUrl = swfUrl;
+    }
 }
