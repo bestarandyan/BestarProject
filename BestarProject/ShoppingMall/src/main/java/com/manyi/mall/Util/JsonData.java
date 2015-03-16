@@ -13,6 +13,7 @@ import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
 
@@ -146,6 +147,25 @@ public class JsonData {
             list = gson.fromJson(msg, listType);
 //        if(list!=null && list.size()>0){
 //            for(Iterator<MainDataBean> iterator = list.iterator();iterator.hasNext();){
+//                bean = iterator.next();
+//
+//            }
+//        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<TypeProductBean> jsonTypeProductList(String msg){
+        LinkedList<TypeProductBean> list =null;
+        TypeProductBean bean;
+        try {
+            Type listType = new TypeToken<LinkedList<TypeProductBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+//        if(list!=null && list.size()>0){
+//            for(Iterator<TypeProductBean> iterator = list.iterator();iterator.hasNext();){
 //                bean = iterator.next();
 //
 //            }

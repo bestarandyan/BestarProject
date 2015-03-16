@@ -83,6 +83,28 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
+    public String searchProducts(String pageIndex,String pageSize,String LikeStr){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetProductListBySearch"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("pageIndex", pageIndex));
+ 		params.add(new BasicNameValuePair("pageSize", pageSize));
+ 		params.add(new BasicNameValuePair("LikeStr", LikeStr));
+ 		msgString = getData(PRODUCT_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String searchProductTypes(String LikeStr){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetShopClassListBySearch"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("LikeStr", LikeStr));
+ 		msgString = getData(PRODUCT_SERVICE, params);
+ 		return msgString;
+ 	}
+
 public String registerYZ(String type,String UserName,String Password,String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum,String CompanyPhone){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();

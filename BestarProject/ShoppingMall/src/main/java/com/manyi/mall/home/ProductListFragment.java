@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,12 +19,14 @@ import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.interfaces.SelectItemClickListener;
 import com.manyi.mall.interfaces.SelectViewCloseListener;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.widget.filtrate.FiltrateView;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 
+import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
@@ -54,35 +57,51 @@ public class ProductListFragment extends SuperFragment  implements NLPullRefresh
 
     @ViewById(R.id.searchListView)
     PinnedHeaderListView mCheckedListView;
-
+    @ViewById(R.id.searchEt)
+    EditText mSearchEt;
     @ViewById(R.id.selectLayoutLine)
     View mLine;
     List<Map<String,Object>> mLists =null;
+    List<TypeProductBean> mTypeLists =null;
     ProductSectionListAdapter mAdapter = null;
-    FootprintListResponse mResponse;
     ArrayAdapter arrayAdapter =null;
-    String[] typeArray = new String[]{"床具","空调设备","课桌椅","户外大型游乐","厨房设备"};
+    String[] typeArray = null;
     String[] noopsycheArray = new String[]{"创办时间从早到晚","创办时间从晚到早","价格从高到低","价格从低到高","级别从高到低","级别从低到高"};
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
-        getData();
+    }
+
+    @AfterTextChange(R.id.searchEt)
+    void AfterTextChange(){
+        if (mSearchEt.getText().toString().trim().length() > 0){
+            getData();
+            getDataType();
+        }
+
     }
 
     @Background
     void getData(){
         RequestServerFromHttp request = new RequestServerFromHttp();
-        String msg = request.getFootList("1","20");
+        String msg = request.searchProducts("1", "20", mSearchEt.getText().toString());
         mLists =  new JsonData().jsonFootprint(msg);
         notifyCheckedList(false);
     }
 
+    @Background
+    void getDataType(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.searchProductTypes(mSearchEt.getText().toString());
+        mTypeLists =  new JsonData().jsonTypeProductList(msg);
+        typeArray = new String[mTypeLists.size()];
+        for (int i=0;i<mTypeLists.size();i++){
+            typeArray[i] = mTypeLists.get(i).ClassName;
+        }
 
-    @Override
-    public void onAttach(Activity activity) {
-        setBackOp(null);
-        super.onAttach(activity);
     }
+
+
 
     @UiThread
     void notifyCheckedList(boolean isRefresh) {

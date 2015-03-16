@@ -567,9 +567,7 @@ public class HomeFragment extends SuperFragment<Object> {
 
     @Click(R.id.searchBtn)
     void search() {
-        if (CheckDoubleClick.isFastDoubleClick()){
-            return;
-        }
+        gotoProductListFragment();
     }
 
     @Click(R.id.model1Layout1)
