@@ -28,6 +28,7 @@ public class RequestServerFromHttp {
 	public static final String GET_GETPSW_SERVICE = SERVER_ADDRESS+"customer.aspx";
     public static final String SHOPCLASS_SERVICE = SERVER_ADDRESS+"shopclass.aspx";
     public static final String PRODUCT_SERVICE = SERVER_ADDRESS+"product.aspx";
+    public static final String SEARCHRECORD_SERVICE = SERVER_ADDRESS+"searchrecord.aspx";
 	public static final String USER_APPKEY = "123456";//
 	public static final String IMGURL = "http://servercomponents.iiyey.com/";
 
@@ -50,6 +51,40 @@ public class RequestServerFromHttp {
  		msgString = getData(USER_SERVICE, params);
  		return msgString;
  	}
+
+    public String getHotSearch(String PageIndex,String PageSize){//获取最热门搜索
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetTopSearchList"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		msgString = getData(SEARCHRECORD_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getUserSearched(String PageIndex,String PageSize){//获取用户搜索记录列表
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetCustomerSearchList"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		msgString = getData(SEARCHRECORD_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String clearUserSearch(String SearchRecordIDs){//获取用户搜索记录列表
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "ClearCustomerSearchRecord"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("SearchRecordIDs", SearchRecordIDs));
+ 		msgString = getData(SEARCHRECORD_SERVICE, params);
+ 		return msgString;
+ 	}
+
     public String getCollect(String pageIndex,String pageSize){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -91,6 +126,7 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("pageIndex", pageIndex));
  		params.add(new BasicNameValuePair("pageSize", pageSize));
  		params.add(new BasicNameValuePair("LikeStr", LikeStr));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId() ));
  		msgString = getData(PRODUCT_SERVICE, params);
  		return msgString;
  	}
@@ -101,6 +137,22 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("method", "GetShopClassListBySearch"));
  		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("LikeStr", LikeStr));
+ 		msgString = getData(PRODUCT_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String searchProductByTypeAndInput(String LikeStr,String ClassID,String field,String PageIndex,String PageSize){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetProductListBySearch"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ClassID", ClassID));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		params.add(new BasicNameValuePair("OrderByField", field));
+ 		params.add(new BasicNameValuePair("OrderWay", "desc"));
+ 		params.add(new BasicNameValuePair("LikeStr", LikeStr));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(PRODUCT_SERVICE, params);
  		return msgString;
  	}
@@ -255,11 +307,11 @@ public String getForgetPsw(String mobile){
  		return msgString;
  	}
 
-    public String getOrderInfo(String appKey){
+    public String getOrderInfo(){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetOrderInfo"));
- 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		msgString = getData(PRODUCT_SERVICE, params);
  		return msgString;
  	}

@@ -13,6 +13,7 @@ import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.cachebean.search.OrderInfoBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
@@ -136,6 +137,24 @@ public class JsonData {
         }
 
         return list;
+    }
+    public OrderInfoBean jsonOrderInfo(String msg){
+        OrderInfoBean orderInfoBean = new OrderInfoBean();
+        String OrderByField = getStr(msg,"OrderByField");
+        String OrderWay = getStr(msg,"OrderWay");
+        LinkedList<OrderInfoBean.OrderInfo> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<OrderInfoBean.OrderInfo>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(OrderByField, listType);
+            orderInfoBean.OrderByField = list;
+            list = gson.fromJson(OrderWay, listType);
+            orderInfoBean.OrderWay = list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return orderInfoBean;
     }
 
     public List<CollectListBean> jsonCollectList(String msg){
@@ -287,6 +306,16 @@ public class JsonData {
             e.printStackTrace();
         }
         return bean;
+    }
+	public String getStr(String msg,String flag) {
+        String str = "";
+        try {
+            JSONObject jsonObject = new JSONObject(msg);
+            str = jsonObject.getString(flag);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 public String JsonUrl(String msg,String tag ) {
         try {

@@ -19,6 +19,7 @@ import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.R;
 import com.manyi.mall.Util.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.cachebean.search.OrderInfoBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.interfaces.SelectItemClickListener;
 import com.manyi.mall.interfaces.SelectViewCloseListener;
@@ -63,10 +64,12 @@ public class ProductListFragment extends SuperFragment  implements NLPullRefresh
     View mLine;
     List<Map<String,Object>> mLists =null;
     List<TypeProductBean> mTypeLists =null;
+    OrderInfoBean mOrderInfo = null;
     ProductSectionListAdapter mAdapter = null;
     ArrayAdapter arrayAdapter =null;
     String[] typeArray = null;
-    String[] noopsycheArray = new String[]{"创办时间从早到晚","创办时间从晚到早","价格从高到低","价格从低到高","级别从高到低","级别从低到高"};
+    String[] noopsycheArray = null;
+    RequestServerFromHttp request = new RequestServerFromHttp();
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
@@ -77,21 +80,35 @@ public class ProductListFragment extends SuperFragment  implements NLPullRefresh
         if (mSearchEt.getText().toString().trim().length() > 0){
             getData();
             getDataType();
+            getOrderInfo();
         }
 
     }
 
+    @Click(R.id.search_back)
+    void back(){
+        remove();
+    }
+
     @Background
     void getData(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
         String msg = request.searchProducts("1", "20", mSearchEt.getText().toString());
         mLists =  new JsonData().jsonFootprint(msg);
         notifyCheckedList(false);
     }
 
     @Background
+    void getOrderInfo(){
+        String msg = request.getOrderInfo();
+        mOrderInfo =  new JsonData().jsonOrderInfo(msg);
+        noopsycheArray = new String[mOrderInfo.OrderByField.size()];
+        for (int i=0;i<mOrderInfo.OrderByField.size();i++){
+            noopsycheArray[i] = mOrderInfo.OrderByField.get(i).Name;
+        }
+    }
+
+    @Background
     void getDataType(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
         String msg = request.searchProductTypes(mSearchEt.getText().toString());
         mTypeLists =  new JsonData().jsonTypeProductList(msg);
         typeArray = new String[mTypeLists.size()];
@@ -101,6 +118,11 @@ public class ProductListFragment extends SuperFragment  implements NLPullRefresh
 
     }
 
+    @Background
+    void getDataByInputAndType(){
+//        String msg = request.searchProductByTypeAndInput("");
+
+    }
 
 
     @UiThread

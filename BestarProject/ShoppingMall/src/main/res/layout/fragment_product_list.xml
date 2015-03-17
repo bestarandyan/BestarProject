@@ -16,26 +16,38 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/app_theme_color"
-            android:padding="10dp"
+            android:layout_height="48dp"
+            android:background="@color/user_title_layout_bg"
+            android:padding="5dp"
             android:tag="actionBar">
-
+            <ImageButton
+                android:id="@+id/search_back"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:gravity="center"
+                android:src="@drawable/selector_back_btn" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_home_top_search_bg"
                 android:gravity="center"
+                android:layout_toRightOf="@id/search_back"
                 android:orientation="horizontal">
 
-                <TextView
+                <EditText
                     android:id="@+id/searchEt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:drawableLeft="@drawable/search"
-                    android:gravity="center"
-                    android:text="请输入搜索内容"
+                    android:drawableLeft="@drawable/icon_search"
+                    android:gravity="center_vertical"
+                    android:hint="请输入搜索内容"
+                    android:drawablePadding="10dp"
+                    android:layout_marginRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
                     android:textColor="#a1a1a1" />
             </LinearLayout>
         </RelativeLayout>
