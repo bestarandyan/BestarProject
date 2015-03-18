@@ -34,6 +34,7 @@ import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.search.SearchProductListFragment;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.common.Constants;
@@ -588,8 +589,8 @@ public class HomeFragment extends SuperFragment<Object> {
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
-        ProductListFragment productListFragment = GeneratedClassUtils.getInstance(ProductListFragment.class);
-        productListFragment.tag = ProductListFragment.class.getName();
+        SearchProductListFragment productListFragment = GeneratedClassUtils.getInstance(SearchProductListFragment.class);
+        productListFragment.tag = SearchProductListFragment.class.getName();
         productListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         productListFragment.setContainerId(R.id.main_container);

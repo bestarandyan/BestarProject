@@ -1,4 +1,4 @@
-package com.manyi.mall.home;
+package com.manyi.mall.search;
 
 import android.graphics.Color;
 import android.view.Gravity;
@@ -40,8 +40,8 @@ import java.util.Map;
 /**
  * Created by bestar on 2015/1/29.
  */
-@EFragment(R.layout.fragment_product_list)
-public class ProductListFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
+@EFragment(R.layout.fragment_search_product)
+public class SearchProductListFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
     @ViewById(R.id.filtrateView)
     FiltrateView mFiltrateView;
 
