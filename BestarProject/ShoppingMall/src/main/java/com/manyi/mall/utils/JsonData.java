@@ -14,6 +14,7 @@ import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
+import com.manyi.mall.cachebean.search.SearchHistoryBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
@@ -132,6 +133,19 @@ public class JsonData {
 //
 //            }
 //        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<SearchHistoryBean> jsonSearchHistory(String msg){//用户历史搜索记录
+        LinkedList<SearchHistoryBean> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<SearchHistoryBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
         }catch (Exception e){
             e.printStackTrace();
         }

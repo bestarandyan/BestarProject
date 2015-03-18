@@ -44,6 +44,7 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
     View mLineView;
     int mListViewHeight = 0;
     boolean isAdded = false;//是否已经添加过
+    boolean isOpen = false;//是否已经打开
     SelectViewCloseListener closeListener;
 
     public void addSelectLayout(Context context,BaseAdapter adapter,View view, final SelectItemClickListener itemClickListener){
@@ -93,6 +94,10 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
         return  isAdded;
     }
 
+    public boolean isOpen(){
+        return  isOpen;
+    }
+
     private int getTargetHeight(View v) {
 
         try {
@@ -110,6 +115,7 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
     }
 
     public void closeSelectView(){
+        if (selectListView==null) return;
         TranslateAnimation listDisAnimation = new TranslateAnimation(0,0,0.0f,-mListViewHeight);
         listDisAnimation.setDuration(350);
         listDisAnimation.setFillAfter(true);
@@ -127,6 +133,7 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
             public void onAnimationEnd(Animation animation) {
                removeView(mSelectLayout);
                 isAdded = false;
+                isOpen = false;
                 closeListener.OnClose();
             }
 
@@ -140,6 +147,7 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
     }
 
  public void openSelectView(Context context){
+     if (selectListView==null) return;
         TranslateAnimation listDisAnimation = new TranslateAnimation(0,0,-mListViewHeight,0);
         listDisAnimation.setDuration(350);
         listDisAnimation.setFillAfter(true);
@@ -148,6 +156,7 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
         alphaAnimation.setDuration(350);
         alphaAnimation.setFillAfter(true);
         mTouchView.startAnimation(alphaAnimation);
+        isOpen = true;
     }
 
     public void setOnSelectCloseListener(SelectViewCloseListener listener){

@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#e6f2f2"
+        android:background="@color/user_bg"
         android:clickable="true"
         android:orientation="vertical"
         tools:ignore="UselessParent">
@@ -18,8 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/user_title_layout_bg"
-            android:padding="5dp"
+            android:padding="8dp"
             android:tag="actionBar">
+
             <ImageButton
                 android:id="@+id/search_back"
                 android:layout_width="60dp"
@@ -28,99 +29,145 @@
                 android:background="@null"
                 android:gravity="center"
                 android:src="@drawable/selector_back_btn" />
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/search_back"
                 android:background="@drawable/shape_home_top_search_bg"
                 android:gravity="center"
-                android:layout_toRightOf="@id/search_back"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal">
-
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clear"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/clearBtn"
+                    android:visibility="invisible"
+                    />
                 <EditText
                     android:id="@+id/searchEt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
                     android:background="@null"
                     android:drawableLeft="@drawable/icon_search"
+                    android:drawablePadding="10dp"
                     android:gravity="center_vertical"
                     android:hint="请输入搜索内容"
-                    android:drawablePadding="10dp"
-                    android:layout_marginRight="10dp"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
+                    android:layout_toLeftOf="@id/clearBtn"
                     android:textColor="#a1a1a1" />
-            </LinearLayout>
+            </RelativeLayout>
         </RelativeLayout>
 
-        <com.manyi.mall.widget.filtrate.FiltrateView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/app_bg_color"
-            android:id="@+id/filtrateView"
-            android:orientation="vertical">
+            android:background="@color/user_bg">
 
             <LinearLayout
-                android:id="@+id/selectLayoutParent"
+                android:id="@+id/historyLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color_ffffff"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/user_bg"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/selectLayout1"
+                <LinearLayout
+                    android:id="@+id/hotSearchLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/more"
-                    android:drawablePadding="6dp"
-                    android:drawableRight="@drawable/icon_down"
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:text="户外大型游乐"
-                    android:textColor="#80000000" />
+                    android:orientation="vertical">
 
-                <View
-                    android:layout_width="1dp"
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/historyListView"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/line_mine_color"></View>
-
-                <TextView
-                    android:id="@+id/selectLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/screening"
-                    android:drawablePadding="6dp"
-                    android:drawableRight="@drawable/icon_down"
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:text="智能排序"
-                    android:textColor="#80000000" />
+                    android:background="@color/user_bg"
+                    android:cacheColorHint="@null"
+                    android:divider="@color/line_mine_color"
+                    android:dividerHeight="1dp"></ListView>
             </LinearLayout>
 
-            <View
-                android:id="@+id/selectLayoutLine"
+            <com.manyi.mall.widget.filtrate.FiltrateView
+                android:id="@+id/filtrateView"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/selectLayoutParent"
-                android:background="@color/line_mine_color"></View>
-
-            <com.manyi.mall.widget.refreshview.NLPullRefreshView
-                android:id="@+id/refreshable_view"
+                android:layout_height="match_parent"
+                android:background="@color/user_bg"
                 android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:background="@color/color_ffffff"
-                android:layout_below="@id/selectLayoutLine"
-                android:layout_height="match_parent" >
-                <com.huoqiu.widget.pinnedlistview.PinnedHeaderListView
-                    android:id="@+id/searchListView"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/selectLayoutParent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/selectLayout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/more"
+                        android:drawablePadding="6dp"
+                        android:drawableRight="@drawable/icon_down"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="户外大型游乐"
+                        android:textColor="#80000000" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/line_mine_color"></View>
+
+                    <TextView
+                        android:id="@+id/selectLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/screening"
+                        android:drawablePadding="6dp"
+                        android:drawableRight="@drawable/icon_down"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="智能排序"
+                        android:textColor="#80000000" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/selectLayoutLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/selectLayoutParent"
+                    android:background="@color/line_mine_color"></View>
+
+                <com.manyi.mall.widget.refreshview.NLPullRefreshView
+                    android:id="@+id/refreshable_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:divider="@null" >
-                </com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
-            </com.manyi.mall.widget.refreshview.NLPullRefreshView>
-        </com.manyi.mall.widget.filtrate.FiltrateView>
+                    android:layout_below="@id/selectLayoutLine"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical">
+
+                    <com.huoqiu.widget.pinnedlistview.PinnedHeaderListView
+                        android:id="@+id/searchListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@null"></com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
+                </com.manyi.mall.widget.refreshview.NLPullRefreshView>
+            </com.manyi.mall.widget.filtrate.FiltrateView>
+        </RelativeLayout>
     </LinearLayout>
 </FrameLayout>
