@@ -1,6 +1,8 @@
 package com.manyi.mall.search;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
@@ -23,8 +27,17 @@ import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.interfaces.SelectItemClickListener;
 import com.manyi.mall.interfaces.SelectViewCloseListener;
 import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.wap.DetailProductFragment;
 import com.manyi.mall.widget.filtrate.FiltrateView;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import org.androidannotations.annotations.AfterTextChange;
 import org.androidannotations.annotations.AfterViews;
@@ -34,6 +47,8 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -67,10 +82,14 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     ArrayAdapter arrayAdapter =null;
     String[] typeArray = null;
     String[] noopsycheArray = null;
+    private int typeSelected = 0;//已选择的类型
+    private int orderSelected = 0;//已选择的排序下标
     RequestServerFromHttp request = new RequestServerFromHttp();
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
+        initOption();
     }
 
     @AfterTextChange(R.id.searchEt)
@@ -99,9 +118,10 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     void getOrderInfo(){
         String msg = request.getOrderInfo();
         mOrderInfo =  new JsonData().jsonOrderInfo(msg);
-        noopsycheArray = new String[mOrderInfo.OrderByField.size()];
+        noopsycheArray = new String[mOrderInfo.OrderByField.size()*2];
         for (int i=0;i<mOrderInfo.OrderByField.size();i++){
-            noopsycheArray[i] = mOrderInfo.OrderByField.get(i).Name;
+                noopsycheArray[i*2] = "按"+mOrderInfo.OrderByField.get(i).Name+"降序";
+                noopsycheArray[i*2+1] = "按"+mOrderInfo.OrderByField.get(i).Name+"升序";
         }
     }
 
@@ -118,8 +138,15 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
 
     @Background
     void getDataByInputAndType(){
-//        String msg = request.searchProductByTypeAndInput("");
-
+        String searchKey = mSearchEt.getText().toString().trim();
+        String ClassID = mTypeLists.get(typeSelected).ID ;
+        String orderField = mOrderInfo.OrderByField.get(orderSelected/2).Value;
+        String order = (orderSelected%2==0)?"desc":"asc";
+        String PageIndex ="1";
+        String PageSize ="20";
+        String msg = request.searchProductByTypeAndInput(searchKey,ClassID,orderField!=null?orderField:"ID",order,PageIndex,PageSize);
+        mLists =  new JsonData().jsonFootprint(msg);
+        notifyCheckedList(false);
     }
 
 
@@ -195,10 +222,17 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             holder.clickCountTv.setText(response.get("ClickNum"));
             holder.visitCountTv.setText(response.get("ConsultNum"));
             holder.priaseCountTv.setText(response.get("PraiseNum"));
+            String imgUrl = response.get("PicUrl");
+            if (imgUrl!=null){
+                ImageLoader.getInstance().displayImage(imgUrl, holder.imageView, options, animateFirstListener);
+            }else{
+                holder.imageView.setBackgroundResource(R.drawable.take_photos_list_no__thumbnail);
+            }
             convertView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
+                    OnItemClick(section,position);
                 }
             });
             return convertView;
@@ -236,22 +270,30 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
 
     @Click(R.id.selectLayout1)
     void selectLayout1(){
+        if (typeArray==null || typeArray.length == 0){
+            return ;
+        }
         initSelect1Data();
         if (mFiltrateView.isAdded()){
             mFiltrateView.closeSelectView();
             mSelectLayout1.setTextColor(Color.parseColor("#80000000"));
+            mSelectLayout1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.more,0,R.drawable.icon_down,0);
         }else{
             mSelectLayout1.setTextColor(getResources().getColor(R.color.app_theme_color));
+            mSelectLayout1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.more_h,0,R.drawable.icon_up,0);
             mFiltrateView.addSelectLayout(getActivity(),arrayAdapter,mLine,new SelectItemClickListener() {
                 @Override
                 public void ItemClick(int position) {
                     mFiltrateView.closeSelectView();
+                    typeSelected = position;
+                    getDataByInputAndType();
                 }
             });
             mFiltrateView.setOnSelectCloseListener(new SelectViewCloseListener() {
                 @Override
                 public void OnClose() {
                     mSelectLayout1.setTextColor(Color.parseColor("#80000000"));
+                    mSelectLayout1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.more,0,R.drawable.icon_down,0);
                 }
             });
         }
@@ -259,28 +301,49 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     }
 @Click(R.id.selectLayout2)
     void selectLayout2(){
+    if (noopsycheArray==null || noopsycheArray.length == 0){
+        return ;
+    }
         initSelect2Data();
         if (mFiltrateView.isAdded()){
             mFiltrateView.closeSelectView();
             mSelectLayout2.setTextColor(Color.parseColor("#80000000"));
+            mSelectLayout2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.screening,0,R.drawable.icon_down,0);
         }else{
             mSelectLayout2.setTextColor(getResources().getColor(R.color.app_theme_color));
+            mSelectLayout2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.screening_h,0,R.drawable.icon_up,0);
             mFiltrateView.addSelectLayout(getActivity(),arrayAdapter,mLine,new SelectItemClickListener() {
                 @Override
                 public void ItemClick(int position) {
+                    orderSelected = position;
                     mFiltrateView.closeSelectView();
+                    getDataByInputAndType();
                 }
             });
             mFiltrateView.setOnSelectCloseListener(new SelectViewCloseListener() {
                 @Override
                 public void OnClose() {
                     mSelectLayout2.setTextColor(Color.parseColor("#80000000"));
+                    mSelectLayout2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.screening,0,R.drawable.icon_down,0);
                 }
             });
         }
 
     }
+    void OnItemClick(int section,int position){
+        DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
+        fragment.tag = DetailProductFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
+        bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
+        fragment.setArguments(bundle);
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setContainerId(R.id.main_container);
+        fragment.setManager(getFragmentManager());
 
+        fragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
     private void initSelect1Data(){
         arrayAdapter = new ArrayAdapter(getActivity(),R.layout.item_select_list,R.id.selectContent,typeArray);
     }
@@ -289,6 +352,58 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         arrayAdapter = new ArrayAdapter(getActivity(),R.layout.item_select_list,R.id.selectContent,noopsycheArray);
     }
 
+    private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
 
+        static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
+
+        @Override
+        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+            if (loadedImage != null) {
+                ImageView imageView = (ImageView) view;
+                if (loadedImage!=null){
+                    imageView.setImageBitmap(loadedImage);
+                }
+                boolean firstDisplay = !displayedImages.contains(imageUri);
+                if (firstDisplay) {
+                    FadeInBitmapDisplayer.animate(imageView, 500);
+                    displayedImages.add(imageUri);
+                }
+            }
+        }
+
+        @Override
+        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+            ImageView imageView = (ImageView) view;
+            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            super.onLoadingFailed(imageUri, view, failReason);
+        }
+
+        @Override
+        public void onLoadingCancelled(String imageUri, View view) {
+            ImageView imageView = (ImageView) view;
+            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            super.onLoadingCancelled(imageUri, view);
+        }
+    }
+    DisplayImageOptions options;
+    private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
+    public void initOption(){
+
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.take_photos_list_no__thumbnail)
+                .showImageForEmptyUri(R.drawable.take_photos_list_no__thumbnail)
+                .showImageOnFail(R.drawable.take_photos_list_no__thumbnail)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .displayer(new RoundedBitmapDisplayer(20))
+                .build();
+    }
+    @Override
+    public void onDestroy() {
+        ImageLoader.getInstance().clearMemoryCache();
+        ImageLoader.getInstance().clearDiskCache();
+        super.onDestroy();
+    }
 
 }

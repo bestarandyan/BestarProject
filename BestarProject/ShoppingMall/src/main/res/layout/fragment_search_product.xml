@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:drawableLeft="@drawable/more"
                     android:drawablePadding="6dp"
-                    android:drawableRight="@drawable/icon_up"
+                    android:drawableRight="@drawable/icon_down"
                     android:gravity="center_vertical"
                     android:padding="10dp"
                     android:text="户外大型游乐"

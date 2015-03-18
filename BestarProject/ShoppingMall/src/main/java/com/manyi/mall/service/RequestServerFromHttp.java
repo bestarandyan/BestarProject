@@ -141,7 +141,7 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-    public String searchProductByTypeAndInput(String LikeStr,String ClassID,String field,String PageIndex,String PageSize){
+    public String searchProductByTypeAndInput(String LikeStr,String ClassID,String orderField,String order,String PageIndex,String PageSize){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetProductListBySearch"));
@@ -149,8 +149,8 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("ClassID", ClassID));
  		params.add(new BasicNameValuePair("PageIndex", PageIndex));
  		params.add(new BasicNameValuePair("PageSize", PageSize));
- 		params.add(new BasicNameValuePair("OrderByField", field));
- 		params.add(new BasicNameValuePair("OrderWay", "desc"));
+ 		params.add(new BasicNameValuePair("OrderByField", orderField));
+ 		params.add(new BasicNameValuePair("OrderWay", order));
  		params.add(new BasicNameValuePair("LikeStr", LikeStr));
  		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(PRODUCT_SERVICE, params);

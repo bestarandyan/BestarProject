@@ -111,11 +111,11 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
 
     public void closeSelectView(){
         TranslateAnimation listDisAnimation = new TranslateAnimation(0,0,0.0f,-mListViewHeight);
-        listDisAnimation.setDuration(500);
+        listDisAnimation.setDuration(350);
         listDisAnimation.setFillAfter(true);
         selectListView.startAnimation(listDisAnimation);
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f,0);
-        alphaAnimation.setDuration(500);
+        alphaAnimation.setDuration(350);
         alphaAnimation.setFillAfter(true);
         alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -141,11 +141,11 @@ public class FiltrateView extends RelativeLayout implements View.OnClickListener
 
  public void openSelectView(Context context){
         TranslateAnimation listDisAnimation = new TranslateAnimation(0,0,-mListViewHeight,0);
-        listDisAnimation.setDuration(500);
+        listDisAnimation.setDuration(350);
         listDisAnimation.setFillAfter(true);
         selectListView.startAnimation(listDisAnimation);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f,1.0f);
-        alphaAnimation.setDuration(500);
+        alphaAnimation.setDuration(350);
         alphaAnimation.setFillAfter(true);
         mTouchView.startAnimation(alphaAnimation);
     }
