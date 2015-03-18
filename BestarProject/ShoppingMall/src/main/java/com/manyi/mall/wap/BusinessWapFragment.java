@@ -1,16 +1,13 @@
 package com.manyi.mall.wap;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.AfterViews;

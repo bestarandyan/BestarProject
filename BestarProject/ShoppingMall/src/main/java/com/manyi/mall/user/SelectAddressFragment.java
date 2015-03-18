@@ -1,12 +1,9 @@
 package com.manyi.mall.user;
 
-import android.accounts.NetworkErrorException;
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -18,18 +15,16 @@ import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Map;

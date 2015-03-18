@@ -4,18 +4,12 @@ import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +19,7 @@ import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
 
@@ -34,7 +28,6 @@ import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
-import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
@@ -106,10 +99,6 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
 
     @ViewById(R.id.editBtn)
     ImageButton mEditBtn;
-
-    @ViewById(R.id.SavaBtn)
-    Button mSaveBtn;
-
 
     @FragmentArg
     String userName;

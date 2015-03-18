@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.manyi.mall.Util;
+package com.manyi.mall.utils;
 
 import android.database.sqlite.SQLiteDatabase;
 import com.google.gson.Gson;

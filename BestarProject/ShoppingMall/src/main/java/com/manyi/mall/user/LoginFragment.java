@@ -17,7 +17,7 @@ import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.MainActivity;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.user.LoginResponse;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.service.RequestServerFromHttp;

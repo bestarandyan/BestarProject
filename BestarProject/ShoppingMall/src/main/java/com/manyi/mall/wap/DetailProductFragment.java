@@ -7,7 +7,7 @@ import android.webkit.WebViewClient;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
 
 import org.androidannotations.annotations.AfterViews;

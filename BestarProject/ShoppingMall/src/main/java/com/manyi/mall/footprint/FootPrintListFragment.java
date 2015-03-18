@@ -19,7 +19,7 @@ import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.wap.DetailProductFragment;
@@ -36,7 +36,6 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 

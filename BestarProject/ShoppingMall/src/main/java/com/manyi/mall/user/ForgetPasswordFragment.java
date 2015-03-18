@@ -1,14 +1,9 @@
 package com.manyi.mall.user;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.graphics.Color;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -17,7 +12,7 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.service.RequestServerFromHttp;

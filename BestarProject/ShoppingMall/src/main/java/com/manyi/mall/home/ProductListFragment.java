@@ -1,6 +1,5 @@
 package com.manyi.mall.home;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,7 +16,7 @@ import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.R;
-import com.manyi.mall.Util.JsonData;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
@@ -35,7 +34,6 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
