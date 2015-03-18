@@ -193,7 +193,7 @@ public class CollectFragment extends SuperFragment {
         public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
             if (loadedImage != null) {
                 ImageView imageView = (ImageView) view;
-                if (loadedImage!=null){
+                if (imageView!=null){
                     imageView.setImageBitmap(loadedImage);
                 }
                 boolean firstDisplay = !displayedImages.contains(imageUri);
@@ -207,14 +207,18 @@ public class CollectFragment extends SuperFragment {
         @Override
         public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
             ImageView imageView = (ImageView) view;
-            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            if (imageView!=null){
+                imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            }
             super.onLoadingFailed(imageUri, view, failReason);
         }
 
         @Override
         public void onLoadingCancelled(String imageUri, View view) {
             ImageView imageView = (ImageView) view;
-            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            if (imageView!=null){
+                imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            }
             super.onLoadingCancelled(imageUri, view);
         }
     }

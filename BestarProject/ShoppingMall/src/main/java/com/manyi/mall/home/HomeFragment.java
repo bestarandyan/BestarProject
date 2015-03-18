@@ -307,14 +307,18 @@ public class HomeFragment extends SuperFragment<Object> {
         @Override
         public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
             ImageView imageView = (ImageView) view;
-            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            if (imageView!=null){
+                imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            }
             super.onLoadingFailed(imageUri, view, failReason);
         }
 
         @Override
         public void onLoadingCancelled(String imageUri, View view) {
             ImageView imageView = (ImageView) view;
-            imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            if (imageView!=null){
+                imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            }
             super.onLoadingCancelled(imageUri, view);
         }
     }

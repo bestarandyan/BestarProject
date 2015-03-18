@@ -22,14 +22,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.DeviceUtil;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.huoqiu.framework.util.ManyiUtils;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.search.SearchHistoryBean;
+import com.manyi.mall.common.util.CommonUtil;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
@@ -114,6 +117,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
         getUserSearchRecord();
+        ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
     }
 
     @AfterTextChange(R.id.searchEt)
@@ -128,7 +132,9 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             getOrderInfo();
         }else{
             mClearBtn.setVisibility(View.GONE);
-            mLists.clear();
+            if (mLists!=null){
+                mLists.clear();
+            }
             notifySearchListView(false);
             getUserSearchRecord();
         }
