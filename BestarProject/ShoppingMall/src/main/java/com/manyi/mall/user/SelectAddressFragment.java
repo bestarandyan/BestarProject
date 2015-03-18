@@ -104,6 +104,7 @@ public class SelectAddressFragment extends SuperFragment {
 
     @UiThread
     void showErrorMsg(String msg){
+        dismiss();
         DialogBuilder.showSimpleDialog(msg,getActivity());
     }
     @Background

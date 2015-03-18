@@ -72,7 +72,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing1"
                         android:text="头像"
                         android:textSize="18sp"
                         tools:ignore="TextFields" />
@@ -127,7 +126,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing2"
                         android:text="会员名"
                         android:textSize="18sp"
                         tools:ignore="TextFields" />
@@ -175,7 +173,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing3"
                         android:text="密   码"
                         android:textSize="18sp"
                         tools:ignore="TextFields" />
@@ -231,7 +228,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/complete_info_margin_left_of_xing"
-                        android:layout_toRightOf="@+id/xing6"
                         android:text="更多资料"
                         android:textSize="18sp"
                         tools:ignore="TextFields" />

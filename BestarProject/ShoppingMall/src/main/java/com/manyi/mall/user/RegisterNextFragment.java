@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 
 import org.androidannotations.annotations.AfterViews;
@@ -138,7 +139,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
     }
     @AfterViews
     void init(){
-
+        BestarApplication.getInstance().setType("1");
     }
 
     @Override
@@ -271,10 +272,12 @@ public class RegisterNextFragment extends ImageLoaderFragment {
                 if (menuItem.getItemId() == R.id.menu_shengFen_type1){
                     mShengFenTv.setText("商家");
                     type = "1";
+                    BestarApplication.getInstance().setType("1");
                     changeInfoFromType();
                 }else if (menuItem.getItemId() == R.id.menu_shengFen_type2){
                     mShengFenTv.setText("园长");
                     type = "2";
+                    BestarApplication.getInstance().setType("2");
                     changeInfoFromType();
                 }
                 return false;
