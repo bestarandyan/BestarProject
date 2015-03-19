@@ -1,15 +1,21 @@
 package com.manyi.mall.search;
 
+import android.animation.LayoutTransition;
+import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.text.Layout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -22,24 +28,28 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.exception.RestException;
+import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DeviceUtil;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
+import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.BaseResponse;
-import com.manyi.mall.cachebean.search.SearchHistoryBean;
-import com.manyi.mall.common.util.CommonUtil;
-import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
+import com.manyi.mall.cachebean.search.SearchHistoryBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
+import com.manyi.mall.common.Constants;
 import com.manyi.mall.interfaces.SelectItemClickListener;
 import com.manyi.mall.interfaces.SelectViewCloseListener;
 import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.utils.TextViewUtil;
 import com.manyi.mall.wap.DetailProductFragment;
 import com.manyi.mall.widget.filtrate.FiltrateView;
@@ -62,12 +72,13 @@ import org.androidannotations.annotations.FocusChange;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * Created by bestar on 2015/1/29.
@@ -76,6 +87,11 @@ import java.util.Map;
 public class SearchProductListFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
     @ViewById(R.id.filtrateView)
     FiltrateView mFiltrateView;
+
+    @ViewById(R.id.hot_radio_layout)
+    CirclePageIndicator mIndicator;
+    @ViewById(R.id.hotSearchViewPager)
+    FangyouReleasedViewPage mViewPage;
 
     @ViewById(R.id.selectLayout1)
     TextView mSelectLayout1;
@@ -99,6 +115,12 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     @ViewById(R.id.historyListView)
     ListView mHistoryListView;
 
+    ViewpageAdapter mViewPageAdapter = null;
+    int RadioID = 0x001100;
+
+    private ScheduledExecutorService scheduledExecutor;
+    ArrayList<View> mPageViews = new ArrayList<View>();
+
     HistoryAdapter mHistoryAdapter;
     List<Map<String,Object>> mLists =null;
     List<TypeProductBean> mTypeLists =null;
@@ -118,8 +140,23 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         initOption();
         getUserSearchRecord();
         ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
+        initHotView();
     }
 
+    private void initHotView(){
+        mViewPageAdapter = new ViewpageAdapter();
+        mViewPage.setAdapter(mViewPageAdapter);
+        getAdvertData();
+    }
+    @Background
+    public void getAdvertData() {
+        try {
+
+            notifyAdvert();
+        } catch (RestException e) {
+
+        }
+    }
     @AfterTextChange(R.id.searchEt)
     void AfterTextChange(){
         if(mFiltrateView.isOpen()){
@@ -218,7 +255,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         if (mHistoryListView.getFooterViewsCount() == 0 && mUserHistoryList!=null && mUserHistoryList.size()>0){
             mFootView = getFootView();
             mHistoryListView.addFooterView(mFootView);
-        }else{
+        }else if (mFootView!=null && (mUserHistoryList == null || mUserHistoryList.size() == 0)){
             mHistoryListView.removeFooterView(mFootView);
         }
     }
@@ -418,6 +455,15 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         }
 
     }
+
+    @Override
+    public void onPause() {
+        if (mViewPage != null && mIndicator != null && scheduledExecutor != null) {
+            scheduledExecutor.shutdown();
+            scheduledExecutor = null;
+        }
+        super.onPause();
+    }
 @Click(R.id.selectLayout2)
     void selectLayout2(){
     if (noopsycheArray==null || noopsycheArray.length == 0){
@@ -555,4 +601,70 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         super.onDestroy();
     }
 
+
+    @UiThread
+    public void notifyAdvert() {
+        mPageViews.clear();
+        for (int i = 0; i < 2; i++) {
+            View mView = LayoutInflater.from(getActivity()).inflate(R.layout.item_release_viewpage, null);
+            TextView text = (TextView) mView.findViewById(R.id.viewpage_item_text);
+            text.setText("ViewPage"+i);
+            text.setGravity(Gravity.CENTER);
+            mView.setTag(i);
+            mPageViews.add(mView);
+        }
+
+        mViewPageAdapter = new ViewpageAdapter();
+        mViewPage.setAdapter(mViewPageAdapter);
+        if (mPageViews.size() > 1) {
+            mIndicator.setViewPager(mViewPage);
+        }
+    }
+    /**
+     * view page Adapater
+     *
+     * @author jason
+     */
+    class ViewpageAdapter extends PagerAdapter implements View.OnClickListener {
+
+        @Override
+        public int getCount() {
+            return mPageViews.size();
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            return super.getItemPosition(object);
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            ((ViewPager) container).removeView(mPageViews.get(position));
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = mPageViews.get(position);
+            container.addView(view, 0);
+            view.setOnClickListener(this);
+            view.setTag(position);
+            return view;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (CheckDoubleClick.isFastDoubleClick()) {
+                return;
+            }
+            int index = Integer.parseInt(v.getTag().toString());
+
+
+        }
+
+    }
 }

@@ -84,7 +84,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/advertLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:fadingEdge="none"
+                        android:visibility="visible">
 
+                        <com.huoqiu.widget.FangyouReleasedViewPage
+                            android:id="@+id/hotSearchViewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:fadeScrollbars="false"
+                            android:fadingEdge="none" />
+
+                        <com.huoqiu.widget.viewpageindicator.CirclePageIndicator
+                            android:id="@+id/hot_radio_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="16dp"
+                            android:background="@null"
+                            android:gravity="center_horizontal"
+                            app:circle_radius="3dp"
+                            app:circle_spacing="1.5dp"
+                            app:fillColor="#FFFFFF"
+                            app:pageColor="#33FFFFFF"
+                            app:strokeWidth="0dp" />
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <ListView
