@@ -20,12 +20,15 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.exception.RestException;
@@ -42,13 +45,16 @@ import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.cachebean.search.HotSearchBean;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
 import com.manyi.mall.cachebean.search.SearchHistoryBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.common.Constants;
+import com.manyi.mall.common.util.CommonUtil;
 import com.manyi.mall.interfaces.SelectItemClickListener;
 import com.manyi.mall.interfaces.SelectViewCloseListener;
 import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.utils.HardwareInfo;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.utils.TextViewUtil;
 import com.manyi.mall.wap.DetailProductFragment;
@@ -96,6 +102,9 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     @ViewById(R.id.selectLayout1)
     TextView mSelectLayout1;
 
+    @ViewById(R.id.hotSearchLayout)
+    LinearLayout mHotSearchLayout;
+
     @ViewById(R.id.selectLayout2)
     TextView mSelectLayout2;
 
@@ -124,6 +133,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     HistoryAdapter mHistoryAdapter;
     List<Map<String,Object>> mLists =null;
     List<TypeProductBean> mTypeLists =null;
+    List<HotSearchBean> mHotSearchList =null;
     OrderInfoBean mOrderInfo = null;
     ProductSectionListAdapter mAdapter = null;
     ArrayAdapter arrayAdapter =null;
@@ -151,7 +161,8 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     @Background
     public void getAdvertData() {
         try {
-
+            String msg = request.getHotSearch("1","20");
+            mHotSearchList = new JsonData().jsonHotSearch(msg);
             notifyAdvert();
         } catch (RestException e) {
 
@@ -605,20 +616,56 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     @UiThread
     public void notifyAdvert() {
         mPageViews.clear();
-        for (int i = 0; i < 2; i++) {
-            View mView = LayoutInflater.from(getActivity()).inflate(R.layout.item_release_viewpage, null);
-            TextView text = (TextView) mView.findViewById(R.id.viewpage_item_text);
-            text.setText("ViewPage"+i);
-            text.setGravity(Gravity.CENTER);
-            mView.setTag(i);
+        int countHot = mHotSearchList.size();
+        if (countHot>0){
+            HotSearchBean hotSearchBean = new HotSearchBean();
+            hotSearchBean.SearchWord = "热门搜索";
+            mHotSearchList.add(0,hotSearchBean);
+            countHot = mHotSearchList.size();
+        }
+        int countPage = (countHot/8+1);
+        for (int i = 0; i < countPage; i++) {
+            View mView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_hot_search, null);
+            GridLayout gridView = (GridLayout) mView.findViewById(R.id.gridLayout);
+            if (i==countPage-1){
+                for (int index=i*8;index<mHotSearchList.size();index++){
+                    gridView.addView(getHotSearchView(index));
+                }
+            }else{
+                for (int index=i*8;index<i*8+8;index++){
+                    gridView.addView(getHotSearchView(index));
+                }
+            }
+
+//            HotSearchAdapter hotSearchAdapter = new HotSearchAdapter(getActivity(),mHotSearchList);
+//            gridView.setAdapter(hotSearchAdapter);
             mPageViews.add(mView);
         }
-
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT,CommonUtil.dip2px(getActivity(),115));
+        mHotSearchLayout.setLayoutParams(params);
         mViewPageAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mViewPageAdapter);
         if (mPageViews.size() > 1) {
             mIndicator.setViewPager(mViewPage);
         }
+    }
+    private View getHotSearchView(final int position){
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_hot_search,null);
+        TextView contentTv = (TextView) view.findViewById(R.id.contentTv);
+        String searchWord = mHotSearchList.get(position).SearchWord;
+        contentTv.setText(searchWord);
+        if (searchWord.equals("热门搜索")){
+            contentTv.setTextColor(getResources().getColor(R.color.app_theme_color));
+        }
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(HardwareInfo.getScreenWidth(getActivity())/4, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        contentTv.setLayoutParams(params);
+        contentTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),position+"",Toast.LENGTH_LONG).show();
+            }
+        });
+        return view;
     }
     /**
      * view page Adapater

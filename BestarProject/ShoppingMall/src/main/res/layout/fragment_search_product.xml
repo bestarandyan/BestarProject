@@ -82,19 +82,20 @@
                 <LinearLayout
                     android:id="@+id/hotSearchLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:orientation="vertical">
                     <RelativeLayout
                         android:id="@+id/advertLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="wrap_content"
                         android:fadingEdge="none"
+                        android:background="@color/color_ffffff"
                         android:visibility="visible">
 
                         <com.huoqiu.widget.FangyouReleasedViewPage
                             android:id="@+id/hotSearchViewPager"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="wrap_content"
                             android:fadeScrollbars="false"
                             android:fadingEdge="none" />
 
@@ -102,15 +103,14 @@
                             android:id="@+id/hot_radio_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:padding="10dp"
                             android:layout_alignParentBottom="true"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="16dp"
-                            android:background="@null"
-                            android:gravity="center_horizontal"
-                            app:circle_radius="3dp"
+                            android:background="@color/color_ffffff"
+                            android:gravity="center"
+                            app:circle_radius="5dp"
                             app:circle_spacing="1.5dp"
-                            app:fillColor="#FFFFFF"
-                            app:pageColor="#33FFFFFF"
+                            app:fillColor="@color/app_theme_color"
+                            app:pageColor="#cfcfcf"
                             app:strokeWidth="0dp" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -121,6 +121,7 @@
                     android:layout_height="match_parent"
                     android:background="@color/user_bg"
                     android:cacheColorHint="@null"
+                    android:layout_marginTop="10dp"
                     android:divider="@color/line_mine_color"
                     android:dividerHeight="1dp"></ListView>
             </LinearLayout>

@@ -13,6 +13,7 @@ import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
+import com.manyi.mall.cachebean.search.HotSearchBean;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
 import com.manyi.mall.cachebean.search.SearchHistoryBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
@@ -150,6 +151,17 @@ public class JsonData {
             e.printStackTrace();
         }
 
+        return list;
+    }
+    public List<HotSearchBean> jsonHotSearch(String msg){//最热搜索记录
+        LinkedList<HotSearchBean> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<HotSearchBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return list;
     }
     public OrderInfoBean jsonOrderInfo(String msg){
