@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -52,7 +53,7 @@ public class CollectFragment extends SuperFragment {
     ListView mListView;
 
     @ViewById(R.id.editBtn)
-    TextView mEditBtn;
+    ImageButton mEditBtn;
 
     @ViewById(R.id.bottomLayout)
     LinearLayout mBottomLayout;
@@ -60,6 +61,8 @@ public class CollectFragment extends SuperFragment {
     List<CollectListBean> mList = new ArrayList<CollectListBean>();
 
     boolean isEditing = false;
+
+    RequestServerFromHttp request = new RequestServerFromHttp();
     @Override
     public void onAttach(Activity activity) {
         setBackOp(null);
@@ -78,7 +81,7 @@ public class CollectFragment extends SuperFragment {
 
     @Background
     void getData(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
+
         String msg = request.getCollect("1","20");
         mList = new JsonData().jsonCollectList(msg);
         if (mList!=null && mList.size() > 0){
@@ -86,7 +89,10 @@ public class CollectFragment extends SuperFragment {
         }
 
     }
-
+    @Click(R.id.deleteBtn)
+    void clickDelete(){
+//        String msg = request.deleteCollection("11,12");
+    }
     @UiThread
     void notifyListView(){
         CollectListAdapter adapter = new CollectListAdapter();
@@ -113,11 +119,11 @@ public class CollectFragment extends SuperFragment {
         if (mBottomLayout.getVisibility() == View.GONE){
             mBottomLayout.setVisibility(View.VISIBLE);
             isEditing = true;
-            mEditBtn.setText("完成");
+            mEditBtn.setImageResource(R.drawable.selector_comple);
         }else{
             mBottomLayout.setVisibility(View.GONE);
             isEditing = false;
-            mEditBtn.setText("编辑");
+            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
         }
         notifyListView();
     }

@@ -127,10 +127,11 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     void editUserInfo(){
         if(isEditing){
             isEditing = false;
-            mEditBtn.setVisibility(View.GONE);
+            mEditBtn.setImageResource(R.drawable.selector_comple);
         }else{
             isEditing = true;
             mEditBtn.setBackgroundColor(Color.TRANSPARENT);
+            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
         }
     }
 

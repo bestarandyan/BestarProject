@@ -67,6 +67,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/check_bg</item>
+    </style>
+
     <!-- ****************************** 发布详情  ******************************** -->
     <!-- 审核中 -->
     <style name="text_28_7f7f7f">

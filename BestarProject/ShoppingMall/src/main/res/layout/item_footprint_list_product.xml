@@ -6,12 +6,19 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="10dp">
-
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:visibility="gone"
+        style="@style/CustomCheckboxTheme"
+        />
     <ImageView
         android:id="@+id/imgCollect"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:layout_marginLeft="10dp"
         android:src="@drawable/take_photos_list_no__thumbnail" />
 
     <LinearLayout
@@ -44,13 +51,6 @@
                 android:text="￥4685"
                 android:textColor="#8aff0000"
                 android:textSize="14sp" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/diamond"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/voucherImg"
-                />
         </LinearLayout>
 
         <LinearLayout

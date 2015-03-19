@@ -88,7 +88,6 @@ public class VoucherListFragment extends SuperFragment implements NLPullRefreshV
             if (view == null){
                 view = LayoutInflater.from(getActivity()).inflate(R.layout.item_voucher_list,null);
                 holder = new ViewHolder();
-                holder.img  = (ImageView)view.findViewById(R.id.voucherImg);
                 holder.voucherValueTv = (TextView) view.findViewById(R.id.voucherValueTv);
                 holder.voucherNameTv = (TextView) view.findViewById(R.id.voucherNameTv);
                 holder.voucherValidTv = (TextView) view.findViewById(R.id.validTv);
@@ -104,7 +103,6 @@ public class VoucherListFragment extends SuperFragment implements NLPullRefreshV
         }
 
         class ViewHolder{
-            ImageView img;
             TextView voucherValueTv,voucherNameTv,voucherValidTv;
         }
     }

@@ -15,14 +15,24 @@
         android:orientation="vertical"
         android:padding="10dp"
          >
-
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox"
+            android:visibility="visible"
+            style="@style/CustomCheckboxTheme"
+            />
         <TextView
             android:id="@+id/companyNameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="凯奇集团"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
             android:textColor="#dd000000"
+            android:layout_toRightOf="@id/checkBox"
+            android:drawableRight="@drawable/diamond"
+            android:drawablePadding="10dp"
             android:textSize="16sp" />
         <TextView
             android:id="@+id/cityNameTv"

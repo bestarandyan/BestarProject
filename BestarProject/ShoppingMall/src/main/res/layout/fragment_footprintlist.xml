@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_layout_height"
-        android:background="@color/app_theme_color"
+        android:background="@color/user_title_layout_bg"
         android:padding="0dp"
         android:id="@+id/topLayout"
         android:tag="actionBar" >
@@ -17,17 +17,24 @@
             android:layout_height="wrap_content"
             android:text="我的足迹"
             android:layout_centerInParent="true"
-            android:textColor="#fff"
+            android:textColor="#333"
             android:textSize="18sp"
             />
-        <TextView
+        <ImageButton
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="编辑"
-            android:textColor="#ffffffff"
             android:layout_alignParentRight="true"
-            android:textSize="16sp" />
+            android:src="@drawable/selector_edit_info_btn"
+            android:background="@null"
+            android:id="@+id/footEditBtn"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_mine_color"
+            android:layout_alignParentBottom="true"
+            ></View>
     </RelativeLayout>
     <com.manyi.mall.widget.refreshview.NLPullRefreshView
         android:id="@+id/refreshable_view"
@@ -44,6 +51,56 @@
             >
         </com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
     </com.manyi.mall.widget.refreshview.NLPullRefreshView>
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/app_bg_color"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/mineselect"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg_color"
+            android:padding="16dp">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="全选"
+                android:textColor="#333"
+                android:textSize="18sp"
+                style="@style/CustomCheckboxTheme"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/selector_submit_btn"
+                android:paddingBottom="10dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/deleteBtn"
+                android:text="删除"
+                android:textColor="@color/color_ffffff"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </RelativeLayout>
 

@@ -10,7 +10,7 @@
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_layout_height"
-        android:background="@color/app_theme_color"
+        android:background="@color/tetx_title_color"
         android:padding="0dp"
         android:tag="actionBar">
 
@@ -19,17 +19,24 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="我的收藏"
-            android:textColor="#ffffffff"
+            android:textColor="#333"
             android:textSize="18sp" />
 
-        <TextView
+        <ImageButton
             android:id="@+id/editBtn"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:background="@drawable/selector_edit_info_btn"
+            android:src="@drawable/selector_edit_info_btn"
+            android:background="@null"
            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_mine_color"
+            android:layout_alignParentBottom="true"
+            ></View>
     </RelativeLayout>
 
     <ListView
@@ -71,7 +78,9 @@
                 android:layout_centerVertical="true"
                 android:text="全选"
                 android:textColor="#333"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                style="@style/CustomCheckboxTheme"
+                />
 
             <Button
                 android:layout_width="wrap_content"
@@ -84,6 +93,8 @@
                 android:paddingRight="16dp"
                 android:paddingTop="10dp"
                 android:text="删除"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/deleteBtn"
                 android:textColor="@color/color_ffffff"
                 android:textSize="18sp" />
 

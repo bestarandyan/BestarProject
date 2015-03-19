@@ -36,7 +36,6 @@
                 android:layout_height="60dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
                 android:background="@null"
                 android:padding="10dp"
                 android:src="@drawable/selector_search_btn" />

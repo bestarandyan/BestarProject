@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -35,6 +37,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
@@ -52,8 +55,15 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     @ViewById(R.id.footprintListView)
     PinnedHeaderListView mCheckedListView;
 
+    @ViewById(R.id.footEditBtn)
+    ImageButton mEditBtn;
+
     FootprintSectionListAdapter mAdapter = null;
     List<Map<String,Object>> mLists =null;
+    @ViewById(R.id.bottomLayout)
+    LinearLayout mBottomLayout;
+    boolean isEditing = false;
+    RequestServerFromHttp request = new RequestServerFromHttp();
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
@@ -76,9 +86,28 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         fragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
+    @Click(R.id.footEditBtn)
+    void edit(){
+        if (mBottomLayout.getVisibility() == View.GONE){
+            mBottomLayout.setVisibility(View.VISIBLE);
+            mEditBtn.setImageResource(R.drawable.selector_comple);
+            isEditing = true;
+        }else{
+            mBottomLayout.setVisibility(View.GONE);
+            isEditing = false;
+            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
+        }
+        notifyCheckedList(false);
+    }
+
+    @Click(R.id.deleteBtn)
+    void clickDelete(){
+//        String msg = request.deleteCollection();
+    }
+
     @Background
     void getData(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
+
         String msg = request.getFootList("1","20");
 //        String msg = "[{\"ID\":10,\"ProductName\":\"cc\",\"ProviderID\":11,\"ClassID\":50,\"Specification\":\"cc\",\"Price\":150.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031516307459667.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031516396835859.flv\",\"AddTime\":\"2015-03-03T15:01:15.03\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"北京\"}\n" +
 //                ",{\"ID\":9,\"ProductName\":\"产品二\",\"ProviderID\":11,\"ClassID\":50,\"Specification\":\"bb\",\"Price\":200.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515145731150.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515209325760.flv\",\"AddTime\":\"2015-03-03T15:00:15.717\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"北京\"}\n" +
@@ -154,7 +183,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 holder.visitCountTv = (TextView) convertView.findViewById(R.id.visitCountTv);
                 holder.priaseCountTv = (TextView) convertView.findViewById(R.id.praiseCountTv);
                 holder.imageView = (ImageView) convertView.findViewById(R.id.imgCollect);
-                holder.voucherImg = (ImageView) convertView.findViewById(R.id.voucherImg);
+                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -179,17 +208,23 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             }else{
                 holder.imageView.setBackgroundResource(R.drawable.take_photos_list_no__thumbnail);
             }
+            if (isEditing){
+                holder.checkBox.setVisibility(View.VISIBLE);
+            }else{
+                holder.checkBox.setVisibility(View.GONE);
+            }
             return convertView;
         }
 
         public class ViewHolder {
             TextView productNameTv, moneyTv, clickCountTv,visitCountTv,priaseCountTv;
             ImageView imageView;
-            ImageView voucherImg;
+            CheckBox checkBox;
         }
 
         public class SectionHolder {
             TextView companyNameTv,cityNameTv;
+            CheckBox checkBox;
         }
 
         @Override
@@ -200,6 +235,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_footprint_list_sections, null);
                 holder.companyNameTv = (TextView) convertView.findViewById(R.id.companyNameTv);
                 holder.cityNameTv = (TextView) convertView.findViewById(R.id.cityNameTv);
+                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
                 convertView.setTag(holder);
             } else {
                 holder = (SectionHolder) convertView.getTag();
@@ -208,6 +244,11 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             String cityName = mLists.get(section).get("ProviderCityName").toString();
             holder.companyNameTv.setText(companyName);
             holder.cityNameTv.setText(cityName);
+            if (isEditing){
+                holder.checkBox.setVisibility(View.VISIBLE);
+            }else{
+                holder.checkBox.setVisibility(View.GONE);
+            }
             return convertView;
         }
     }

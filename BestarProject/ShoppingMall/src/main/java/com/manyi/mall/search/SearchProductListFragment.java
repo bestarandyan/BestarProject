@@ -377,7 +377,6 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
                 holder.visitCountTv = (TextView) convertView.findViewById(R.id.visitCountTv);
                 holder.priaseCountTv = (TextView) convertView.findViewById(R.id.praiseCountTv);
                 holder.imageView = (ImageView) convertView.findViewById(R.id.imgCollect);
-                holder.voucherImg = (ImageView) convertView.findViewById(R.id.voucherImg);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -408,7 +407,6 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         public class ViewHolder {
             TextView productNameTv, moneyTv, clickCountTv,visitCountTv,priaseCountTv;
             ImageView imageView;
-            ImageView voucherImg;
         }
 
         public class SectionHolder {

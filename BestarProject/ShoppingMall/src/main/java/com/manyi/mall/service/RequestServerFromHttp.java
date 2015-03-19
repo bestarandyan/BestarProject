@@ -28,6 +28,7 @@ public class RequestServerFromHttp {
 	public static final String GET_GETPSW_SERVICE = SERVER_ADDRESS+"customer.aspx";
     public static final String SHOPCLASS_SERVICE = SERVER_ADDRESS+"shopclass.aspx";
     public static final String PRODUCT_SERVICE = SERVER_ADDRESS+"product.aspx";
+    public static final String COLLECTTION_SERVICE = SERVER_ADDRESS+"collection.aspx";
     public static final String SEARCHRECORD_SERVICE = SERVER_ADDRESS+"searchrecord.aspx";
 	public static final String USER_APPKEY = "123456";//
 	public static final String IMGURL = "http://servercomponents.iiyey.com/";
@@ -113,7 +114,7 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("pageIndex", pageIndex));
  		params.add(new BasicNameValuePair("pageSize", pageSize));
- 		params.add(new BasicNameValuePair("CustomerID", "100"));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(FOOT_SERVICE, params);
  		return msgString;
  	}
@@ -242,13 +243,24 @@ public String login(String userName,String psw){
  		return msgString;
  	}
 
-public String getForgetPswCode(String mobile){
+    public String getForgetPswCode(String mobile){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "BackPWDyanzhen"));
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("MobilePhone", mobile));
  		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String deleteCollection(String ProviderIDs){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "DeleteCollection"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderIDs", ProviderIDs));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		msgString = getData(COLLECTTION_SERVICE, params);
  		return msgString;
  	}
 
