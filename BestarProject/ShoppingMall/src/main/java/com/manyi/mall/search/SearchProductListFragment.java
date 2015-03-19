@@ -662,7 +662,11 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         contentTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),position+"",Toast.LENGTH_LONG).show();
+                if (position!=0){
+                    mSearchEt.setText(mHotSearchList.get(position).SearchWord);
+                    TextViewUtil.setTextSelection(mSearchEt,mSearchEt.getText().toString().length());
+                }
+
             }
         });
         return view;
