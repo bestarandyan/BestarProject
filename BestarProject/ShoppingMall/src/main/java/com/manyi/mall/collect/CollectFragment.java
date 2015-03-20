@@ -62,7 +62,7 @@ public class CollectFragment extends SuperFragment {
     @ViewById(R.id.bottomLayout)
     LinearLayout mBottomLayout;
 
-    List<CollectListBean> mList = new ArrayList<CollectListBean>();
+    List<CollectListBean> mList = new ArrayList<>();
 
     boolean isEditing = false;
     boolean isAllSelected = false;//是否全部选中
@@ -73,8 +73,6 @@ public class CollectFragment extends SuperFragment {
         setBackOp(null);
         super.onAttach(activity);
     }
-
-
 
     @AfterViews
     void init(){
@@ -124,11 +122,9 @@ public class CollectFragment extends SuperFragment {
 
     @Background
     void getData(){
-
         String msg = request.getCollect("1","20");
         mList = new JsonData().jsonCollectList(msg);
         notifyListView();
-
     }
     @UiThread
     void notifyListView(){
