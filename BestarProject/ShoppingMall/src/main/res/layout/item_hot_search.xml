@@ -19,7 +19,7 @@
     <View
         android:layout_width="0.5dp"
         android:layout_height="35dp"
-        android:background="#cfcfcf"
+        android:background="@drawable/line"
         android:layout_alignRight="@id/contentTv"
         android:layout_centerVertical="true"
         ></View>

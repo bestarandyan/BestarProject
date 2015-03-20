@@ -59,7 +59,7 @@
         android:background="@color/app_bg_color"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         >
 
         <View
@@ -95,6 +95,8 @@
                 android:paddingRight="16dp"
                 android:paddingTop="10dp"
                 android:text="删除"
+                android:drawableLeft="@drawable/delete"
+                android:drawablePadding="10dp"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/deleteBtn"
                 android:textColor="@color/color_ffffff"

@@ -97,6 +97,8 @@
                 android:layout_marginLeft="10dp"
                 android:id="@+id/deleteBtn"
                 android:text="删除"
+                android:drawableLeft="@drawable/delete"
+                android:drawablePadding="10dp"
                 android:textColor="@color/color_ffffff"
                 android:textSize="18sp" />
 
