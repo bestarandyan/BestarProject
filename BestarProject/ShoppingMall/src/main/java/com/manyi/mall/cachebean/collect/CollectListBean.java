@@ -32,6 +32,7 @@ public class CollectListBean {
     String Auditer;
     String AuditDate;
     String ApplyIP;
+    public boolean isSelected = false;
 
     public String getStatus() {
         return Status;

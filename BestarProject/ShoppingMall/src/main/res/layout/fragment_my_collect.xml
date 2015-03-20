@@ -10,7 +10,7 @@
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_layout_height"
-        android:background="@color/tetx_title_color"
+        android:background="@color/user_title_layout_bg"
         android:padding="0dp"
         android:tag="actionBar">
 
@@ -81,6 +81,7 @@
                 android:textColor="#333"
                 android:textSize="18sp"
                 style="@style/CustomCheckboxTheme"
+                android:id="@+id/checkAll"
                 />
 
             <Button

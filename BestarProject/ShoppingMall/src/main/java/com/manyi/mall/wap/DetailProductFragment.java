@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
 
@@ -32,6 +34,8 @@ public class DetailProductFragment extends SuperFragment{
     @FragmentArg
     String CustomerID;
 
+    RequestServerFromHttp request = new RequestServerFromHttp();
+
     @Click(R.id.wapBack)
     void back(){
         if (mWebview.canGoBack()){
@@ -42,18 +46,31 @@ public class DetailProductFragment extends SuperFragment{
     }
     @Background
     void getUrl(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey", "");
-        if (appkey!=null && appkey.length()>0){
-            String msg = request.getUrl(appkey);
+            String msg = request.getUrl();
             if (msg!=null && msg.contains("ProductInfo")){
                 mUrl = new JsonData().JsonUrl(msg,"ProductInfo");
                 if (mUrl!=null && mUrl.length()>0){
                     loadUrl();
                 }
             }
-        }
+    }
 
+    @Click(R.id.eidtBtn)
+    void clickEdit(){
+        addCollect();
+    }
+
+    @Background
+    void addCollect(){
+        String msg = request.addCollect(ProviderID);
+        BaseResponse baseResponse = new JsonData().JsonBase(msg);
+        if (baseResponse.getCode().equals("0")){
+            showCollectSuccess();
+        }
+    }
+    @UiThread
+    void showCollectSuccess(){
+        Toast.makeText(getActivity(),"收藏成功",Toast.LENGTH_LONG).show();
     }
 
     @Override

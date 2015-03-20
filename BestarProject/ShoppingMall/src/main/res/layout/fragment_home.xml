@@ -17,7 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_layout_height"
-            android:background="#fff"
+            android:background="@color/user_title_layout_bg"
             android:tag="actionBar">
 
             <TextView

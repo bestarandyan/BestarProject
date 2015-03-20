@@ -43,17 +43,13 @@ public class BusinessWapFragment extends SuperFragment{
     @Background
     void getUrl(){
         RequestServerFromHttp request = new RequestServerFromHttp();
-        String appkey = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE).getString("appkey", "");
-        if (appkey!=null && appkey.length()>0){
-            String msg = request.getUrl(appkey);
+            String msg = request.getUrl();
             if (msg!=null && msg.contains("WebIndex")){
                 mUrl = new JsonData().JsonUrl(msg,"WebIndex");
                 if (mUrl!=null && mUrl.length()>0){
                     loadUrl();
                 }
             }
-        }
-
     }
 
     @Override

@@ -76,6 +76,17 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
+    public String addCollect(String ProviderID){//获取用户搜索记录列表
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "AddCollection"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		msgString = getData(COLLECTTION_SERVICE, params);
+ 		return msgString;
+ 	}
+
     public String clearUserSearch(){//清空用户搜索记录列表
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -328,11 +339,11 @@ public String getForgetPsw(String mobile){
  		return msgString;
  	}
 
-    public String getUrl(String appKey){
+    public String getUrl(){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetWebURL"));
- 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		msgString = getData(GET_GETPSW_SERVICE, params);
  		return msgString;
  	}

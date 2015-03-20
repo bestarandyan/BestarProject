@@ -29,17 +29,19 @@ public class MainFragment extends SuperFragment<Object>{
 	
 	@ViewById(android.R.id.tabhost)
 	public FragmentTabHost mTabHost;
+    String userType = "2";//园长  1代表商家
 
 	@AfterViews
 	public void init() {
+        userType = BestarApplication.getInstance().getType();
         mFragmentManager = getActivity().getSupportFragmentManager();
         mTabHost.setup(getActivity(), mFragmentManager, R.id.realtabcontent);
 
         mTabHost.addTab(createSpec(Constants.TAB_1, "首页"), GeneratedClassUtils.get(HomeFragment.class), null);
         mTabHost.addTab(createSpec(Constants.TAB_2, "我的收藏"), GeneratedClassUtils.get(CollectFragment.class), null);
-        if (true){
+        if (userType.equals("2")){//园长
             mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(FootPrintListFragment.class), null);
-        }else{
+        }else{//商家
             mTabHost.addTab(createSpec(Constants.TAB_3, "我的代理"), GeneratedClassUtils.get(AgencyFragment.class), null);
         }
         mTabHost.addTab(createSpec(Constants.TAB_4, "我的"), GeneratedClassUtils.get(MineFragment.class), null);

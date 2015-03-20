@@ -8,16 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.service.RequestServerFromHttp;
@@ -33,6 +36,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.CheckedChange;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
@@ -61,6 +65,7 @@ public class CollectFragment extends SuperFragment {
     List<CollectListBean> mList = new ArrayList<CollectListBean>();
 
     boolean isEditing = false;
+    boolean isAllSelected = false;//是否全部选中
 
     RequestServerFromHttp request = new RequestServerFromHttp();
     @Override
@@ -79,6 +84,44 @@ public class CollectFragment extends SuperFragment {
 
     }
 
+    @Click(R.id.deleteBtn)
+    void clickDelete(){
+        deleteCollect();
+    }
+
+    @Background
+    void deleteCollect(){
+        String msg = request.deleteCollection(getCollectIDs());
+        BaseResponse response = new JsonData().JsonBase(msg);
+        if (response.getCode().equals("0")){
+            showDeleteSuccess();
+        }
+    }
+    @UiThread
+    void showDeleteSuccess(){
+        Toast.makeText(getActivity(),"删除成功",Toast.LENGTH_LONG).show();
+        notifyListView();
+    }
+
+    private String getCollectIDs(){
+        String msg = "";
+        for (CollectListBean bean:mList){
+            if (bean.isSelected){
+                msg+=bean.getID()+",";
+            }
+        }
+        if (msg.length()>0 && msg.endsWith(",")){
+            msg = msg.substring(0,msg.length()-1);
+        }
+        return msg;
+    }
+
+    @CheckedChange(R.id.checkAll)
+    void onCheckedChange(CompoundButton buttonView, boolean isChecked){
+        isAllSelected = isChecked;
+        notifyListView();
+    }
+
     @Background
     void getData(){
 
@@ -86,10 +129,6 @@ public class CollectFragment extends SuperFragment {
         mList = new JsonData().jsonCollectList(msg);
         notifyListView();
 
-    }
-    @Click(R.id.deleteBtn)
-    void clickDelete(){
-//        String msg = request.deleteCollection("11,12");
     }
     @UiThread
     void notifyListView(){
@@ -149,7 +188,7 @@ public class CollectFragment extends SuperFragment {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int position, View view, ViewGroup viewGroup) {
             ViewHolder holder;
             if (view == null){
                 view = LayoutInflater.from(getActivity()).inflate(R.layout.item_collect_list,null);
@@ -166,7 +205,7 @@ public class CollectFragment extends SuperFragment {
             }else{
                 holder = (ViewHolder) view.getTag();
             }
-            CollectListBean bean = mList.get(i);
+            CollectListBean bean = mList.get(position);
             holder.companyTv.setText(bean.getProviderName());
             holder.cityTv.setText(bean.getCityName());
             holder.introduceTv.setText(bean.getFilmIntroduction());
@@ -175,9 +214,16 @@ public class CollectFragment extends SuperFragment {
             holder.praiseTv.setText(String.valueOf(bean.getPraiseNum()));
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
+                holder.checkBox.setChecked(isAllSelected);
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
+            holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        mList.get(position).isSelected = isChecked;
+                }
+            });
             String imgUrl = bean.getLogo();
             if (imgUrl!=null){
                 ImageLoader.getInstance().displayImage(imgUrl, holder.img, options, animateFirstListener);
