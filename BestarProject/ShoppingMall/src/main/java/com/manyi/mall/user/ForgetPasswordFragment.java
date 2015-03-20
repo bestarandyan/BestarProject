@@ -1,6 +1,7 @@
 package com.manyi.mall.user;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
+import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
 import com.manyi.mall.R;
 import com.manyi.mall.utils.JsonData;
@@ -76,7 +78,7 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
             mGetCodeBtn.setTextColor(getResources().getColor(R.color.app_theme_color));
             mGetCodeBtn.setBackgroundResource(R.drawable.selector_mine_exit_btn_bg);
         }else{
-            mGetCodeBtn.setTextColor(Color.parseColor("#ffffff"));
+            mGetCodeBtn.setTextColor(Color.parseColor("#999999"));
             mGetCodeBtn.setBackgroundResource(R.drawable.shape_mine_exit_btn_bg_pre);
         }
     }
@@ -96,7 +98,7 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 0){
-                mGetCodeBtn.setText(mTime+"s");
+                mGetCodeBtn.setText(mTime+"秒后重发");
                 if (mTime<=0){
                     mTime = 60;
                     cancleTimeTask();
@@ -165,6 +167,24 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 		ManyiUtils.closeKeyBoard(getActivity(), mForgetCode);
 		remove();
 	}
+
+    @Click(R.id.registerBtn)
+    @UiThread
+    void regisger() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        RegisterFragment registerFragment = GeneratedClassUtils.getInstance(RegisterFragment.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("phone", mLoginUsername.getText().toString().trim());
+//        registerFragment.setArguments(bundle);
+        registerFragment.tag = RegisterFragment.class.getName();
+
+        registerFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        registerFragment.setManager(getFragmentManager());
+        registerFragment.show(SHOW_ADD_HIDE);
+//        ManyiUtils.closeKeyBoard(getActivity(), mLoginPassword);
+    }
 	
 	@Click(R.id.getPswCodeBtn)
 	void getCodeClick() {
@@ -189,7 +209,7 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
             String mobile = mForgetPhone.getText().toString().trim();
             RequestServerFromHttp request = new RequestServerFromHttp();
             String msg = request.getForgetPswCode(mobile);
-            if (msg!=null && !msg.equals("404") && msg.equals("")) {
+            if (msg!=null && !msg.equals("404") && !msg.equals("")) {
                 response = new JsonData().JsonCode(msg);
                 String code = response.getCode();
                 if (code != null) {

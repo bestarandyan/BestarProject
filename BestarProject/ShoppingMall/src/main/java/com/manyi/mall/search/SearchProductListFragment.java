@@ -149,7 +149,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
         getUserSearchRecord();
-        ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
+//        ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
         initHotView();
     }
 

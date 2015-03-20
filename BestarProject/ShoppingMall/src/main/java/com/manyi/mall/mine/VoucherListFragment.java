@@ -14,6 +14,7 @@ import com.manyi.mall.cachebean.mine.VoucherBean;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
@@ -105,6 +106,11 @@ public class VoucherListFragment extends SuperFragment implements NLPullRefreshV
         class ViewHolder{
             TextView voucherValueTv,voucherNameTv,voucherValidTv;
         }
+    }
+
+    @Click(R.id.daijinquanback)
+    void back(){
+        remove();
     }
 
 }

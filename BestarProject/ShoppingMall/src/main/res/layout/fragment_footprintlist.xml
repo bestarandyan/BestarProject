@@ -28,6 +28,7 @@
             android:src="@drawable/selector_edit_info_btn"
             android:background="@null"
             android:id="@+id/footEditBtn"
+            android:visibility="gone"
             />
         <View
             android:layout_width="match_parent"

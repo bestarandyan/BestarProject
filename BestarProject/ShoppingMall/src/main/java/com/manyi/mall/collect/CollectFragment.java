@@ -84,9 +84,7 @@ public class CollectFragment extends SuperFragment {
 
         String msg = request.getCollect("1","20");
         mList = new JsonData().jsonCollectList(msg);
-        if (mList!=null && mList.size() > 0){
-            notifyListView();
-        }
+        notifyListView();
 
     }
     @Click(R.id.deleteBtn)
@@ -97,6 +95,11 @@ public class CollectFragment extends SuperFragment {
     void notifyListView(){
         CollectListAdapter adapter = new CollectListAdapter();
         mListView.setAdapter(adapter);
+        if (mList == null || mList.size()==0){
+            mEditBtn.setVisibility(View.GONE);
+        }else{
+            mEditBtn.setVisibility(View.VISIBLE);
+        }
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){

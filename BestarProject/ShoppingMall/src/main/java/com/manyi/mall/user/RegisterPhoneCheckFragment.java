@@ -159,7 +159,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
             mGetCodeBtn.setTextColor(getResources().getColor(R.color.app_theme_color));
             mGetCodeBtn.setBackgroundResource(R.drawable.selector_mine_exit_btn_bg);
         }else{
-            mGetCodeBtn.setTextColor(Color.parseColor("#ffffff"));
+            mGetCodeBtn.setTextColor(Color.parseColor("#999999"));
             mGetCodeBtn.setBackgroundResource(R.drawable.shape_mine_exit_btn_bg_pre);
         }
     }
@@ -179,7 +179,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 0){
-                mGetCodeBtn.setText(mTime+"s");
+                mGetCodeBtn.setText(mTime+"秒后重发");
                 if (mTime<=0){
                     mTime = 60;
                     cancleTimeTask();

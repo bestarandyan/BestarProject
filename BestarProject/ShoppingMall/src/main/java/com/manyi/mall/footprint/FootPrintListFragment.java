@@ -137,6 +137,11 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         mCheckedListView.setEmptyView(emptyView);
         mAdapter = new FootprintSectionListAdapter();
         mCheckedListView.setAdapter(mAdapter);
+        if (mLists == null || mLists.size()==0){
+            mEditBtn.setVisibility(View.GONE);
+        }else{
+            mEditBtn.setVisibility(View.VISIBLE);
+        }
 
     }
     @Override

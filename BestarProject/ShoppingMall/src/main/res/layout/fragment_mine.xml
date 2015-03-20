@@ -43,7 +43,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/head"
-                            app:border_width="2dp"
+                            app:border_width="0dp"
                             android:id="@+id/headLayout"
                             app:border_color="@color/blue" />
 
@@ -126,9 +126,9 @@
                             android:layout_width="54dp"
                             toggle:onColor="@color/app_theme_color"
                             android:id="@+id/switchBtn"
-                            toggle:offColor="#fff"
+                            toggle:offColor="#CACACA"
                             toggle:spotColor="#fff"
-                            toggle:offBorderColor="#a1a1a1"
+                            toggle:offBorderColor="#CACACA"
                             toggle:borderWidth="1dp"
                             android:paddingLeft="10dp"
                             android:layout_marginRight="10dp"
