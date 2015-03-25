@@ -1,5 +1,11 @@
 package com.manyi.mall.user;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +15,11 @@ import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.BaseResponse;
+import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.utils.JsonData;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -17,6 +27,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+
 
 @EFragment(R.layout.fragment_update_password)
 public class UpdatePswFragment extends SuperFragment<Integer> {
@@ -39,8 +50,22 @@ public class UpdatePswFragment extends SuperFragment<Integer> {
 	}
 
 	@UiThread
-	public void showDialog(String e) {
-		DialogBuilder.showSimpleDialog(e, getBackOpActivity());
+	public void showDialog(final BaseResponse response) {
+		DialogBuilder.showSimpleDialog(response.getMessage(), getBackOpActivity(),new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (response.getCode() .equals("0") ){
+                    String newPsw = mNewPswEt.getText().toString().trim();
+                    SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editor1 = userInfo.edit();
+                    editor1.putString("password", newPsw);
+                    editor1.commit();
+
+                    BestarApplication.getInstance().setPassword(newPsw);
+                    remove();
+                }
+            }
+        });
 	}
 
 
@@ -60,6 +85,10 @@ public class UpdatePswFragment extends SuperFragment<Integer> {
 		}else if (TextUtils.isEmpty(mAgainPswEt.getText().toString()) || TextUtils.isEmpty(mAgainPswEt.getText().toString().trim())) {
             DialogBuilder.showSimpleDialog("请再次输入新密码", getBackOpActivity());
             return;
+        }else if(!mNewPswEt.getText().toString().trim().equals(mAgainPswEt.getText().toString().trim())){
+            DialogBuilder.showSimpleDialog("两次输入的新密码不一致！", getBackOpActivity());
+        }else if(mOldPswEt.getText().toString().trim().equals(mNewPswEt.getText().toString().trim())){
+            DialogBuilder.showSimpleDialog("新密码和原密码相同！", getBackOpActivity());
         }else{
             updatePsw();
         }
@@ -67,14 +96,12 @@ public class UpdatePswFragment extends SuperFragment<Integer> {
 
     @Background
     void updatePsw(){
-//        String mobile = mForgetPhone.getText().toString().trim();
-//        RequestServerFromHttp request = new RequestServerFromHttp();
-//        String msg = request.getForgetPsw(mobile);
-//        BaseResponse response = new JsonData().JsonBase(msg);
-//        showDialog(response.getMessage());
-//        if (response.getCode().equals("0")){
-//            remove();
-//        }
+        String newPsw = mNewPswEt.getText().toString().trim();
+        String oldPsw = mOldPswEt.getText().toString().trim();
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.updatePsw(newPsw,oldPsw);
+        BaseResponse response = new JsonData().JsonBase(msg);
+        showDialog(response);
     }
 
 	@Click(R.id.updatePswBack)
