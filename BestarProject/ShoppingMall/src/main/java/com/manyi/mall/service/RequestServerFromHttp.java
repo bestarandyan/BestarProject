@@ -264,6 +264,18 @@ public String login(String userName,String psw){
  		return msgString;
  	}
 
+    public String updatePsw(String NewPassword,String OldPassword){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "ModifyPassword"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		params.add(new BasicNameValuePair("NewPassword", NewPassword));
+ 		params.add(new BasicNameValuePair("OldPassword", OldPassword));
+ 		msgString = getData(GET_GETPSW_SERVICE, params);
+ 		return msgString;
+ 	}
+
     public String deleteCollection(String ProviderIDs){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
