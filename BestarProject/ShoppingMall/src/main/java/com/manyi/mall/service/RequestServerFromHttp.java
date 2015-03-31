@@ -307,21 +307,21 @@ public String getForgetPsw(String mobile){
  		return msgString;
  	}
 
- public String getTypeSecond(String appKey,String classId){
+ public String getTypeSecond(String classId){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetSecondClass"));
- 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("ClassID", classId));
  		msgString = getData(SHOPCLASS_SERVICE, params);
  		return msgString;
  	}
 
-    public String getProductList(String appKey,String id,String productNum){
+    public String getProductList(String id,String productNum){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetSecondClassAndProductList"));
- 		params.add(new BasicNameValuePair("appKey", appKey));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("ID", id));
  		params.add(new BasicNameValuePair("ProductNum", productNum));
  		msgString = getData(SHOPCLASS_SERVICE, params);
@@ -338,6 +338,19 @@ public String getForgetPsw(String mobile){
  		params.add(new BasicNameValuePair("PageSize", PageSize));
  		params.add(new BasicNameValuePair("OrderByField", "ID"));
  		params.add(new BasicNameValuePair("OrderWay", "desc"));
+ 		msgString = getData(PRODUCT_SERVICE, params);
+ 		return msgString;
+ 	}
+    public String getProductsByFirstId(String classId,String PageIndex,String PageSize,String field,String way){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetProductListByFirstClassID"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("FirstClassID", classId));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		params.add(new BasicNameValuePair("OrderByField", field));
+ 		params.add(new BasicNameValuePair("OrderWay", way));
  		msgString = getData(PRODUCT_SERVICE, params);
  		return msgString;
  	}

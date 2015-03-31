@@ -2,6 +2,7 @@ package com.manyi.mall.search;
 
 import android.animation.LayoutTransition;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -75,6 +76,7 @@ import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FocusChange;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
@@ -124,6 +126,9 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     @ViewById(R.id.historyListView)
     ListView mHistoryListView;
 
+    @FragmentArg
+    boolean isHaveHistory;
+
     ViewpageAdapter mViewPageAdapter = null;
     int RadioID = 0x001100;
 
@@ -143,20 +148,64 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     private int orderSelected = 0;//已选择的排序下标
     RequestServerFromHttp request = new RequestServerFromHttp();
     TextView mFootView;
+    ProgressDialog mProgressDialog;
+    @FragmentArg
+    Long classId;
+
+    private void showDialog(String msg){
+        if (mProgressDialog!=null){
+            mProgressDialog = null;
+        }
+        mProgressDialog = new ProgressDialog(getActivity(),ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setMessage(msg);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+    }
+
+    private void dismissDialog(){
+        if (mProgressDialog!=null){
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
+        }
+    }
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
-        getUserSearchRecord();
+        if (isHaveHistory){
+            getUserSearchRecord();
 //        ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
-        initHotView();
+            initHotView();
+        }else{
+            showDialog("加载数据中，请稍候...");
+            mFiltrateView.setVisibility(View.VISIBLE);
+            getProductListFromID();
+            getSecondListFromFirstId();
+            getOrderInfo();
+        }
     }
 
     private void initHotView(){
         mViewPageAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mViewPageAdapter);
         getAdvertData();
+    }
+    @Background
+    void getProductListFromID(){
+        String msg = request.getProductsByFirstId(classId + "", "0", "20", "ID", "desc");
+        mLists =  new JsonData().jsonFootprint(msg);
+        notifySearchListView(false);
+    }
+
+    @Background
+    void getSecondListFromFirstId(){
+        String msg = request.getTypeSecond(classId+"");
+        mTypeLists =  new JsonData().jsonTypeProductList(msg);
+        typeArray = new String[mTypeLists.size()];
+        for (int i=0;i<mTypeLists.size();i++){
+            typeArray[i] = mTypeLists.get(i).ClassName;
+        }
     }
     @Background
     public void getAdvertData() {
@@ -317,11 +366,12 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         mCheckedListView.setEmptyView(emptyView);
         mAdapter = new ProductSectionListAdapter();
         mCheckedListView.setAdapter(mAdapter);
-        if (mLists!=null && mLists.size()>0){
-            mFiltrateView.setVisibility(View.VISIBLE);
-        }else{
-            mFiltrateView.setVisibility(View.GONE);
-        }
+        dismissDialog();
+//        if (mLists!=null && mLists.size()>0){
+//            mFiltrateView.setVisibility(View.VISIBLE);
+//        }else{
+//            mFiltrateView.setVisibility(View.GONE);
+//        }
     }
     @Override
     public void onRefresh(NLPullRefreshView view) {

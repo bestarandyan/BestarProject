@@ -569,27 +569,27 @@ public class HomeFragment extends SuperFragment<Object> {
 
     @Click(R.id.searchBtn)
     void search() {
-        gotoProductListFragment();
+        gotoProductListFragment(true,0l);
     }
 
     @Click(R.id.model1Layout1)
     void model1Layout1() {
-        gotoProductListFragment();
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).getID());
     }
     @Click(R.id.model1Layout2)
     void model1Layout2() {
-        gotoProductListFragment();
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).getID());
     }
     @Click(R.id.model1Layout3)
     void model1Layout3() {
-        gotoProductListFragment();
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).getID());
     }
     @Click(R.id.model1Layout4)
     void model1Layout4() {
-        gotoProductListFragment();
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).getID());
     }
 
-    private void gotoProductListFragment(){
+    private void gotoProductListFragment(boolean isHaveHistory,Long classid){
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
@@ -597,6 +597,10 @@ public class HomeFragment extends SuperFragment<Object> {
         productListFragment.tag = SearchProductListFragment.class.getName();
         productListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("isHaveHistory",isHaveHistory);
+        bundle.putLong("classId",classid);
+        productListFragment.setArguments(bundle);
         productListFragment.setContainerId(R.id.main_container);
         productListFragment.setManager(getFragmentManager());
 
