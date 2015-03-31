@@ -20,7 +20,7 @@ repositories {
 
 
 dependencies {
-    compile 'com.facebook.rebound:rebound:0.3.+'
+    compile 'com.facebook.rebound:rebound:0.3.7'
     compile files('libs/gson-1.7.1.jar')
 }
 
