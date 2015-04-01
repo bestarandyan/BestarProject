@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.LayoutAnimationController;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -121,6 +122,10 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     EditText mSearchEt;
     @ViewById(R.id.selectLayoutLine)
     View mLine;
+    @ViewById(R.id.titleView)
+    TextView mTitleView;
+    @ViewById(R.id.inputLayout)
+    RelativeLayout mInputLayout;
 
     @ViewById(R.id.clearBtn)
     ImageButton mClearBtn;
@@ -153,6 +158,8 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     ProgressDialog mProgressDialog;
     @FragmentArg
     Long classId;
+    @FragmentArg
+    String title;
 
     private void showDialog(String msg){
         if (mProgressDialog!=null){
@@ -176,10 +183,12 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
         if (isHaveHistory){
+            hasInputLayout(true);
             getUserSearchRecord();
 //        ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
             initHotView();
         }else{
+            hasInputLayout(false);
             showDialog("加载数据中，请稍候...");
             mFiltrateView.setVisibility(View.VISIBLE);
             getProductListFromID();
@@ -187,7 +196,16 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             getOrderInfo();
         }
     }
-
+    private void hasInputLayout(boolean have){
+        if (have){
+            mTitleView.setVisibility(View.GONE);
+            mInputLayout.setVisibility(View.VISIBLE);
+        }else{
+            mTitleView.setText(title);
+            mTitleView.setVisibility(View.VISIBLE);
+            mInputLayout.setVisibility(View.GONE);
+        }
+    }
     private void initHotView(){
         mViewPageAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mViewPageAdapter);
@@ -226,6 +244,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         }
         if (mSearchEt.getText().toString().trim().length() > 0){
             mClearBtn.setVisibility(View.VISIBLE);
+            mFiltrateView.setVisibility(View.VISIBLE);
             getData();
             getDataType();
             getOrderInfo();
@@ -234,6 +253,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             if (mLists!=null){
                 mLists.clear();
             }
+            mFiltrateView.setVisibility(View.GONE);
             notifySearchListView(false);
             getUserSearchRecord();
         }
@@ -368,6 +388,18 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         mCheckedListView.setEmptyView(emptyView);
         mAdapter = new ProductSectionListAdapter();
         mCheckedListView.setAdapter(mAdapter);
+        mCheckedListView.setPinHeaders(false);
+        mCheckedListView.setOnItemClickListener(new PinnedHeaderListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int section, int position, long id) {
+                OnItemClick(section,position);
+            }
+
+            @Override
+            public void onSectionClick(AdapterView<?> adapterView, View view, int section, long id) {
+                OnSectionItemClick(section);
+            }
+        });
         dismissDialog();
 //        if (mLists!=null && mLists.size()>0){
 //            mFiltrateView.setVisibility(View.VISIBLE);
@@ -436,7 +468,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             // Map<String,String> map = ((ArrayList<Map<String,String>>)mList.get(section).get("itemList")).get(position);
             final Map<String,String> response = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
             holder.productNameTv.setText(response.get("ProductName"));
-            holder.moneyTv.setText(response.get("Price"));
+            holder.moneyTv.setText("￥"+response.get("Price"));
             holder.clickCountTv.setText(response.get("ClickNum"));
             holder.visitCountTv.setText(response.get("ConsultNum"));
             holder.priaseCountTv.setText(response.get("PraiseNum"));
@@ -446,13 +478,13 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             }else{
                 holder.imageView.setBackgroundResource(R.drawable.take_photos_list_no__thumbnail);
             }
-            convertView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    OnItemClick(section,position);
-                }
-            });
+//            convertView.setOnClickListener(new View.OnClickListener() {
+//
+//                @Override
+//                public void onClick(View v) {
+//                    OnItemClick(section,position);
+//                }
+//            });
             return convertView;
         }
 
@@ -481,12 +513,12 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             String cityName = mLists.get(section).get("ProviderCityName").toString();
             holder.companyNameTv.setText(companyName);
             holder.cityNameTv.setText(cityName);
-            holder.companyNameTv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    OnSectionItemClick(section);
-                }
-            });
+//            holder.companyNameTv.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    OnSectionItemClick(section);
+//                }
+//            });
             return convertView;
         }
     }
@@ -507,6 +539,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             mFiltrateView.addSelectLayout(getActivity(),arrayAdapter,mLine,new SelectItemClickListener() {
                 @Override
                 public void ItemClick(int position) {
+                    mSelectLayout1.setText(typeArray[position]);
                     mFiltrateView.closeSelectView();
                     typeSelected = position;
                     getDataByInputAndType();
@@ -548,6 +581,8 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
                 @Override
                 public void ItemClick(int position) {
                     orderSelected = position;
+                    mSelectLayout2.setText(noopsycheArray[position]);
+                    mSelectLayout2.setTextColor(getResources().getColor(R.color.app_theme_color));
                     mFiltrateView.closeSelectView();
                     getDataByInputAndType();
                 }

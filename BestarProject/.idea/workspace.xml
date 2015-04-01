@@ -109,20 +109,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="749a56cd-93d4-48a1-bb5a-494578f1216b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_search_product_sections.xml" />
-      <change type="DELETED" beforePath="D:\src\BestarProject\BestarProject\BestarProject\BestarProject.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\src\BestarProject\BestarProject\BestarProject\Framework\Framework.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\src\BestarProject\BestarProject\BestarProject\ShoppingMall\ShoppingMall.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\src\BestarProject\BestarProject\BestarProject\Widget\Widget.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Framework/libs/Native_Libs1.jar" afterPath="$PROJECT_DIR$/Framework/libs/Native_Libs1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/launcher_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-mdpi/launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-mdpi/launcher_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-nodpi/launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-nodpi/launcher_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xhdpi/launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xhdpi/launcher_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xxhdpi/launcher_icon.png" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xxhdpi/launcher_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/DetailProductFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/DetailProductFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_main.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_search_product.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_search_product.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml" afterPath="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BestarProject.iws" />
@@ -146,48 +139,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DetailProductFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/DetailProductFragment.java">
+      <file leaf-file-name="HomeFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.09375" vertical-offset="803" max-vertical-offset="1786">
-              <caret line="88" column="53" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
+            <state vertical-scroll-proportion="-16.741936" vertical-offset="9361" max-vertical-offset="10431">
+              <caret line="598" column="114" selection-start-line="598" selection-start-column="114" selection-end-line="598" selection-end-column="114" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.28" vertical-offset="0" max-vertical-offset="608">
-              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="launcher_icon.png" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xhdpi/launcher_icon.png">
-          <provider selected="true" editor-type-id="images">
+      <file leaf-file-name="fragment_home.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BusinessWapFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/BusinessWapFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="1482">
-              <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
+            <state vertical-scroll-proportion="-4.7" vertical-offset="15211" max-vertical-offset="18525">
+              <caret line="808" column="62" selection-start-line="808" selection-start-column="62" selection-end-line="808" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestServerFromHttp.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/RequestServerFromHttp.java">
+      <file leaf-file-name="MainFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/MainFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7847">
-              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2147">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_main.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_main.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.592721" vertical-offset="0" max-vertical-offset="577">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -196,47 +188,25 @@
       <file leaf-file-name="SearchProductListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.375" vertical-offset="8633" max-vertical-offset="12730">
-              <caret line="607" column="90" selection-start-line="607" selection-start-column="90" selection-end-line="607" selection-end-column="90" />
+            <state vertical-scroll-proportion="-9.096774" vertical-offset="1884" max-vertical-offset="13433">
+              <caret line="203" column="36" selection-start-line="203" selection-start-column="36" selection-end-line="203" selection-end-column="36" />
               <folding>
-                <element signature="e#16929#17113#0" expanded="true" />
-                <element signature="e#17098#17099#0" expanded="true" />
-                <element signature="e#18434#18615#0" expanded="true" />
-                <element signature="e#18600#18601#0" expanded="true" />
+                <element signature="e#20666#21017#0" expanded="true" />
+                <element signature="e#21002#21003#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FiltrateView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/filtrate/FiltrateView.java">
+      <file leaf-file-name="PinnedHeaderListView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Widget/src/com/huoqiu/widget/pinnedlistview/PinnedHeaderListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="2717">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_search_product_sections.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_search_product_sections.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.290323" vertical-offset="0" max-vertical-offset="950">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonData.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/utils/JsonData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4210" max-vertical-offset="7847">
-              <caret line="235" column="37" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="37" />
-              <folding />
+            <state vertical-scroll-proportion="-20.903225" vertical-offset="1100" max-vertical-offset="3876">
+              <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+              <folding>
+                <element signature="e#1716#1717#0" expanded="true" />
+                <element signature="e#1754#1755#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2245,8 +2215,8 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="D:/apple" value="7138439834637" />
         <entry key="$PROJECT_DIR$" value="7139342937669" />
-        <entry key="$PROJECT_DIR$/../../../apple" value="7138439834637" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2468,8 +2438,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/wap/DetailProductFragment.java" />
-        <option value="$PROJECT_DIR$/ShoppingMall/res/layout/fragment_home.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/user/LoginFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/user/RegisterPhoneCheckFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/com/manyi/mall/home/HomeFragment.java" />
@@ -2488,7 +2456,6 @@
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/agency/AgencyFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/mine/FootprintListResponse.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/RegisterPhoneCheckFragment.java" />
-        <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/search/TypeProductBean.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_product_list.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/search/OrderInfoBean.java" />
@@ -2497,13 +2464,11 @@
         <option value="$PROJECT_DIR$/ShoppingMall/build.gradle" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_agency_pay.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_voucher.xml" />
-        <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/values/check_bg.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/check_bg.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_collect_list.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_sections.xml" />
-        <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/VoucherListFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/footprint/FootPrintListFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/collect/CollectFragment.java" />
@@ -2516,17 +2481,22 @@
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/UpdatePswFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_search_product_sections.xml" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/BusinessWapFragment.java" />
-        <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/DetailProductFragment.java" />
         <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_search_product.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_main.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="-8" />
-    <option name="width" value="1874" />
-    <option name="height" value="1212" />
+    <option name="x" value="65" />
+    <option name="y" value="1" />
+    <option name="width" value="1534" />
+    <option name="height" value="898" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -2558,7 +2528,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="2" />
+    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -2573,6 +2543,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BestarProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2624,6 +2604,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BestarProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BestarProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShoppingMall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BestarProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BestarProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShoppingMall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2761,18 +2797,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BestarProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3062,12 +3088,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1212" extended-state="0" />
-    <editor active="true" />
+    <frame x="65" y="1" width="1534" height="898" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31117022" sideWeight="0.4979757" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3075,29 +3100,30 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2393617" sideWeight="0.5020243" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3062914" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17191978" sideWeight="0.49865046" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30612245" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17166212" sideWeight="0.49865046" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17438692" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.4997242" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20821394" sideWeight="0.7887989" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13079019" sideWeight="0.7887989" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1143617" sideWeight="0.21120109" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2102649" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33265308" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.619403" sideWeight="0.5008274" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.591213" sideWeight="0.4997242" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24966262" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07354346" sideWeight="0.58232117" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.072207086" sideWeight="0.58232117" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16161059" sideWeight="0.500684" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.591213" sideWeight="0.4997242" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3108,19 +3134,19 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24966262" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07354346" sideWeight="0.58232117" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.072207086" sideWeight="0.58232117" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31117022" sideWeight="0.4979757" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3062914" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17191978" sideWeight="0.49865046" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30612245" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17166212" sideWeight="0.49865046" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17438692" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.4997242" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20821394" sideWeight="0.7887989" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13079019" sideWeight="0.7887989" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1143617" sideWeight="0.21120109" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2102649" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21020408" sideWeight="0.499316" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.619403" sideWeight="0.5008274" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.591213" sideWeight="0.4997242" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3184,12 +3210,6 @@
           <line>194</line>
           <properties />
           <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/LoginFragment.java</url>
-          <line>135</line>
-          <properties />
-          <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/LoginFragment.java</url>
@@ -3265,7 +3285,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java</url>
-          <line>612</line>
+          <line>647</line>
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
@@ -3276,58 +3296,10 @@
           <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="70" />
+      <option name="time" value="72" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/cachebean/search/OrderInfoBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37093276" vertical-offset="0" max-vertical-offset="461">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/MineFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6479">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_mine.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3" vertical-offset="2167" max-vertical-offset="6821">
-          <caret line="124" column="64" selection-start-line="124" selection-start-column="64" selection-end-line="124" selection-end-column="64" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/switchView/ToggleButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5491">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2033">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_agency.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325359" vertical-offset="450" max-vertical-offset="893">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/agency/AgencyFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1748">
@@ -3343,13 +3315,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_agency_pay.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.633333" vertical-offset="171" max-vertical-offset="1121">
           <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/section_item_selector.xml">
@@ -3359,21 +3331,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="843" max-vertical-offset="2603">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_voucher.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.7" vertical-offset="601" max-vertical-offset="1292">
           <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/values/styles.xml">
@@ -3391,33 +3356,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_collect_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8" vertical-offset="95" max-vertical-offset="2660">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.266666" vertical-offset="417" max-vertical-offset="2698">
-          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_voucher_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.8128342" vertical-offset="532" max-vertical-offset="1691">
           <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/mine/VoucherListFragment.java">
@@ -3428,13 +3383,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_more_user_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.533334" vertical-offset="474" max-vertical-offset="10089">
           <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/MoreUserInfoFragment.java">
@@ -3468,23 +3423,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_footprintlist.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0090909" vertical-offset="1456" max-vertical-offset="2185">
           <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_collect.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_my_collect.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="785" max-vertical-offset="2147">
           <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/drawable/shape_home_top_search_bg.xml">
@@ -3494,29 +3449,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_search_product.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1786" max-vertical-offset="3933">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-hdpi/line.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_hot_search.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.85" vertical-offset="44" max-vertical-offset="722">
           <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/com/huoqiu/framework/backstack/BackOpFragment.java">
@@ -3538,15 +3483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1501">
           <caret line="17" column="97" selection-start-line="17" selection-start-column="89" selection-end-line="17" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1921" max-vertical-offset="3458">
-          <caret line="155" column="70" selection-start-line="146" selection-start-column="15" selection-end-line="155" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3554,28 +3490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1432" max-vertical-offset="2470">
           <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45949537" vertical-offset="3986" max-vertical-offset="18354">
-          <caret line="228" column="60" selection-start-line="228" selection-start-column="49" selection-end-line="228" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.15625" vertical-offset="2842" max-vertical-offset="10241">
-          <caret line="233" column="82" selection-start-line="233" selection-start-column="82" selection-end-line="233" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3583,7 +3497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.76" vertical-offset="7234" max-vertical-offset="8493">
           <caret line="387" column="1122" selection-start-line="387" selection-start-column="1122" selection-end-line="387" selection-end-column="1122" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3591,7 +3504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48796147" vertical-offset="0" max-vertical-offset="2641">
           <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3599,15 +3511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/utils/JsonData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4210" max-vertical-offset="7847">
-          <caret line="235" column="37" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3620,33 +3523,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_sections.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2094818" vertical-offset="0" max-vertical-offset="1083">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_search_product_sections.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/filtrate/FiltrateView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="2717">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_search_product_sections.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.290323" vertical-offset="0" max-vertical-offset="950">
+        <state vertical-scroll-proportion="0.0" vertical-offset="722" max-vertical-offset="950">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/BusinessWapFragment.java">
@@ -3657,39 +3552,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/RequestServerFromHttp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7847">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.375" vertical-offset="8633" max-vertical-offset="12730">
-          <caret line="607" column="90" selection-start-line="607" selection-start-column="90" selection-end-line="607" selection-end-column="90" />
-          <folding>
-            <element signature="e#16929#17113#0" expanded="true" />
-            <element signature="e#17098#17099#0" expanded="true" />
-            <element signature="e#18434#18615#0" expanded="true" />
-            <element signature="e#18600#18601#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/wap/DetailProductFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.09375" vertical-offset="803" max-vertical-offset="1786">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1672" max-vertical-offset="2204">
           <caret line="88" column="53" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.28" vertical-offset="0" max-vertical-offset="608">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -3698,13 +3564,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="797">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/drawable-xhdpi/launcher_icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6" vertical-offset="57" max-vertical-offset="608">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/utils/JsonData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.45652175" vertical-offset="4210" max-vertical-offset="7847">
+          <caret line="235" column="37" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/interfaces/SelectViewCloseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="703">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/widget/filtrate/FiltrateView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1419" max-vertical-offset="2717">
+          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1900" max-vertical-offset="2603">
+          <caret line="122" column="17" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/item_footprint_list_product.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="650" max-vertical-offset="2698">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/user/LoginFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1760" max-vertical-offset="3458">
+          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_search_product.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.233334" vertical-offset="3021" max-vertical-offset="4294">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/service/RequestServerFromHttp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7279" max-vertical-offset="7847">
+          <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/build/generated/source/apt/debug/com/manyi/mall/search/SearchProductListFragment_.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.52" vertical-offset="45" max-vertical-offset="7524">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/androiddevlop/sdk/platforms/android-20/android.jar!/android/view/ViewGroup.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="5179" max-vertical-offset="7524">
+          <caret line="284" column="29" selection-start-line="284" selection-start-column="29" selection-end-line="284" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Widget/src/com/huoqiu/widget/pinnedlistview/PinnedHeaderListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.903225" vertical-offset="1100" max-vertical-offset="3876">
+          <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+          <folding>
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/search/SearchProductListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.096774" vertical-offset="1884" max-vertical-offset="13433">
+          <caret line="203" column="36" selection-start-line="203" selection-start-column="36" selection-end-line="203" selection-end-column="36" />
+          <folding>
+            <element signature="e#20666#21017#0" expanded="true" />
+            <element signature="e#21002#21003#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/home/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.741936" vertical-offset="9361" max-vertical-offset="10431">
+          <caret line="598" column="114" selection-start-line="598" selection-start-column="114" selection-end-line="598" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_home.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.7" vertical-offset="15211" max-vertical-offset="18525">
+          <caret line="808" column="62" selection-start-line="808" selection-start-column="62" selection-end-line="808" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/java/com/manyi/mall/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2147">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShoppingMall/src/main/res/layout/fragment_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.592721" vertical-offset="0" max-vertical-offset="577">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

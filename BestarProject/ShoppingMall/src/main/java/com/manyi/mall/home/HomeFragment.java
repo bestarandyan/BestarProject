@@ -229,21 +229,7 @@ public class HomeFragment extends SuperFragment<Object> {
         super.onDestroy();
     }
 
-    @Click(R.id.shujuLayout)
-    void gotoDetailProdect(){
-        DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
-        fragment.tag = DetailProductFragment.class.getName();
-        Bundle bundle = new Bundle();
-        bundle.putString("ProviderID", "11");
-        bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
-        fragment.setArguments(bundle);
-        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
-        fragment.setContainerId(R.id.main_container);
-        fragment.setManager(getFragmentManager());
 
-        fragment.show(SuperFragment.SHOW_ADD_HIDE);
-    }
 
     @Override
     public void onPause() {
@@ -569,27 +555,50 @@ public class HomeFragment extends SuperFragment<Object> {
 
     @Click(R.id.searchBtn)
     void search() {
-        gotoProductListFragment(true,0l);
+        gotoProductListFragment(true,0l,"");
     }
 
     @Click(R.id.model1Layout1)
     void model1Layout1() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).getID());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).getID(),mDataList.get(mDataList.size()-1).getClassName());
     }
     @Click(R.id.model1Layout2)
     void model1Layout2() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).getID());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).getID(),mDataList.get(mDataList.size()-2).getClassName());
     }
     @Click(R.id.model1Layout3)
     void model1Layout3() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).getID());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).getID(),mDataList.get(mDataList.size()-3).getClassName());
     }
     @Click(R.id.model1Layout4)
     void model1Layout4() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).getID());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).getID(),mDataList.get(mDataList.size()-4).getClassName());
     }
-
-    private void gotoProductListFragment(boolean isHaveHistory,Long classid){
+    @Click(R.id.shujuLayout)
+    void gotoDetailProdect(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-5).getID(),mDataList.get(mDataList.size()-5).getClassName());
+    }
+    @Click(R.id.jiamengliansuo)
+    void jiameng(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-6).getID(),mDataList.get(mDataList.size()-6).getClassName());
+    }
+    @Click(R.id.peixun)
+    void peixun(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-7).getID(),mDataList.get(mDataList.size()-7).getClassName());
+    }
+    @Click(R.id.zaojiao)
+    void zaojiao(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-8).getID(),mDataList.get(mDataList.size()-8).getClassName());
+    }
+    @Click(R.id.riyongpin)
+    void riyongpin(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-9).getID(),mDataList.get(mDataList.size()-9).getClassName());
+    }
+    @Click(R.id.zhuangxiu)
+    void zhuangxiu(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-10).getID(),mDataList.get(mDataList.size()-10).getClassName());
+    }
+    private void gotoProductListFragment(boolean isHaveHistory,Long classid,String title){
         if (CheckDoubleClick.isFastDoubleClick()){
             return;
         }
@@ -600,6 +609,7 @@ public class HomeFragment extends SuperFragment<Object> {
         Bundle bundle = new Bundle();
         bundle.putBoolean("isHaveHistory",isHaveHistory);
         bundle.putLong("classId",classid);
+        bundle.putString("title",title);
         productListFragment.setArguments(bundle);
         productListFragment.setContainerId(R.id.main_container);
         productListFragment.setManager(getFragmentManager());

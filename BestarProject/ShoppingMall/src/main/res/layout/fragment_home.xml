@@ -273,6 +273,7 @@
                                     android:layout_weight="1"
                                     android:background="#fff"
                                     android:orientation="horizontal"
+                                    android:id="@+id/jiamengliansuo"
                                     android:padding="10dp">
 
                                     <LinearLayout
@@ -318,6 +319,7 @@
                                     android:layout_weight="1"
                                     android:background="#fff"
                                     android:orientation="horizontal"
+                                    android:id="@+id/peixun"
                                     android:padding="10dp">
 
                                     <LinearLayout
@@ -370,6 +372,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/color_ffffff"
+                            android:id="@+id/zaojiao"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -498,6 +501,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/color_ffffff"
+                            android:id="@+id/riyongpin"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -742,6 +746,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/color_ffffff"
+                            android:id="@+id/zhuangxiu"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -801,6 +806,7 @@
                                         android:layout_marginTop="6dp"
                                         android:text="最新科技"
                                         android:textColor="#CFCFCF"
+                                        android:maxLength="10"
                                         android:textSize="@dimen/_12" />
 
                                     <LinearLayout
@@ -839,6 +845,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
                                         android:text="儿童音乐"
+                                        android:singleLine="true"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
@@ -878,6 +885,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
                                         android:text="可爱桌椅"
+                                        android:singleLine="true"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
@@ -917,6 +925,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
                                         android:text="可爱桌椅"
+                                        android:singleLine="true"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 

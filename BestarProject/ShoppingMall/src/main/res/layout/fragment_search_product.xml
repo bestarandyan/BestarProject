@@ -36,6 +36,8 @@
                 android:layout_toRightOf="@id/search_back"
                 android:background="@drawable/shape_home_top_search_bg"
                 android:gravity="center"
+                android:visibility="gone"
+                android:id="@+id/inputLayout"
                 android:layout_marginRight="10dp"
                 android:orientation="horizontal">
                 <ImageButton
@@ -63,7 +65,22 @@
                     android:singleLine="true"
                     android:layout_toLeftOf="@id/clearBtn"
                     android:textColor="#a1a1a1" />
+
             </RelativeLayout>
+            <TextView
+                android:id="@+id/titleView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:text="配套设备"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                />
         </RelativeLayout>
 
         <RelativeLayout
@@ -152,7 +169,7 @@
                         android:drawableRight="@drawable/icon_down"
                         android:gravity="center_vertical"
                         android:padding="10dp"
-                        android:text="户外大型游乐"
+                        android:text="智能筛选"
                         android:textColor="#80000000" />
 
                     <View
@@ -194,7 +211,9 @@
                         android:id="@+id/searchListView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:divider="@null"></com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
+                        android:divider="#E8E8E8"
+                        android:dividerHeight="1dp"
+                        ></com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
                 </com.manyi.mall.widget.refreshview.NLPullRefreshView>
             </com.manyi.mall.widget.filtrate.FiltrateView>
         </RelativeLayout>
