@@ -33,6 +33,8 @@ public class DetailProductFragment extends SuperFragment{
     String ProviderID;
     @FragmentArg
     String CustomerID;
+    @FragmentArg
+    String ProductID;
 
     RequestServerFromHttp request = new RequestServerFromHttp();
 
@@ -82,10 +84,9 @@ public class DetailProductFragment extends SuperFragment{
             return super.canFragmentGoback(from);
         }
     }
-
     @UiThread
     void loadUrl(){
-        String url = mUrl+"?ProviderID="+ProviderID+"&&CustomerID="+CustomerID;
+        String url = mUrl+"?ProductID="+ProductID+"&&ProviderID="+ProviderID+"&&CustomerID="+CustomerID;
         mWebview.loadUrl(url);
     }
 

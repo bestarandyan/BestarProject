@@ -20,6 +20,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.GridView;
@@ -58,6 +59,7 @@ import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.utils.HardwareInfo;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.utils.TextViewUtil;
+import com.manyi.mall.wap.BusinessWapFragment;
 import com.manyi.mall.wap.DetailProductFragment;
 import com.manyi.mall.widget.filtrate.FiltrateView;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
@@ -464,11 +466,11 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         }
 
         @Override
-        public View getSectionHeaderView(int section, View convertView, ViewGroup parent) {
+        public View getSectionHeaderView(final int section, View convertView, ViewGroup parent) {
             SectionHolder holder = null;
             if (convertView == null) {
                 holder = new SectionHolder();
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_footprint_list_sections, null);
+                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_search_product_sections, null);
                 holder.companyNameTv = (TextView) convertView.findViewById(R.id.companyNameTv);
                 holder.cityNameTv = (TextView) convertView.findViewById(R.id.cityNameTv);
                 convertView.setTag(holder);
@@ -479,6 +481,12 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             String cityName = mLists.get(section).get("ProviderCityName").toString();
             holder.companyNameTv.setText(companyName);
             holder.cityNameTv.setText(cityName);
+            holder.companyNameTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    OnSectionItemClick(section);
+                }
+            });
             return convertView;
         }
     }
@@ -584,7 +592,23 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
         fragment.tag = DetailProductFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProviderID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
+        bundle.putString("ProductID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
+        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
+        bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
+        fragment.setArguments(bundle);
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setContainerId(R.id.main_container);
+        fragment.setManager(getFragmentManager());
+
+        fragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
+
+    void OnSectionItemClick(int section){
+        BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
+        fragment.tag = BusinessWapFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
