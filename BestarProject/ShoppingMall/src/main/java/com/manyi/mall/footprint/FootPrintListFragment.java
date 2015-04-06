@@ -1,6 +1,7 @@
 package com.manyi.mall.footprint;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,7 +9,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +27,7 @@ import com.manyi.mall.R;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.wap.BusinessWapFragment;
 import com.manyi.mall.wap.DetailProductFragment;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -37,6 +41,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.CheckedChange;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
@@ -58,17 +63,22 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     @ViewById(R.id.footEditBtn)
     ImageButton mEditBtn;
 
+    @ViewById(R.id.allCheckedView)
+    CheckBox mAllCheckBox;
+
     FootprintSectionListAdapter mAdapter = null;
     List<Map<String,Object>> mLists =null;
     @ViewById(R.id.bottomLayout)
     LinearLayout mBottomLayout;
     boolean isEditing = false;
+    ProgressDialog mProgressDialog;
     RequestServerFromHttp request = new RequestServerFromHttp();
     @AfterViews
     void init(){
         mRefreshableView.setRefreshListener(this);
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
+        showProgressDialog("数据加载中，请稍候...");
         getData();
     }
     void OnItemClick(int section,int position){
@@ -84,6 +94,41 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         fragment.setManager(getFragmentManager());
 
         fragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
+    void OnSectionItemClick(int section){
+        BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
+        fragment.tag = BusinessWapFragment.class.getName();
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
+        bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
+        fragment.setArguments(bundle);
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setContainerId(R.id.main_container);
+        fragment.setManager(getFragmentManager());
+
+        fragment.show(SuperFragment.SHOW_ADD_HIDE);
+    }
+    @CheckedChange(R.id.allCheckedView)
+    void onCheckedChange(CompoundButton buttonView, boolean isChecked){
+        if (mLists==null || mLists.size() == 0){
+            return;
+        }
+        if (isFromClick){
+            isFromClick = false;
+            return;
+        }
+        for (int i=0;i<mLists.size();i++){
+            mLists.get(i).put("isAllChecked",isChecked);
+            List<Map<String,String>> list = (List<Map<String,String>>)mLists.get(i).get("productList");
+            for (int j=0;j<list.size();j++){
+                list.get(j).put("isChecked",isChecked?"1":"0");
+            }
+            if (mAdapter!=null){
+                mAdapter.notifyDataSetChanged();
+            }
+        }
+
     }
 
     @Click(R.id.footEditBtn)
@@ -107,11 +152,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
     @Background
     void getData(){
-
         String msg = request.getFootList("1","20");
-//        String msg = "[{\"ID\":10,\"ProductName\":\"cc\",\"ProviderID\":11,\"ClassID\":50,\"Specification\":\"cc\",\"Price\":150.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031516307459667.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031516396835859.flv\",\"AddTime\":\"2015-03-03T15:01:15.03\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"北京\"}\n" +
-//                ",{\"ID\":9,\"ProductName\":\"产品二\",\"ProviderID\":11,\"ClassID\":50,\"Specification\":\"bb\",\"Price\":200.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515145731150.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515209325760.flv\",\"AddTime\":\"2015-03-03T15:00:15.717\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"北京\"}\n" +
-//                ",{\"ID\":8,\"ProductName\":\"产品二\",\"ProviderID\":12,\"ClassID\":51,\"Specification\":\"bb\",\"Price\":200.00,\"PicUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515145731150.jpg\",\"SwfUrl\":\"http://shopcomponents.iiyey.com/file/SystemFiles/201503031515209325760.flv\",\"AddTime\":\"2015-03-03T15:00:15.717\",\"beizhu\":null,\"Recommend\":\"1\",\"ClickNum\":0,\"PraiseNum\":0,\"ConsultNum\":0,\"ProviderName\":\"aaa\",\"ProviderCityName\":\"上海\"}]";
         mLists =  new JsonData().jsonFootprint(msg);
         notifyCheckedList(false);
     }
@@ -137,13 +178,26 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         mCheckedListView.setEmptyView(emptyView);
         mAdapter = new FootprintSectionListAdapter();
         mCheckedListView.setAdapter(mAdapter);
+        mCheckedListView.setPinHeaders(false);
+        mCheckedListView.setOnItemClickListener(new PinnedHeaderListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int section, int position, long id) {
+                OnItemClick(section,position);
+            }
+
+            @Override
+            public void onSectionClick(AdapterView<?> adapterView, View view, int section, long id) {
+                OnSectionItemClick(section);
+            }
+        });
         if (mLists == null || mLists.size()==0){
             mEditBtn.setVisibility(View.GONE);
         }else{
             mEditBtn.setVisibility(View.VISIBLE);
         }
-
+    dismissProgressDialog();
     }
+
     @Override
     public void onRefresh(NLPullRefreshView view) {
           notifyCheckedList(true);
@@ -215,9 +269,26 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             }
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
+                String isSelected = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("isChecked");
+                holder.checkBox.setChecked(isSelected.equals("0")?false:true);
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
+            holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (!isChecked){
+                        mLists.get(section).put("isAllChecked", isChecked);
+                        ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).put("isChecked","0");
+                        mAllCheckBox.setChecked(false);
+                        isFromClick = true;
+                    }else{
+                        ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).put("isChecked","1");
+                    }
+
+                    mAdapter.notifyDataSetChanged();
+                }
+            });
             return convertView;
         }
 
@@ -233,7 +304,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         }
 
         @Override
-        public View getSectionHeaderView(int section, View convertView, ViewGroup parent) {
+        public View getSectionHeaderView(final int section, View convertView, ViewGroup parent) {
             SectionHolder holder = null;
             if (convertView == null) {
                 holder = new SectionHolder();
@@ -251,13 +322,30 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             holder.cityNameTv.setText(cityName);
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
+                holder.checkBox.setChecked((Boolean) mLists.get(section).get("isAllChecked"));
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
+            holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mLists.get(section).put("isAllChecked", isChecked);
+                    if (!isChecked){
+                        mAllCheckBox.setChecked(false);
+                        isFromClick = true;
+                    }
+                    List<Map<String,String>> list = (List<Map<String,String>>)mLists.get(section).get("productList");
+                    for (int i=0;i<list.size();i++){
+                        list.get(i).put("isChecked",isChecked?"1":"0");
+                    }
+
+                    mAdapter.notifyDataSetChanged();
+                }
+            });
             return convertView;
         }
     }
-
+    boolean isFromClick = false;
     private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
 
         static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());

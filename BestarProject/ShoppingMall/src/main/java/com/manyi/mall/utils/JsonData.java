@@ -266,6 +266,7 @@ public class JsonData {
                         map.put("ClassID",ClassID);
                         map.put("ProviderCityName",ProviderCityName);
                         map.put("ProviderName",ProviderName);
+                        map.put("isAllChecked",false);
                         List<Map<String,String>> productList = new ArrayList<>();
                         Map<String,String> productMap = new HashMap<>();
                         productMap.put("AddTime",AddTime);
@@ -280,6 +281,7 @@ public class JsonData {
                         productMap.put("Recommend",Recommend);
                         productMap.put("Specification",Specification);
                         productMap.put("SwfUrl",SwfUrl);
+                        productMap.put("isChecked","0");
                         productList.add(productMap);
                         map.put("productList",productList);
                         resultList.add(map);
@@ -298,6 +300,7 @@ public class JsonData {
                         productMap.put("Recommend",Recommend);
                         productMap.put("Specification",Specification);
                         productMap.put("SwfUrl",SwfUrl);
+                        productMap.put("isChecked","0");
                         productList.add(productMap);
                     }
 

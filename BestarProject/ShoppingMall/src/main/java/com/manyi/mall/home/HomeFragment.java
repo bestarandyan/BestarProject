@@ -268,6 +268,7 @@ public class HomeFragment extends SuperFragment<Object> {
         cityId = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0);
         mAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mAdapter);
+        showProgressDialog("数据加载中，请稍候...");
         getAdvertData();
         getDataRequest();
     }
@@ -341,6 +342,11 @@ public class HomeFragment extends SuperFragment<Object> {
                    }
                }
         }
+        dismissDialog();
+    }
+    @UiThread
+    void dismissDialog(){
+        dismissProgressDialog();
     }
     @UiThread
     void setViewData(int position,TextView[] titleArray,ImageView[] imgArray,TextView[] productArray){

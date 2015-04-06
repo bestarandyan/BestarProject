@@ -1,6 +1,7 @@
 package com.manyi.mall.collect;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
@@ -65,8 +67,8 @@ public class CollectFragment extends SuperFragment {
     List<CollectListBean> mList = new ArrayList<>();
 
     boolean isEditing = false;
-    boolean isAllSelected = false;//是否全部选中
-
+//    boolean isAllSelected = false;//是否全部选中
+    ProgressDialog mProgressDialog;
     RequestServerFromHttp request = new RequestServerFromHttp();
     @Override
     public void onAttach(Activity activity) {
@@ -78,22 +80,28 @@ public class CollectFragment extends SuperFragment {
     void init(){
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
+        showProgressDialog("数据加载中，请稍候...");
         getData();
 
     }
 
     @Click(R.id.deleteBtn)
     void clickDelete(){
-        deleteCollect();
+        String collectIds = getCollectIDs();
+        if (collectIds!=null && collectIds.length() > 0) {
+            deleteCollect(collectIds);
+        }else{
+            DialogBuilder.showSimpleDialog("请先选择要删除的收藏！",getActivity());
+        }
     }
 
     @Background
-    void deleteCollect(){
-        String msg = request.deleteCollection(getCollectIDs());
-        BaseResponse response = new JsonData().JsonBase(msg);
-        if (response.getCode().equals("0")){
-            showDeleteSuccess();
-        }
+    void deleteCollect(String collectIds){
+            String msg = request.deleteCollection(collectIds);
+            BaseResponse response = new JsonData().JsonBase(msg);
+            if (response!=null && response.getCode()!=null && response.getCode().equals("0")){
+                showDeleteSuccess();
+            }
     }
     @UiThread
     void showDeleteSuccess(){
@@ -116,7 +124,10 @@ public class CollectFragment extends SuperFragment {
 
     @CheckedChange(R.id.checkAll)
     void onCheckedChange(CompoundButton buttonView, boolean isChecked){
-        isAllSelected = isChecked;
+//        isAllSelected = isChecked;
+        for (int i=0;i<mList.size();i++){
+            mList.get(i).isSelected = isChecked;
+        }
         notifyListView();
     }
 
@@ -135,6 +146,7 @@ public class CollectFragment extends SuperFragment {
         }else{
             mEditBtn.setVisibility(View.VISIBLE);
         }
+        dismissProgressDialog();
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){
@@ -210,7 +222,7 @@ public class CollectFragment extends SuperFragment {
             holder.praiseTv.setText(String.valueOf(bean.getPraiseNum()));
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
-                holder.checkBox.setChecked(isAllSelected);
+                holder.checkBox.setChecked(mList.get(position).isSelected);
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
