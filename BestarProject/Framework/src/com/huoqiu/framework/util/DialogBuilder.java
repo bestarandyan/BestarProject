@@ -20,11 +20,11 @@ public abstract class DialogBuilder {
 	}
 
 	public static void showSimpleDialog(String message, String posMessage, Context context, OnClickListener listener) {
-		new AlertDialog.Builder(context).setMessage(message).setPositiveButton(posMessage, listener).show();
+		new AlertDialog.Builder(context).setMessage(message).setPositiveButton(posMessage, listener).setCancelable(false).show();
 	}
 
 	public static void showSimpleDialog(String message, String posMessage, String negMessage, Context context, OnClickListener listener) {
-		new AlertDialog.Builder(context).setMessage(message).setPositiveButton(posMessage, listener).setNegativeButton(negMessage, null).show();
+		new AlertDialog.Builder(context).setMessage(message).setPositiveButton(posMessage, listener).setNegativeButton(negMessage, null).setCancelable(false).show();
 	}
 
 	private static Toast toast = null;

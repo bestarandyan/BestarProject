@@ -109,7 +109,23 @@ public abstract class SuperFragment<T> extends RestProxyFragment {
 			push(getBackOp());
 		}
 	}
+    ProgressDialog mProgressDialog;
+    public void showProgressDialog(String msg){
+        if (mProgressDialog!=null){
+            mProgressDialog = null;
+        }
+        mProgressDialog = new ProgressDialog(getActivity(),ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setMessage(msg);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+    }
 
+    public void dismissProgressDialog(){
+        if (mProgressDialog!=null){
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
+        }
+    }
 	/**
 	 * 展示加载Fragment
 	 * 
