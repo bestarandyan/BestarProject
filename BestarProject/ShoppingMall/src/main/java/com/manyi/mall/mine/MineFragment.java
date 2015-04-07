@@ -238,7 +238,12 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     void aboutUs() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-
+     AboutUsFragment fragment = GeneratedClassUtils.getInstance(AboutUsFragment.class);
+     fragment.tag = AboutUsFragment.class.getName();
+     fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+             R.anim.anim_fragment_close_out);
+     fragment.setManager(getFragmentManager());
+     fragment.show(SHOW_ADD_HIDE);
     }
 
 

@@ -328,7 +328,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="10dp"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/home_next" />
+                            android:src="@drawable/text" />
 
                     </RelativeLayout>
 
