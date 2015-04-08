@@ -16,7 +16,7 @@
     <ImageView
         android:id="@+id/imgCollect"
         android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:adjustViewBounds="true"
         android:layout_marginLeft="10dp"
         android:src="@drawable/take_photos_list_no__thumbnail" />

@@ -250,7 +250,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             // Map<String,String> map = ((ArrayList<Map<String,String>>)mList.get(section).get("itemList")).get(position);
             final Map<String,String> response = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
             holder.productNameTv.setText(response.get("ProductName"));
-            holder.moneyTv.setText(response.get("Price"));
+            holder.moneyTv.setText("￥"+response.get("Price"));
             holder.clickCountTv.setText(response.get("ClickNum"));
             holder.visitCountTv.setText(response.get("ConsultNum"));
             holder.priaseCountTv.setText(response.get("PraiseNum"));
