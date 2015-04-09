@@ -1,5 +1,6 @@
 package com.manyi.mall.agency;
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +11,30 @@ import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.mine.AgencyBean;
+import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -33,23 +49,26 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
     NLPullRefreshView mRefreshView;
 
 
-    List<AgencyBean> mList = new ArrayList<AgencyBean>();
+    List<AgencyListResponse> mList = new ArrayList<AgencyListResponse>();
 
     @AfterViews
     void init(){
-        for (int i = 0 ;i<10;i++){
-            AgencyBean bean = new AgencyBean();
-            bean.setCompanyName("凯奇集团");
-            bean.setAgencyedCityName("杭州  宁波...");
-            bean.setConnectName("赵老师");
-            bean.setConnectPhone("18917216840");
-            bean.setImgUrl("http://nimei");
-            mList.add(bean);
-        }
-
-        notifyListView();
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
+        initOption();
+        getAgencyList();
     }
-    private void notifyListView(){
+
+    @Background
+    void getAgencyList(){
+        RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
+        String msg = requestServerFromHttp.getAgentList("0","20");
+        mList = new JsonData().jsonAgencyList(msg);
+        if (mList!=null && mList.size()>0){
+            notifyListView();
+        }
+    }
+    @UiThread
+    void notifyListView(){
         AgencyListAdapter adapter = new AgencyListAdapter();
         mListView.setAdapter(adapter);
     }
@@ -94,10 +113,11 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
             }else{
                 holder = (ViewHolder) view.getTag();
             }
-            AgencyBean bean = mList.get(i);
-            holder.companyTv.setText(bean.getCompanyName());
-            holder.agencyedTv.setText(bean.getAgencyedCityName());
-            holder.connectTv.setText(bean.getConnectName());
+            AgencyListResponse bean = mList.get(i);
+            holder.companyTv.setText(bean.ProviderName);
+            holder.agencyedTv.setText(bean.cityname);
+            holder.connectTv.setText(bean.ContactName);
+            ImageLoader.getInstance().displayImage(bean.ProviderLogo, holder.img, options, animateFirstListener);
             return view;
         }
 
@@ -106,6 +126,62 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
             TextView companyTv,connectTv,agencyedTv;
         }
     }
+    private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
 
+        static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
+
+        @Override
+        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+            if (loadedImage != null) {
+                ImageView imageView = (ImageView) view;
+                if (imageView!=null){
+                    imageView.setImageBitmap(loadedImage);
+                }
+                boolean firstDisplay = !displayedImages.contains(imageUri);
+                if (firstDisplay) {
+                    FadeInBitmapDisplayer.animate(imageView, 500);
+                    displayedImages.add(imageUri);
+                }
+            }
+        }
+
+        @Override
+        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+            ImageView imageView = (ImageView) view;
+            if (imageView!=null){
+                imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            }
+            super.onLoadingFailed(imageUri, view, failReason);
+        }
+
+        @Override
+        public void onLoadingCancelled(String imageUri, View view) {
+            ImageView imageView = (ImageView) view;
+            if (imageView!=null){
+                imageView.setImageResource(R.drawable.take_photos_list_no__thumbnail);
+            }
+            super.onLoadingCancelled(imageUri, view);
+        }
+    }
+    DisplayImageOptions options;
+    private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
+    public void initOption(){
+
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.take_photos_list_no__thumbnail)
+                .showImageForEmptyUri(R.drawable.take_photos_list_no__thumbnail)
+                .showImageOnFail(R.drawable.take_photos_list_no__thumbnail)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .displayer(new RoundedBitmapDisplayer(20))
+                .build();
+    }
+    @Override
+    public void onDestroy() {
+        ImageLoader.getInstance().clearMemoryCache();
+        ImageLoader.getInstance().clearDiskCache();
+        super.onDestroy();
+    }
 
 }

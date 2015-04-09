@@ -182,7 +182,7 @@ public class CollectFragment extends SuperFragment {
 
         @Override
         public int getCount() {
-            return mList.size();
+            return mList!=null?mList.size():0;
         }
 
         @Override

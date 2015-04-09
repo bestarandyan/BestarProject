@@ -24,6 +24,7 @@ public class RequestServerFromHttp {
 	public static final String SERVER_ADDRESS = "http://shopapp.iiyey.com/";//外网服务器总接口地址
 	public static final String USER_SERVICE = SERVER_ADDRESS+"NoLogin.aspx";
 	public static final String FOOT_SERVICE = SERVER_ADDRESS+"product.aspx";
+	public static final String AGENTINFO_SERVICE = SERVER_ADDRESS+"agentinfo.aspx";
 	public static final String COLLECT_SERVICE = SERVER_ADDRESS+"provider.aspx";
 	public static final String GET_GETPSW_SERVICE = SERVER_ADDRESS+"customer.aspx";
     public static final String SHOPCLASS_SERVICE = SERVER_ADDRESS+"shopclass.aspx";
@@ -127,6 +128,17 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("pageSize", pageSize));
  		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(FOOT_SERVICE, params);
+ 		return msgString;
+ 	}
+    public String getAgentList(String pageIndex,String pageSize){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentList"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("pageIndex", pageIndex));
+ 		params.add(new BasicNameValuePair("pageSize", pageSize));
+ 		params.add(new BasicNameValuePair("CustomerID", "21"/*BestarApplication.getInstance().getUserId()*/));
+ 		msgString = getData(AGENTINFO_SERVICE, params);
  		return msgString;
  	}
 
@@ -373,10 +385,18 @@ public String getForgetPsw(String mobile){
  		return msgString;
  	}
 ////http://shopapp.iiyey.com/shopclass.aspx?appKey=abcd&&method=GetAllClassAndProductList
+//    public String getMainData(String appKey){
+// 		String msgString = "";
+// 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+// 		params.add(new BasicNameValuePair("method", "GetAllClassAndProductList"));
+// 		params.add(new BasicNameValuePair("appKey", appKey));
+// 		msgString = getData(SHOPCLASS_SERVICE, params);
+// 		return msgString;
+// 	}
     public String getMainData(String appKey){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
- 		params.add(new BasicNameValuePair("method", "GetAllClassAndProductList"));
+ 		params.add(new BasicNameValuePair("method", "GetAllClassAndProductList2"));
  		params.add(new BasicNameValuePair("appKey", appKey));
  		msgString = getData(SHOPCLASS_SERVICE, params);
  		return msgString;

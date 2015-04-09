@@ -11,6 +11,8 @@ import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
+import com.manyi.mall.cachebean.MainDataBean2;
+import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.HotSearchBean;
@@ -121,11 +123,11 @@ public class JsonData {
         }
         return listData;
     }
-    public List<MainDataBean> jsonMainData(String msg,SQLiteDatabase database){
-        LinkedList<MainDataBean> list =null;
-        MainDataBean bean;
+    public List<MainDataBean2> jsonMainData(String msg,SQLiteDatabase database){
+        LinkedList<MainDataBean2> list =null;
+        MainDataBean2 bean;
         try {
-            Type listType = new TypeToken<LinkedList<MainDataBean>>(){}.getType();
+            Type listType = new TypeToken<LinkedList<MainDataBean2>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
 //        if(list!=null && list.size()>0){
@@ -185,17 +187,22 @@ public class JsonData {
 
     public List<CollectListBean> jsonCollectList(String msg){
         LinkedList<CollectListBean> list =null;
-        CollectListBean bean;
         try {
             Type listType = new TypeToken<LinkedList<CollectListBean>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
-//        if(list!=null && list.size()>0){
-//            for(Iterator<MainDataBean> iterator = list.iterator();iterator.hasNext();){
-//                bean = iterator.next();
-//
-//            }
-//        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<AgencyListResponse> jsonAgencyList(String msg){
+        LinkedList<AgencyListResponse> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<AgencyListResponse>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
         }catch (Exception e){
             e.printStackTrace();
         }

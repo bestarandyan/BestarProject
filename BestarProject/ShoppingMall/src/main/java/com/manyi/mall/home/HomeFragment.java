@@ -34,6 +34,7 @@ import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.MainDataBean2;
 import com.manyi.mall.search.SearchProductListFragment;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.MainDataBean;
@@ -98,13 +99,13 @@ public class HomeFragment extends SuperFragment<Object> {
     TextView mrypTitle5;
     @ViewById(R.id.rypCp1)
     TextView mrypcp1;
-    @ViewById(R.id.rypCp1)
+    @ViewById(R.id.rypCp2)
     TextView mrypcp2;
-    @ViewById(R.id.rypCp1)
+    @ViewById(R.id.rypCp3)
     TextView mrypcp3;
-    @ViewById(R.id.rypCp1)
+    @ViewById(R.id.rypCp4)
     TextView mrypcp4;
-    @ViewById(R.id.rypCp1)
+    @ViewById(R.id.rypCp5)
     TextView mrypcp5;
     @ViewById(R.id.zxTitle1)
     TextView mZxTitle1;
@@ -167,7 +168,7 @@ public class HomeFragment extends SuperFragment<Object> {
     private ScheduledExecutorService scheduledExecutor;
     ArrayList<View> pageViews = new ArrayList<View>();
 
-    List<MainDataBean> mDataList;
+    List<MainDataBean2> mDataList;
     TextView[] mSjTvArray = null;
     ImageView[] mSjImgArray = null;
     TextView[] mSjcpArray = null;
@@ -319,28 +320,28 @@ public class HomeFragment extends SuperFragment<Object> {
         mDataList = new JsonData().jsonMainData(msg, null);
         if (mDataList!=null && mDataList.size()>0){
                for (int i=0;i<mDataList.size();i++){
-                   if (mDataList.get(i).getClassName().equals("装修设计")){
+                   if (mDataList.get(i).ClassName.equals("装修设计")){
                        setViewData(i,mZxTvArray,mZxImgArray,mZxcpArray);
-                   }else if (mDataList.get(i).getClassName().equals("幼儿园日用品")){
+                   }else if (mDataList.get(i).ClassName.equals("幼儿园日用品")){
                        setViewData(i,mrypTvArray,mrypImgArray,mrypcpArray);
-                   }else if (mDataList.get(i).getClassName().equals("胎教早教课程")){
+                   }else if (mDataList.get(i).ClassName.equals("胎教早教课程")){
                        setViewData(i,mzjTvArray,mzjImgArray,mzjCpArray);
-                   }else if (mDataList.get(i).getClassName().equals("进修培训讲座")){
-                       mDataList.get(i).getShopclasses().get(0).setClassName("进修培训讲座");
+                   }else if (mDataList.get(i).ClassName.equals("进修培训讲座")){
+                       mDataList.get(i).SubClassAndProducts.get(0).ClassName=("进修培训讲座");
                        setViewData(i,mjxTvArray,mjxImgArray,mjxcpArray);
-                   }else if (mDataList.get(i).getClassName().equals("加盟联锁服务")){
-                       mDataList.get(i).getShopclasses().get(0).setClassName("加盟联锁服务");
+                   }else if (mDataList.get(i).ClassName.equals("加盟联锁服务")){
+                       mDataList.get(i).SubClassAndProducts.get(0).ClassName=("加盟联锁服务");
                        setViewData(i,mjmTvArray,mjmImgArray,mjmcpArray);
-                   }else if (mDataList.get(i).getClassName().equals("教材书籍")){
-                       mDataList.get(i).getShopclasses().get(0).setClassName("教材书籍");
+                   }else if (mDataList.get(i).ClassName.equals("教材书籍")){
+                       mDataList.get(i).SubClassAndProducts.get(0).ClassName=("教材书籍");
                        setViewData(i,mSjTvArray,mSjImgArray,mSjcpArray);
-                   }else if (mDataList.get(i).getClassName().equals("国际品牌")){
+                   }else if (mDataList.get(i).ClassName.equals("国际品牌")){
 
-                   }else if (mDataList.get(i).getClassName().equals("管理软件")){
+                   }else if (mDataList.get(i).ClassName.equals("管理软件")){
 
-                   }else if (mDataList.get(i).getClassName().equals("室内教玩具")){
+                   }else if (mDataList.get(i).ClassName.equals("室内教玩具")){
 
-                   }else if (mDataList.get(i).getClassName().equals("配套设备")){
+                   }else if (mDataList.get(i).ClassName.equals("配套设备")){
 
                    }
                }
@@ -353,34 +354,34 @@ public class HomeFragment extends SuperFragment<Object> {
     }
     @UiThread
     void setViewData(int position,TextView[] titleArray,ImageView[] imgArray,TextView[] productArray){
-        List<MainDataBean.ShopClasses> shopClasseses = mDataList.get(position).getShopclasses();
+        List<MainDataBean2.Product> shopClasseses = mDataList.get(position).SubClassAndProducts;
         for (int s=0;s<shopClasseses.size();s++){
             if (s > titleArray.length-1){
                 break;
             }
-            MainDataBean.ShopClasses shopClasses = shopClasseses.get(s);
-            titleArray[s].setText(shopClasses.getClassName());
-            MainDataBean.Products products = getProducts(position,shopClasses.getID());
-            if (products!=null){
-                ImageLoader.getInstance().displayImage(products.getPicUrl(), imgArray[s], options, animateFirstListener);
-                productArray[s].setText(products.getProductName());
+           MainDataBean2.Product shopClasses = shopClasseses.get(s);
+            titleArray[s].setText(shopClasses.ClassName);
+//            MainDataBean.Products products = getProducts(position,shopClasses.getID());
+            if (shopClasses!=null){
+                ImageLoader.getInstance().displayImage(shopClasses.ProductPicURL, imgArray[s], options, animateFirstListener);
+                productArray[s].setText(shopClasses.ProductName);
             }
         }
     }
 
-    private MainDataBean.Products getProducts(int position,Long classId){
-        List<MainDataBean.Products> productses = mDataList.get(position).getProducts();
-        if (productses==null){
-            return null;
-        }
-        for (int i=0;i<productses.size();i++){
-            MainDataBean.Products product = productses.get(i);
-            if(product.getClassID() == classId){
-                return product;
-            }
-        }
-        return null;
-    }
+//    private MainDataBean.Products getProducts(int position,Long classId){
+//        List<MainDataBean.Products> productses = mDataList.get(position).getProducts();
+//        if (productses==null){
+//            return null;
+//        }
+//        for (int i=0;i<productses.size();i++){
+//            MainDataBean.Products product = productses.get(i);
+//            if(product.getClassID() == classId){
+//                return product;
+//            }
+//        }
+//        return null;
+//    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -569,43 +570,43 @@ public class HomeFragment extends SuperFragment<Object> {
 
     @Click(R.id.model1Layout1)
     void model1Layout1() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).getID(),mDataList.get(mDataList.size()-1).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).ID,mDataList.get(mDataList.size()-1).ClassName);
     }
     @Click(R.id.model1Layout2)
     void model1Layout2() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).getID(),mDataList.get(mDataList.size()-2).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).ID,mDataList.get(mDataList.size()-2).ClassName);
     }
     @Click(R.id.model1Layout3)
     void model1Layout3() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).getID(),mDataList.get(mDataList.size()-3).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).ID,mDataList.get(mDataList.size()-3).ClassName);
     }
     @Click(R.id.model1Layout4)
     void model1Layout4() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).getID(),mDataList.get(mDataList.size()-4).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).ID,mDataList.get(mDataList.size()-4).ClassName);
     }
     @Click(R.id.shujuLayout)
     void gotoDetailProdect(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-5).getID(),mDataList.get(mDataList.size()-5).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-5).ID,mDataList.get(mDataList.size()-5).ClassName);
     }
     @Click(R.id.jiamengliansuo)
     void jiameng(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-6).getID(),mDataList.get(mDataList.size()-6).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-6).ID,mDataList.get(mDataList.size()-6).ClassName);
     }
     @Click(R.id.peixun)
     void peixun(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-7).getID(),mDataList.get(mDataList.size()-7).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-7).ID,mDataList.get(mDataList.size()-7).ClassName);
     }
     @Click(R.id.zaojiao)
     void zaojiao(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-8).getID(),mDataList.get(mDataList.size()-8).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-8).ID,mDataList.get(mDataList.size()-8).ClassName);
     }
     @Click(R.id.riyongpin)
     void riyongpin(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-9).getID(),mDataList.get(mDataList.size()-9).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-9).ID,mDataList.get(mDataList.size()-9).ClassName);
     }
     @Click(R.id.zhuangxiu)
     void zhuangxiu(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-10).getID(),mDataList.get(mDataList.size()-10).getClassName());
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-10).ID,mDataList.get(mDataList.size()-10).ClassName);
     }
     private void gotoProductListFragment(boolean isHaveHistory,Long classid,String title){
         if (CheckDoubleClick.isFastDoubleClick()){
