@@ -200,6 +200,8 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         if (have){
             mTitleView.setVisibility(View.GONE);
             mInputLayout.setVisibility(View.VISIBLE);
+            mSearchEt.requestFocus();
+            ManyiUtils.showKeyBoard(getActivity(),mSearchEt);
         }else{
             mTitleView.setText(title);
             mTitleView.setVisibility(View.VISIBLE);

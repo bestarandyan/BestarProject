@@ -326,10 +326,13 @@ public class HomeFragment extends SuperFragment<Object> {
                    }else if (mDataList.get(i).getClassName().equals("胎教早教课程")){
                        setViewData(i,mzjTvArray,mzjImgArray,mzjCpArray);
                    }else if (mDataList.get(i).getClassName().equals("进修培训讲座")){
+                       mDataList.get(i).getShopclasses().get(0).setClassName("进修培训讲座");
                        setViewData(i,mjxTvArray,mjxImgArray,mjxcpArray);
                    }else if (mDataList.get(i).getClassName().equals("加盟联锁服务")){
+                       mDataList.get(i).getShopclasses().get(0).setClassName("加盟联锁服务");
                        setViewData(i,mjmTvArray,mjmImgArray,mjmcpArray);
                    }else if (mDataList.get(i).getClassName().equals("教材书籍")){
+                       mDataList.get(i).getShopclasses().get(0).setClassName("教材书籍");
                        setViewData(i,mSjTvArray,mSjImgArray,mSjcpArray);
                    }else if (mDataList.get(i).getClassName().equals("国际品牌")){
 
@@ -401,7 +404,7 @@ public class HomeFragment extends SuperFragment<Object> {
         try {
             int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
 
-            notifyAdvert();
+//            notifyAdvert();
         } catch (RestException e) {
             // TODO Auto-generated catch block
             showDialog(e.getMessage());
@@ -559,7 +562,7 @@ public class HomeFragment extends SuperFragment<Object> {
         htmlLoadFragment.show(SuperFragment.SHOW_ADD_HIDE);
     }
 
-    @Click(R.id.searchBtn)
+    @Click(R.id.searchEt)
     void search() {
         gotoProductListFragment(true,0l,"");
     }
@@ -610,8 +613,8 @@ public class HomeFragment extends SuperFragment<Object> {
         }
         SearchProductListFragment productListFragment = GeneratedClassUtils.getInstance(SearchProductListFragment.class);
         productListFragment.tag = SearchProductListFragment.class.getName();
-        productListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-                R.anim.anim_fragment_close_out);
+//        productListFragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+//                R.anim.anim_fragment_close_out);
         Bundle bundle = new Bundle();
         bundle.putBoolean("isHaveHistory",isHaveHistory);
         bundle.putLong("classId",classid);

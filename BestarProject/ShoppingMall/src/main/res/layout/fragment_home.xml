@@ -17,28 +17,25 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_layout_height"
-            android:background="@color/user_title_layout_bg"
-            android:tag="actionBar">
+            android:background="@color/app_theme_color"
+            android:padding="10dp"
+            >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/searchEt"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:background="@null"
-                android:gravity="center"
-                android:text="幼教精品网"
-                android:textColor="#333"
-                android:textSize="20sp" />
+                android:layout_marginRight="5dp"
+                android:background="@drawable/shape_home_top_search_bg"
+                android:drawableLeft="@drawable/icon_search"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:hint="请输入搜索内容"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="#a1a1a1"
+                android:textSize="14sp" />
 
-            <ImageButton
-                android:id="@+id/searchBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@null"
-                android:padding="10dp"
-                android:src="@drawable/selector_search_btn" />
         </RelativeLayout>
 
         <View
@@ -222,11 +219,11 @@
                             android:orientation="horizontal">
 
                             <RelativeLayout
+                                android:id="@+id/shujuLayout"
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
                                 android:background="#fff"
                                 android:orientation="vertical"
-                                android:id="@+id/shujuLayout"
                                 android:padding="10dp">
 
                                 <TextView
@@ -268,12 +265,12 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:id="@+id/jiamengliansuo"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:background="#fff"
                                     android:orientation="horizontal"
-                                    android:id="@+id/jiamengliansuo"
                                     android:padding="10dp">
 
                                     <LinearLayout
@@ -314,12 +311,12 @@
                                     android:background="@color/line_mine_color"></View>
 
                                 <LinearLayout
+                                    android:id="@+id/peixun"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:background="#fff"
                                     android:orientation="horizontal"
-                                    android:id="@+id/peixun"
                                     android:padding="10dp">
 
                                     <LinearLayout
@@ -369,10 +366,10 @@
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
+                            android:id="@+id/zaojiao"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/color_ffffff"
-                            android:id="@+id/zaojiao"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -498,10 +495,10 @@
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
+                            android:id="@+id/riyongpin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/color_ffffff"
-                            android:id="@+id/riyongpin"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -743,10 +740,10 @@
                             android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
+                            android:id="@+id/zhuangxiu"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/color_ffffff"
-                            android:id="@+id/zhuangxiu"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -804,9 +801,9 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
+                                        android:maxLength="10"
                                         android:text="最新科技"
                                         android:textColor="#CFCFCF"
-                                        android:maxLength="10"
                                         android:textSize="@dimen/_12" />
 
                                     <LinearLayout
@@ -844,8 +841,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
-                                        android:text="儿童音乐"
                                         android:singleLine="true"
+                                        android:text="儿童音乐"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
@@ -884,8 +881,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
-                                        android:text="可爱桌椅"
                                         android:singleLine="true"
+                                        android:text="可爱桌椅"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
@@ -924,8 +921,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="6dp"
-                                        android:text="可爱桌椅"
                                         android:singleLine="true"
+                                        android:text="可爱桌椅"
                                         android:textColor="#CFCFCF"
                                         android:textSize="@dimen/_12" />
 
