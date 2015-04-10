@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -64,6 +65,32 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
         String msg = requestServerFromHttp.getAgentList("0","20");
         mList = new JsonData().jsonAgencyList(msg);
         if (mList!=null && mList.size()>0){
+//            for (int i=0;i<13;i++){
+//                AgencyListResponse.CityBean bean = new AgencyListResponse.CityBean();
+//                bean.CityName = "上海";
+//                bean.ID = 11L;
+//                mList.get(0).citys.add(bean);
+//            }
+//
+//            for (int s=0;s<13;s++){
+//                AgencyListResponse response = new AgencyListResponse();
+//                response.citys = new ArrayList<>();
+//                for (int r=0;r<13;r++){
+//                    AgencyListResponse.CityBean bean1 = new AgencyListResponse.CityBean();
+//                    bean1.CityName = "上海";
+//                    bean1.ID = 11L;
+//                    response.citys.add(bean1);
+//                }
+//                response.cityname= "adsf";
+//                response.ClickNum = 0;
+//                response.ConsultNum = 10;
+//                response.ContactName="aaaaaaaa";
+//                response.ContactTel = "1231423523424";
+//                response.PraiseNum = 18;
+//                response.ProviderLogo = mList.get(0).ProviderLogo;
+//                response.ProviderName="adsfadf";
+//                mList.add(response);
+//            }
             notifyListView();
         }
     }
@@ -108,22 +135,76 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
                 holder.img  = (ImageView)view.findViewById(R.id.imgCollect);
                 holder.companyTv = (TextView) view.findViewById(R.id.companyNameTv);
                 holder.connectTv = (TextView) view.findViewById(R.id.connectTv);
-                holder.agencyedTv = (TextView) view.findViewById(R.id.agencyedTv);
+                holder.agencyCityLayout = (LinearLayout) view.findViewById(R.id.agencyCityLayout);
                 view.setTag(holder);
             }else{
                 holder = (ViewHolder) view.getTag();
             }
             AgencyListResponse bean = mList.get(i);
             holder.companyTv.setText(bean.ProviderName);
-            holder.agencyedTv.setText(bean.cityname);
             holder.connectTv.setText(bean.ContactName);
             ImageLoader.getInstance().displayImage(bean.ProviderLogo, holder.img, options, animateFirstListener);
+            List<AgencyListResponse.CityBean> citys = mList.get(i).citys;
+            int count = (citys.size()%5==0)?citys.size()/5:citys.size()/5+1;
+            if (holder.agencyCityLayout.getChildCount()<count){
+                for (int index=0;index<count;index++){
+                    holder.agencyCityLayout.addView(getAgencyCityLayout(i,index*5));
+                }
+            }
             return view;
         }
 
         class ViewHolder{
             ImageView img;
-            TextView companyTv,connectTv,agencyedTv;
+            TextView companyTv,connectTv;
+            LinearLayout agencyCityLayout;
+        }
+        public View getAgencyCityLayout(final int position,int start){
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_agency,null);
+            TextView city1 = (TextView) view.findViewById(R.id.city1);
+            TextView city2 = (TextView) view.findViewById(R.id.city2);
+            TextView city3 = (TextView) view.findViewById(R.id.city3);
+            TextView city4 = (TextView) view.findViewById(R.id.city4);
+            TextView city5 = (TextView) view.findViewById(R.id.city5);
+            View lineView =  view.findViewById(R.id.bottomLineView);
+            ImageView arrow = (ImageView) view.findViewById(R.id.rightArrowImg);
+            TextView[] tvArray = new TextView[]{city1,city2,city3,city4,city5};
+            List<AgencyListResponse.CityBean> citys = mList.get(position).citys;
+            if (citys.size()<=5 || start>=5){
+                arrow.setVisibility(View.INVISIBLE);
+            }
+            if (start>=5){
+                view.setVisibility(View.GONE);
+            }
+            if (start>=citys.size()-5){
+                lineView.setVisibility(View.GONE);
+            }
+            for (int i=start;i<start+5;i++){
+                if (i<citys.size()){
+                    tvArray[i-start].setText(citys.get(i).CityName);
+                }
+            }
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        LinearLayout parent = (LinearLayout) v.getParent();
+                        for (int a = 1;a<parent.getChildCount();a++){
+                            if (parent.getChildAt(a).getVisibility() == View.GONE){
+                                parent.getChildAt(a).setVisibility(View.VISIBLE);
+                                parent.getChildAt(0).findViewById(R.id.bottomLineView).setVisibility(View.VISIBLE);
+                                parent.getChildAt(a).findViewById(R.id.bottomLineView).setVisibility(View.VISIBLE);
+                                parent.getChildAt(parent.getChildCount()-1).findViewById(R.id.bottomLineView).setVisibility(View.GONE);
+                                ((ImageView)v.findViewById(R.id.rightArrowImg)).setImageResource(R.drawable.up);
+                            }else{
+                                parent.getChildAt(a).setVisibility(View.GONE);
+                                ((ImageView)v.findViewById(R.id.rightArrowImg)).setImageResource(R.drawable.down);
+                                parent.getChildAt(0).findViewById(R.id.bottomLineView).setVisibility(View.GONE);
+                                parent.getChildAt(a).findViewById(R.id.bottomLineView).setVisibility(View.GONE);
+                            }
+                        }
+                    }
+            });
+            return  view;
         }
     }
     private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
