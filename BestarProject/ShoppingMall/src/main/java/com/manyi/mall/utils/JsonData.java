@@ -6,6 +6,7 @@ package com.manyi.mall.utils;
 import android.database.sqlite.SQLiteDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.manyi.mall.cachebean.AdvertBean;
 import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
@@ -147,6 +148,18 @@ public class JsonData {
         LinkedList<SearchHistoryBean> list =null;
         try {
             Type listType = new TypeToken<LinkedList<SearchHistoryBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<AdvertBean> jsonAdvert(String msg){//用户历史搜索记录
+        LinkedList<AdvertBean> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<AdvertBean>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
         }catch (Exception e){

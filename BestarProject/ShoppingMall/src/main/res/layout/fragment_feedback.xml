@@ -57,12 +57,10 @@
                 android:background="@color/color_ffffff"
                 android:gravity="top|left"
                 android:hint="感谢反馈，请尽量详细地描述您遇到的问题，以便于我们帮您解决。"
-                android:maxLength="11"
-                android:numeric="integer"
                 android:padding="16dp"
                 android:textColorHint="#44000000"
                 android:textSize="16sp"
-                tools:ignore="TextFields,Deprecated" />
+                />
 
 
             <Button

@@ -4,19 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/app_theme_color"
+    android:background="@color/white"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/viewpage_item_text"
+    <ImageView
+        android:id="@+id/viewpage_item_img"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:maxLines="2"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        />
 
 </LinearLayout>

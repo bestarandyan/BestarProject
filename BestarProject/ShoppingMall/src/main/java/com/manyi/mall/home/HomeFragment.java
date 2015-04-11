@@ -34,6 +34,7 @@ import com.huoqiu.widget.FangyouReleasedViewPage;
 import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.AdvertBean;
 import com.manyi.mall.cachebean.MainDataBean2;
 import com.manyi.mall.search.SearchProductListFragment;
 import com.manyi.mall.utils.JsonData;
@@ -62,7 +63,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @SuppressLint("HandlerLeak")
 @EFragment(R.layout.fragment_home)
@@ -403,9 +406,14 @@ public class HomeFragment extends SuperFragment<Object> {
     @Background
     public void getAdvertData() {
         try {
-            int uid = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, 0).getInt("uid", 0);
-
-//            notifyAdvert();
+            RequestServerFromHttp request = new RequestServerFromHttp();
+            String msg = request.getAdvert();
+            if (msg!=null && msg.length()>0){
+                List<AdvertBean> advertList = new JsonData().jsonAdvert(msg);
+                if (advertList!=null && advertList.size()>0){
+                    notifyAdvert(advertList);
+                }
+            }
         } catch (RestException e) {
             // TODO Auto-generated catch block
             showDialog(e.getMessage());
@@ -417,19 +425,14 @@ public class HomeFragment extends SuperFragment<Object> {
     public void showDialog(String msgString) {
         DialogBuilder.showSimpleDialog(msgString, getActivity());
     }
-
     @UiThread
-    public void notifyAdvert() {
-        //cityId
-
-
+    public void notifyAdvert(List<AdvertBean> advertList) {
             pageViews.clear();
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < advertList.size(); i++) {
                 View mView = LayoutInflater.from(getActivity()).inflate(R.layout.item_release_viewpage, null);
-                TextView text = (TextView) mView.findViewById(R.id.viewpage_item_text);
-                text.setText("ViewPage"+i);
-                text.setGravity(Gravity.CENTER);
+                ImageView img = (ImageView) mView.findViewById(R.id.viewpage_item_img);
                 mView.setTag(i);
+                ImageLoader.getInstance().displayImage(advertList.get(i).IMGURL, img, options, animateFirstListener);
                 pageViews.add(mView);
             }
 
@@ -457,9 +460,9 @@ public class HomeFragment extends SuperFragment<Object> {
             addAnimForView((View) advertLayout.getParent());
             advertLayout.setVisibility(View.VISIBLE);
             currentItem = 0;
-//            scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-//            // * 四个参数：①要执行的任务②执行一次任务所用的时间③两次任务之间所隔的时间④时间单位
-//            scheduledExecutor.scheduleAtFixedRate(new MyPageTask(), 3, 3, TimeUnit.SECONDS);
+            scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+            // * 四个参数：①要执行的任务②执行一次任务所用的时间③两次任务之间所隔的时间④时间单位
+            scheduledExecutor.scheduleAtFixedRate(new MyPageTask(), 3, 3, TimeUnit.SECONDS);
 
         }
 
