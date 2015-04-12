@@ -1,10 +1,14 @@
 package com.manyi.mall.agency;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -17,6 +21,7 @@ import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.mine.AgencyBean;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.utils.JsonData;
+import com.manyi.mall.widget.refreshview.LFListView;
 import com.manyi.mall.widget.refreshview.NLPullRefreshView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -43,13 +48,11 @@ import java.util.List;
  * Created by bestar on 2015/1/26.
  */
 @EFragment(R.layout.fragment_my_agency)
-public class AgencyFragment extends SuperFragment implements NLPullRefreshView.RefreshListener {
+public class AgencyFragment extends SuperFragment implements LFListView.IXListViewListener {
     @ViewById(R.id.myAgencyListView)
-    ListView mListView;
+    LFListView mListView;
 
-    @ViewById(R.id.refreshable_view)
-    NLPullRefreshView mRefreshView;
-
+    private Handler mHandler;
 
     List<AgencyListResponse> mList = new ArrayList<AgencyListResponse>();
 
@@ -57,43 +60,28 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
     void init(){
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
-        getAgencyList();
+        getAgencyList("1");
+        initListView();
     }
 
     @Background
-    void getAgencyList(){
+    void getAgencyList(String start){
         RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
-        String msg = requestServerFromHttp.getAgentList("0","20");
-        mList = new JsonData().jsonAgencyList(msg);
+        String msg = requestServerFromHttp.getAgentList(start,"20");
+        List<AgencyListResponse> currentList = new JsonData().jsonAgencyList(msg);
+        if (!start.equals("1") && mList!=null && mList.size()>0 && currentList!=null){
+            mList.addAll(currentList);
+        }else if (currentList!=null){
+            mList = currentList;
+        }
         if (mList!=null && mList.size()>0){
-//            for (int i=0;i<13;i++){
-//                AgencyListResponse.CityBean bean = new AgencyListResponse.CityBean();
-//                bean.CityName = "上海";
-//                bean.ID = 11L;
-//                mList.get(0).citys.add(bean);
-//            }
-//
-//            for (int s=0;s<13;s++){
-//                AgencyListResponse response = new AgencyListResponse();
-//                response.citys = new ArrayList<>();
-//                for (int r=0;r<13;r++){
-//                    AgencyListResponse.CityBean bean1 = new AgencyListResponse.CityBean();
-//                    bean1.CityName = "上海";
-//                    bean1.ID = 11L;
-//                    response.citys.add(bean1);
-//                }
-//                response.cityname= "adsf";
-//                response.ClickNum = 0;
-//                response.ConsultNum = 10;
-//                response.ContactName="aaaaaaaa";
-//                response.ContactTel = "1231423523424";
-//                response.PraiseNum = 18;
-//                response.ProviderLogo = mList.get(0).ProviderLogo;
-//                response.ProviderName="adsfadf";
-//                mList.add(response);
-//            }
             notifyListView();
         }
+    }
+    private void initListView(){
+        mListView.setPullLoadEnable(true);
+        mListView.setXListViewListener(this);
+        mHandler = new Handler();
     }
     @UiThread
     void notifyListView(){
@@ -102,12 +90,34 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){
+    }
 
+    private void onLoad() {
+        mListView.stopRefresh();
+        mListView.stopLoadMore();
+        mListView.setRefreshTime("刚刚");
+    }
+    @Override
+    public void onRefresh() {
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getAgencyList("1");
+                onLoad();
+            }
+        }, 500);
     }
 
     @Override
-    public void onRefresh(NLPullRefreshView view) {
-
+    public void onLoadMore() {
+        mListView.setPullLoadEnable(true);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getAgencyList((mList==null || mList.size()==0)?"1":(mList.size()+1)+"");
+                onLoad();
+            }
+        }, 500);
     }
 
     class AgencyListAdapter extends BaseAdapter{
@@ -137,13 +147,20 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
                 holder.companyTv = (TextView) view.findViewById(R.id.companyNameTv);
                 holder.connectTv = (TextView) view.findViewById(R.id.connectTv);
                 holder.agencyCityLayout = (LinearLayout) view.findViewById(R.id.agencyCityLayout);
+                holder.callBtn = (Button) view.findViewById(R.id.callBtn);
                 view.setTag(holder);
             }else{
                 holder = (ViewHolder) view.getTag();
             }
-            AgencyListResponse bean = mList.get(i);
+            final AgencyListResponse bean = mList.get(i);
             holder.companyTv.setText(bean.ProviderName);
             holder.connectTv.setText(bean.ContactName);
+            holder.callBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onCallPhoneStartIntent(bean.ContactTel);
+                }
+            });
             ImageLoader.getInstance().displayImage(bean.ProviderLogo, holder.img, options, animateFirstListener);
             List<CityBean> citys = mList.get(i).citys;
             int count = (citys.size()%5==0)?citys.size()/5:citys.size()/5+1;
@@ -159,6 +176,17 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
             ImageView img;
             TextView companyTv,connectTv;
             LinearLayout agencyCityLayout;
+            Button callBtn;
+        }
+        /**
+         * 拨打电话
+         *
+         * @param uri
+         */
+        public void onCallPhoneStartIntent(String uri) {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + uri));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
         public View getAgencyCityLayout(final int position,int start){
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_agency,null);

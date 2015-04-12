@@ -27,23 +27,12 @@
             android:layout_alignParentBottom="true"
             ></View>
     </RelativeLayout>
-
-    <com.manyi.mall.widget.refreshview.NLPullRefreshView
-        android:id="@+id/refreshable_view"
+    <com.manyi.mall.widget.refreshview.LFListView
+        android:id="@+id/myAgencyListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/user_bg"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-        <ListView
-            android:id="@+id/myAgencyListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:cacheColorHint="#00000000"
-            android:divider="#00000000"
-            android:dividerHeight="10dp"
-            android:scrollbars="none"></ListView>
-    </com.manyi.mall.widget.refreshview.NLPullRefreshView>
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:dividerHeight="10dp"
+        />
 </LinearLayout>
