@@ -46,6 +46,16 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
+ 	public String getProvinceByProviderID(String ProviderID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentProvinceListByProviderID"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		msgString = getData(AGENTINFO_SERVICE, params);
+ 		return msgString;
+ 	}
+
  	public String getAdvert(){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -73,6 +83,17 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("appKey", USER_APPKEY));
  		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
  		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getCityByProviderIDAndProvinceID(String ProviderID,String ProvinceID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentCityListByProviderIDandProvinceID"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
+ 		msgString = getData(AGENTINFO_SERVICE, params);
  		return msgString;
  	}
 

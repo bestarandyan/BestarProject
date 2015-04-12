@@ -127,6 +127,7 @@
     <color name="shao_an_text_color">#787878</color>
     <color name="user_title_layout_bg">#F5F5F5</color>
     <color name="user_bg">#EEEEEE</color>
+    <color name="touming">#00000000</color>
 
 
 </resources>

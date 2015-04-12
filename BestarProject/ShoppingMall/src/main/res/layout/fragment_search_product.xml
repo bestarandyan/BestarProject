@@ -212,6 +212,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:divider="#E8E8E8"
+                        android:cacheColorHint="@null"
                         android:dividerHeight="1dp"
                         ></com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
                 </com.manyi.mall.widget.refreshview.NLPullRefreshView>

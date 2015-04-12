@@ -2,11 +2,17 @@ package com.manyi.mall.wap;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.CheckDoubleClick;
+import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.R;
+import com.manyi.mall.agency.AddAgencyFragment;
+import com.manyi.mall.agency.GetAgencyProvinceFragment;
+import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
 
@@ -39,6 +45,21 @@ public class BusinessWapFragment extends SuperFragment{
         }else{
             remove();
         }
+    }
+
+    @Click(R.id.agencyBtn)
+    void clickAgency(){
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        AddAgencyFragment fragment = GeneratedClassUtils.getInstance(AddAgencyFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("providerId", ProviderID);
+        fragment.setArguments(bundle);
+        fragment.tag = AddAgencyFragment.class.getName();
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
     }
     @Background
     void getUrl(){

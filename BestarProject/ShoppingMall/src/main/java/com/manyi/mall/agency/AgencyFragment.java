@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.CityBean;
 import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.mine.AgencyBean;
 import com.manyi.mall.service.RequestServerFromHttp;
@@ -144,7 +145,7 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
             holder.companyTv.setText(bean.ProviderName);
             holder.connectTv.setText(bean.ContactName);
             ImageLoader.getInstance().displayImage(bean.ProviderLogo, holder.img, options, animateFirstListener);
-            List<AgencyListResponse.CityBean> citys = mList.get(i).citys;
+            List<CityBean> citys = mList.get(i).citys;
             int count = (citys.size()%5==0)?citys.size()/5:citys.size()/5+1;
             if (holder.agencyCityLayout.getChildCount()<count){
                 for (int index=0;index<count;index++){
@@ -169,7 +170,7 @@ public class AgencyFragment extends SuperFragment implements NLPullRefreshView.R
             View lineView =  view.findViewById(R.id.bottomLineView);
             ImageView arrow = (ImageView) view.findViewById(R.id.rightArrowImg);
             TextView[] tvArray = new TextView[]{city1,city2,city3,city4,city5};
-            List<AgencyListResponse.CityBean> citys = mList.get(position).citys;
+            List<CityBean> citys = mList.get(position).citys;
             if (citys.size()<=5 || start>=5){
                 arrow.setVisibility(View.INVISIBLE);
             }

@@ -1,5 +1,7 @@
 package com.manyi.mall.cachebean.agency;
 
+import com.manyi.mall.cachebean.CityBean;
+
 import java.util.List;
 
 /**
@@ -15,9 +17,4 @@ public class AgencyListResponse  {
     public String ProviderLogo;
     public String ProviderName;
     public List<CityBean> citys;
-
-    public static class CityBean{
-        public String CityName;
-        public Long ID;
-    }
 }

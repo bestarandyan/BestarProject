@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ecf0f1"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_layout_height"
+        android:background="@color/user_title_layout_bg"
+        android:padding="0dp"
+        android:tag="actionBar">
+
+        <ImageButton
+            android:id="@+id/addAgencyBackBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我要代理"
+            android:id="@+id/agencyTitle"
+            android:textColor="#333"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line_mine_color"></View>
+    </RelativeLayout>
+
+    <RelativeLayout android:padding="15dp"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:clickable="true"
+        android:id="@+id/provinceLayout"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+
+        <TextView android:text="所在省份"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView android:text="浙江省"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:id="@+id/provinceNameTv"
+            android:drawableRight="@drawable/text"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/cityListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:cacheColorHint="#00000000"
+        android:divider="#33000000"
+        android:dividerHeight="0.5dp"
+        android:scrollbars="none"></ListView>
+</LinearLayout>

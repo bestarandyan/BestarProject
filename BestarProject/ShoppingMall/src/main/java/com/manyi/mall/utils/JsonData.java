@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.manyi.mall.cachebean.AdvertBean;
 import com.manyi.mall.cachebean.BaseResponse;
+import com.manyi.mall.cachebean.CityBean;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
@@ -168,6 +169,18 @@ public class JsonData {
 
         return list;
     }
+    public List<GetProvinceResponse> jsonProvince(String msg){
+        LinkedList<GetProvinceResponse> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<GetProvinceResponse>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
     public List<HotSearchBean> jsonHotSearch(String msg){//最热搜索记录
         LinkedList<HotSearchBean> list =null;
         try {
@@ -202,6 +215,18 @@ public class JsonData {
         LinkedList<CollectListBean> list =null;
         try {
             Type listType = new TypeToken<LinkedList<CollectListBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<CityBean> jsonCityList(String msg){
+        LinkedList<CityBean> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<CityBean>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
         }catch (Exception e){
