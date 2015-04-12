@@ -15,6 +15,7 @@ import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.MainDataBean2;
 import com.manyi.mall.cachebean.agency.AgencyListResponse;
+import com.manyi.mall.cachebean.agency.AgentedListResponse;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.HotSearchBean;
@@ -260,6 +261,19 @@ public class JsonData {
 //
 //            }
 //        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<AgentedListResponse> jsonAgentedList(String msg){
+        LinkedList<AgentedListResponse> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<AgentedListResponse>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
         }catch (Exception e){
             e.printStackTrace();
         }

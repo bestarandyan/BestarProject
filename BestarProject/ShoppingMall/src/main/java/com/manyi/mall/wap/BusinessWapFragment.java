@@ -55,11 +55,11 @@ public class BusinessWapFragment extends SuperFragment{
         if (userType.equals("2")){//园长
             gotoAgentedList();
         }else{
-            gotoAgentedList();
+            gotoAgenyList();
         }
     }
 
-    private void gotoAgentedList(){
+    private void gotoAgenyList(){
         if (CheckDoubleClick.isFastDoubleClick())
             return;
         AddAgencyFragment fragment = GeneratedClassUtils.getInstance(AddAgencyFragment.class);

@@ -52,5 +52,6 @@
         android:cacheColorHint="#00000000"
         android:divider="#00ffffff"
         android:dividerHeight="10dp"
+        android:layout_marginTop="10dp"
         android:scrollbars="none"></ListView>
 </LinearLayout>

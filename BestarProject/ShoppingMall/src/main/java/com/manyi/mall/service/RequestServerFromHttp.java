@@ -86,7 +86,7 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-    public String getAgentedList(String ProviderID,Sting CityID,String PageIndex,String PageSize){
+    public String getAgentedList(String ProviderID,String CityID,String PageIndex,String PageSize){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetAgentListByProviderIDandCityID"));
@@ -95,7 +95,7 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("PageIndex", PageIndex));
  		params.add(new BasicNameValuePair("PageSize", PageSize));
  		params.add(new BasicNameValuePair("CityID", CityID));
- 		msgString = getData(USER_SERVICE, params);
+ 		msgString = getData(AGENTINFO_SERVICE, params);
  		return msgString;
  	}
 
