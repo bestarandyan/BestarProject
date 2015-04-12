@@ -9,8 +9,10 @@ import android.webkit.WebViewClient;
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.agency.AddAgencyFragment;
+import com.manyi.mall.agency.AgentedListFragment;
 import com.manyi.mall.agency.GetAgencyProvinceFragment;
 import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.utils.JsonData;
@@ -49,6 +51,15 @@ public class BusinessWapFragment extends SuperFragment{
 
     @Click(R.id.agencyBtn)
     void clickAgency(){
+        String userType = BestarApplication.getInstance().getType();
+        if (userType.equals("2")){//园长
+            gotoAgentedList();
+        }else{
+            gotoAgentedList();
+        }
+    }
+
+    private void gotoAgentedList(){
         if (CheckDoubleClick.isFastDoubleClick())
             return;
         AddAgencyFragment fragment = GeneratedClassUtils.getInstance(AddAgencyFragment.class);
@@ -56,6 +67,19 @@ public class BusinessWapFragment extends SuperFragment{
         bundle.putString("providerId", ProviderID);
         fragment.setArguments(bundle);
         fragment.tag = AddAgencyFragment.class.getName();
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
+    }
+    private void gotoAgentedList(){
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        AgentedListFragment fragment = GeneratedClassUtils.getInstance(AgentedListFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("providerId", ProviderID);
+        fragment.setArguments(bundle);
+        fragment.tag = AgentedListFragment.class.getName();
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         fragment.setManager(getFragmentManager());

@@ -86,6 +86,19 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
+    public String getAgentedList(String ProviderID,Sting CityID,String PageIndex,String PageSize){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentListByProviderIDandCityID"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		params.add(new BasicNameValuePair("CityID", CityID));
+ 		msgString = getData(USER_SERVICE, params);
+ 		return msgString;
+ 	}
+
     public String getCityByProviderIDAndProvinceID(String ProviderID,String ProvinceID){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();

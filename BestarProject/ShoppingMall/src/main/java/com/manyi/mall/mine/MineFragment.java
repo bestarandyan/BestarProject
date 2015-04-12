@@ -15,6 +15,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -89,6 +90,13 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
 //        mSwitchBtn.setToggleOn();
 //        mSwitchBtn.setToggleOff();
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                setPush();
+            }
+        });
     }
 
     @Background
