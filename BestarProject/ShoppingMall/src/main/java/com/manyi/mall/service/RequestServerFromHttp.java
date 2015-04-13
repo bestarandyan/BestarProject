@@ -34,6 +34,7 @@ public class RequestServerFromHttp {
     public static final String ADVERT_SERVICE = SERVER_ADDRESS+"shoprollpics.aspx";
     public static final String FEEDBACK_SERVICE = SERVER_ADDRESS+"customerreview.aspx";
     public static final String AGENCYPAYLIST_SERVICE = SERVER_ADDRESS+"payrecord.aspx";
+    public static final String AGENTSETTING_SERVICE = SERVER_ADDRESS+"agentsetting.aspx";
 	public static final String USER_APPKEY = "123456";//
 	public static final String IMGURL = "http://servercomponents.iiyey.com/";
 
@@ -67,6 +68,16 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("ProviderID", ProviderID));
  		msgString = getData(AGENTINFO_SERVICE, params);
+ 		return msgString;
+ 	}
+
+ 	public String getAgentProvinceByProviderID(String ProviderID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentProvinceListByProviderID"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		msgString = getData(AGENTSETTING_SERVICE, params);
  		return msgString;
  	}
 
@@ -121,6 +132,17 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("ProviderID", ProviderID));
  		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
  		msgString = getData(AGENTINFO_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getAgentCityByProviderIDAndProvinceID(String ProviderID,String ProvinceID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentSettingListByProviderIDandProvinceID"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		params.add(new BasicNameValuePair("ProvinceID", ProvinceID));
+ 		msgString = getData(AGENTSETTING_SERVICE, params);
  		return msgString;
  	}
 

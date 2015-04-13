@@ -46,6 +46,7 @@ public class AddAgencyFragment extends SuperFragment {
     ListView mListView;
 
     List<CityBean> mList;
+    List<GetProvinceResponse> mProvinceList;
     CityAdapter mAdapter;
 
     @FragmentArg
@@ -56,6 +57,7 @@ public class AddAgencyFragment extends SuperFragment {
     @AfterViews
     void init(){
         providerId = "11";
+        getProvince();
     }
 
     @Click(R.id.provinceLayout)
@@ -73,7 +75,7 @@ public class AddAgencyFragment extends SuperFragment {
                 mCurrentProvince = (GetProvinceResponse) o;
                 if (mCurrentProvince!=null){
                     mProvinceNameTv.setText(mCurrentProvince.getProvinceName());
-                    getCity();
+                    getCity(mCurrentProvince.getID());
                 }
             }
 
@@ -87,12 +89,28 @@ public class AddAgencyFragment extends SuperFragment {
         fragment.setManager(getFragmentManager());
         fragment.show(SHOW_ADD_HIDE);
     }
+    @Background
+    void getProvince(){
+        RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
+        String msg= requestServerFromHttp.getAgentProvinceByProviderID(providerId);
+        mProvinceList = new JsonData().jsonProvince(msg);
+        if (mProvinceList!=null && mProvinceList.size()>0){
+            setProvinceInfo();
+        }
+    }
+
+    @UiThread
+    void setProvinceInfo(){
+        if (mProvinceList!=null && mProvinceList.size()>0){
+            mProvinceNameTv.setText(mProvinceList.get(0).getProvinceName());
+            getCity(mProvinceList.get(0).getID());
+        }
+    }
 
     @Background
-    void getCity(){
+    void getCity(String provinceId){
         RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
-
-        String msg = requestServerFromHttp.getCityByProviderIDAndProvinceID(providerId,mCurrentProvince.getID());
+        String msg = requestServerFromHttp.getAgentCityByProviderIDAndProvinceID(providerId,provinceId);
         mList = new JsonData().jsonCityList(msg);
         if (mList!=null && mList.size()>0){
             notifyListView();

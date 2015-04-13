@@ -58,7 +58,7 @@ public class GetAgencyProvinceFragment extends SuperFragment {
     @Background
     void getProvince(){
         RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
-        String msg= requestServerFromHttp.getProvinceByProviderID(providerId);
+        String msg= requestServerFromHttp.getAgentProvinceByProviderID(providerId);
         mList = new JsonData().jsonProvince(msg);
         if (mList!=null && mList.size()>0){
             notifyListView();
