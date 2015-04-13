@@ -17,6 +17,7 @@ import com.manyi.mall.cachebean.MainDataBean2;
 import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.agency.AgentedListResponse;
 import com.manyi.mall.cachebean.collect.CollectListBean;
+import com.manyi.mall.cachebean.mine.AgencyPayBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.HotSearchBean;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
@@ -236,10 +237,23 @@ public class JsonData {
 
         return list;
     }
+
     public List<AgencyListResponse> jsonAgencyList(String msg){
         LinkedList<AgencyListResponse> list =null;
         try {
             Type listType = new TypeToken<LinkedList<AgencyListResponse>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    public List<AgencyPayBean> jsonAgencyPayList(String msg){
+        LinkedList<AgencyPayBean> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<AgencyPayBean>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
         }catch (Exception e){

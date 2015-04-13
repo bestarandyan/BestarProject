@@ -33,11 +33,25 @@ public class RequestServerFromHttp {
     public static final String SEARCHRECORD_SERVICE = SERVER_ADDRESS+"searchrecord.aspx";
     public static final String ADVERT_SERVICE = SERVER_ADDRESS+"shoprollpics.aspx";
     public static final String FEEDBACK_SERVICE = SERVER_ADDRESS+"customerreview.aspx";
+    public static final String AGENCYPAYLIST_SERVICE = SERVER_ADDRESS+"payrecord.aspx";
 	public static final String USER_APPKEY = "123456";//
 	public static final String IMGURL = "http://servercomponents.iiyey.com/";
 
 
- 	public String getProvince(){
+
+    public String getAgencyPayList(String PageIndex,String PageSize){
+        String msgString = "";
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("method", "GetPayRecordListByCustomerID"));
+        params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+        params.add(new BasicNameValuePair("PageIndex", PageIndex));
+        params.add(new BasicNameValuePair("PageSize", PageSize));
+        params.add(new BasicNameValuePair("CustomerID", "21"));
+        msgString = getData(AGENCYPAYLIST_SERVICE, params);
+        return msgString;
+    }
+
+    public String getProvince(){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetProvinceList"));

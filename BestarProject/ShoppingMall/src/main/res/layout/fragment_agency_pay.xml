@@ -13,7 +13,7 @@
         android:padding="0dp"
         android:tag="actionBar">
         <ImageButton
-            android:id="@+id/area_back"
+            android:id="@+id/backBtn"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
