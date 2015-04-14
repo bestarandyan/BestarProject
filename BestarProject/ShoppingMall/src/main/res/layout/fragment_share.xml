@@ -26,10 +26,10 @@
         <TextView
             android:id="@+id/wechatShareBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:drawablePadding="6dp"
-            android:drawableTop="@drawable/head"
+            android:drawableTop="@drawable/weixin"
             android:gravity="center"
             android:text="微信"
             android:textColor="#66000000"
@@ -38,36 +38,36 @@
         <TextView
             android:id="@+id/pyqShareBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:drawablePadding="6dp"
-            android:drawableTop="@drawable/head"
+            android:drawableTop="@drawable/friends"
             android:gravity="center"
             android:text="微信朋友圈"
             android:textColor="#66000000"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/qqShareBtn"
+            android:id="@+id/msgShareBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:drawablePadding="6dp"
-            android:drawableTop="@drawable/head"
+            android:drawableTop="@drawable/message"
             android:gravity="center"
-            android:text="QQ好友"
+            android:text="短信"
             android:textColor="#66000000"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/msgShareBtn"
+            android:id="@+id/codeShareBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:drawablePadding="6dp"
-            android:drawableTop="@drawable/head"
+            android:drawableTop="@drawable/code"
             android:gravity="center"
-            android:text="微信"
+            android:text="二维码"
             android:textColor="#66000000"
             android:textSize="14sp" />
 

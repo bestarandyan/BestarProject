@@ -38,6 +38,8 @@ import com.manyi.mall.service.CommonService;
 import com.manyi.mall.user.UserInfoFragment;
 import com.manyi.mall.widget.imageView.CircleImageView;
 import com.manyi.mall.widget.switchView.ToggleButton;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -62,7 +64,9 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     @ViewById(R.id.nameTV)
     TextView mNameTv;
 
+
     String type;
+
 
     @AfterViews
     void loadDate() {

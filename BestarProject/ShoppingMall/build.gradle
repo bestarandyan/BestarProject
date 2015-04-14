@@ -24,6 +24,9 @@ dependencies {
     compile files('libs/gson-1.7.1.jar')
     compile files('libs/pushservice-4.4.0.71.jar')
     compile files('libs/Baidu-Frontia-Android-2.0.8.jar')
+    compile files('libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar')
+    compile files('libs/libammsdk.jar')
+    compile files('libs/core.jar')
 }
 
 apply plugin: 'com.android.application'
