@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_next_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/user_bg"
+    android:clickable="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_layout_height"
+            android:background="@color/user_title_layout_bg"
+            android:padding="0dp"
+            android:tag="actionBar"
+            android:id="@+id/topLayout"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/wapBack"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:src="@drawable/selector_back_btn" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="支付"
+                android:textColor="#333"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/eidtBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:src="@drawable/selector_edit_info_btn" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_mine_color"
+            android:layout_below="@id/topLayout"
+            android:id="@+id/topLineView"
+            ></View>
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/topLineView"
+            android:background="@color/color_ffffff"
+            android:id="@+id/detailWebView"
+            ></WebView>
+</RelativeLayout>

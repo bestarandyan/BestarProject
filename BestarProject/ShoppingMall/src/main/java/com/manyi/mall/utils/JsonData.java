@@ -15,6 +15,7 @@ import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.MainDataBean2;
 import com.manyi.mall.cachebean.agency.AgencyListResponse;
+import com.manyi.mall.cachebean.agency.AgentCityResponse;
 import com.manyi.mall.cachebean.agency.AgentedListResponse;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.AgencyPayBean;
@@ -229,6 +230,19 @@ public class JsonData {
         LinkedList<CityBean> list =null;
         try {
             Type listType = new TypeToken<LinkedList<CityBean>>(){}.getType();
+            Gson gson = new Gson();
+            list = gson.fromJson(msg, listType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<AgentCityResponse> jsonAgentCityList(String msg){
+        LinkedList<AgentCityResponse> list =null;
+        try {
+            Type listType = new TypeToken<LinkedList<AgentCityResponse>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
         }catch (Exception e){
