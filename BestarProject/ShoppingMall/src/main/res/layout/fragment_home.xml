@@ -29,7 +29,7 @@
                 android:drawableLeft="@drawable/icon_search"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
-                android:hint="请输入搜索内容"
+                android:hint="输入关键字"
                 android:paddingLeft="10dp"
                 android:layout_margin="10dp"
                 android:singleLine="true"
