@@ -101,7 +101,7 @@
                         android:layout_below="@id/advertLayout"
                         android:background="@color/white"
                         android:orientation="vertical"
-                        android:padding="10dp">
+                        android:padding="5dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -113,6 +113,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:paddingBottom="10dp"
                                 android:background="@drawable/shape_home_layout1_bg">
 
                                 <TextView
@@ -121,14 +122,32 @@
                                     android:layout_margin="10dp"
                                     android:text="新闻公告"
                                     android:textColor="#ffffff"
+                                    android:id="@+id/xwggTv"
                                     android:textSize="16sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_xwgg"
+                                    android:layout_below="@id/xwggTv"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/bg_new"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentTop="true"
+                                    />
                             </RelativeLayout>
 
                             <RelativeLayout
                                 android:id="@+id/Layout2"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout2_bg">
 
@@ -137,15 +156,25 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10dp"
                                     android:text="配套设备"
+                                    android:id="@+id/ptsbTv"
                                     android:textColor="#ffffff"
                                     android:textSize="16sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_btsb"
+                                    android:layout_below="@id/ptsbTv"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    />
                             </RelativeLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="5dp"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -163,17 +192,28 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_margin="8dp"
+                                        android:layout_margin="10dp"
                                         android:text="室内教玩具"
+                                        android:id="@+id/snwj"
                                         android:textColor="#ffffff"
                                         android:textSize="16sp" />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:adjustViewBounds="true"
+                                        android:src="@drawable/ico_wj"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_marginTop="15dp"
+                                        />
                                 </RelativeLayout>
 
                                 <RelativeLayout
                                     android:id="@+id/Layout4"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
+                                    android:layout_marginTop="5dp"
                                     android:background="@drawable/shape_home_layout4_bg">
 
                                     <TextView
@@ -181,8 +221,19 @@
                                         android:layout_height="wrap_content"
                                         android:layout_margin="10dp"
                                         android:text="国际品牌"
+                                        android:id="@+id/gjpp"
                                         android:textColor="#ffffff"
                                         android:textSize="16sp" />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:adjustViewBounds="true"
+                                        android:src="@drawable/ico_gjpp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_marginTop="15dp"
+                                        />
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -190,7 +241,7 @@
                                 android:id="@+id/Layout5"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="8dp"
+                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout5_bg">
 
@@ -200,13 +251,31 @@
                                     android:layout_margin="10dp"
                                     android:text="管理软件"
                                     android:textColor="#ffffff"
+                                    android:id="@+id/glrjTv"
                                     android:textSize="16sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_glrj"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="20dp"
+                                    android:layout_alignParentBottom="true"
+                                    />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/bg_yx"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentTop="true"
+                                    />
                             </RelativeLayout>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="5dp"
                             android:orientation="horizontal">
 
                             <RelativeLayout
@@ -219,33 +288,57 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
                                     android:text="教材书籍"
                                     android:textColor="#ffffff"
+                                    android:id="@+id/sjTv"
                                     android:textSize="16sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_sj"
+                                    android:layout_below="@id/sjTv"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    />
                             </RelativeLayout>
 
                             <RelativeLayout
                                 android:id="@+id/Layout7"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout7_bg">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
                                     android:text="幼儿园日用品"
+                                    android:id="@+id/rypTv"
                                     android:textColor="#ffffff"
                                     android:textSize="16sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_ryp"
+                                    android:layout_below="@id/rypTv"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    />
                             </RelativeLayout>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="5dp"
                             android:orientation="horizontal">
 
                             <RelativeLayout
@@ -261,15 +354,26 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10dp"
                                     android:text="进修培训"
+                                    android:id="@+id/pxTv"
                                     android:textColor="#ffffff"
                                     android:textSize="14sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_jxpx"
+                                    android:layout_below="@id/pxTv"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    />
                             </RelativeLayout>
 
                             <RelativeLayout
                                 android:id="@+id/Layout9"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout8_bg">
 
@@ -280,14 +384,25 @@
                                     android:layout_margin="10dp"
                                     android:text="胎教早教"
                                     android:textColor="#ffffff"
+                                    android:id="@+id/tjzjTv"
                                     android:textSize="14sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_tjzj"
+                                    android:layout_below="@id/tjzjTv"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    />
                             </RelativeLayout>
                             <RelativeLayout
                                 android:id="@+id/Layout10"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:layout_marginLeft="8dp"
+                                android:layout_marginLeft="5dp"
                                 android:background="@drawable/shape_home_layout10_bg">
 
                                 <TextView
@@ -296,15 +411,26 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10dp"
                                     android:text="装修设计"
+                                    android:id="@+id/zxsjTv"
                                     android:textColor="#ffffff"
                                     android:textSize="14sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_zxsj"
+                                    android:layout_below="@id/zxsjTv"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    />
                             </RelativeLayout>
 
                             <RelativeLayout
                                 android:id="@+id/Layout11"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout11_bg">
 
@@ -315,7 +441,18 @@
                                     android:layout_margin="10dp"
                                     android:text="加盟连锁"
                                     android:textColor="#ffffff"
+                                    android:id="@+id/jmlxTv"
                                     android:textSize="14sp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/ico_jmls"
+                                    android:layout_below="@id/jmlxTv"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    />
                             </RelativeLayout>
                         </LinearLayout>
                     </LinearLayout>

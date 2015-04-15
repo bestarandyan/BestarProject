@@ -79,11 +79,32 @@ public class HomeFragment extends SuperFragment<Object> {
     private int currentItem;// 页面当前所处的位置
     private int uid;
     int cityId = 0;
+    Long layout1Id = 0L;
+    Long layout2Id = 0L;
+    Long layout3Id = 0L;
+    Long layout4Id = 0L;
+    Long layout5Id = 0L;
+    Long layout6Id = 0L;
+    Long layout7Id = 0L;
+    Long layout8Id = 0L;
+    Long layout9Id = 0L;
+    Long layout10Id = 0L;
+    String layout1Name = "";
+    String layout2Name = "";
+    String layout3Name = "";
+    String layout4Name = "";
+    String layout5Name = "";
+    String layout6Name = "";
+    String layout7Name = "";
+    String layout8Name = "";
+    String layout9Name = "";
+    String layout10Name = "";
     ViewpageAdapter mAdapter = null;
     private ScheduledExecutorService scheduledExecutor;
     ArrayList<View> pageViews = new ArrayList<View>();
 
     List<MainDataBean2> mDataList;
+
 
 
     private class MyPageTask implements Runnable {
@@ -197,25 +218,35 @@ public class HomeFragment extends SuperFragment<Object> {
         if (mDataList!=null && mDataList.size()>0){
                for (int i=0;i<mDataList.size();i++){
                    if (mDataList.get(i).ClassName.equals("装修设计")){
-
+                       layout9Id = mDataList.get(i).ID;
+                       layout9Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("幼儿园日用品")){
-
+                       layout6Id = mDataList.get(i).ID;
+                       layout6Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("胎教早教课程")){
-
+                       layout8Id = mDataList.get(i).ID;
+                       layout8Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("进修培训讲座")){
-
+                       layout7Id = mDataList.get(i).ID;
+                       layout7Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("加盟联锁服务")){
-
+                       layout10Id = mDataList.get(i).ID;
+                       layout10Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("教材书籍")){
-
+                       layout5Id = mDataList.get(i).ID;
+                       layout5Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("国际品牌")){
-
+                       layout3Id = mDataList.get(i).ID;
+                       layout3Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("管理软件")){
-
+                       layout4Id = mDataList.get(i).ID;
+                       layout4Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("室内教玩具")){
-
+                       layout2Id = mDataList.get(i).ID;
+                       layout2Name = mDataList.get(i).ClassName;
                    }else if (mDataList.get(i).ClassName.equals("配套设备")){
-
+                       layout1Id = mDataList.get(i).ID;
+                       layout1Name = mDataList.get(i).ClassName;
                    }
                }
         }
@@ -413,48 +444,48 @@ public class HomeFragment extends SuperFragment<Object> {
 
     @Click(R.id.Layout1)
     void clickLayout1() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).ID,mDataList.get(mDataList.size()-1).ClassName);
+
     }
     @Click(R.id.Layout2)
     void clickLayout2() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).ID,mDataList.get(mDataList.size()-2).ClassName);
+        gotoProductListFragment(false,layout1Id,layout1Name);
     }
     @Click(R.id.Layout3)
     void clickLayout3() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).ID,mDataList.get(mDataList.size()-3).ClassName);
+        gotoProductListFragment(false,layout2Id,layout2Name);
     }
     @Click(R.id.Layout4)
     void clickLayout4() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).ID,mDataList.get(mDataList.size()-4).ClassName);
+        gotoProductListFragment(false,layout3Id,layout3Name);
     }
     @Click(R.id.Layout5)
     void clickLayout5(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).ID,mDataList.get(mDataList.size()-5).ClassName);
+        gotoProductListFragment(false,layout4Id,layout4Name);
     }
     @Click(R.id.Layout6)
     void clickLayout6(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-5).ID,mDataList.get(mDataList.size()-6).ClassName);
+        gotoProductListFragment(false,layout5Id,layout5Name);
     }
     @Click(R.id.Layout7)
     void clickLayout7(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-6).ID,mDataList.get(mDataList.size()-7).ClassName);
+        gotoProductListFragment(false,layout6Id,layout6Name);
     }
     @Click(R.id.Layout8)
     void clickLayout8(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-7).ID,mDataList.get(mDataList.size()-8).ClassName);
+        gotoProductListFragment(false,layout7Id,layout7Name);
     }
     @Click(R.id.Layout9)
     void clickLayout9(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-8).ID,mDataList.get(mDataList.size()-9).ClassName);
+        gotoProductListFragment(false,layout8Id,layout8Name);
     }
     @Click(R.id.Layout10)
     void clickLayout10(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-9).ID,mDataList.get(mDataList.size()-10).ClassName);
+        gotoProductListFragment(false,layout9Id,layout9Name);
     }
 
     @Click(R.id.Layout11)
     void clickLayout11(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-10).ID,mDataList.get(mDataList.size()-10).ClassName);
+        gotoProductListFragment(false,layout10Id,layout10Name);
     }
     private void gotoProductListFragment(boolean isHaveHistory,Long classid,String title){
         if (CheckDoubleClick.isFastDoubleClick()){
