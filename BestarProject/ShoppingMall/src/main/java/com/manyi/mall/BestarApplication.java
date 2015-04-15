@@ -7,9 +7,11 @@ import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import com.baidu.frontia.FrontiaApplication;
 import com.huoqiu.framework.app.AppConfig;
 import com.manyi.mall.common.util.DBUtil;
-public class BestarApplication extends Application{
+@EApplication
+public class BestarApplication extends FrontiaApplication {
 	private static BestarApplication application = null;
 
 	public static BestarApplication getInstance() {
@@ -19,7 +21,11 @@ public class BestarApplication extends Application{
 		return application;
 	}
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
+    }
     public String userName;
     public String password;
     public String appkey;
