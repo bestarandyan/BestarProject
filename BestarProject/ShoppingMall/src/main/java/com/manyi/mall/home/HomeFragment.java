@@ -74,122 +74,16 @@ public class HomeFragment extends SuperFragment<Object> {
     CirclePageIndicator mIndicator;
     @ViewById(R.id.view_page)
     FangyouReleasedViewPage mViewPage;
-    @ViewById(R.id.sjImg)
-    ImageView mSjImg;
-    @ViewById(R.id.sjTitle)
-    TextView mSjTitle;
-    @ViewById(R.id.sjCp)
-    TextView mSjcp;
-    @ViewById(R.id.rypImg1)
-    ImageView mrypImg1;
-    @ViewById(R.id.rypImg2)
-    ImageView mrypImg2;
-    @ViewById(R.id.rypImg3)
-    ImageView mrypImg3;
-    @ViewById(R.id.rypImg4)
-    ImageView mrypImg4;
-    @ViewById(R.id.rypImg5)
-    ImageView mrypImg5;
-    @ViewById(R.id.rypTitle1)
-    TextView mrypTitle1;
-    @ViewById(R.id.rypTitle2)
-    TextView mrypTitle2;
-    @ViewById(R.id.rypTitle3)
-    TextView mrypTitle3;
-    @ViewById(R.id.rypTitle4)
-    TextView mrypTitle4;
-    @ViewById(R.id.rypTitle5)
-    TextView mrypTitle5;
-    @ViewById(R.id.rypCp1)
-    TextView mrypcp1;
-    @ViewById(R.id.rypCp2)
-    TextView mrypcp2;
-    @ViewById(R.id.rypCp3)
-    TextView mrypcp3;
-    @ViewById(R.id.rypCp4)
-    TextView mrypcp4;
-    @ViewById(R.id.rypCp5)
-    TextView mrypcp5;
-    @ViewById(R.id.zxTitle1)
-    TextView mZxTitle1;
-    @ViewById(R.id.zxTitle2)
-    TextView mZxTitle2;
-    @ViewById(R.id.zxTitle3)
-    TextView mZxTitle3;
-    @ViewById(R.id.zxTitle4)
-    TextView mZxTitle4;
-    @ViewById(R.id.zxcp1)
-    TextView mZxCp1;
-    @ViewById(R.id.zxcp2)
-    TextView mZxCp2;
-    @ViewById(R.id.zxcp3)
-    TextView mZxCp3;
-    @ViewById(R.id.zxcp4)
-    TextView mZxCp4;
-    @ViewById(R.id.zximg1)
-    ImageView mZxImg1;
-    @ViewById(R.id.zximg2)
-    ImageView mZxImg2;
-    @ViewById(R.id.zximg3)
-    ImageView mZxImg3;
-    @ViewById(R.id.zximg4)
-    ImageView mZxImg4;
-    @ViewById(R.id.zjcp1)
-    TextView mZjCp1;
-    @ViewById(R.id.zjcp2)
-    TextView mZjCp2;
-    @ViewById(R.id.zjImg1)
-    ImageView mZjImg1;
-    @ViewById(R.id.zjImg2)
-    ImageView mZjImg2;
-    @ViewById(R.id.zjTitle1)
-    TextView mZjTitle1;
-    @ViewById(R.id.zjTitle2)
-    TextView mZjTitle2;
-    @ViewById(R.id.jmcp)
-    TextView mjmCp;
-    @ViewById(R.id.jmImg)
-    ImageView mJmImg;
-    @ViewById(R.id.jmtitle)
-    TextView mJmTitle;
-    @ViewById(R.id.jxCp)
-    TextView mjxCp;
-    @ViewById(R.id.jxImg)
-    ImageView mjxImg;
-    @ViewById(R.id.jxtitle)
-    TextView mjxTitle;
-
     @ViewById(R.id.advertLayout)
     RelativeLayout advertLayout;
     private int currentItem;// 页面当前所处的位置
     private int uid;
     int cityId = 0;
-
     ViewpageAdapter mAdapter = null;
-    int RadioID = 0x001100;
-
     private ScheduledExecutorService scheduledExecutor;
     ArrayList<View> pageViews = new ArrayList<View>();
 
     List<MainDataBean2> mDataList;
-    TextView[] mSjTvArray = null;
-    ImageView[] mSjImgArray = null;
-    TextView[] mSjcpArray = null;
-    TextView[] mZxTvArray = null;
-    ImageView[] mZxImgArray = null;
-    TextView[] mZxcpArray = null;
-    TextView[] mrypTvArray = null;
-    ImageView[] mrypImgArray = null;
-    TextView[] mrypcpArray = null;
-    TextView[] mzjTvArray = null;
-    ImageView[] mzjImgArray = null;
-    TextView[] mzjCpArray = null;
-    TextView[] mjmTvArray = null;
-    ImageView[] mjmImgArray = null;
-    TextView[] mjmcpArray = null;
-    TextView[] mjxTvArray = null;
-    ImageView[] mjxImgArray = null;
-    TextView[] mjxcpArray = null;
 
 
     private class MyPageTask implements Runnable {
@@ -248,27 +142,6 @@ public class HomeFragment extends SuperFragment<Object> {
     public void init() {
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
-        mSjTvArray = new TextView[]{mSjTitle};
-        mSjImgArray = new ImageView[]{mSjImg};
-        mSjcpArray = new TextView[]{mSjcp};
-
-        mZxTvArray = new TextView[]{mZxTitle1,mZxTitle2,mZxTitle3,mZxTitle4};
-        mZxImgArray = new ImageView[]{mZxImg1,mZxImg2,mZxImg3,mZxImg4};
-        mZxcpArray = new TextView[]{mZxCp1,mZxCp2,mZxCp3,mZxCp4};
-
-        mrypTvArray = new TextView[]{mrypTitle1,mrypTitle2,mrypTitle3,mrypTitle4,mrypTitle5};
-        mrypImgArray = new ImageView[]{mrypImg1,mrypImg2,mrypImg3,mrypImg4,mrypImg5};
-        mrypcpArray = new TextView[]{mrypcp1,mrypcp2,mrypcp3,mrypcp4,mrypcp5};
-        mzjTvArray = new TextView[]{mZjTitle1,mZjTitle2};
-        mzjImgArray = new ImageView[]{mZjImg1,mZjImg2};
-        mzjCpArray = new TextView[]{mZjCp1,mZjCp2};
-        mjmTvArray = new TextView[]{mJmTitle};
-        mjmImgArray = new ImageView[]{mJmImg};
-        mjmcpArray = new TextView[]{mjmCp};
-        mjxTvArray = new TextView[]{mjxTitle};
-        mjxImgArray = new ImageView[]{mjxImg};
-        mjxcpArray = new TextView[]{mjxCp};
-
         cityId = getActivity().getSharedPreferences(Constants.LOGIN_TIMES, Context.MODE_PRIVATE).getInt("cityId", 0);
         mAdapter = new ViewpageAdapter();
         mViewPage.setAdapter(mAdapter);
@@ -324,20 +197,17 @@ public class HomeFragment extends SuperFragment<Object> {
         if (mDataList!=null && mDataList.size()>0){
                for (int i=0;i<mDataList.size();i++){
                    if (mDataList.get(i).ClassName.equals("装修设计")){
-                       setViewData(i,mZxTvArray,mZxImgArray,mZxcpArray);
+
                    }else if (mDataList.get(i).ClassName.equals("幼儿园日用品")){
-                       setViewData(i,mrypTvArray,mrypImgArray,mrypcpArray);
+
                    }else if (mDataList.get(i).ClassName.equals("胎教早教课程")){
-                       setViewData(i,mzjTvArray,mzjImgArray,mzjCpArray);
+
                    }else if (mDataList.get(i).ClassName.equals("进修培训讲座")){
-                       mDataList.get(i).SubClassAndProducts.get(0).ClassName=("进修培训讲座");
-                       setViewData(i,mjxTvArray,mjxImgArray,mjxcpArray);
+
                    }else if (mDataList.get(i).ClassName.equals("加盟联锁服务")){
-                       mDataList.get(i).SubClassAndProducts.get(0).ClassName=("加盟联锁服务");
-                       setViewData(i,mjmTvArray,mjmImgArray,mjmcpArray);
+
                    }else if (mDataList.get(i).ClassName.equals("教材书籍")){
-                       mDataList.get(i).SubClassAndProducts.get(0).ClassName=("教材书籍");
-                       setViewData(i,mSjTvArray,mSjImgArray,mSjcpArray);
+
                    }else if (mDataList.get(i).ClassName.equals("国际品牌")){
 
                    }else if (mDataList.get(i).ClassName.equals("管理软件")){
@@ -355,36 +225,6 @@ public class HomeFragment extends SuperFragment<Object> {
     void dismissDialog(){
         dismissProgressDialog();
     }
-    @UiThread
-    void setViewData(int position,TextView[] titleArray,ImageView[] imgArray,TextView[] productArray){
-        List<MainDataBean2.Product> shopClasseses = mDataList.get(position).SubClassAndProducts;
-        for (int s=0;s<shopClasseses.size();s++){
-            if (s > titleArray.length-1){
-                break;
-            }
-           MainDataBean2.Product shopClasses = shopClasseses.get(s);
-            titleArray[s].setText(shopClasses.ClassName);
-//            MainDataBean.Products products = getProducts(position,shopClasses.getID());
-            if (shopClasses!=null){
-                ImageLoader.getInstance().displayImage(shopClasses.ProductPicURL, imgArray[s], options, animateFirstListener);
-                productArray[s].setText(shopClasses.ProductName);
-            }
-        }
-    }
-
-//    private MainDataBean.Products getProducts(int position,Long classId){
-//        List<MainDataBean.Products> productses = mDataList.get(position).getProducts();
-//        if (productses==null){
-//            return null;
-//        }
-//        for (int i=0;i<productses.size();i++){
-//            MainDataBean.Products product = productses.get(i);
-//            if(product.getClassID() == classId){
-//                return product;
-//            }
-//        }
-//        return null;
-//    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -571,44 +411,49 @@ public class HomeFragment extends SuperFragment<Object> {
         gotoProductListFragment(true,0l,"");
     }
 
-    @Click(R.id.model1Layout1)
-    void model1Layout1() {
+    @Click(R.id.Layout1)
+    void clickLayout1() {
         gotoProductListFragment(false,mDataList.get(mDataList.size()-1).ID,mDataList.get(mDataList.size()-1).ClassName);
     }
-    @Click(R.id.model1Layout2)
-    void model1Layout2() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).ID,mDataList.get(mDataList.size()-2).ClassName);
+    @Click(R.id.Layout2)
+    void clickLayout2() {
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-1).ID,mDataList.get(mDataList.size()-2).ClassName);
     }
-    @Click(R.id.model1Layout3)
-    void model1Layout3() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).ID,mDataList.get(mDataList.size()-3).ClassName);
+    @Click(R.id.Layout3)
+    void clickLayout3() {
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-2).ID,mDataList.get(mDataList.size()-3).ClassName);
     }
-    @Click(R.id.model1Layout4)
-    void model1Layout4() {
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).ID,mDataList.get(mDataList.size()-4).ClassName);
+    @Click(R.id.Layout4)
+    void clickLayout4() {
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-3).ID,mDataList.get(mDataList.size()-4).ClassName);
     }
-    @Click(R.id.shujuLayout)
-    void gotoDetailProdect(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-5).ID,mDataList.get(mDataList.size()-5).ClassName);
+    @Click(R.id.Layout5)
+    void clickLayout5(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-4).ID,mDataList.get(mDataList.size()-5).ClassName);
     }
-    @Click(R.id.jiamengliansuo)
-    void jiameng(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-6).ID,mDataList.get(mDataList.size()-6).ClassName);
+    @Click(R.id.Layout6)
+    void clickLayout6(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-5).ID,mDataList.get(mDataList.size()-6).ClassName);
     }
-    @Click(R.id.peixun)
-    void peixun(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-7).ID,mDataList.get(mDataList.size()-7).ClassName);
+    @Click(R.id.Layout7)
+    void clickLayout7(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-6).ID,mDataList.get(mDataList.size()-7).ClassName);
     }
-    @Click(R.id.zaojiao)
-    void zaojiao(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-8).ID,mDataList.get(mDataList.size()-8).ClassName);
+    @Click(R.id.Layout8)
+    void clickLayout8(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-7).ID,mDataList.get(mDataList.size()-8).ClassName);
     }
-    @Click(R.id.riyongpin)
-    void riyongpin(){
-        gotoProductListFragment(false,mDataList.get(mDataList.size()-9).ID,mDataList.get(mDataList.size()-9).ClassName);
+    @Click(R.id.Layout9)
+    void clickLayout9(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-8).ID,mDataList.get(mDataList.size()-9).ClassName);
     }
-    @Click(R.id.zhuangxiu)
-    void zhuangxiu(){
+    @Click(R.id.Layout10)
+    void clickLayout10(){
+        gotoProductListFragment(false,mDataList.get(mDataList.size()-9).ID,mDataList.get(mDataList.size()-10).ClassName);
+    }
+
+    @Click(R.id.Layout11)
+    void clickLayout11(){
         gotoProductListFragment(false,mDataList.get(mDataList.size()-10).ID,mDataList.get(mDataList.size()-10).ClassName);
     }
     private void gotoProductListFragment(boolean isHaveHistory,Long classid,String title){

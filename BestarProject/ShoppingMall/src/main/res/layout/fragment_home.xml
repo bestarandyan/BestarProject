@@ -18,8 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_layout_height"
             android:background="@color/app_theme_color"
-            android:padding="10dp"
-            >
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/searchEt"
@@ -50,14 +49,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/user_bg"
+                android:background="@color/white"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:id="@+id/releaseLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null"
+                    android:background="@color/white"
                     android:fadingEdge="none">
 
                     <RelativeLayout
@@ -91,869 +90,227 @@
                     </RelativeLayout>
 
                     <LinearLayout
-                        android:id="@+id/ll_left"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_below="@id/advertLayout"
-                        android:orientation="vertical">
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/color_ffffff"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:id="@+id/model1Layout1"
+                            <RelativeLayout
+                                android:id="@+id/Layout1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="8dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/selector_ptsb_btn" />
+                                android:background="@drawable/shape_home_layout1_bg">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_margin="10dp"
+                                    android:text="新闻公告"
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/Layout2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout2_bg">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
                                     android:text="配套设备"
-                                    android:textColor="#A6A6A6"
-                                    android:textSize="@dimen/_12" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/model1Layout2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="8dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/selector_snwj_btn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="室内教玩具"
-                                    android:textColor="#A6A6A6"
-                                    android:textSize="@dimen/_12" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/model1Layout3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="8dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/selector_glrj_btn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="软件管理"
-                                    android:textColor="#A6A6A6"
-                                    android:textSize="@dimen/_12" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/model1Layout4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="8dp">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/selector_gjpp_btn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="国际品牌"
-                                    android:textColor="#A6A6A6"
-                                    android:textSize="@dimen/_12" />
-                            </LinearLayout>
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
                         </LinearLayout>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/line_mine_color"></View>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/line_mine_color"></View>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#fff"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:id="@+id/Layout3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/shape_home_layout3_bg">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="8dp"
+                                        android:text="室内教玩具"
+                                        android:textColor="#ffffff"
+                                        android:textSize="16sp" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/Layout4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@drawable/shape_home_layout4_bg">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:text="国际品牌"
+                                        android:textColor="#ffffff"
+                                        android:textSize="16sp" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/Layout5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout5_bg">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:text="管理软件"
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:orientation="horizontal">
 
                             <RelativeLayout
-                                android:id="@+id/shujuLayout"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:background="#fff"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:id="@+id/Layout6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout6_bg">
 
                                 <TextView
-                                    android:id="@+id/sjTitle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
                                     android:text="教材书籍"
-                                    android:textColor="#EC3C44"
-                                    android:textSize="@dimen/_16_text_size" />
-
-                                <TextView
-                                    android:id="@+id/sjCp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/sjTitle"
-                                    android:layout_marginTop="6dp"
-                                    android:text="新一代创新"
-                                    android:textColor="#CFCFCF"
-                                    android:textSize="@dimen/_12" />
-
-                                <ImageView
-                                    android:id="@+id/sjImg"
-                                    style="@style/home_image"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_alignParentRight="true"
-                                    android:maxWidth="60dp"
-                                    android:src="@drawable/take_photos_list_no__thumbnail" />
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
                             </RelativeLayout>
 
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="@color/line_mine_color"></View>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#fff"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:id="@+id/jiamengliansuo"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="#fff"
-                                    android:orientation="horizontal"
-                                    android:padding="10dp">
-
-                                    <LinearLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:background="#fff"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/jmtitle"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="加盟连锁服务"
-                                            android:textColor="#B2DED5"
-                                            android:textSize="@dimen/_16_text_size" />
-
-                                        <TextView
-                                            android:id="@+id/jmcp"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="6dp"
-                                            android:text="幼儿园美化"
-                                            android:textColor="#CFCFCF"
-                                            android:textSize="@dimen/_12" />
-                                    </LinearLayout>
-
-                                    <ImageView
-                                        android:id="@+id/jmImg"
-                                        style="@style/home_image"
-                                        android:maxWidth="60dp"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <LinearLayout
-                                    android:id="@+id/peixun"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="#fff"
-                                    android:orientation="horizontal"
-                                    android:padding="10dp">
-
-                                    <LinearLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:background="#fff"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/jxtitle"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="进修培训讲座"
-                                            android:textColor="#9079B2"
-                                            android:textSize="@dimen/_16_text_size" />
-
-                                        <TextView
-                                            android:id="@+id/jxCp"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="6dp"
-                                            android:text="多类幼儿园玩具"
-                                            android:textColor="#CFCFCF"
-                                            android:textSize="@dimen/_12" />
-                                    </LinearLayout>
-
-                                    <ImageView
-                                        android:id="@+id/jxImg"
-                                        style="@style/home_image"
-                                        android:maxWidth="60dp"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/line_mine_color"></View>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/line_mine_color"></View>
-
-                        <LinearLayout
-                            android:id="@+id/zaojiao"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/color_ffffff"
-                            android:orientation="vertical">
-
                             <RelativeLayout
+                                android:id="@+id/Layout7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="8dp">
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout7_bg">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginTop="6dp"
-                                    android:text="胎教早教课程"
-                                    android:textColor="#333"
-                                    android:textSize="@dimen/_16_text_size" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginTop="6dp"
-                                    android:drawablePadding="10dp"
-                                    android:drawableRight="@drawable/home_next"
-                                    android:text="全部"
-                                    android:textColor="#333"
-                                    android:textSize="@dimen/_16_text_size" />
-                            </RelativeLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-
-                                <RelativeLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/zjTitle1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text=""
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/zjcp1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/zjTitle1"
-                                        android:layout_marginTop="6dp"
-                                        android:text="胎儿教育"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/zjImg1"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:maxWidth="60dp"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <RelativeLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/zjTitle2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text=""
-                                        android:textColor="@color/app_theme_color"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/zjcp2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/zjTitle2"
-                                        android:layout_marginTop="6dp"
-                                        android:text="了解宝宝详情"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/zjImg2"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:maxWidth="60dp"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/line_mine_color"></View>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/line_mine_color"></View>
-
-                        <LinearLayout
-                            android:id="@+id/riyongpin"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/color_ffffff"
-                            android:orientation="vertical">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="8dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginTop="6dp"
+                                    android:layout_margin="10dp"
                                     android:text="幼儿园日用品"
-                                    android:textColor="#333"
-                                    android:textSize="@dimen/_16_text_size" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginTop="6dp"
-                                    android:drawablePadding="10dp"
-                                    android:drawableRight="@drawable/home_next"
-                                    android:text="全部"
-                                    android:textColor="#333"
-                                    android:textSize="@dimen/_16_text_size" />
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
                             </RelativeLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:padding="10dp">
-
-                                    <TextView
-                                        android:id="@+id/rypTitle1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text=""
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/rypCp1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/rypTitle1"
-                                        android:layout_marginTop="6dp"
-                                        android:text="新一代创新"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/rypImg1"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_below="@id/rypCp1"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:padding="10dp">
-
-                                    <TextView
-                                        android:id="@+id/rypTitle2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="寝具"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/rypCp2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/rypTitle2"
-                                        android:layout_marginTop="6dp"
-                                        android:text="标准的幼儿园校车"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/rypImg2"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_below="@id/rypCp2"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="0.5dp"
-                                android:background="@color/line_mine_color"></View>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/color_ffffff"
-                                android:orientation="horizontal">
-
-                                <RelativeLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/rypTitle3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="制服"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/rypCp3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/rypTitle3"
-                                        android:layout_marginTop="6dp"
-                                        android:text="最新科技"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/rypImg3"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_below="@id/rypCp3"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <RelativeLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/rypTitle4"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="清洁用品"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/rypCp4"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/rypTitle4"
-                                        android:layout_marginTop="6dp"
-                                        android:text="儿童音乐"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/rypImg4"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_below="@id/rypCp4"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <RelativeLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/rypTitle5"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="aa"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/rypCp5"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@id/rypTitle5"
-                                        android:layout_marginTop="6dp"
-                                        android:text="aa"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <ImageView
-                                        android:id="@+id/rypImg5"
-                                        style="@style/home_image"
-                                        android:layout_alignParentBottom="true"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_below="@id/rypCp5"
-                                        android:src="@drawable/take_photos_list_no__thumbnail" />
-                                </RelativeLayout>
-
-                            </LinearLayout>
-
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/line_mine_color"></View>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/line_mine_color"></View>
-
                         <LinearLayout
-                            android:id="@+id/zhuangxiu"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/color_ffffff"
-                            android:orientation="vertical">
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
 
                             <RelativeLayout
+                                android:id="@+id/Layout8"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="8dp">
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout8_bg">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:gravity="center"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginTop="6dp"
-                                    android:text="装修设计"
-                                    android:textColor="#333"
-                                    android:textSize="@dimen/_16_text_size" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginTop="6dp"
-                                    android:drawablePadding="10dp"
-                                    android:drawableRight="@drawable/home_next"
-                                    android:text="全部"
-                                    android:textColor="#333"
-                                    android:textSize="@dimen/_16_text_size" />
+                                    android:layout_margin="10dp"
+                                    android:text="进修培训"
+                                    android:textColor="#ffffff"
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
-
-                            <LinearLayout
+                            <RelativeLayout
+                                android:id="@+id/Layout9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout8_bg">
 
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/zxTitle1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="环保设计"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/zxcp1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:maxLength="10"
-                                        android:text="最新科技"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <LinearLayout
-                                        style="@style/home_layout"
-                                        android:gravity="bottom|right"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:id="@+id/zximg1"
-                                            style="@style/home_image"
-                                            android:maxWidth="60dp"
-                                            android:src="@drawable/take_photos_list_no__thumbnail" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/zxTitle2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="地垫"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/zxcp2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:singleLine="true"
-                                        android:text="儿童音乐"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <LinearLayout
-                                        style="@style/home_layout"
-                                        android:gravity="bottom|right"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:id="@+id/zximg2"
-                                            style="@style/home_image"
-                                            android:maxWidth="60dp"
-                                            android:src="@drawable/take_photos_list_no__thumbnail" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/zxTitle3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="环境设计"
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/zxcp3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:singleLine="true"
-                                        android:text="可爱桌椅"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <LinearLayout
-                                        style="@style/home_layout"
-                                        android:gravity="bottom|right"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:id="@+id/zximg3"
-                                            style="@style/home_image"
-                                            android:maxWidth="60dp"
-                                            android:src="@drawable/take_photos_list_no__thumbnail" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="0.5dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/line_mine_color"></View>
-
-                                <LinearLayout
-                                    style="@style/home_layout"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/zxTitle4"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text=""
-                                        android:textColor="#B2DED5"
-                                        android:textSize="@dimen/_16_text_size" />
-
-                                    <TextView
-                                        android:id="@+id/zxcp4"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="6dp"
-                                        android:singleLine="true"
-                                        android:text="可爱桌椅"
-                                        android:textColor="#CFCFCF"
-                                        android:textSize="@dimen/_12" />
-
-                                    <LinearLayout
-                                        style="@style/home_layout"
-                                        android:gravity="bottom|right"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:id="@+id/zximg4"
-                                            style="@style/home_image"
-                                            android:maxWidth="60dp"
-                                            android:src="@drawable/take_photos_list_no__thumbnail" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@color/line_mine_color"></View>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="10dp"
-                                android:background="@color/line_mine_color"></View>
-
-                            <LinearLayout
-                                android:id="@+id/bannerLayout"
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:gravity="center"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:text="胎教早教"
+                                    android:textColor="#ffffff"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/Layout10"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:layout_weight="1"
+                                android:layout_marginLeft="8dp"
+                                android:background="@drawable/shape_home_layout10_bg">
 
-                            </LinearLayout>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:gravity="center"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:text="装修设计"
+                                    android:textColor="#ffffff"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/Layout11"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_home_layout11_bg">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:gravity="center"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:text="加盟连锁"
+                                    android:textColor="#ffffff"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
