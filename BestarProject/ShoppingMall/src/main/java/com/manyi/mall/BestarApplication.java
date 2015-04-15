@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import com.baidu.frontia.FrontiaApplication;
 import com.huoqiu.framework.app.AppConfig;
 import com.manyi.mall.common.util.DBUtil;
-@EApplication
 public class BestarApplication extends FrontiaApplication {
 	private static BestarApplication application = null;
 

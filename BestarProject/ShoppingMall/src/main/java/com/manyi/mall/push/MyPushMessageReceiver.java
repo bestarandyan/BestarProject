@@ -74,7 +74,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
             Utils.setBind(context, true);
         }
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-        updateContent(context, responseString);
+//        updateContent(context, responseString);
     }
 
     /**
@@ -110,7 +110,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
         }
 
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-        updateContent(context, messageString);
+//        updateContent(context, messageString);
     }
 
     /**
@@ -173,7 +173,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
         Log.d(TAG, responseString);
 
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-        updateContent(context, responseString);
+//        updateContent(context, responseString);
     }
 
     /**
@@ -198,7 +198,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
         Log.d(TAG, responseString);
 
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-        updateContent(context, responseString);
+//        updateContent(context, responseString);
     }
 
     /**
@@ -221,7 +221,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
         Log.d(TAG, responseString);
 
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-        updateContent(context, responseString);
+//        updateContent(context, responseString);
     }
 
     /**
@@ -245,7 +245,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
             Utils.setBind(context, false);
         }
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-        updateContent(context, responseString);
+//        updateContent(context, responseString);
     }
 
     private void updateContent(Context context, String content) {
