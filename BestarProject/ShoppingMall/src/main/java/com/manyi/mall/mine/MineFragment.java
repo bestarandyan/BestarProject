@@ -79,10 +79,8 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             @Override
             public void onToggle(boolean on) {
                 if (on){
-                    Toast.makeText(getActivity(),"开",Toast.LENGTH_SHORT).show();
                     setPush();
                 }else{
-                    Toast.makeText(getActivity(),"关",Toast.LENGTH_SHORT).show();
                     PushManager.stopWork(getActivity());
                 }
             }
