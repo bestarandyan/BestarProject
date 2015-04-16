@@ -85,7 +85,8 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
         fragment.tag = DetailProductFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProviderID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
+        bundle.putString("ProductID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
+        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
