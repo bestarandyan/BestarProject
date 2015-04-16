@@ -32,6 +32,7 @@ import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
@@ -65,9 +66,22 @@ public class AddAgencyFragment extends SuperFragment {
         getProvince();
     }
 
-    @Click(R.id.confirmBtn)
-    void clickConfirm(){
-
+    @ItemClick(R.id.cityListView)
+    void OnItemClick(final int position){
+        if (mList.get(position).AgentNum > mList.get(position).PresentNum) {//可以代理
+            DialogBuilder.showSimpleDialog("￥" + mList.get(position).AgentPrice + "\n恭喜您获得该城市的代理资格！", "下一步", "取消", getActivity(), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    gotoPay(mList.get(position));
+                }
+            });
+        } else {
+            DialogBuilder.showSimpleDialog("抱歉,这个城市的代理名额已满", "重新选择", getActivity(), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+        }
     }
 
     @Click(R.id.provinceLayout)
@@ -161,42 +175,16 @@ public class AddAgencyFragment extends SuperFragment {
                 holder = new ViewHolder();
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_city_list,null);
                 holder.cityNameTv = (TextView) convertView.findViewById(R.id.cityNameTv);
-                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
                 convertView.setTag(holder);
             }else{
                 holder = (ViewHolder) convertView.getTag();
             }
             holder.cityNameTv.setText(mList.get(position).CityName);
-            holder.checkBox.setChecked(mList.get(position).isChecked);
-            holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        if (mList.get(position).AgentNum > mList.get(position).PresentNum) {//可以代理
-                            mList.get(position).isChecked = isChecked;
-                            DialogBuilder.showSimpleDialog("￥" + mList.get(position).AgentPrice + "\n恭喜您获得该城市的代理资格！", "下一步", "取消", getActivity(), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    gotoPay(mList.get(position));
-                                }
-                            });
-                        } else {
-                            DialogBuilder.showSimpleDialog("抱歉,这个城市的代理名额已满", "重新选择", getActivity(), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    holder.checkBox.setChecked(false);
-                                }
-                            });
-                        }
-                    }
-                }
-            });
             return convertView;
         }
 
         class ViewHolder{
             TextView cityNameTv;
-            CheckBox checkBox;
         }
     }
 

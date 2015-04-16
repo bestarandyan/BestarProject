@@ -77,7 +77,7 @@
         android:divider="#33000000"
         android:dividerHeight="0.5dp"
         android:scrollbars="none"></ListView>
-
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,5 +94,5 @@
             android:text="确定"
             android:textColor="@color/tetx_title_color"
             android:textSize="22sp" />
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>

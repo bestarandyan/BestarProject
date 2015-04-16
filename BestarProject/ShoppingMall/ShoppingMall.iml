@@ -9,6 +9,7 @@
     <facet type="android" name="Android">
       <configuration>
         <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
         <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
         <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
         <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleDebugAndroidTest" />
@@ -91,14 +92,14 @@
     <orderEntry type="library" exported="" name="libammsdk" level="project" />
     <orderEntry type="library" exported="" name="androidannotations-api-3.0.1" level="project" />
     <orderEntry type="library" exported="" name="ProviGen-2.0.1" level="project" />
-    <orderEntry type="library" exported="" name="Baidu-Frontia-Android-2.0.8" level="project" />
     <orderEntry type="library" exported="" name="asmack_fyb" level="project" />
+    <orderEntry type="library" exported="" name="Baidu-Frontia-Android-2.0.8" level="project" />
     <orderEntry type="library" exported="" name="core" level="project" />
     <orderEntry type="library" exported="" name="rebound-0.3.7" level="project" />
     <orderEntry type="library" exported="" name="imageresizer" level="project" />
     <orderEntry type="library" exported="" name="eventbus" level="project" />
-    <orderEntry type="library" exported="" name="spring-security-crypto" level="project" />
     <orderEntry type="library" exported="" name="gson-1.7.1" level="project" />
+    <orderEntry type="library" exported="" name="spring-security-crypto" level="project" />
     <orderEntry type="library" exported="" name="listadapter" level="project" />
     <orderEntry type="module" module-name="Widget" exported="" />
   </component>

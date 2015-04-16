@@ -15,13 +15,18 @@
         android:textColor="#000"
         android:id="@+id/cityNameTv"
         />
-    <CheckBox
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox"
-        android:visibility="visible"
-        style="@style/CustomCheckboxTheme"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        />
+        android:layout_centerVertical="true"
+        android:background="@drawable/selector_mine_exit_btn_bg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:clickable="false"
+        android:text="申请代理"
+        android:gravity="center"
+        android:textColor="@color/app_theme_color"
+        android:textSize="14sp" />
     
 </RelativeLayout>
