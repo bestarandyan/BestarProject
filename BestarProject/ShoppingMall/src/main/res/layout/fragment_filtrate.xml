@@ -24,7 +24,20 @@
         android:background="@color/white"
         android:orientation="vertical"
         android:visibility="invisible">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ffffff"
+            android:padding="15dp"
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:text="本地经理"
+            android:id="@+id/localTextView"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_mine_color"></View>
         <RelativeLayout android:background="@color/filtrate_listview2_bg"
             android:layout_width="match_parent"
             android:clickable="true"

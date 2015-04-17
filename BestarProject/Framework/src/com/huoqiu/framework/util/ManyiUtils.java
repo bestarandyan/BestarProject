@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.view.View;
@@ -25,6 +27,22 @@ public class ManyiUtils {
 			imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 		}
 	}
+
+    /**
+     * 获取版本号
+     * @return 当前应用的版本号
+     */
+    public static String getVersion(Context context) {
+        try {
+            PackageManager manager = context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+            String version = info.versionName;
+            return "当前版本:" + version;
+        } catch (Exception e) {
+            e.printStackTrace();
+           return "当前版本:" + 1.0;
+        }
+    }
 
 	/**
 	 * 打开键盘

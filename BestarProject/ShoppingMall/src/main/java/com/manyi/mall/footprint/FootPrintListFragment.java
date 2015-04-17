@@ -134,16 +134,16 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
     @Click(R.id.footEditBtn)
     void edit(){
-        if (mBottomLayout.getVisibility() == View.GONE){
-            mBottomLayout.setVisibility(View.VISIBLE);
-            mEditBtn.setImageResource(R.drawable.selector_comple);
-            isEditing = true;
-        }else{
-            mBottomLayout.setVisibility(View.GONE);
-            isEditing = false;
-            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
-        }
-        notifyCheckedList(false);
+//        if (mBottomLayout.getVisibility() == View.GONE){
+//            mBottomLayout.setVisibility(View.VISIBLE);
+//            mEditBtn.setImageResource(R.drawable.selector_comple);
+//            isEditing = true;
+//        }else{
+//            mBottomLayout.setVisibility(View.GONE);
+//            isEditing = false;
+//            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
+//        }
+//        notifyCheckedList(false);
     }
 
     @Click(R.id.deleteBtn)
@@ -191,11 +191,11 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 OnSectionItemClick(section);
             }
         });
-        if (mLists == null || mLists.size()==0){
-            mEditBtn.setVisibility(View.GONE);
-        }else{
-            mEditBtn.setVisibility(View.VISIBLE);
-        }
+//        if (mLists == null || mLists.size()==0){
+//            mEditBtn.setVisibility(View.GONE);
+//        }else{
+//            mEditBtn.setVisibility(View.VISIBLE);
+//        }
     dismissProgressDialog();
     }
 

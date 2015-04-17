@@ -146,9 +146,12 @@ public class FiltrateFragment extends SuperFragment {
         }
        notifySelected(mCityList.get(position));
     }
-    @Click(R.id.confirmBtn)
-    void clickConfirmBtn(){
-
+    @Click(R.id.localTextView)
+    void clickLocalBtn(){
+        CityBean cityBean = new CityBean();
+        cityBean.CityName = "本地";
+        cityBean.ID = -1L;
+        notifySelected(cityBean);
     }
 
 

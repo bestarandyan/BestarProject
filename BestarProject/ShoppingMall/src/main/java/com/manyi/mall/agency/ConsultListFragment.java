@@ -157,7 +157,12 @@ public class ConsultListFragment extends SuperFragment {
             public void onSelected(Object o) {
                 CityBean bean = (CityBean) o;
                 if (bean!=null){
-                    getConsultListByCityId(String.valueOf(bean.ID));
+                    if (bean.ID == -1){
+                        getList();
+                    }else{
+                        getConsultListByCityId(String.valueOf(bean.ID));
+                        mTitleView.setText("地区经理-"+bean.CityName);
+                    }
                 }
 
             }

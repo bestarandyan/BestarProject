@@ -296,7 +296,6 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toLeftOf="@+id/versionArrow"
-                            android:background="@drawable/mine_select"
                             android:text="当前版本：V1.0"
                             android:textColor="#66000000"
                             android:textSize="16sp" />

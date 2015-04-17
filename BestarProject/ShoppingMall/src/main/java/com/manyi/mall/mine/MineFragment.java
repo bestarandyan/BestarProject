@@ -23,15 +23,21 @@ import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.exception.ClientException;
 import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
+import com.huoqiu.framework.util.DeviceUtil;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
+import com.huoqiu.framework.util.ManyiUtils;
 import com.huoqiu.widget.filedownloader.FileDownloadListener;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
 import com.manyi.mall.push.Utils;
 import com.manyi.mall.service.CommonService;
+import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.user.UserInfoFragment;
+import com.manyi.mall.utils.HardwareInfo;
+import com.manyi.mall.utils.JsonData;
+import com.manyi.mall.wap.AppDownLoadFragment;
 import com.manyi.mall.widget.imageView.CircleImageView;
 import com.manyi.mall.widget.switchView.ToggleButton;
 
@@ -55,6 +61,9 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     @ViewById(R.id.Layout1)
     TextView mLayout1;
 
+    @ViewById(R.id.currentVersionTv)
+    TextView mViewsionTv;
+
     @ViewById(R.id.nameTV)
     TextView mNameTv;
 
@@ -65,22 +74,24 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
     @AfterViews
     void loadDate() {
         type = BestarApplication.getInstance().getType();
-        if(type.equals("1")){//渠道
+        if (type.equals("1")) {//渠道
             mLayout1.setText("代理付款明细");
-        }else{//园长
+        } else {//园长
             mLayout1.setText("我的代金券");
         }
+        getUrl();
+        mViewsionTv.setText(ManyiUtils.getVersion(getActivity()));
         mNameTv.setText(BestarApplication.getInstance().getRealName());
         //切换开关
         mSwitchBtn.toggle();
         setPush();
         //开关切换事件
-        mSwitchBtn.setOnToggleChanged(new ToggleButton.OnToggleChanged(){
+        mSwitchBtn.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(boolean on) {
-                if (on){
+                if (on) {
                     setPush();
-                }else{
+                } else {
                     PushManager.stopWork(getActivity());
                 }
             }
@@ -89,7 +100,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
 
     @Background
-    public void setPush(){
+    public void setPush() {
         // Push: 以apikey的方式登录，一般放在主Activity的onCreate中。
         // 这里把apikey存放于manifest文件中，只是一种存放方式，
         // 您可以用自定义常量等其它方式实现，来替换参数中的Utils.getMetaValue(PushDemoActivity.this,
@@ -118,13 +129,15 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         cBuilder.setLayoutDrawable(R.drawable.launcher_icon);
         PushManager.setNotificationBuilder(getActivity(), 1, cBuilder);
     }
+
     @Override
     public void onAttach(Activity activity) {
         setBackOp(null);
         super.onAttach(activity);
     }
+
     @Click(R.id.headLayout)
-    void gotoUserInfo(){
+    void gotoUserInfo() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
         UserInfoFragment fragment = GeneratedClassUtils.getInstance(UserInfoFragment.class);
@@ -134,6 +147,17 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
                 R.anim.anim_fragment_close_out);
         fragment.setManager(getFragmentManager());
         fragment.show(SHOW_ADD_HIDE);
+    }
+
+    String shareUrl;
+
+    @Background
+    void getUrl() {
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg = request.getUrl();
+        if (msg != null && msg.contains("AppDownLoad")) {
+            shareUrl = new JsonData().JsonUrl(msg, "AppDownLoad");
+        }
     }
 
     @SuppressLint({"ResourceAsColor", "InlinedApi"})
@@ -163,12 +187,12 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             public void onClick(DialogInterface dialog, int which) {
 
                 // @SuppressWarnings({ })
-                SharedPreferences mySharedPreferences= getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
+                SharedPreferences mySharedPreferences = getActivity().getSharedPreferences("appkey", Activity.MODE_PRIVATE);
                 SharedPreferences.Editor editor = mySharedPreferences.edit();
                 editor.putString("appkey", "");
                 editor.commit();
 
-                SharedPreferences userInfo= getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+                SharedPreferences userInfo = getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
                 SharedPreferences.Editor editor1 = userInfo.edit();
                 editor1.putString("userName", "");
                 editor1.putString("password", "");
@@ -207,15 +231,15 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         if (CheckDoubleClick.isFastDoubleClick())
             return;
 
-        if(type.equals("1")){//渠道
+        if (type.equals("1")) {//渠道
             gotoAgencyPay();
-        }else{
+        } else {
             gotoVoucher();
         }
 
     }
 
-    private void gotoVoucher(){
+    private void gotoVoucher() {
         VoucherListFragment voucherListFragment = GeneratedClassUtils.getInstance(VoucherListFragment.class);
 //        Bundle bundle = new Bundle();
 //        bundle.putString("phone", mLoginUsername.getText().toString().trim());
@@ -228,7 +252,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         voucherListFragment.show(SHOW_ADD_HIDE);
     }
 
-    private void gotoAgencyPay(){
+    private void gotoAgencyPay() {
         AgencyPayListFragment agencyPayListFragment = GeneratedClassUtils.getInstance(AgencyPayListFragment.class);
 //        Bundle bundle = new Bundle();
 //        bundle.putString("phone", mLoginUsername.getText().toString().trim());
@@ -241,18 +265,18 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         agencyPayListFragment.show(SHOW_ADD_HIDE);
     }
 
-    private void gotoShare(){
+    private void gotoShare() {
         ShareFragment shareFragment = GeneratedClassUtils.getInstance(ShareFragment.class);
-    //        Bundle bundle = new Bundle();
-    //        bundle.putString("phone", mLoginUsername.getText().toString().trim());
-    //        agencyPayListFragment.setArguments(bundle);
+        Bundle bundle = new Bundle();
+        bundle.putString("shareUrl", shareUrl);
+        shareFragment.setArguments(bundle);
         shareFragment.tag = ShareFragment.class.getName();
 
 //        shareFragment.setCustomAnimations(R.anim.slide_in_from_bottom, R.anim.slide_out_to_top, R.anim.slide_in_from_top,
 //                    R.anim.slide_out_to_bottom);
         shareFragment.setManager(getFragmentManager());
         shareFragment.show(SHOW_ADD_HIDE);
-        }
+    }
 
     @Click(R.id.shareApp)
     void shareApp() {
@@ -260,6 +284,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             return;
         gotoShare();
     }
+
     @Click(R.id.supportUsTv)
     void supportUs() {
         if (CheckDoubleClick.isFastDoubleClick())
@@ -267,48 +292,34 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     }
 
- @Click(R.id.aboutUsTv)
+    @Click(R.id.aboutUsTv)
     void aboutUs() {
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-     AboutUsFragment fragment = GeneratedClassUtils.getInstance(AboutUsFragment.class);
-     fragment.tag = AboutUsFragment.class.getName();
-     fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
-             R.anim.anim_fragment_close_out);
-     fragment.setManager(getFragmentManager());
-     fragment.show(SHOW_ADD_HIDE);
+        AboutUsFragment fragment = GeneratedClassUtils.getInstance(AboutUsFragment.class);
+        fragment.tag = AboutUsFragment.class.getName();
+        fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
+                R.anim.anim_fragment_close_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD_HIDE);
     }
 
 
     @Click(R.id.check_update)
     @Background
     void checkUpdate() {
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        AppDownLoadFragment shareFragment = GeneratedClassUtils.getInstance(AppDownLoadFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("shareUrl", shareUrl);
+        shareFragment.setArguments(bundle);
+        shareFragment.tag = AppDownLoadFragment.class.getName();
 
-        try {
-            if (CheckDoubleClick.isFastDoubleClick())
-                return;
-        } catch (final RestException ex) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    restErrorProcess(ex.getMessage(), RestException.class.cast(ex).getErrorCode());
-                }
-            });
-
-        } catch (final ClientException ex) {
-
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    unexpectedErrorProcess(ex.getMessage());
-                    ex.printStackTrace();
-                }
-            });
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
+//        shareFragment.setCustomAnimations(R.anim.slide_in_from_bottom, R.anim.slide_out_to_top, R.anim.slide_in_from_top,
+//                    R.anim.slide_out_to_bottom);
+        shareFragment.setManager(getFragmentManager());
+        shareFragment.show(SHOW_ADD_HIDE);
     }
 
 

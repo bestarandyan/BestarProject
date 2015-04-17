@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="本地经理"
+            android:text="地区经理"
             android:textColor="#333"
             android:id="@+id/titleTv"
             android:textSize="18sp" />

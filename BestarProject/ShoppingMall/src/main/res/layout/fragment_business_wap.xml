@@ -39,6 +39,7 @@
                 android:background="@null"
                 android:textColor="@color/app_theme_color"
                 android:text="代理"
+                android:visibility="gone"
                 android:textSize="18sp"
                  />
         </RelativeLayout>

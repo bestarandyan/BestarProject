@@ -32,6 +32,7 @@ public class RequestServerFromHttp {
     public static final String COLLECTTION_SERVICE = SERVER_ADDRESS+"collection.aspx";
     public static final String SEARCHRECORD_SERVICE = SERVER_ADDRESS+"searchrecord.aspx";
     public static final String ADVERT_SERVICE = SERVER_ADDRESS+"shoprollpics.aspx";
+    public static final String CONSULT_SERVICE = SERVER_ADDRESS+"consultrecord.aspx";
     public static final String FEEDBACK_SERVICE = SERVER_ADDRESS+"customerreview.aspx";
     public static final String AGENCYPAYLIST_SERVICE = SERVER_ADDRESS+"payrecord.aspx";
     public static final String AGENTSETTING_SERVICE = SERVER_ADDRESS+"agentsetting.aspx";
@@ -89,6 +90,17 @@ public class RequestServerFromHttp {
  		msgString = getData(ADVERT_SERVICE, params);
  		return msgString;
  	}
+
+    public String addConsult(String ProviderID){
+        String msgString = "";
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("method", "AddConsultRecord"));
+        params.add(new BasicNameValuePair("ProviderID", ProviderID));
+        params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+        params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+        msgString = getData(CONSULT_SERVICE, params);
+        return msgString;
+    }
 
  	public String addFeedBack(String ReviewContent){
  		String msgString = "";

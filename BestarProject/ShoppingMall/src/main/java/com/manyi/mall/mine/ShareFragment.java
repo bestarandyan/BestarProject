@@ -23,7 +23,9 @@ import com.huoqiu.framework.util.DeviceUtil;
 import com.manyi.mall.R;
 import com.manyi.mall.common.util.QRCodeEncoder;
 import com.manyi.mall.common.util.QRContents;
+import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.utils.HardwareInfo;
+import com.manyi.mall.utils.JsonData;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXTextObject;
@@ -32,8 +34,10 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
@@ -48,8 +52,8 @@ public class ShareFragment extends SuperFragment {
 
     @ViewById(R.id.transLayout)
     LinearLayout mTransLayout;
-
-    String shareUrl= "";
+    @FragmentArg
+    String shareUrl;
 
     Bitmap mShareBitmap;
 
@@ -186,7 +190,6 @@ public class ShareFragment extends SuperFragment {
 
     @AfterViews
     void initView(){
-        shareUrl= "http://shopcomponents.iiyey.com/apps/download/a.html";
         regToWx();
         Animation animation = AnimationUtils.loadAnimation(getActivity(),R.anim.slide_in_from_bottom);
         mBottomShareLayout.startAnimation(animation);

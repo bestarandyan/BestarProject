@@ -141,11 +141,11 @@ public class CollectFragment extends SuperFragment {
     void notifyListView(){
         CollectListAdapter adapter = new CollectListAdapter();
         mListView.setAdapter(adapter);
-        if (mList == null || mList.size()==0){
-            mEditBtn.setVisibility(View.GONE);
-        }else{
-            mEditBtn.setVisibility(View.VISIBLE);
-        }
+//        if (mList == null || mList.size()==0){
+//            mEditBtn.setVisibility(View.GONE);
+//        }else{
+//            mEditBtn.setVisibility(View.VISIBLE);
+//        }
         dismissProgressDialog();
     }
     @ItemClick(R.id.myCollectListView)

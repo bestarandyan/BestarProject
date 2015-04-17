@@ -1,20 +1,14 @@
 package com.manyi.mall.wap;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.util.CheckDoubleClick;
-import com.huoqiu.framework.util.GeneratedClassUtils;
-import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
-import com.manyi.mall.agency.AddAgencyFragment;
-import com.manyi.mall.agency.ConsultListFragment;
-import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.utils.JsonData;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -27,19 +21,12 @@ import org.androidannotations.annotations.ViewById;
 /**
  * Created by bestar on 2015/3/6.
  */
-@EFragment(R.layout.fragment_business_wap)
-public class BusinessWapFragment extends SuperFragment{
+@EFragment(R.layout.fragment_app_download_wap)
+public class AppDownLoadFragment extends SuperFragment{
     @ViewById(R.id.businessWebView)
     WebView mWebview;
-
-    String mUrl = "";
     @FragmentArg
-    String ProviderID;
-    @FragmentArg
-    String CustomerID;
-
-    @ViewById(R.id.agencyBtn)
-    TextView mTitleTv;
+    String shareUrl;
 
 
 
@@ -53,20 +40,6 @@ public class BusinessWapFragment extends SuperFragment{
     }
 
 
-
-
-    @Background
-    void getUrl(){
-        RequestServerFromHttp request = new RequestServerFromHttp();
-            String msg = request.getUrl();
-            if (msg!=null && msg.contains("WebIndex")){
-                mUrl = new JsonData().JsonUrl(msg,"WebIndex");
-                if (mUrl!=null && mUrl.length()>0){
-                    loadUrl();
-                }
-            }
-    }
-
     @Override
     public boolean canFragmentGoback(int from) {
         if (mWebview.canGoBack()){
@@ -79,14 +52,12 @@ public class BusinessWapFragment extends SuperFragment{
 
     @UiThread
     void loadUrl(){
-        String url = mUrl+"?ProviderID="+ProviderID+"&&CustomerID="+CustomerID;
-        mWebview.loadUrl(url);
+        mWebview.loadUrl(shareUrl);
     }
 
     @AfterViews
     void init(){
-
-        getUrl();
+        loadUrl();
         mWebview.getSettings().setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new WebViewClient(){
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

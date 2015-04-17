@@ -87,6 +87,11 @@ public class AgencyFragment extends SuperFragment implements LFListView.IXListVi
     void notifyListView(){
         AgencyListAdapter adapter = new AgencyListAdapter();
         mListView.setAdapter(adapter);
+        if (mList==null || mList.size()<=10){
+            mListView.setPullLoadEnable(false);
+        }else{
+            mListView.setPullLoadEnable(true);
+        }
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){

@@ -50,7 +50,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/topLineView"
+            android:layout_above="@+id/bottomLayout"
             android:background="@color/color_ffffff"
             android:id="@+id/detailWebView"
             ></WebView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:id="@+id/bottomLayout"
+        android:background="@color/user_bg"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/confirmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_submit_btn"
+            android:text="我要咨询"
+            android:textColor="@color/tetx_title_color"
+            android:textSize="22sp" />
+    </LinearLayout>
 </RelativeLayout>
