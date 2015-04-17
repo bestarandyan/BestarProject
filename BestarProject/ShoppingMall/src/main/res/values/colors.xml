@@ -22,6 +22,7 @@
     <color name="house_image_others">#42000000</color>
     <color name="house_image_red">#e60404</color>
     <color name="line_mine_color">#DBDBDB</color>
+    <color name="filtrate_listview2_bg">#fafafa</color>
 
     <color name="red_light">#ffff4444</color>
     <color name="green_light">#ff99cc00</color>

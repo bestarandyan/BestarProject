@@ -6,4 +6,5 @@ package com.manyi.mall.cachebean;
 public class CityBean {
     public String CityName;
     public Long ID;
+    public boolean isSelected;
 }

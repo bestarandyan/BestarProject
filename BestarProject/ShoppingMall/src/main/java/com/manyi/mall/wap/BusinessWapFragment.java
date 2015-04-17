@@ -1,10 +1,10 @@
 package com.manyi.mall.wap;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
@@ -12,9 +12,7 @@ import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.agency.AddAgencyFragment;
-import com.manyi.mall.agency.AgentedListFragment;
-import com.manyi.mall.agency.GetAgencyProvinceFragment;
-import com.manyi.mall.cachebean.GetProvinceResponse;
+import com.manyi.mall.agency.ConsultListFragment;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.service.RequestServerFromHttp;
 
@@ -40,6 +38,11 @@ public class BusinessWapFragment extends SuperFragment{
     @FragmentArg
     String CustomerID;
 
+    @ViewById(R.id.agencyBtn)
+    TextView mTitleTv;
+
+    String userType ="2";
+
     @Click(R.id.wapBack)
     void back(){
         if (mWebview.canGoBack()){
@@ -51,7 +54,6 @@ public class BusinessWapFragment extends SuperFragment{
 
     @Click(R.id.agencyBtn)
     void clickAgency(){
-        String userType = BestarApplication.getInstance().getType();
         if (userType.equals("2")){//园长
             gotoAgentedList();
         }else{
@@ -75,11 +77,11 @@ public class BusinessWapFragment extends SuperFragment{
     private void gotoAgentedList(){
         if (CheckDoubleClick.isFastDoubleClick())
             return;
-        AgentedListFragment fragment = GeneratedClassUtils.getInstance(AgentedListFragment.class);
+        ConsultListFragment fragment = GeneratedClassUtils.getInstance(ConsultListFragment.class);
         Bundle bundle = new Bundle();
         bundle.putString("providerId", ProviderID);
         fragment.setArguments(bundle);
-        fragment.tag = AgentedListFragment.class.getName();
+        fragment.tag = ConsultListFragment.class.getName();
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
                 R.anim.anim_fragment_close_out);
         fragment.setManager(getFragmentManager());
@@ -115,6 +117,12 @@ public class BusinessWapFragment extends SuperFragment{
 
     @AfterViews
     void init(){
+        userType = BestarApplication.getInstance().getType();
+        if (userType.equals("2")){//园长
+            mTitleTv.setText("咨询");
+        }else{
+            mTitleTv.setText("代理");
+        }
         getUrl();
         mWebview.getSettings().setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new WebViewClient(){

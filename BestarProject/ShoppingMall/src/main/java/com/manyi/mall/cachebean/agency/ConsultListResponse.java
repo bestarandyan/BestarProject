@@ -3,7 +3,7 @@ package com.manyi.mall.cachebean.agency;
 /**
  * Created by bestar on 2015/4/12.
  */
-public class AgentedListResponse  {
+public class ConsultListResponse {
     public String Address;
     public String AddTime;
     public String CityID;

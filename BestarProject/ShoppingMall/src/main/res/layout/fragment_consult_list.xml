@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/user_bg"
+    android:clickable="true"
+    android:orientation="vertical">
+    <ListView
+        android:id="@+id/agentedListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/user_bg"
+        android:cacheColorHint="#00000000"
+        android:divider="#00ffffff"
+        android:dividerHeight="10dp"
+        android:layout_below="@+id/filtrateTopLayout"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"></ListView>
+
+    <include layout="@layout/layout_consult_top"
+        android:id="@+id/filtrateTopLayout"
+        ></include>
+</RelativeLayout>

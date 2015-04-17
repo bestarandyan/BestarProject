@@ -8,6 +8,7 @@ import com.huoqiu.framework.rest.Response;
 public class GetProvinceResponse{
     public String ID;
     public String ProvinceName;
+    public boolean isSelected = false;
 
     public String getID() {
         return ID;

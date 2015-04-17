@@ -111,7 +111,7 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-    public String getAgentedList(String ProviderID,String CityID,String PageIndex,String PageSize){
+    public String getConsultByCityId(String ProviderID,String CityID,String PageIndex,String PageSize){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "GetAgentListByProviderIDandCityID"));
@@ -120,6 +120,19 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("PageIndex", PageIndex));
  		params.add(new BasicNameValuePair("PageSize", PageSize));
  		params.add(new BasicNameValuePair("CityID", CityID));
+ 		msgString = getData(AGENTINFO_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String  getLocalConsultList(String ProviderID,String PageIndex,String PageSize){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentListByProviderIDandCustomerLocal"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		params.add(new BasicNameValuePair("PageIndex", PageIndex));
+ 		params.add(new BasicNameValuePair("PageSize", PageSize));
+ 		params.add(new BasicNameValuePair("CustomerID", "21"/*BestarApplication.getInstance().getUserId()*/));
  		msgString = getData(AGENTINFO_SERVICE, params);
  		return msgString;
  	}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00ffffff"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/alphaLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topLayout"
+        android:background="#66000000"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:visibility="invisible"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selectLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/filtrateTopLayout"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <RelativeLayout android:background="@color/filtrate_listview2_bg"
+            android:layout_width="match_parent"
+            android:clickable="true"
+            android:visibility="gone"
+            android:layout_height="50dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/shaixuanTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="筛选"
+                    android:textColor="#888"
+                    android:textSize="16sp" />
+
+                <ImageButton
+                    android:id="@+id/jiantouImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_screening_jiantou" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/selectedTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="85dp"
+                android:layout_toLeftOf="@+id/confirmBtn"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#333"
+                android:textSize="16sp" />
+            <Button
+                android:id="@+id/confirmBtn"
+                android:layout_width="57dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/selector_submit_btn"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            <View
+                android:id="@+id/topLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/line_mine_color"></View>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <ListView
+                    android:id="@+id/selectListView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:cacheColorHint="@null"
+                    android:layout_weight="3"
+                    android:divider="#88a1a1a1"
+                    android:dividerHeight="0.5dp"
+                    android:fadeScrollbars="@null"
+                    android:fadingEdge="none"
+                    android:scrollbars="none"></ListView>
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:background="@color/line_mine_color"
+                    ></View>
+                <ListView
+                    android:id="@+id/selectListView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/filtrate_listview2_bg"
+                    android:cacheColorHint="@null"
+                    android:divider="#88a1a1a1"
+                    android:dividerHeight="0.5dp"
+                    android:fadeScrollbars="@null"
+                    android:layout_weight="1"
+                    android:fadingEdge="none"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ListView>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/filtrateTopLayout"
+        layout="@layout/layout_consult_top"></include>
+</RelativeLayout>

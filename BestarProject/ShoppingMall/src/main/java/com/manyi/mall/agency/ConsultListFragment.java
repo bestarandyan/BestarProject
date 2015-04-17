@@ -3,21 +3,23 @@ package com.manyi.mall.agency;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.CheckDoubleClick;
+import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.CityBean;
-import com.manyi.mall.cachebean.agency.AgencyListResponse;
-import com.manyi.mall.cachebean.agency.AgentedListResponse;
+import com.manyi.mall.cachebean.agency.ConsultListResponse;
+import com.manyi.mall.cachebean.agency.FiltrateFragment;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.utils.JsonData;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -44,8 +46,8 @@ import java.util.List;
 /**
  * Created by bestar on 2015/4/12.
  */
-@EFragment(R.layout.fragment_agented_list)
-public class AgentedListFragment extends SuperFragment {
+@EFragment(R.layout.fragment_consult_list)
+public class ConsultListFragment extends SuperFragment {
     @ViewById(R.id.titleTv)
     TextView mTitleView;
 
@@ -55,7 +57,7 @@ public class AgentedListFragment extends SuperFragment {
     @FragmentArg
     String providerId;
 
-    List<AgentedListResponse> mList;
+    List<ConsultListResponse> mList;
     AgencyListAdapter mAdapter;
 
     @AfterViews
@@ -69,7 +71,7 @@ public class AgentedListFragment extends SuperFragment {
     void getList(){
         providerId = "11";//52682900
         RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
-        String msg = requestServerFromHttp.getAgentedList(providerId,"0","0","100");
+        String msg = requestServerFromHttp.getLocalConsultList(providerId, "0", "100");
         mList = new JsonData().jsonAgentedList(msg);
         if (mList!=null && mList.size()>0){
             notifyList();
@@ -113,7 +115,7 @@ public class AgentedListFragment extends SuperFragment {
             } else {
                 holder = (ViewHolder) view.getTag();
             }
-            final AgentedListResponse bean = mList.get(i);
+            final ConsultListResponse bean = mList.get(i);
             holder.connectPhoneTv.setText(bean.Phone);
             holder.connectNameTv.setText(bean.RealName);
 
@@ -132,6 +134,42 @@ public class AgentedListFragment extends SuperFragment {
             TextView connectNameTv, connectPhoneTv;
             Button callBtn;
         }
+    }
+    @Background
+    void getConsultListByCityId(String cityId){
+        RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
+        String msg = requestServerFromHttp.getConsultByCityId(providerId, cityId, "0", "100");
+        mList = new JsonData().jsonAgentedList(msg);
+        if (mList!=null && mList.size()>0){
+            notifyList();
+        }
+    }
+    @Click(R.id.moreAreaTv)
+    void clickMoreArea(){
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        FiltrateFragment fragment = GeneratedClassUtils.getInstance(FiltrateFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderID", providerId);
+        fragment.setArguments(bundle);
+        fragment.setSelectListener(new SelectListener() {
+            @Override
+            public void onSelected(Object o) {
+                CityBean bean = (CityBean) o;
+                if (bean!=null){
+                    getConsultListByCityId(String.valueOf(bean.ID));
+                }
+
+            }
+
+            @Override
+            public void onCanceled() {
+
+            }
+        });
+        fragment.tag = FiltrateFragment.class.getName();
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD);
     }
         /**
          * 拨打电话

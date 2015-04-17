@@ -12,11 +12,10 @@ import com.manyi.mall.cachebean.CityBean;
 import com.manyi.mall.cachebean.GetCityResponse;
 import com.manyi.mall.cachebean.GetCountyResponse;
 import com.manyi.mall.cachebean.GetProvinceResponse;
-import com.manyi.mall.cachebean.MainDataBean;
 import com.manyi.mall.cachebean.MainDataBean2;
 import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.agency.AgentCityResponse;
-import com.manyi.mall.cachebean.agency.AgentedListResponse;
+import com.manyi.mall.cachebean.agency.ConsultListResponse;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.mine.AgencyPayBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
@@ -296,10 +295,10 @@ public class JsonData {
         return list;
     }
 
-    public List<AgentedListResponse> jsonAgentedList(String msg){
-        LinkedList<AgentedListResponse> list =null;
+    public List<ConsultListResponse> jsonAgentedList(String msg){
+        LinkedList<ConsultListResponse> list =null;
         try {
-            Type listType = new TypeToken<LinkedList<AgentedListResponse>>(){}.getType();
+            Type listType = new TypeToken<LinkedList<ConsultListResponse>>(){}.getType();
             Gson gson = new Gson();
             list = gson.fromJson(msg, listType);
         }catch (Exception e){
