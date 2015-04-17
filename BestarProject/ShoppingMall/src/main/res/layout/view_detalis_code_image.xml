@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="房源二维码"
+        android:text="幼宝精品二维码"
         android:textSize="15sp"
         android:textColor="#000"
         />
@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="请使用微信扫一扫，查看该房源"
+        android:text="请使用微信扫一扫，下载幼宝精品App"
         android:textSize="15sp"
         android:textColor="#000"
         />
