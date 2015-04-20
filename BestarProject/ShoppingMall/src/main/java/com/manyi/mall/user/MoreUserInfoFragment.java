@@ -45,7 +45,6 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     @ViewById(R.id.shenfenValue)
     TextView mShengFenTv;
 
-
     @ViewById(R.id.goonBtn)
     ImageButton mGoonBtn;
 
@@ -134,9 +133,6 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
             mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
         }
     }
-
-
-
 
     @Click(R.id.genderTv)
     void selectGender(){

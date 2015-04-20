@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,9 @@ import com.manyi.mall.cachebean.BaseResponse;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.service.RequestServerFromHttp;
+import com.manyi.mall.wap.BusinessWapFragment;
 import com.manyi.mall.wap.DetailProductFragment;
+import com.manyi.mall.widget.refreshview.LFListView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -49,14 +52,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by bestar on 2015/1/26.
  */
 @EFragment(R.layout.fragment_my_collect)
-public class CollectFragment extends SuperFragment {
+public class CollectFragment extends SuperFragment  implements LFListView.IXListViewListener{
     @ViewById(R.id.myCollectListView)
-    ListView mListView;
+    LFListView mListView;
 
     @ViewById(R.id.editBtn)
     ImageButton mEditBtn;
@@ -65,8 +69,9 @@ public class CollectFragment extends SuperFragment {
     LinearLayout mBottomLayout;
 
     List<CollectListBean> mList = new ArrayList<>();
-
+    private Handler mHandler;
     boolean isEditing = false;
+    CollectListAdapter adapter =null;
 //    boolean isAllSelected = false;//是否全部选中
     ProgressDialog mProgressDialog;
     RequestServerFromHttp request = new RequestServerFromHttp();
@@ -78,10 +83,15 @@ public class CollectFragment extends SuperFragment {
 
     @AfterViews
     void init(){
+        mHandler = new Handler();
+        mListView.setPullLoadEnable(true);
+        mListView.setXListViewListener(this);
+        adapter = new CollectListAdapter();
+        mListView.setAdapter(adapter);
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
         showProgressDialog("数据加载中，请稍候...");
-        getData();
+        getData("1");
 
     }
 
@@ -106,13 +116,14 @@ public class CollectFragment extends SuperFragment {
     @UiThread
     void showDeleteSuccess(){
         Toast.makeText(getActivity(),"删除成功",Toast.LENGTH_LONG).show();
-        notifyListView();
+//        adapter.setList(mList);
+        adapter.notifyDataSetChanged();
     }
 
     private String getCollectIDs(){
         String msg = "";
         for (CollectListBean bean:mList){
-            if (bean.isSelected){
+            if (bean.isSelected()){
                 msg+=bean.getID()+",";
             }
         }
@@ -126,32 +137,52 @@ public class CollectFragment extends SuperFragment {
     void onCheckedChange(CompoundButton buttonView, boolean isChecked){
 //        isAllSelected = isChecked;
         for (int i=0;i<mList.size();i++){
-            mList.get(i).isSelected = isChecked;
+            mList.get(i).setSelected(isChecked);
         }
-        notifyListView();
+//        adapter.setList(mList);
+        adapter.notifyDataSetChanged();
     }
 
     @Background
-    void getData(){
-        String msg = request.getCollect("1","20");
-        mList = new JsonData().jsonCollectList(msg);
-        notifyListView();
+    void getData(String start){
+        String msg = request.getCollect(start,"50");
+        List<CollectListBean> list = new JsonData().jsonCollectList(msg);
+        notifyListView(list);
+    }
+
+    @UiThread
+    void setListFootText(String msg){
+        mListView.setNoMoreData();
     }
     @UiThread
-    void notifyListView(){
-        CollectListAdapter adapter = new CollectListAdapter();
-        mListView.setAdapter(adapter);
-//        if (mList == null || mList.size()==0){
-//            mEditBtn.setVisibility(View.GONE);
+    void notifyListView(List<CollectListBean> list){
+        if (list!=null && list.size()>0){
+            if (mList == null || mList.size() == 0){
+                mList = list;
+            }else {
+                mList.addAll(list);
+            }
+        }else{
+            setListFootText("");
+        }
+        if (mList == null || mList.size()==0){
+            mEditBtn.setVisibility(View.GONE);
+        }else{
+            mEditBtn.setVisibility(View.VISIBLE);
+        }
+//        if (mList==null || mList.size()<10){
+//            mListView.setPullLoadEnable(false);
 //        }else{
-//            mEditBtn.setVisibility(View.VISIBLE);
+//            mListView.setPullLoadEnable(true);
 //        }
+//        adapter.setList(mList);
+        adapter.notifyDataSetChanged();
         dismissProgressDialog();
     }
     @ItemClick(R.id.myCollectListView)
     void OnItemClick(int position){
-        DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
-        fragment.tag = DetailProductFragment.class.getName();
+        BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
+        fragment.tag = BusinessWapFragment.class.getName();
         Bundle bundle = new Bundle();
         bundle.putString("ProviderID", mList.get(position).getID());
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
@@ -175,7 +206,39 @@ public class CollectFragment extends SuperFragment {
             isEditing = false;
             mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
         }
-        notifyListView();
+//        adapter.setList(mList);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void onLoad() {
+        mListView.stopRefresh();
+        mListView.stopLoadMore();
+        mListView.setRefreshTime("刚刚");
+    }
+    @Override
+    public void onRefresh() {
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mList!=null){
+                    mList.clear();
+                }
+                getData("1");
+                onLoad();
+            }
+        }, 500);
+    }
+
+    @Override
+    public void onLoadMore() {
+        mListView.setPullLoadEnable(true);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getData((mList==null || mList.size()==0)?"1":(mList.size()+1)+"");
+                onLoad();
+            }
+        }, 500);
     }
 
     class CollectListAdapter extends BaseAdapter{
@@ -184,7 +247,9 @@ public class CollectFragment extends SuperFragment {
         public int getCount() {
             return mList!=null?mList.size():0;
         }
-
+//        public void setList(List<CollectListBean> list){
+//            mList = new ArrayList<>(list);
+//        }
         @Override
         public Object getItem(int i) {
             return mList.get(i);
@@ -220,16 +285,18 @@ public class CollectFragment extends SuperFragment {
             holder.clickCountTv.setText(String.valueOf(bean.getClickNum()));
             holder.visitCountTv.setText(String.valueOf(bean.getConsultNum()));
             holder.praiseTv.setText(String.valueOf(bean.getPraiseNum()));
+            holder.checkBox.setTag(position);
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
-                holder.checkBox.setChecked(mList.get(position).isSelected);
+                holder.checkBox.setChecked(mList.get((Integer) holder.checkBox.getTag()).isSelected());
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
             holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        mList.get(position).isSelected = isChecked;
+                        int index = (int) buttonView.getTag();
+                        mList.get(index).setSelected(isChecked);
                 }
             });
             String imgUrl = bean.getLogo();

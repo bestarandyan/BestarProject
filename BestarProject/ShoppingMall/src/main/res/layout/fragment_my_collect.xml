@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_bg_color"
+    android:background="#eeeeee"
     android:clickable="true"
     android:orientation="vertical">
 
@@ -30,7 +30,6 @@
             android:gravity="center"
             android:src="@drawable/selector_edit_info_btn"
             android:background="@null"
-            android:visibility="gone"
            />
         <View
             android:layout_width="match_parent"
@@ -40,17 +39,17 @@
             ></View>
     </RelativeLayout>
 
-    <ListView
+    <com.manyi.mall.widget.refreshview.LFListView
         android:id="@+id/myCollectListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/topLayout"
         android:background="@null"
         android:cacheColorHint="#00000000"
-        android:divider="#00000000"
+        android:divider="#eeeeee"
+        android:layout_marginTop="10dp"
         android:dividerHeight="10dp"
-        android:scrollbars="none"></ListView>
-
+        android:scrollbars="none"></com.manyi.mall.widget.refreshview.LFListView>
     <LinearLayout
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"

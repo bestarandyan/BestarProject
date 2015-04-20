@@ -194,7 +194,7 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
-    public String addCollect(String ProviderID){//获取用户搜索记录列表
+    public String addCollect(String ProviderID){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "AddCollection"));
@@ -222,7 +222,7 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("pageIndex", pageIndex));
  		params.add(new BasicNameValuePair("pageSize", pageSize));
- 		params.add(new BasicNameValuePair("CustomerID", "100"/*BestarApplication.getInstance().getUserId()*/));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(COLLECT_SERVICE, params);
  		return msgString;
  	}

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.GeneratedClassUtils;
-import com.manyi.mall.agency.AgencyFragment;
+import com.manyi.mall.agency.MyAgencyListFragment;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.footprint.FootPrintListFragment;
 import com.manyi.mall.collect.CollectFragment;
@@ -42,7 +42,7 @@ public class MainFragment extends SuperFragment<Object>{
         if (userType.equals("2")){//园长
             mTabHost.addTab(createSpec(Constants.TAB_3, "我的足迹"), GeneratedClassUtils.get(FootPrintListFragment.class), null);
         }else{//商家
-            mTabHost.addTab(createSpec(Constants.TAB_3, "我的代理"), GeneratedClassUtils.get(AgencyFragment.class), null);
+            mTabHost.addTab(createSpec(Constants.TAB_3, "我的代理"), GeneratedClassUtils.get(MyAgencyListFragment.class), null);
         }
         mTabHost.addTab(createSpec(Constants.TAB_4, "我的"), GeneratedClassUtils.get(MineFragment.class), null);
 

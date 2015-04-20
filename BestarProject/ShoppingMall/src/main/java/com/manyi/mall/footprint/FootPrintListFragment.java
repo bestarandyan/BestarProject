@@ -134,16 +134,16 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
     @Click(R.id.footEditBtn)
     void edit(){
-//        if (mBottomLayout.getVisibility() == View.GONE){
-//            mBottomLayout.setVisibility(View.VISIBLE);
-//            mEditBtn.setImageResource(R.drawable.selector_comple);
-//            isEditing = true;
-//        }else{
-//            mBottomLayout.setVisibility(View.GONE);
-//            isEditing = false;
-//            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
-//        }
-//        notifyCheckedList(false);
+        if (mBottomLayout.getVisibility() == View.GONE){
+            mBottomLayout.setVisibility(View.VISIBLE);
+            mEditBtn.setImageResource(R.drawable.selector_comple);
+            isEditing = true;
+        }else{
+            mBottomLayout.setVisibility(View.GONE);
+            isEditing = false;
+            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
+        }
+        notifyCheckedList(false);
     }
 
     @Click(R.id.deleteBtn)
@@ -191,11 +191,11 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 OnSectionItemClick(section);
             }
         });
-//        if (mLists == null || mLists.size()==0){
-//            mEditBtn.setVisibility(View.GONE);
-//        }else{
-//            mEditBtn.setVisibility(View.VISIBLE);
-//        }
+        if (mLists == null || mLists.size()==0){
+            mEditBtn.setVisibility(View.GONE);
+        }else{
+            mEditBtn.setVisibility(View.VISIBLE);
+        }
     dismissProgressDialog();
     }
 
@@ -243,7 +243,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 holder.visitCountTv = (TextView) convertView.findViewById(R.id.visitCountTv);
                 holder.priaseCountTv = (TextView) convertView.findViewById(R.id.praiseCountTv);
                 holder.imageView = (ImageView) convertView.findViewById(R.id.imgCollect);
-                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
+                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBoxItem);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -312,7 +312,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_footprint_list_sections, null);
                 holder.companyNameTv = (TextView) convertView.findViewById(R.id.companyNameTv);
                 holder.cityNameTv = (TextView) convertView.findViewById(R.id.cityNameTv);
-                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
+                holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBoxSection);
                 convertView.setTag(holder);
             } else {
                 holder = (SectionHolder) convertView.getTag();

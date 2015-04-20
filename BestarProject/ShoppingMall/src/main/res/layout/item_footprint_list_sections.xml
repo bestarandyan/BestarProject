@@ -22,7 +22,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBoxSection"
             android:visibility="gone"
             style="@style/CustomCheckboxTheme"
             />

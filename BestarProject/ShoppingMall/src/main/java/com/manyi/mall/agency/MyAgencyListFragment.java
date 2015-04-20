@@ -48,7 +48,7 @@ import java.util.List;
  * Created by bestar on 2015/1/26.
  */
 @EFragment(R.layout.fragment_my_agency)
-public class AgencyFragment extends SuperFragment implements LFListView.IXListViewListener {
+public class MyAgencyListFragment extends SuperFragment implements LFListView.IXListViewListener {
     @ViewById(R.id.myAgencyListView)
     LFListView mListView;
 

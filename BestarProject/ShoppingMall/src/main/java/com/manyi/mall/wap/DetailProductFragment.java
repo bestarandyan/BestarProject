@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
+import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
@@ -107,7 +108,7 @@ public class DetailProductFragment extends SuperFragment{
         fragment.setManager(getFragmentManager());
         fragment.show(SHOW_ADD_HIDE);
     }
-    @Click(R.id.eidtBtn)
+    @Click(R.id.collectBtn)
     void clickEdit(){
         addCollect();
     }
@@ -116,14 +117,13 @@ public class DetailProductFragment extends SuperFragment{
     void addCollect(){
         String msg = request.addCollect(ProviderID);
         BaseResponse baseResponse = new JsonData().JsonBase(msg);
-        if (baseResponse.getCode().equals("0")){
-            showCollectSuccess();
-        }
+        showDialogCollect(baseResponse.getMessage());
     }
     @UiThread
-    void showCollectSuccess(){
-        Toast.makeText(getActivity(),"收藏成功",Toast.LENGTH_LONG).show();
+    void showDialogCollect(String msg){
+        DialogBuilder.showSimpleDialog(msg,getActivity());
     }
+
 
     @Override
     public boolean canFragmentGoback(int from) {
@@ -136,6 +136,7 @@ public class DetailProductFragment extends SuperFragment{
     }
     @UiThread
     void loadUrl(){
+        CustomerID = BestarApplication.getInstance().getUserId();
         String url = mUrl+"?ProductID="+ProductID+"&&ProviderID="+ProviderID+"&&CustomerID="+CustomerID;
         mWebview.loadUrl(url);
     }
