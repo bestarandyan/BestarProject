@@ -70,6 +70,11 @@ public class LFListViewFooter extends LinearLayout {
     }
 
 
+    public void setNoMoreData(String msg){
+        mHintView.setText(msg);
+    }
+
+
 	/**
 	 * normal status
 	 */

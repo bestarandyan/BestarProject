@@ -2,6 +2,7 @@ package com.manyi.mall.collect;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,20 +87,29 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
         mHandler = new Handler();
         mListView.setPullLoadEnable(true);
         mListView.setXListViewListener(this);
+        mListView.setSelectionAfterHeaderView();
         adapter = new CollectListAdapter();
         mListView.setAdapter(adapter);
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
         showProgressDialog("数据加载中，请稍候...");
+        if (mList!=null){
+            mList.clear();
+        }
         getData("1");
 
     }
 
     @Click(R.id.deleteBtn)
     void clickDelete(){
-        String collectIds = getCollectIDs();
+        final String collectIds = getCollectIDs();
         if (collectIds!=null && collectIds.length() > 0) {
-            deleteCollect(collectIds);
+            DialogBuilder.showSimpleDialog("确定删除所选？",getActivity(),new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    deleteCollect(collectIds);
+                }
+            });
         }else{
             DialogBuilder.showSimpleDialog("请先选择要删除的收藏！",getActivity());
         }
@@ -117,7 +127,11 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
     void showDeleteSuccess(){
         Toast.makeText(getActivity(),"删除成功",Toast.LENGTH_LONG).show();
 //        adapter.setList(mList);
-        adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
+        if (mList!=null){
+            mList.clear();
+        }
+        getData("1");
     }
 
     private String getCollectIDs(){
@@ -151,10 +165,6 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
     }
 
     @UiThread
-    void setListFootText(String msg){
-        mListView.setNoMoreData();
-    }
-    @UiThread
     void notifyListView(List<CollectListBean> list){
         if (list!=null && list.size()>0){
             if (mList == null || mList.size() == 0){
@@ -162,21 +172,18 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
             }else {
                 mList.addAll(list);
             }
-        }else{
-            setListFootText("");
+        }
+        if (mList==null || mList.size()<10){
+            mListView.setNoMoreData("");
         }
         if (mList == null || mList.size()==0){
             mEditBtn.setVisibility(View.GONE);
         }else{
             mEditBtn.setVisibility(View.VISIBLE);
         }
-//        if (mList==null || mList.size()<10){
-//            mListView.setPullLoadEnable(false);
-//        }else{
-//            mListView.setPullLoadEnable(true);
-//        }
 //        adapter.setList(mList);
         adapter.notifyDataSetChanged();
+        mListView.setSelectionAfterHeaderView();
         dismissProgressDialog();
     }
     @ItemClick(R.id.myCollectListView)
@@ -184,7 +191,7 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
         BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
         fragment.tag = BusinessWapFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProviderID", mList.get(position).getID());
+        bundle.putString("ProviderID", mList.get(position-1).getID());
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,

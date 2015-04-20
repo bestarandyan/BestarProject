@@ -168,6 +168,11 @@ public class LFListView extends ListView implements OnScrollListener {
     }
 
 
+    public void setNoMoreData(String msg){
+        mFooterView.setNoMoreData(msg);
+    }
+
+
 	/**
 	 * stop refresh, reset header view.
 	 */
