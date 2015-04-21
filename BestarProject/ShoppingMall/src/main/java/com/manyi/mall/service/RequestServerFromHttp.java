@@ -36,6 +36,7 @@ public class RequestServerFromHttp {
     public static final String FEEDBACK_SERVICE = SERVER_ADDRESS+"customerreview.aspx";
     public static final String AGENCYPAYLIST_SERVICE = SERVER_ADDRESS+"payrecord.aspx";
     public static final String AGENTSETTING_SERVICE = SERVER_ADDRESS+"agentsetting.aspx";
+    public static final String TRACDE_SERVICE = SERVER_ADDRESS+"trace.aspx";
 	public static final String USER_APPKEY = "123456";//
 	public static final String IMGURL = "http://servercomponents.iiyey.com/";
 
@@ -413,6 +414,17 @@ public String login(String userName,String psw){
  		params.add(new BasicNameValuePair("ProviderIDs", ProviderIDs));
  		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(COLLECTTION_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String deleteFootPrint(String ProductIDs){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "DeleteTrace"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("ProductIDs", ProductIDs));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		msgString = getData(TRACDE_SERVICE, params);
  		return msgString;
  	}
 

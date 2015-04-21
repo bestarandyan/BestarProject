@@ -2,9 +2,11 @@ package com.manyi.mall.footprint;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +19,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
+import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.BaseResponse;
+import com.manyi.mall.cachebean.collect.CollectListBean;
 import com.manyi.mall.cachebean.footprint.FootPrintBean;
 import com.manyi.mall.cachebean.footprint.FootPrintProductBean;
 import com.manyi.mall.utils.JsonData;
@@ -117,10 +123,15 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         if (mLists==null || mLists.size() == 0){
             return;
         }
-        if (isFromClick){
-            isFromClick = false;
-            return;
-        }
+//        if (isFromClick){
+//            isFromClick = false;
+//            return;
+//        }
+        resetCheckBoxList(isChecked);
+
+    }
+
+    private void resetCheckBoxList(boolean isChecked){
         for (int i=0;i<mLists.size();i++){
             mLists.get(i).isAllChecked = isChecked;
             List<FootPrintProductBean> list = mLists.get(i).productList;
@@ -131,7 +142,6 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 mAdapter.notifyDataSetChanged();
             }
         }
-
     }
 
     @Click(R.id.footEditBtn)
@@ -150,12 +160,53 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
     @Click(R.id.deleteBtn)
     void clickDelete(){
-//        String msg = request.deleteCollection();
+        DialogBuilder.showSimpleDialog("确定删除所选足迹？","确定","取消",getActivity(),new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DeleteFootPrint();
+            }
+        });
+    }
+
+    private String getProductIDs() {
+        String msg = "";
+        for (FootPrintBean bean : mLists) {
+            for (FootPrintProductBean productBean : bean.productList) {
+                if (productBean.isChecked) {
+                    msg += productBean.ID + ",";
+                }
+            }
+        }
+        if (msg.length() > 0 && msg.endsWith(",")) {
+            msg = msg.substring(0, msg.length() - 1);
+        }
+        return msg;
+    }
+    @Background
+    void DeleteFootPrint(){
+        String productIds = getProductIDs();
+        if (productIds!=null && productIds.length()>0){
+            String msg = request.deleteFootPrint(productIds);
+            BaseResponse baseResponse = new JsonData().JsonBase(msg);
+            if (baseResponse.getCode().equals("0")){
+                showDialog("删除成功");
+                getData();
+            }else{
+                showDialog(baseResponse.getMessage());
+            }
+        }else{
+            showDialog("请先选择要删除的足迹");
+        }
+    }
+
+    @UiThread
+    void showDialog(String msg){
+        DialogBuilder.showSimpleDialog(msg,getActivity());
     }
 
     @Background
     void getData(){
-        String msg = request.getFootList("1","20");
+        String msg = request.getFootList("1","100");
         mLists =  new JsonData().jsonFootprint(msg);
         notifyCheckedList(false);
     }
@@ -165,6 +216,13 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     public void onAttach(Activity activity) {
         setBackOp(null);
         super.onAttach(activity);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        resetCheckBoxList(false);
+        isEditing = false;
     }
 
     @UiThread
@@ -207,17 +265,13 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     }
 
 
+
+
     public class FootprintSectionListAdapter extends SectionedBaseAdapter {
-
-        FootprintListResponse responses;
-
-
-        // 审核成功：文字颜色12c1c4 失败：8a000000
         @Override
         public Object getItem(int section, int position) {
             return mLists.get(section).productList.get(position);
         }
-
         @Override
         public long getItemId(int section, int position) {
             return position;
@@ -232,7 +286,6 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         public int getCountForSection(int section) {
             return mLists.get(section).productList.size();
         }
-
         @Override
         public View getItemView(final int section, final int position, View convertView, ViewGroup parent) {
             ViewHolder holder = null;
@@ -341,10 +394,9 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                         isFromClick = true;
 //                        mAllCheckBox.setChecked(false);
                     }
-//                    List<FootPrintProductBean> list = mLists.get(section).productList;
-//                    for (int i=0;i<list.size();i++){
-//                        list.get(i).isChecked = isChecked;
-//                    }
+                    for (int i=0;i<mLists.get(section).productList.size();i++){
+                        mLists.get(section).productList.get(i).isChecked = isChecked;
+                    }
 
                     mAdapter.notifyDataSetChanged();
                 }
