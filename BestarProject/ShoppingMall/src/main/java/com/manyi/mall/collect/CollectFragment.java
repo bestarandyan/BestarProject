@@ -104,7 +104,7 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
     void clickDelete(){
         final String collectIds = getCollectIDs();
         if (collectIds!=null && collectIds.length() > 0) {
-            DialogBuilder.showSimpleDialog("确定删除所选？",getActivity(),new DialogInterface.OnClickListener() {
+            DialogBuilder.showSimpleDialog("确定删除所选？","确定","取消",getActivity(),new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     deleteCollect(collectIds);
@@ -178,12 +178,14 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
         }
         if (mList == null || mList.size()==0){
             mEditBtn.setVisibility(View.GONE);
+            mBottomLayout.setVisibility(View.GONE);
+            isEditing = false;
+            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
         }else{
             mEditBtn.setVisibility(View.VISIBLE);
         }
 //        adapter.setList(mList);
         adapter.notifyDataSetChanged();
-        mListView.setSelectionAfterHeaderView();
         dismissProgressDialog();
     }
     @ItemClick(R.id.myCollectListView)
@@ -203,7 +205,7 @@ public class CollectFragment extends SuperFragment  implements LFListView.IXList
     }
 
     @Click(R.id.editBtn)
-    void edit(){
+    void clickEdit(){
         if (mBottomLayout.getVisibility() == View.GONE){
             mBottomLayout.setVisibility(View.VISIBLE);
             isEditing = true;

@@ -54,8 +54,8 @@ import java.util.Map;
 
 @EFragment(R.layout.fragment_footprintlist)
 public class FootPrintListFragment extends SuperFragment  implements NLPullRefreshView.RefreshListener {
-    @ViewById(R.id.refreshable_view)
-    NLPullRefreshView mRefreshableView;
+//    @ViewById(R.id.refreshable_view)
+//    NLPullRefreshView mRefreshableView;
 
     @ViewById(R.id.footprintListView)
     PinnedHeaderListView mCheckedListView;
@@ -75,7 +75,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     RequestServerFromHttp request = new RequestServerFromHttp();
     @AfterViews
     void init(){
-        mRefreshableView.setRefreshListener(this);
+//        mRefreshableView.setRefreshListener(this);
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
         initOption();
         showProgressDialog("数据加载中，请稍候...");
@@ -167,9 +167,9 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
     @UiThread
     void notifyCheckedList(boolean isRefresh) {
-        if (isRefresh) {
-            mRefreshableView.finishRefresh();
-        }
+//        if (isRefresh) {
+//            mRefreshableView.finishRefresh();
+//        }
         TextView emptyView = new TextView(getActivity());
         emptyView.setText("您还没有查看任何产品哦！先去看看吧！");
         emptyView.setTextColor(Color.parseColor("#333333"));

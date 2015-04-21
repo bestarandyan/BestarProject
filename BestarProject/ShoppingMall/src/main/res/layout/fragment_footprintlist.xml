@@ -36,21 +36,22 @@
             android:layout_alignParentBottom="true"
             ></View>
     </RelativeLayout>
-    <com.manyi.mall.widget.refreshview.NLPullRefreshView
-        android:id="@+id/refreshable_view"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_below="@id/topLayout"
-        android:layout_height="match_parent" >
+    <!--<com.manyi.mall.widget.refreshview.NLPullRefreshView-->
+        <!--android:id="@+id/refreshable_view"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_below="@id/topLayout"-->
+        <!--android:layout_height="match_parent" >-->
         <com.huoqiu.widget.pinnedlistview.PinnedHeaderListView
             android:id="@+id/footprintListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/topLayout"
             android:divider="#eeeeee"
             android:dividerHeight="1dp"
             >
         </com.huoqiu.widget.pinnedlistview.PinnedHeaderListView>
-    </com.manyi.mall.widget.refreshview.NLPullRefreshView>
+    <!--</com.manyi.mall.widget.refreshview.NLPullRefreshView>-->
     <LinearLayout
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"

@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/diamond"
                 android:id="@+id/isDiamond"
+                android:visibility="gone"
                 />
         </LinearLayout>
 
