@@ -17,6 +17,8 @@ import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.agency.AgentCityResponse;
 import com.manyi.mall.cachebean.agency.ConsultListResponse;
 import com.manyi.mall.cachebean.collect.CollectListBean;
+import com.manyi.mall.cachebean.footprint.FootPrintBean;
+import com.manyi.mall.cachebean.footprint.FootPrintProductBean;
 import com.manyi.mall.cachebean.mine.AgencyPayBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.HotSearchBean;
@@ -30,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.security.Provider;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -307,8 +310,8 @@ public class JsonData {
 
         return list;
     }
-    public List<Map<String,Object>> jsonFootprint(String msg){
-        List<Map<String,Object>> resultList = new ArrayList<>();
+    public List<FootPrintBean> jsonFootprint(String msg){
+        List<FootPrintBean> resultList = new ArrayList<>();
         LinkedList<FootprintListResponse> list =null;
         FootprintListResponse bean;
         try {
@@ -338,8 +341,8 @@ public class JsonData {
                     isAddedPosition = 0;
                     boolean isAdded = false;
                     for (int i=0;i<resultList.size();i++){
-                        Map<String,Object> map = resultList.get(i);
-                        String providerId = map.get("ProviderID").toString();
+                        FootPrintBean footPrintBean = resultList.get(i);
+                        String providerId = footPrintBean.ProviderID;
                         if (providerId.equals(ProviderID)){
                             isAddedPosition = i;
                             isAdded = true;
@@ -347,47 +350,46 @@ public class JsonData {
                         }
                     }
                     if (!isAdded){//代表没有加入过resultList
-                        Map<String,Object> map = new HashMap<>();
-                        map.put("ProviderID",ProviderID);
-                        map.put("ClassID",ClassID);
-                        map.put("ProviderCityName",ProviderCityName);
-                        map.put("ProviderName",ProviderName);
-                        map.put("isAllChecked",false);
-                        List<Map<String,String>> productList = new ArrayList<>();
-                        Map<String,String> productMap = new HashMap<>();
-                        productMap.put("AddTime",AddTime);
-                        productMap.put("beizhu",beizhu);
-                        productMap.put("ClickNum",ClickNum);
-                        productMap.put("ConsultNum",ConsultNum);
-                        productMap.put("ID",ID);
-                        productMap.put("PicUrl",PicUrl);
-                        productMap.put("PraiseNum",PraiseNum);
-                        productMap.put("Price",Price);
-                        productMap.put("ProductName",ProductName);
-                        productMap.put("Recommend",Recommend);
-                        productMap.put("Specification",Specification);
-                        productMap.put("SwfUrl",SwfUrl);
-                        productMap.put("isChecked","0");
-                        productList.add(productMap);
-                        map.put("productList",productList);
-                        resultList.add(map);
+                        FootPrintBean footPrintBean = new FootPrintBean();
+                        footPrintBean.ProviderID = ProviderID;
+                        footPrintBean.ClassID = ClassID;
+                        footPrintBean.ProviderCityName = ProviderCityName;
+                        footPrintBean.ProviderName = ProviderName;
+                        footPrintBean.isAllChecked = false;
+                        footPrintBean.productList = new ArrayList<FootPrintProductBean>();
+                        FootPrintProductBean footPrintProductBean = new FootPrintProductBean();
+                        footPrintProductBean.AddTime = AddTime;
+                        footPrintProductBean.beizhu = beizhu;
+                        footPrintProductBean.ClickNum = ClickNum;
+                        footPrintProductBean.ConsultNum = ConsultNum;
+                        footPrintProductBean.ID = ID;
+                        footPrintProductBean.PicUrl = PicUrl;
+                        footPrintProductBean.PraiseNum = PraiseNum;
+                        footPrintProductBean.Price = Price;
+                        footPrintProductBean.ProductName = ProductName;
+                        footPrintProductBean.Recommend = Recommend;
+                        footPrintProductBean.Specification = Specification;
+                        footPrintProductBean.SwfUrl = SwfUrl;
+                        footPrintProductBean.isChecked = false;
+                        footPrintBean.productList.add(footPrintProductBean);
+                        resultList.add(footPrintBean);
                     }else{
-                        List<Map<String,String>> productList = (List<Map<String, String>>) resultList.get(isAddedPosition).get("productList");
-                        Map<String,String> productMap = new HashMap<>();
-                        productMap.put("AddTime",AddTime);
-                        productMap.put("beizhu",beizhu);
-                        productMap.put("ClickNum",ClickNum);
-                        productMap.put("ConsultNum",ConsultNum);
-                        productMap.put("ID",ID);
-                        productMap.put("PicUrl",PicUrl);
-                        productMap.put("PraiseNum",PraiseNum);
-                        productMap.put("Price",Price);
-                        productMap.put("ProductName",ProductName);
-                        productMap.put("Recommend",Recommend);
-                        productMap.put("Specification",Specification);
-                        productMap.put("SwfUrl",SwfUrl);
-                        productMap.put("isChecked","0");
-                        productList.add(productMap);
+                        List<FootPrintProductBean>  productList = resultList.get(isAddedPosition).productList;
+                        FootPrintProductBean footPrintProductBean = new FootPrintProductBean();
+                        footPrintProductBean.AddTime = AddTime;
+                        footPrintProductBean.beizhu = beizhu;
+                        footPrintProductBean.ClickNum = ClickNum;
+                        footPrintProductBean.ConsultNum = ConsultNum;
+                        footPrintProductBean.ID = ID;
+                        footPrintProductBean.PicUrl = PicUrl;
+                        footPrintProductBean.PraiseNum = PraiseNum;
+                        footPrintProductBean.Price = Price;
+                        footPrintProductBean.ProductName = ProductName;
+                        footPrintProductBean.Recommend = Recommend;
+                        footPrintProductBean.Specification = Specification;
+                        footPrintProductBean.SwfUrl = SwfUrl;
+                        footPrintProductBean.isChecked = false;
+                        productList.add(footPrintProductBean);
                     }
 
                 }

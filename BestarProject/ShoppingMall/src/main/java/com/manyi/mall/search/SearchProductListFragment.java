@@ -47,6 +47,8 @@ import com.huoqiu.widget.viewpageindicator.CirclePageIndicator;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.cachebean.BaseResponse;
+import com.manyi.mall.cachebean.footprint.FootPrintBean;
+import com.manyi.mall.cachebean.footprint.FootPrintProductBean;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.cachebean.search.HotSearchBean;
 import com.manyi.mall.cachebean.search.OrderInfoBean;
@@ -143,7 +145,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
     ArrayList<View> mPageViews = new ArrayList<View>();
 
     HistoryAdapter mHistoryAdapter;
-    List<Map<String,Object>> mLists =null;
+    List<FootPrintBean> mLists =null;
     List<TypeProductBean> mTypeLists =null;
     List<HotSearchBean> mHotSearchList =null;
     OrderInfoBean mOrderInfo = null;
@@ -433,7 +435,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         // 审核成功：文字颜色12c1c4 失败：8a000000
         @Override
         public Object getItem(int section, int position) {
-            return ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
+            return mLists.get(section).productList.get(position);
         }
 
         @Override
@@ -448,7 +450,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
 
         @Override
         public int getCountForSection(int section) {
-            return ((List<Map<String,String>>)mLists.get(section).get("productList")).size();
+            return mLists.get(section).productList.size();
         }
 
         @Override
@@ -468,13 +470,13 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
                 holder = (ViewHolder) convertView.getTag();
             }
             // Map<String,String> map = ((ArrayList<Map<String,String>>)mList.get(section).get("itemList")).get(position);
-            final Map<String,String> response = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
-            holder.productNameTv.setText(response.get("ProductName"));
-            holder.moneyTv.setText("￥"+response.get("Price"));
-            holder.clickCountTv.setText(response.get("ClickNum"));
-            holder.visitCountTv.setText(response.get("ConsultNum"));
-            holder.priaseCountTv.setText(response.get("PraiseNum"));
-            String imgUrl = response.get("PicUrl");
+            final FootPrintProductBean productBean = mLists.get(section).productList.get(position);
+            holder.productNameTv.setText(productBean.ProductName);
+            holder.moneyTv.setText("￥"+productBean.Price);
+            holder.clickCountTv.setText(productBean.ClickNum);
+            holder.visitCountTv.setText(productBean.ConsultNum);
+            holder.priaseCountTv.setText(productBean.PraiseNum);
+            String imgUrl = productBean.PicUrl;
             if (imgUrl!=null){
                 ImageLoader.getInstance().displayImage(imgUrl, holder.imageView, options, animateFirstListener);
             }else{
@@ -511,8 +513,8 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
             } else {
                 holder = (SectionHolder) convertView.getTag();
             }
-            String companyName = mLists.get(section).get("ProviderName").toString();
-            String cityName = mLists.get(section).get("ProviderCityName").toString();
+            String companyName = mLists.get(section).ProviderName;
+            String cityName = mLists.get(section).ProviderCityName;
             holder.companyNameTv.setText(companyName);
             holder.cityNameTv.setText(cityName);
 //            holder.companyNameTv.setOnClickListener(new View.OnClickListener() {
@@ -629,8 +631,8 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
         fragment.tag = DetailProductFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProductID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
-        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
+        bundle.putString("ProductID", mLists.get(section).productList.get(position).ID);
+        bundle.putString("ProviderID",  mLists.get(section).ProviderID);
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
@@ -645,7 +647,7 @@ public class SearchProductListFragment extends SuperFragment  implements NLPullR
         BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
         fragment.tag = BusinessWapFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
+        bundle.putString("ProviderID",  mLists.get(section).ProviderID);
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,

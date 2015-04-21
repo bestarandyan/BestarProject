@@ -24,6 +24,8 @@ import com.huoqiu.widget.pinnedlistview.PinnedHeaderListView;
 import com.huoqiu.widget.pinnedlistview.SectionedBaseAdapter;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
+import com.manyi.mall.cachebean.footprint.FootPrintBean;
+import com.manyi.mall.cachebean.footprint.FootPrintProductBean;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.mine.FootprintListResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
@@ -67,7 +69,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
     CheckBox mAllCheckBox;
 
     FootprintSectionListAdapter mAdapter = null;
-    List<Map<String,Object>> mLists =null;
+    List<FootPrintBean> mLists =null;
     @ViewById(R.id.bottomLayout)
     LinearLayout mBottomLayout;
     boolean isEditing = false;
@@ -85,8 +87,8 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         DetailProductFragment fragment = GeneratedClassUtils.getInstance(DetailProductFragment.class);
         fragment.tag = DetailProductFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProductID", ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("ID"));
-        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
+        bundle.putString("ProductID", mLists.get(section).productList.get(position).ID);
+        bundle.putString("ProviderID",  mLists.get(section).ProviderID);
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
@@ -100,7 +102,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         BusinessWapFragment fragment = GeneratedClassUtils.getInstance(BusinessWapFragment.class);
         fragment.tag = BusinessWapFragment.class.getName();
         Bundle bundle = new Bundle();
-        bundle.putString("ProviderID", (String) mLists.get(section).get("ProviderID"));
+        bundle.putString("ProviderID", (mLists.get(section).ProviderID));
         bundle.putString("CustomerID", BestarApplication.getInstance().getUserId());
         fragment.setArguments(bundle);
         fragment.setCustomAnimations(R.anim.anim_fragment_in, R.anim.anim_fragment_out, R.anim.anim_fragment_close_in,
@@ -120,10 +122,10 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             return;
         }
         for (int i=0;i<mLists.size();i++){
-            mLists.get(i).put("isAllChecked",isChecked);
-            List<Map<String,String>> list = (List<Map<String,String>>)mLists.get(i).get("productList");
+            mLists.get(i).isAllChecked = isChecked;
+            List<FootPrintProductBean> list = mLists.get(i).productList;
             for (int j=0;j<list.size();j++){
-                list.get(j).put("isChecked",isChecked?"1":"0");
+                list.get(j).isChecked = isChecked;
             }
             if (mAdapter!=null){
                 mAdapter.notifyDataSetChanged();
@@ -213,7 +215,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
         // 审核成功：文字颜色12c1c4 失败：8a000000
         @Override
         public Object getItem(int section, int position) {
-            return ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
+            return mLists.get(section).productList.get(position);
         }
 
         @Override
@@ -228,7 +230,7 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
 
         @Override
         public int getCountForSection(int section) {
-            return ((List<Map<String,String>>)mLists.get(section).get("productList")).size();
+            return mLists.get(section).productList.size();
         }
 
         @Override
@@ -249,12 +251,13 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 holder = (ViewHolder) convertView.getTag();
             }
             // Map<String,String> map = ((ArrayList<Map<String,String>>)mList.get(section).get("itemList")).get(position);
-            final Map<String,String> response = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
-            holder.productNameTv.setText(response.get("ProductName"));
-            holder.moneyTv.setText("￥"+response.get("Price"));
-            holder.clickCountTv.setText(response.get("ClickNum"));
-            holder.visitCountTv.setText(response.get("ConsultNum"));
-            holder.priaseCountTv.setText(response.get("PraiseNum"));
+//            final Map<String,String> response = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position);
+            final FootPrintProductBean productBean = mLists.get(section).productList.get(position);
+            holder.productNameTv.setText(productBean.ProductName);
+            holder.moneyTv.setText("￥"+productBean.Price);
+            holder.clickCountTv.setText(productBean.ClickNum);
+            holder.visitCountTv.setText(productBean.ConsultNum);
+            holder.priaseCountTv.setText(productBean.PraiseNum);
             convertView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -262,16 +265,17 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                     OnItemClick(section,position);
                 }
             });
-            String imgUrl = response.get("PicUrl");
+            String imgUrl = productBean.PicUrl;
             if (imgUrl!=null){
                 ImageLoader.getInstance().displayImage(imgUrl, holder.imageView, options, animateFirstListener);
             }else{
                 holder.imageView.setBackgroundResource(R.drawable.take_photos_list_no__thumbnail);
             }
+            holder.checkBox.setTag(position);
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
-                String isSelected = ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).get("isChecked");
-                holder.checkBox.setChecked(isSelected.equals("0")?false:true);
+//                String isSelected = ((List<Map<String,String>>)mLists.get(section).get("productList")).get((Integer) holder.checkBox.getTag()).get("isChecked");
+                holder.checkBox.setChecked(mLists.get(section).productList.get(position).isChecked);
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
@@ -279,12 +283,12 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (!isChecked){
-                        mLists.get(section).put("isAllChecked", isChecked);
-                        ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).put("isChecked","0");
-                        mAllCheckBox.setChecked(false);
-                        isFromClick = true;
+//                        mLists.get(section).put("isAllChecked", isChecked);
+                        mLists.get(section).productList.get(position).isChecked = isChecked;
+//                        mAllCheckBox.setChecked(false);
+//                        isFromClick = true;
                     }else{
-                        ((List<Map<String,String>>)mLists.get(section).get("productList")).get(position).put("isChecked","1");
+                        mLists.get(section).productList.get(position).isChecked = isChecked;
                     }
 
                     mAdapter.notifyDataSetChanged();
@@ -317,28 +321,30 @@ public class FootPrintListFragment extends SuperFragment  implements NLPullRefre
             } else {
                 holder = (SectionHolder) convertView.getTag();
             }
-            String companyName = mLists.get(section).get("ProviderName").toString();
-            String cityName = mLists.get(section).get("ProviderCityName").toString();
+            String companyName = mLists.get(section).ProviderName;
+            String cityName = mLists.get(section).ProviderCityName;
             holder.companyNameTv.setText(companyName);
             holder.cityNameTv.setText(cityName);
+            holder.checkBox.setTag(section);
             if (isEditing){
                 holder.checkBox.setVisibility(View.VISIBLE);
-                holder.checkBox.setChecked((Boolean) mLists.get(section).get("isAllChecked"));
+                holder.checkBox.setChecked(mLists.get(section).isAllChecked);
             }else{
                 holder.checkBox.setVisibility(View.GONE);
             }
             holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    mLists.get(section).put("isAllChecked", isChecked);
+                    int index = (int) buttonView.getTag();
+                    mLists.get(index).isAllChecked = isChecked;
                     if (!isChecked){
-                        mAllCheckBox.setChecked(false);
                         isFromClick = true;
+//                        mAllCheckBox.setChecked(false);
                     }
-                    List<Map<String,String>> list = (List<Map<String,String>>)mLists.get(section).get("productList");
-                    for (int i=0;i<list.size();i++){
-                        list.get(i).put("isChecked",isChecked?"1":"0");
-                    }
+//                    List<FootPrintProductBean> list = mLists.get(section).productList;
+//                    for (int i=0;i<list.size();i++){
+//                        list.get(i).isChecked = isChecked;
+//                    }
 
                     mAdapter.notifyDataSetChanged();
                 }
