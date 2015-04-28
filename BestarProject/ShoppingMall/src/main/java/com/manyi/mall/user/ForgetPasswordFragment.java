@@ -7,12 +7,14 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.huoqiu.framework.app.SuperFragment;
 import com.huoqiu.framework.util.CheckDoubleClick;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
+import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.cachebean.BaseResponse;
@@ -37,7 +39,7 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 	@ViewById(R.id.forget_code)
 	EditText mForgetCode;
 	@ViewById(R.id.forget_username)
-	EditText mForgetPhone;
+    EditText mForgetPhone;
 	@ViewById(R.id.getCodeNextBtn)
 	Button logincode;
     @ViewById(R.id.getPswCodeBtn)
@@ -113,6 +115,13 @@ public class ForgetPasswordFragment extends SuperFragment<Integer> {
 	 */
 	@AfterViews
 	void init() {
+        String userName = BestarApplication.getInstance().getUserName();
+        if (userName!=null && userName.length()>0){
+            mForgetPhone.setText(userName);
+            mForgetPhone.setEnabled(false);
+        }else{
+            mForgetPhone.setEnabled(true);
+        }
 
 	}
 

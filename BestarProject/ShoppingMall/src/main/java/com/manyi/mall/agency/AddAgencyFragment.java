@@ -62,7 +62,6 @@ public class AddAgencyFragment extends SuperFragment {
 
     @AfterViews
     void init(){
-        providerId = "11";
         getProvince();
     }
 

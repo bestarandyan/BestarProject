@@ -270,7 +270,7 @@ public class RegisterNextFragment extends ImageLoaderFragment {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.menu_shengFen_type1){
-                    mShengFenTv.setText("商家");
+                    mShengFenTv.setText("代理商");
                     type = "1";
                     BestarApplication.getInstance().setType("1");
                     changeInfoFromType();

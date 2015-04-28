@@ -69,7 +69,6 @@ public class ConsultListFragment extends SuperFragment {
 
     @Background
     void getList(){
-        providerId = "11";//52682900
         RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
         String msg = requestServerFromHttp.getLocalConsultList(providerId, "0", "100");
         mList = new JsonData().jsonAgentedList(msg);

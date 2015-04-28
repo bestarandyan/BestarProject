@@ -16,22 +16,23 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/title_layout_height"
+            android:layout_height="50dp"
             android:background="@color/white"
             >
 
             <TextView
                 android:id="@+id/searchEt"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
+                android:layout_height="34dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/shape_home_top_search_bg"
                 android:drawableLeft="@drawable/icon_search"
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="输入关键字"
                 android:paddingLeft="10dp"
-                android:layout_margin="10dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
                 android:singleLine="true"
                 android:textColor="#a1a1a1"
                 android:textSize="14sp" />
@@ -68,7 +69,7 @@
                     <RelativeLayout
                         android:id="@+id/advertLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="152dp"
                         android:fadingEdge="none"
                         android:visibility="gone">
 
@@ -105,13 +106,13 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="85dp"
                             android:orientation="horizontal">
 
                             <RelativeLayout
                                 android:id="@+id/Layout1"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:paddingBottom="10dp"
                                 android:background="@drawable/shape_home_layout1_bg">
@@ -179,14 +180,14 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="115dp"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <RelativeLayout
                                     android:id="@+id/Layout3"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="55dp"
                                     android:background="@drawable/shape_home_layout3_bg">
 
                                     <TextView
@@ -212,7 +213,7 @@
                                 <RelativeLayout
                                     android:id="@+id/Layout4"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginTop="5dp"
                                     android:background="@drawable/shape_home_layout4_bg">
 
@@ -281,7 +282,7 @@
                             <RelativeLayout
                                 android:id="@+id/Layout6"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="70dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout6_bg">
 
@@ -337,14 +338,14 @@
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="73dp"
                             android:layout_marginTop="5dp"
                             android:orientation="horizontal">
 
                             <RelativeLayout
                                 android:id="@+id/Layout8"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_home_layout8_bg">
 

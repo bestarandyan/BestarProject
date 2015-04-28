@@ -31,13 +31,14 @@
                 android:textColor="#333"
                 android:textSize="18sp" />
 
-            <TextView
+            <ImageButton
                 android:id="@+id/collectBtn"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
+                android:src="@drawable/collection"
                 android:background="@null"
-                android:text="收藏"
+                android:text=""
                 android:gravity="center"
                 android:textColor="@color/app_theme_color"
                 android:textSize="16sp"

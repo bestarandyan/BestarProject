@@ -27,6 +27,7 @@ import com.manyi.mall.cachebean.search.SearchHistoryBean;
 import com.manyi.mall.cachebean.search.TypeProductBean;
 import com.manyi.mall.cachebean.user.CodeResponse;
 import com.manyi.mall.cachebean.user.LoginResponse;
+import com.manyi.mall.cachebean.user.UserInfoResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -475,6 +476,14 @@ public String JsonUrl(String msg,String tag ) {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return bean;
+    }
+
+    public UserInfoResponse jsonUserInfo(String msg){
+        UserInfoResponse bean = null;
+        Type listType = new TypeToken<UserInfoResponse>(){}.getType();
+        Gson gson = new Gson();
+        bean = gson.fromJson(msg, listType);
         return bean;
     }
 

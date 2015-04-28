@@ -103,7 +103,9 @@
                             android:layout_toRightOf="@id/real_name"
                             android:background="@null"
                             android:gravity="right"
+                            android:paddingRight="5dp"
                             android:hint="请输入姓名"
+                            android:enabled="false"
                             android:minWidth="100dp"
                             android:singleLine="true"
                             android:textColorHint="#afafaf"
@@ -147,6 +149,7 @@
                             android:drawableRight="@drawable/text"
                             android:gravity="center"
                             android:text="男"
+                            android:enabled="false"
                             android:textColor="#696969"
                             android:textSize="16sp"
                             tools:ignore="TextFields" />
@@ -187,9 +190,11 @@
                             android:layout_toRightOf="@id/xing4Tv"
                             android:background="@null"
                             android:gravity="right"
+                            android:paddingRight="5dp"
                             android:hint="请输入电话"
                             android:inputType="phone"
                             android:maxLength="11"
+                            android:enabled="false"
                             android:minWidth="100dp"
                             android:singleLine="true"
                             android:textColorHint="#afafaf"
@@ -215,7 +220,7 @@
                         android:orientation="horizontal"
                         android:padding="16dp"
                         android:id="@+id/yeymcLayout"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         tools:ignore="UselessParent">
 
                         <TextView
@@ -238,6 +243,8 @@
                             android:layout_toRightOf="@id/xing5Tv"
                             android:background="@null"
                             android:gravity="right"
+                            android:paddingRight="5dp"
+                            android:enabled="false"
                             android:hint="请输入名称"
                             android:minWidth="100dp"
                             android:singleLine="true"
@@ -249,7 +256,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:id="@+id/yeymcLine"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:background="#e1e1e1"></View>
 
 
@@ -261,7 +268,7 @@
                         android:orientation="horizontal"
                         android:padding="16dp"
                         android:id="@+id/yeydhLayout"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         tools:ignore="UselessParent">
 
 
@@ -286,6 +293,8 @@
                             android:background="@null"
                             android:gravity="right"
                             android:hint="请输入电话"
+                            android:enabled="false"
+                            android:paddingRight="5dp"
                             android:inputType="phone"
                             android:minWidth="100dp"
                             android:singleLine="true"
@@ -297,7 +306,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:id="@+id/yeydhLine"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:background="#e1e1e1"></View>
 
                     <RelativeLayout
@@ -335,6 +344,7 @@
                             android:maxLength="15"
                             android:minWidth="100dp"
                             android:singleLine="true"
+                            android:enabled="false"
                             android:textColorHint="#afafaf"
                             android:textSize="16sp" />
                     </RelativeLayout>
@@ -390,12 +400,14 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/xing9Tv"
+                            android:paddingRight="5dp"
                             android:background="@null"
                             android:gravity="right"
                             android:hint="请输入QQ号码"
                             android:inputType="phone"
                             android:minWidth="100dp"
                             android:singleLine="true"
+                            android:enabled="false"
                             android:textColorHint="#afafaf" />
                     </RelativeLayout>
 
@@ -412,7 +424,7 @@
                         android:orientation="horizontal"
                         android:padding="16dp"
                         android:id="@+id/bjLayout"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         tools:ignore="UselessParent">
 
                         <TextView
@@ -446,10 +458,12 @@
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/xing10Tv"
                             android:background="@null"
+                            android:paddingRight="5dp"
                             android:gravity="right"
                             android:hint="请输入班级数"
                             android:inputType="phone"
                             android:minWidth="100dp"
+                            android:enabled="false"
                             android:singleLine="true"
                             android:textColorHint="#afafaf" />
                     </RelativeLayout>
@@ -468,7 +482,7 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="16dp"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:id="@+id/studentsLayout"
                         tools:ignore="UselessParent">
 
@@ -505,6 +519,8 @@
                             android:layout_toRightOf="@id/xing11Tv"
                             android:background="@null"
                             android:gravity="right"
+                            android:paddingRight="5dp"
+                            android:enabled="false"
                             android:hint="请输入学生人数"
                             android:inputType="number"
                             android:minWidth="100dp"

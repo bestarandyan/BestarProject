@@ -75,8 +75,8 @@ public class ShareFragment extends SuperFragment {
 
         WXMediaMessage msg = new WXMediaMessage();
         msg.mediaObject = webpageObject;
-        msg.description = "幼宝精品,一款幼儿园商城一战式服务软件!!!";
-        msg.title="亚太商城";
+        msg.description = "幼宝精品：集幼教业、专业采购、培训、信息、沟通、活动教案为一体的专业app";
+        msg.title="幼宝精品";
         msg.setThumbImage(BitmapFactory.decodeResource(getResources(),R.drawable.launcher_icon));
 
         SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -97,8 +97,8 @@ public class ShareFragment extends SuperFragment {
 
         WXMediaMessage msg = new WXMediaMessage();
         msg.mediaObject = webpageObject;
-        msg.description = "幼宝精品,一款幼儿园商城一战式服务软件!!!";
-        msg.title="亚太商城";
+        msg.description = "幼宝精品：集幼教业、专业采购、培训、信息、沟通、活动教案为一体的专业app";
+        msg.title="幼宝精品";
         msg.setThumbImage(BitmapFactory.decodeResource(getResources(),R.drawable.launcher_icon));
 
         SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -111,7 +111,7 @@ public class ShareFragment extends SuperFragment {
 
     @Click(R.id.msgShareBtn)
     void shareToMsg(){
-        shareInfo2SMS("亚太商城（幼宝精品）下载app,享受幼儿园一站式服务\n"+shareUrl);
+        shareInfo2SMS("幼宝精品：集幼教业、专业采购、培训、信息、沟通、活动教案为一体的专业app\n"+shareUrl);
     }
 
     @Click(R.id.codeShareBtn)

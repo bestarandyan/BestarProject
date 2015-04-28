@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huoqiu.framework.app.SuperFragment;
@@ -40,7 +41,7 @@ import java.util.regex.Pattern;
 @EFragment(R.layout.fragment_register_phone_check)
 public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 	@ViewById(R.id.phone_number_et)
-	EditText mPhoneEt;
+    TextView mPhoneEt;
 	@ViewById(R.id.forget_code)
 	EditText mCodeEt;
 	@ViewById(R.id.checkCodeBtn)
@@ -194,7 +195,7 @@ public class RegisterPhoneCheckFragment extends SuperFragment<Integer> {
 	 */
 	@AfterViews
 	void init() {
-
+        mPhoneEt.setText(userName);
 	}
 
 

@@ -62,14 +62,13 @@
             android:paddingRight="16dp"
             android:orientation="horizontal" >
 
-            <EditText
+            <TextView
                 android:id="@+id/phone_number_et"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:gravity="center|left"
-                android:hint="请输入手机号码"
                 android:textColorHint="#afafaf"
                 android:inputType="phone"
                 android:maxLength="11"

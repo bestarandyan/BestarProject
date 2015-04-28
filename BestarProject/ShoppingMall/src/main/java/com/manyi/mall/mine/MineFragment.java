@@ -70,6 +70,11 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     String type;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mNameTv.setText(BestarApplication.getInstance().getRealName());
+    }
 
     @AfterViews
     void loadDate() {
@@ -81,7 +86,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         }
         getUrl();
         mViewsionTv.setText(ManyiUtils.getVersion(getActivity()));
-        mNameTv.setText(BestarApplication.getInstance().getRealName());
+
         //切换开关
         mSwitchBtn.toggle();
         setPush();

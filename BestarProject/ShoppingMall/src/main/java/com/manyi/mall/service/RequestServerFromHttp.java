@@ -49,7 +49,7 @@ public class RequestServerFromHttp {
         params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
         params.add(new BasicNameValuePair("PageIndex", PageIndex));
         params.add(new BasicNameValuePair("PageSize", PageSize));
-        params.add(new BasicNameValuePair("CustomerID", "21"));
+        params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
         msgString = getData(AGENCYPAYLIST_SERVICE, params);
         return msgString;
     }
@@ -145,7 +145,7 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("ProviderID", ProviderID));
  		params.add(new BasicNameValuePair("PageIndex", PageIndex));
  		params.add(new BasicNameValuePair("PageSize", PageSize));
- 		params.add(new BasicNameValuePair("CustomerID", "21"/*BestarApplication.getInstance().getUserId()*/));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(AGENTINFO_SERVICE, params);
  		return msgString;
  	}
@@ -192,6 +192,16 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("PageSize", PageSize));
  		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(SEARCHRECORD_SERVICE, params);
+ 		return msgString;
+ 	}
+
+    public String getUserInfo(){//获取用户搜索记录列表
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetCustomerInfo"));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
+ 		msgString = getData(GET_GETPSW_SERVICE, params);
  		return msgString;
  	}
 
@@ -255,7 +265,7 @@ public class RequestServerFromHttp {
  		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
  		params.add(new BasicNameValuePair("pageIndex", pageIndex));
  		params.add(new BasicNameValuePair("pageSize", pageSize));
- 		params.add(new BasicNameValuePair("CustomerID", "21"/*BestarApplication.getInstance().getUserId()*/));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(AGENTINFO_SERVICE, params);
  		return msgString;
  	}
@@ -323,7 +333,7 @@ public String registerYZ(String type,String UserName,String Password,String Real
  		return msgString;
  	}
 
-    public String updateInfo(String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum,String CompanyPhone,String CustomerID){
+    public String updateInfo(String RealName,String Sex,String Phone,String ProvinceID,String CityID,String CountyID,String Address,String QQ,String SchoolName,String ClassNum,String StudentNum,String CompanyPhone){
  		String msgString = "";
  		List<NameValuePair> params = new ArrayList<NameValuePair>();
  		params.add(new BasicNameValuePair("method", "ModifyInfo"));
@@ -340,7 +350,7 @@ public String registerYZ(String type,String UserName,String Password,String Real
  		params.add(new BasicNameValuePair("ClassNum", ClassNum));
  		params.add(new BasicNameValuePair("StudentNum", StudentNum));
  		params.add(new BasicNameValuePair("CompanyPhone", CompanyPhone));
- 		params.add(new BasicNameValuePair("CustomerID", CustomerID));
+ 		params.add(new BasicNameValuePair("CustomerID", BestarApplication.getInstance().getUserId()));
  		msgString = getData(GET_GETPSW_SERVICE, params);
  		return msgString;
  	}

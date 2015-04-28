@@ -148,7 +148,7 @@
                         android:singleLine="true"
                         android:layout_toLeftOf="@id/nameArrow"
                         android:textSize="16sp"
-                        android:text="13588888888"
+                        android:text=""
                         android:textColor="#cc333333" />
                 </RelativeLayout>
 
@@ -193,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:gravity="center"
-                        android:text="123456"
+                        android:text="123"
                         android:textSize="30sp"
                         android:inputType="textPassword"
                         android:layout_marginRight="20dp"
