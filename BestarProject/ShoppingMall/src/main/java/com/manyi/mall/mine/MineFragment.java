@@ -11,8 +11,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +23,8 @@ import com.baidu.android.pushservice.CustomPushNotificationBuilder;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.huoqiu.framework.app.SuperFragment;
-import com.huoqiu.framework.exception.ClientException;
 import com.huoqiu.framework.exception.RestException;
 import com.huoqiu.framework.util.CheckDoubleClick;
-import com.huoqiu.framework.util.DeviceUtil;
 import com.huoqiu.framework.util.DialogBuilder;
 import com.huoqiu.framework.util.GeneratedClassUtils;
 import com.huoqiu.framework.util.ManyiUtils;
@@ -31,15 +32,22 @@ import com.huoqiu.widget.filedownloader.FileDownloadListener;
 import com.manyi.mall.BestarApplication;
 import com.manyi.mall.R;
 import com.manyi.mall.StartActivity;
+import com.manyi.mall.cachebean.user.UserInfoResponse;
 import com.manyi.mall.push.Utils;
 import com.manyi.mall.service.CommonService;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.user.UserInfoFragment;
-import com.manyi.mall.utils.HardwareInfo;
 import com.manyi.mall.utils.JsonData;
 import com.manyi.mall.wap.AppDownLoadFragment;
+import com.manyi.mall.widget.GalleryWidget.ImageLoaderConfig;
 import com.manyi.mall.widget.imageView.CircleImageView;
 import com.manyi.mall.widget.switchView.ToggleButton;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -63,7 +71,7 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
 
     @ViewById(R.id.currentVersionTv)
     TextView mViewsionTv;
-
+    UserInfoResponse mUserInfoResponse =null;
     @ViewById(R.id.nameTV)
     TextView mNameTv;
 
@@ -75,10 +83,68 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         super.onResume();
         mNameTv.setText(BestarApplication.getInstance().getRealName());
     }
+    @Background
+    void getUserInfo(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg =  request.getUserInfo();
+        mUserInfoResponse = new JsonData().jsonUserInfo(msg);
+        if (mUserInfoResponse!=null){
+            setViewValue();
+        }
+    }
+    @UiThread
+    void setViewValue(){
+        mNameTv.setText(mUserInfoResponse.RealName);
+        BestarApplication.getInstance().setRealName(mUserInfoResponse.RealName);
+        ImageLoader.getInstance().displayImage(mUserInfoResponse.PortraitPath,mHeadImgView, ImageLoaderConfig.options_agent,imageLoadingListener, ImageLoaderConfig.imgProgressListener);
+    }
+    ImageLoadingListener imageLoadingListener = new ImageLoadingListener() {
+        @Override
+        public void onLoadingStarted(String imageUri, View view) {
+        }
 
+        @Override
+        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+            ((ImageView)view).setImageResource(R.drawable.head);
+        }
+
+        @Override
+        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+            if (loadedImage == null){
+                ((ImageView)view).setImageResource(R.drawable.head);
+            }
+
+        }
+
+        @Override
+        public void onLoadingCancelled(String imageUri, View view) {
+        }
+    };
+    DisplayImageOptions options;
+    public void initOption(){
+
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.take_photos_list_no__thumbnail)
+                .showImageForEmptyUri(R.drawable.take_photos_list_no__thumbnail)
+                .showImageOnFail(R.drawable.take_photos_list_no__thumbnail)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .displayer(new RoundedBitmapDisplayer(20))
+                .build();
+    }
+    @Override
+    public void onDestroy() {
+        ImageLoader.getInstance().clearMemoryCache();
+        ImageLoader.getInstance().clearDiskCache();
+        super.onDestroy();
+    }
     @AfterViews
     void loadDate() {
         type = BestarApplication.getInstance().getType();
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(getActivity()));
+        initOption();
+        getUserInfo();
         if (type.equals("1")) {//渠道
             mLayout1.setText("代理付款明细");
         } else {//园长

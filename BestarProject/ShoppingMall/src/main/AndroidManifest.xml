@@ -97,6 +97,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
+        <activity
+            android:name="com.manyi.mall.user.SelectPicActivity_"
+            android:configChanges="orientation|keyboardHidden|screenSize|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogStyleBottom"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
 
         <provider
             android:name="com.manyi.mall.provider.ManyiProvider"

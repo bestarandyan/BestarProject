@@ -131,9 +131,6 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     @Click(R.id.editBtn)
     void clickEditUserInfo(){
         if(isEditing){
-            setEnable(false);
-            isEditing = false;
-            mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
             if (checkUserInfo(type.equals("2")?"幼儿园地址！":"所在地区！")){
                 editUserInfo();
             }
@@ -314,6 +311,9 @@ public class MoreUserInfoFragment extends SuperFragment<Object> {
     void registerSuccess(){
         Toast.makeText(getActivity(),"修改成功",Toast.LENGTH_LONG).show();
         BestarApplication.getInstance().setRealName(mRealNameEt.getText().toString());
+        setEnable(false);
+        isEditing = false;
+        mEditBtn.setImageResource(R.drawable.selector_edit_info_btn);
         remove();
     }
 

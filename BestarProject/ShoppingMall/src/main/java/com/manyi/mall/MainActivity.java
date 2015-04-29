@@ -3,8 +3,14 @@ package com.manyi.mall;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.WindowFeature;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.huoqiu.framework.app.AppConfig;
 import com.huoqiu.framework.backstack.AbsOp;
@@ -15,6 +21,7 @@ import com.huoqiu.framework.util.StringUtil;
 import com.manyi.mall.cachebean.NotificationBean;
 import com.manyi.mall.common.Constants;
 import com.manyi.mall.common.push.PushServiceUtil;
+import com.manyi.mall.user.SelectPicActivity;
 
 /**
  * 首页Activity
@@ -78,5 +85,6 @@ public class MainActivity extends BaseActivity {
 		});
 		fragment.show();
 	}
+
 
 }
