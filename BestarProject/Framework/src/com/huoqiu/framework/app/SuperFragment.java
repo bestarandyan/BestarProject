@@ -119,7 +119,6 @@ public abstract class SuperFragment<T> extends RestProxyFragment {
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
     }
-
     public void dismissProgressDialog(){
         if (mProgressDialog!=null){
             mProgressDialog.dismiss();
