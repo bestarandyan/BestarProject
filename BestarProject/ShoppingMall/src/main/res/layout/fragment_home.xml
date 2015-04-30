@@ -121,7 +121,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10dp"
-                                    android:text="新闻公告"
+                                    android:text="信息快报"
                                     android:textColor="#ffffff"
                                     android:id="@+id/xwggTv"
                                     android:textSize="16sp" />

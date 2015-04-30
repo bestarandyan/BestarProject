@@ -1,5 +1,6 @@
 package com.manyi.mall.agency;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,9 +23,11 @@ import com.manyi.mall.cachebean.CityBean;
 import com.manyi.mall.cachebean.GetProvinceResponse;
 import com.manyi.mall.cachebean.agency.AgencyListResponse;
 import com.manyi.mall.cachebean.agency.AgentCityResponse;
+import com.manyi.mall.cachebean.user.UserInfoResponse;
 import com.manyi.mall.service.RequestServerFromHttp;
 import com.manyi.mall.user.RegisterFragment;
 import com.manyi.mall.utils.JsonData;
+import com.manyi.mall.wap.AgreementFragment;
 import com.manyi.mall.wap.PayFragment;
 
 import org.androidannotations.annotations.AfterViews;
@@ -54,15 +57,34 @@ public class AddAgencyFragment extends SuperFragment {
     List<AgentCityResponse> mList;
     List<GetProvinceResponse> mProvinceList;
     CityAdapter mAdapter;
+    UserInfoResponse mUserInfoResponse =null;
     String mUrl = "";
     @FragmentArg
     String providerId;
+    ProgressDialog mDialog;
 
     GetProvinceResponse mCurrentProvince;
 
     @AfterViews
     void init(){
-        getProvince();
+        showProgressDialog("加载数据中，请稍候...");
+        getUserInfo();
+    }
+
+    @Background
+    void getUserInfo(){
+        RequestServerFromHttp request = new RequestServerFromHttp();
+        String msg =  request.getUserInfo();
+        mUserInfoResponse = new JsonData().jsonUserInfo(msg);
+        if (mUserInfoResponse!=null){
+            getCity(mUserInfoResponse.ProvinceID);
+            setProvinceView();
+        }
+    }
+
+    @UiThread
+    void setProvinceView(){
+        mProvinceNameTv.setText(mUserInfoResponse.ProvinceName);
     }
 
     @ItemClick(R.id.cityListView)
@@ -71,7 +93,7 @@ public class AddAgencyFragment extends SuperFragment {
             DialogBuilder.showSimpleDialog("￥" + mList.get(position).AgentPrice + "\n恭喜您获得该城市的代理资格！", "下一步", "取消", getActivity(), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    gotoPay(mList.get(position));
+                    gotoAgreement(mList.get(position));
                 }
             });
         } else {
@@ -98,6 +120,7 @@ public class AddAgencyFragment extends SuperFragment {
                 mCurrentProvince = (GetProvinceResponse) o;
                 if (mCurrentProvince!=null){
                     mProvinceNameTv.setText(mCurrentProvince.getProvinceName());
+                    showProgressDialog("加载数据中，请稍候...");
                     getCity(mCurrentProvince.getID());
                 }
             }
@@ -112,23 +135,6 @@ public class AddAgencyFragment extends SuperFragment {
         fragment.setManager(getFragmentManager());
         fragment.show(SHOW_ADD_HIDE);
     }
-    @Background
-    void getProvince(){
-        RequestServerFromHttp requestServerFromHttp = new RequestServerFromHttp();
-        String msg= requestServerFromHttp.getAgentProvinceByProviderID(providerId);
-        mProvinceList = new JsonData().jsonProvince(msg);
-        if (mProvinceList!=null && mProvinceList.size()>0){
-            setProvinceInfo();
-        }
-    }
-
-    @UiThread
-    void setProvinceInfo(){
-        if (mProvinceList!=null && mProvinceList.size()>0){
-            mProvinceNameTv.setText(mProvinceList.get(0).getProvinceName());
-            getCity(mProvinceList.get(0).getID());
-        }
-    }
 
     @Background
     void getCity(String provinceId){
@@ -138,6 +144,7 @@ public class AddAgencyFragment extends SuperFragment {
         if (mList!=null && mList.size()>0){
             notifyListView();
         }
+        dismissProgressDialog();
     }
     @UiThread
     void notifyListView(){
@@ -187,6 +194,31 @@ public class AddAgencyFragment extends SuperFragment {
         }
     }
 
+    private void gotoAgreement(final AgentCityResponse response){
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        AgreementFragment fragment = GeneratedClassUtils.getInstance(AgreementFragment.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("ProviderId", providerId);
+        fragment.setArguments(bundle);
+        fragment.tag = AgreementFragment.class.getName();
+        fragment.setSelectListener(new SelectListener() {
+            @Override
+            public void onSelected(Object o) {
+              gotoPay(response);
+            }
+
+            @Override
+            public void onCanceled() {
+
+            }
+        });
+        fragment.setCustomAnimations(R.anim.alpha_in, R.anim.anim_fragment_out, R.anim.alpha_out,
+                R.anim.alpha_out);
+        fragment.setManager(getFragmentManager());
+        fragment.show(SHOW_ADD);
+    }
+
     private void gotoPay(AgentCityResponse response){
         if (CheckDoubleClick.isFastDoubleClick())
             return;
@@ -204,6 +236,7 @@ public class AddAgencyFragment extends SuperFragment {
                 mCurrentProvince = (GetProvinceResponse) o;
                 if (mCurrentProvince!=null){
                     mProvinceNameTv.setText(mCurrentProvince.getProvinceName());
+                    showProgressDialog("加载数据中，请稍候...");
                     getCity(mCurrentProvince.getID());
                 }
             }
@@ -218,4 +251,5 @@ public class AddAgencyFragment extends SuperFragment {
         fragment.setManager(getFragmentManager());
         fragment.show(SHOW_ADD_HIDE);
     }
+
 }

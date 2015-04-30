@@ -20,4 +20,15 @@
     <include layout="@layout/layout_consult_top"
         android:id="@+id/filtrateTopLayout"
         ></include>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="本地区无地区经理请选择其他地区"
+        android:background="@color/user_bg"
+        android:layout_below="@+id/filtrateTopLayout"
+        android:gravity="center"
+        android:textColor="#999999"
+        android:id="@+id/noDataTv"
+        android:visibility="gone"
+        />
 </RelativeLayout>

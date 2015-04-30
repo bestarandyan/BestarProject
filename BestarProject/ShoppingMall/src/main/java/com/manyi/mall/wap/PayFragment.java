@@ -42,11 +42,11 @@ public class PayFragment extends SuperFragment{
 
     @Click(R.id.wapBack)
     void back(){
-        if (mWebview.canGoBack()){
-            mWebview.goBack();
-        }else{
+//        if (mWebview.canGoBack()){
+//            mWebview.goBack();
+//        }else{
             remove();
-        }
+//        }
     }
     @Background
     void getUrl(){
@@ -59,15 +59,15 @@ public class PayFragment extends SuperFragment{
             }
     }
 
-    @Override
-    public boolean canFragmentGoback(int from) {
-        if (mWebview.canGoBack()){
-            mWebview.goBack();
-            return false;
-        }else{
-            return super.canFragmentGoback(from);
-        }
-    }
+//    @Override
+//    public boolean canFragmentGoback(int from) {
+//        if (mWebview.canGoBack()){
+//            mWebview.goBack();
+//            return false;
+//        }else{
+//            return super.canFragmentGoback(from);
+//        }
+//    }
     @UiThread
     void loadUrl(){
         //http://school.iiyey.com/Pay/Pay.aspx?ProviderID=11&&CustomerID=21&&AgentPrice=0.01&&CityID=1&&AgentPeroid=12

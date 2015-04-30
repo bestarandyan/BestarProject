@@ -246,6 +246,7 @@
 
                     <RelativeLayout android:background="@color/white_action"
                         android:layout_width="match_parent"
+                        android:id="@+id/playHelpLayout"
                         android:layout_height="48dp">
 
                         <TextView
@@ -264,8 +265,18 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="10dp"
+                            android:id="@+id/playHelpImg"
                             android:src="@drawable/text" />
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="请洽服务专线：0571-8602-0252"
+                            android:layout_toLeftOf="@id/playHelpImg"
+                            android:layout_centerVertical="true"
+                            android:textColor="#66000000"
+                            android:layout_marginRight="10dp"
+                            android:textSize="14sp"
+                            />
                     </RelativeLayout>
 
                     <View
@@ -304,7 +315,7 @@
                             android:layout_toLeftOf="@+id/versionArrow"
                             android:text="当前版本：V1.0"
                             android:textColor="#66000000"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </RelativeLayout>
 

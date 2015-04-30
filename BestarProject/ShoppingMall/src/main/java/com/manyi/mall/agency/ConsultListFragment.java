@@ -51,6 +51,9 @@ public class ConsultListFragment extends SuperFragment {
     @ViewById(R.id.titleTv)
     TextView mTitleView;
 
+    @ViewById(R.id.noDataTv)
+    TextView mNoDataTv;
+
     @ViewById(R.id.agentedListView)
     ListView mListView;
 
@@ -74,6 +77,9 @@ public class ConsultListFragment extends SuperFragment {
         mList = new JsonData().jsonAgentedList(msg);
         if (mList!=null && mList.size()>0){
             notifyList();
+            setNoDataState(View.GONE);
+        }else{
+            setNoDataState(View.VISIBLE);
         }
     }
 
@@ -141,7 +147,14 @@ public class ConsultListFragment extends SuperFragment {
         mList = new JsonData().jsonAgentedList(msg);
         if (mList!=null && mList.size()>0){
             notifyList();
+            setNoDataState(View.GONE);
+        }else{
+            setNoDataState(View.VISIBLE);
         }
+    }
+    @UiThread
+    void setNoDataState(int state){
+        mNoDataTv.setVisibility(state);
     }
     @Click(R.id.moreAreaTv)
     void clickMoreArea(){

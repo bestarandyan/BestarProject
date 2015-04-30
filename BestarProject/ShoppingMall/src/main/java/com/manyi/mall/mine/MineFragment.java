@@ -92,6 +92,28 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
             setViewValue();
         }
     }
+
+    @Click(R.id.payHelpTv)
+    void clickPlayHelpLayout(){
+        if (CheckDoubleClick.isFastDoubleClick())
+            return;
+        DialogBuilder.showSimpleDialog("拨打服务专线：0571-8602-0252 ","确定","取消",getBackOpActivity(),new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onCallPhoneStartIntent("057186020252");
+            }
+        });
+    }
+    /**
+     * 拨打电话
+     *
+     * @param uri
+     */
+    public void onCallPhoneStartIntent(String uri) {
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + uri));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
     @UiThread
     void setViewValue(){
         mNameTv.setText(mUserInfoResponse.RealName);
@@ -508,12 +530,6 @@ public class MineFragment extends SuperFragment<Object> implements android.conte
         startActivity(intent);
 
     }
-
-    @Click(R.id.payHelpTv)
-    public void gotoCommonProblem() {
-
-    }
-
 
     private void showDialog(String msgString) {
         DialogBuilder.showSimpleDialog(msgString, getActivity());

@@ -92,6 +92,16 @@ public class RequestServerFromHttp {
  		return msgString;
  	}
 
+ 	public String getAgreement(String ProviderID){
+ 		String msgString = "";
+ 		List<NameValuePair> params = new ArrayList<NameValuePair>();
+ 		params.add(new BasicNameValuePair("method", "GetAgentAgreement"));
+ 		params.add(new BasicNameValuePair("ProviderID", ProviderID));
+ 		params.add(new BasicNameValuePair("appKey", BestarApplication.getInstance().getAppkey()));
+ 		msgString = getData(COLLECT_SERVICE, params);
+ 		return msgString;
+ 	}
+
     public String addConsult(String ProviderID){
         String msgString = "";
         List<NameValuePair> params = new ArrayList<NameValuePair>();

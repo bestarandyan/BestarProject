@@ -86,7 +86,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="400 400 400"
+                    android:text="0571-86240727"
                     android:layout_alignParentRight="true"
                     android:drawableRight="@drawable/text"
                     android:drawablePadding="10dp"
@@ -118,7 +118,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="幼宝精品"
+                    android:text="chiangecho"
                     android:layout_alignParentRight="true"
                     android:textSize="18sp"
                     android:textColor="#aeaeae"
